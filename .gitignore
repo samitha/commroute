@@ -1,0 +1,4 @@
+*.tmproj
+*.pyc
+*~
+*DS_Store
