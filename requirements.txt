@@ -1,0 +1,5 @@
+cvxopt==1.1.5
+cvxpy==0.0.1
+-e git+https://github.com/drewconway/networkx.git@7469e2fd808bac393e55cd6769256655fe26ba16#egg=networkx-dev
+numpy==1.6.2
+simplejson==2.5.2

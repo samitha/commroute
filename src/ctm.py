@@ -1,5 +1,6 @@
 from crnetwork import Link, CRNetwork, Junction
 from random import random
+from pprint import pprint
 
 class FundamentalDiagram(object):
 	"""docstring for FundamentalDiagram"""
@@ -10,6 +11,14 @@ class FundamentalDiagram(object):
 		self.rho_max = rho_max
 		self.q_max = q_max
 		
+	def jsonify(self):
+		"""docstring for jsonify"""
+		return {
+			'v': self.v,
+			'w': self.w,
+			'rho_max': self.rho_max,
+			'q_max': self.q_max
+		}
 
 class CTMLink(Link):
 	"""docstring for CTMLink"""
@@ -18,27 +27,63 @@ class CTMLink(Link):
 		self.l = l
 		self.fd = fd
 		
+	def jsonify(self):
+		json = super(CTMLink,self).jsonify()
+		json.update({
+		'l': self.l,
+		'fd': self.fd.jsonify()
+		})
+		return json
+		
 class DensityCTMLink(CTMLink):
 	"""docstring for DensityCTMLink"""
 	def __init__(self, rho = 0.0, *args, **kwargs):
 		super(DensityCTMLink, self).__init__(*args,**kwargs)
 		self.rho = rho
 		
+	def jsonify(self):
+		"""docstring for jsonify"""
+		json = super(DensityCTMLink,self).jsonify()
+		json.update({
+			'rho': self.rho
+		})
+		return json
+		
+def load_ctm(fn, net_class = CRNetwork):
+	from simplejson import load
+	net = net_class()
+	with open(fn,'r') as fn:
+		data = load(fn)
+	links = dict((link['name'],
+		DensityCTMLink(net = net, 
+				 name = link['name'], 
+				 l = link['l'], 
+				 rho = link['rho'], 
+				 fd = FundamentalDiagram(v = link['fd']['v'],
+																 w = link['fd']['w'],
+																 rho_max = link['fd']['rho_max'],
+																 q_max = link['fd']['q_max'])))
+			for link in data['links'])
+	junctions = [
+		Junction([links[name] for name in junc[0]],
+						 [links[name] for name in junc[1]])
+						for junc in data['junctions']
+	]
+	for junction in junctions:
+		net.add_junction(junction)
+	return net
+	
 def main():
-	"""docstring for main"""
-	fd = FundamentalDiagram(1,2,5,3)
 	net = CRNetwork()
-	n_links = 10
-	links = [DensityCTMLink(rho = random(), l = random(), fd = fd, net = net, name = _) for _ in range(n_links)]
-	j1 = Junction([links[0],links[1]],[links[2],links[3],links[4]])
-	j2 = Junction([links[2],links[5]],[links[6],links[7]])
-	j3 = Junction([links[7]],[links[8],links[9]])
-	[net.add_junction(j) for j in [j1,j2,j3]]
-	print [link.neighbors() for link in links]
-	print [link.upstream_links() for link in links]
-	print [link.downstream_links() for link in links]
-	print [link.is_sink() for link in links]
-	print [link.is_source() for link in links]
+	l = [DensityCTMLink(name=_,net=net,l = 1, rho = 1, fd = FundamentalDiagram(v = 1., w=1., rho_max = 10., q_max = 10.)) for _ in range(3)]
+	j = Junction([l[0]],[l[1],l[2]])
+	net.add_junction(j)
+	net.dump('simple.json')
+	
+def main2():
+	net = load_ctm('fpnet.json')
+	net.cache_props()
+	pprint(net.od_routes)
 	
 if __name__ == '__main__':
 	main()
