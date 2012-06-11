@@ -50,7 +50,6 @@ def all_paths(s):
     unf = 'unfilled'
     sha = 'shaded'
     fil = 'filled'
-  net = s.net         
   colors = defaultdict(lambda: Color.unf)
   pi = defaultdict(lambda: list())
   queue = Queue()

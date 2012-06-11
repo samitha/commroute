@@ -125,8 +125,8 @@ def main():
   del net
   net = FlowLinkNetwork.load('networks/flownet.json')
   print net.demands
-  print net.links()
-  print net.links()[0].flow_latency(3.4)
+  print net.get_links()
+  print net.get_links()[0].flow_latency(3.4)
 
 if __name__ == '__main__':
   main()

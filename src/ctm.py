@@ -80,7 +80,7 @@ class DensityCTMNetwork(FlowNetwork):
 
 
   def tt_free_flow(self, route):
-    return sum(link.l / link.fd.v for link in route.links)
+    return sum(link.l / link.fd.v for link in route.get_links)
 
 if __name__ == '__main__':
   print 'hei'

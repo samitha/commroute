@@ -9,7 +9,7 @@ class LagrangianStaticProblem(FlowNetwork, SimpleOptimizeMixIn):
   def cvxify(self):
     """docstring for cvxify"""
     self.cache_props()
-    for link in self.links():
+    for link in self.get_links():
       link.v_flow = variable(name='flow: {0}'.format(link.name))
     for (source, sink), routes in self.od_routes.iteritems():
       for i, route in enumerate(routes):
@@ -44,7 +44,7 @@ class LagrangianConstrained(LagrangianStaticProblem):
 
     return [
            eq(route_flows(link), link.v_flow)
-           for link in self.links()
+           for link in self.get_links()
            ] + [
     eq(od_flows(dem.source, dem.sink), dem.flow)
     for dem in od_demands

@@ -12,7 +12,7 @@ class CTMStaticProblem(DensityCTMNetwork, LagrangianStaticProblem):
 
   def cvxify(self):
     super(CTMStaticProblem,self).cvxify()
-    for link in self.links():
+    for link in self.get_links():
       link.v_dens = variable(name='dens: {0}'.format(link.name))
 class CTMConstrained(CTMStaticProblem):
 
@@ -23,7 +23,7 @@ class CTMConstrained(CTMStaticProblem):
                          leq(link.v_flow, link.fd.w * (link.fd.rho_max - link.v_dens)),
                          geq(link.v_dens, 0),
                          leq(link.v_dens, link.fd.rho_max),
-                         ] for link in self.links()))
+                         ] for link in self.get_links()))
 
   def constraints(self):
     return super(CTMConstrained, self).constraints() + self.con_ctm()
@@ -41,7 +41,7 @@ class ComplianceConstrained(LagrangianCTMConstrained):
       cong = link.l / link.fd.w * (quad_over_lin(link.fd.rho_max ** .5, rho_hat) - 1)
       return cvx_max(hstack([ff, q_max, cong]))
 
-    return sum(map(link_tt_heuristic, route.links))
+    return sum(map(link_tt_heuristic, route.get_links))
 
   def route_tt_real(self, route):
     def link_tt(link):
@@ -51,7 +51,7 @@ class ComplianceConstrained(LagrangianCTMConstrained):
 
     return sum([
     link_tt(link)
-    for link in route.links
+    for link in route.get_links
     ])
 
   def con_route_tt(self):
@@ -66,7 +66,7 @@ class ComplianceConstrained(LagrangianCTMConstrained):
 class MinTTT(CTMStaticProblem):
 
   def objective(self):
-    return minimize(sum(link.l * link.v_dens for link in self.links()))
+    return minimize(sum(link.l * link.v_dens for link in self.get_links()))
 
 class MinTTTComplianceProblem(MinTTT, ComplianceConstrained, CTMStaticProblem):
 

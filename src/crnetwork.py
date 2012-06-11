@@ -1,14 +1,16 @@
-from networkx import DiGraph
+from networkx import MultiDiGraph
 from networkx.readwrite import d3_js
 from bfs import bfs, all_paths
 from collections import defaultdict
-from cr_utils import Dumpable
+from cr_utils import Dumpable, flatten
 
 class Link(Dumpable):
   """docstring for Link"""
 
   def __init__(self, net=None, name=None):
     super(Link, self).__init__()
+    self.up_junc = None
+    self.down_junc = None
     self.net = net
     self.name = str(name)
     try:
@@ -17,21 +19,21 @@ class Link(Dumpable):
       net.add_node(self)
       props = net.node[self]
     props['name'] = self.name
-    self.up_junc = None
-    self.down_junc = None
+    self.up_junc = Source(self)
+    self.down_junc = Sink(self)
 
   def neighbors(self):
-    return self.net.neighbors(self)
+    return self.down_junc.link_neighbors()
 
   def set_up_junc(self, j):
     """docstring for set_up_junc"""
-    if self.up_junc is not None:
+    if not self.is_source():
       raise Exception("junction already set")
     self.up_junc = j
 
   def set_down_junc(self, j):
     """docstring for set_up_junc"""
-    if self.down_junc is not None:
+    if not self.is_sink():
       raise Exception("junction already set")
     self.down_junc = j
 
@@ -52,16 +54,16 @@ class Link(Dumpable):
     return {}
 
   def upstream_links(self):
-    return self.net.in_edges(self)
+    return self.net.in_edges(self.down_junc)
 
   def downstream_links(self):
-    return self.net.out_edges(self)
+    return self.net.out_edges(self.up_junc)
 
   def is_sink(self):
-    return len(self.downstream_links()) == 0
+    return isinstance(self.down_junc, Sink) or self.down_junc is None
 
   def is_source(self):
-    return len(self.upstream_links()) == 0
+    return isinstance(self.up_junc, Source) or self.up_junc is None
 
   def __repr__(self):
     if self.name is None:
@@ -87,6 +89,7 @@ class Junction(object):
       il.set_down_junc(self)
     for ol in out_links:
       ol.set_up_junc(self)
+    self.net = self.get_net()
 
   def edges(self):
     """docstring for edges"""
@@ -96,6 +99,32 @@ class Junction(object):
     """docstring for jsonify"""
     return ([link.name for link in self.in_links],
             [link.name for link in self.out_links])
+
+  def link_neighbors(self):
+    return self.out_links
+
+  def junction_neighbors(self):
+    return self.net.neighbors(self)
+
+  def neighbors(self):
+    return self.junction_neighbors()
+
+  def get_net(self):
+    for link in self.links():
+      return link.net
+
+  def links(self):
+    return set(self.in_links + self.out_links)
+
+class Source(Junction):
+
+  def __init__(self, link):
+    super(Source, self).__init__([],[link])
+
+class Sink(Junction):
+
+  def __init__(self, link):
+    super(Sink, self).__init__([link], [])
 
 
 class Route(object):
@@ -125,7 +154,7 @@ class Route(object):
     return [link.name for link in self.links]
 
 
-class CRNetwork(DiGraph, Dumpable):
+class CRNetwork(MultiDiGraph, Dumpable):
   """docstring for CRNetwork"""
 
   link_class = Link
@@ -133,12 +162,13 @@ class CRNetwork(DiGraph, Dumpable):
   def __init__(self):
     super(CRNetwork, self).__init__()
     self.junctions = set()
+    self.links = set()
     self.CACHE = True
 
   def add_junction(self, junction):
     """docstring for add_junction"""
     self.junctions.add(junction)
-    self.add_edges_from(junction.edges())
+    self.links.update(junction.links())
 
   def route_by_names(self, route):
     all_routes = self.all_routes()
@@ -146,28 +176,38 @@ class CRNetwork(DiGraph, Dumpable):
     return matches[0]
 
   def link_by_name(self, name):
-    return [l for l in self.links() if l.name == name][0]
+    return (l for l in self.get_links() if l.name == name).next()
 
   def all_routes(self):
     self.cache_props()
     return [r for rs in self.od_routes.itervalues() for r in rs]
 
-  def links(self):
+  def get_links(self):
     """docstring for links"""
-    return self.nodes()
+    return self.links
+
+  def out_links(self, junction):
+    return junction.out_links
 
   def _sources(self):
     """docstring for _sources"""
-    return set([link for link in self.links() if link.is_source()])
+    return set([link for link in self.get_links() if link.is_source()])
 
   def _sinks(self):
     """docstring for _sources"""
-    return set([link for link in self.links() if link.is_sink()])
+    return set([link for link in self.get_links() if link.is_sink()])
+
+  def edgify(self, link):
+    self.add_edge(
+      link.up_junc, link.down_junc,attr_dict={'link': link}
+    )
 
   def cache_props(self):
     """docstring for cache_props"""
     if not self.CACHE:
       return
+    self.clear()
+    [self.edgify(link) for link in self.links]
     self.sources = self._sources()
     self.sinks = self._sinks()
     self.od_routes = self.calc_od_routes()
@@ -182,7 +222,6 @@ class CRNetwork(DiGraph, Dumpable):
         routes[source, sink] = [Route(self, *(path + [sink])) for path in dests[sink]]
     return routes
 
-
   def bfs(self, source):
     """docstring for bfs"""
     return bfs(source)
@@ -194,7 +233,7 @@ class CRNetwork(DiGraph, Dumpable):
   def jsonify(self):
     """docstring for jsonify"""
     return {
-      'links': [link.jsonify() for link in self.links()],
+      'links': [link.jsonify() for link in self.get_links()],
       'junctions': [junction.jsonify() for junction in self.junctions]
     }
 
@@ -222,14 +261,16 @@ class CRNetwork(DiGraph, Dumpable):
 def main():
   """docstring for main"""
   net = CRNetwork()
-  links = [Link(net) for _ in range(3)]
+  links = [Link(net = net, name = _) for _ in range(3)]
   junction = Junction([links[0]], [links[1], links[2]])
   net.add_junction(junction)
+  net.cache_props()
   print [link.neighbors() for link in links]
   print [link.upstream_links() for link in links]
   print [link.downstream_links() for link in links]
   print [link.is_sink() for link in links]
   print [link.is_source() for link in links]
+  print net.all_routes()
 
 
 if __name__ == '__main__':
