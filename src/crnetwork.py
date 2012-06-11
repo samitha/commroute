@@ -41,6 +41,15 @@ class Link(Dumpable):
       'name': self.name
     }
 
+  @classmethod
+  def load_with_json_data(cls, data, **kwargs):
+    new_kwargs = {'net': kwargs['net'], 'name': data['name']}
+    new_kwargs.update(cls.additional_kwargs(data))
+    return cls(**new_kwargs)
+
+  @classmethod
+  def additional_kwargs(cls, data):
+    return {}
 
   def upstream_links(self):
     return self.net.in_edges(self)
@@ -133,7 +142,7 @@ class CRNetwork(DiGraph, Dumpable):
 
   def route_by_names(self, route):
     all_routes = self.all_routes()
-    matches = [r for r in self.all_routes() if r.matches(route)]
+    matches = [r for r in all_routes if r.matches(route)]
     return matches[0]
 
   def link_by_name(self, name):
@@ -197,7 +206,7 @@ class CRNetwork(DiGraph, Dumpable):
     net = cls()
     links = dict(
       (link['name'],
-       cls.link_class.load_with_json_data(link, net=net))
+       cls.link_class.load_with_json_data(link, net = net))
         for link in data['links']
     )
     junctions = [

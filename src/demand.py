@@ -131,7 +131,7 @@ class DemandMixin(object):
     self.demands.extend([Demand.load_with_json_data(demand, net = self) for demand in demands])
 
   def dump_demands(self, json):
-    json['demands'] = [demand.jsonify() for demand in demands]
+    json['demands'] = [demand.jsonify() for demand in self.demands]
     return json
 
 

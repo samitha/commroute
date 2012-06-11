@@ -64,16 +64,10 @@ class DensityCTMLink(CTMLink):
     return json
 
   @classmethod
-  def load_with_json_data(cls, data, **kwargs):
-    try:
-      net = kwargs['net']
-    except:
-      raise Exception('need to pass in network')
-    return cls(
-      net=net,
+  def additional_kwargs(cls, data):
+    return dict(
       l=data['l'],
       rho=data['rho'],
-      name=data['name'],
       fd=FundamentalDiagram.load_with_json_data(data['fd'])
     )
 

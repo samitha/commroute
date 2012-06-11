@@ -1,0 +1,42 @@
+{
+  "junctions": [
+    [
+      [
+        "source"
+      ],
+      [
+        "sink"
+      ]
+    ]
+  ],
+  "links": [
+    {
+      "latency": {
+        "a": 2.0,
+        "b": 3.0,
+        "type": "affine"
+      },
+      "q_max": 5.0,
+      "name": "source"
+    },
+    {
+      "latency": {
+        "a": 4.0,
+        "b": 5.0,
+        "type": "affine"
+      },
+      "q_max": 4.0,
+      "name": "sink"
+    }
+  ],
+  "demands": [
+    {
+      "type": "route",
+      "route": [
+        "source",
+        "sink"
+      ],
+      "flow": 1.5
+    }
+  ]
+}
