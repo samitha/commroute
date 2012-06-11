@@ -5,23 +5,30 @@ from cvxpy import max as cvx_max
 from cr_utils import Dumpable, flatten
 from demand import Demand, ODDemand, RouteDemand
 
-class StaticCTMProblem(DensityCTMNetwork, SimpleOptimizeMixIn):
+class LagrangianStaticProblem(DensityCTMNetwork, SimpleOptimizeMixIn):
   """docstring for StaticProblem"""
 
   def __init__(self):
-    super(StaticCTMProblem, self).__init__()
+    super(LagrangianStaticProblem, self).__init__()
 
   def cvxify(self):
     """docstring for cvxify"""
     self.cache_props()
     for link in self.links():
       link.v_flow = variable(name='flow: {0}'.format(link.name))
-      link.v_dens = variable(name='dens: {0}'.format(link.name))
     for (source, sink), routes in self.od_routes.iteritems():
       for i, route in enumerate(routes):
         route.v_flow = variable(name='rf: o: {0}, d: {1} [{2}]'.format(source.name, sink.name, i))
 
-class LagrangianConstrained(StaticCTMProblem):
+class CTMStaticProblem(LagrangianStaticProblem):
+
+  def cvxify(self):
+    super(CTMStaticProblem,self).cvxify()
+    for link in self.links():
+      link.v_dens = variable(name='dens: {0}'.format(link.name))
+
+
+class LagrangianConstrained(LagrangianStaticProblem):
 
   def con_junc(self):
     return [eq(sum(link.v_flow for link in junction.in_links),
@@ -59,7 +66,7 @@ class LagrangianConstrained(StaticCTMProblem):
   def constraints(self):
     return super(LagrangianConstrained, self).constraints() + self.con_od_flows()
 
-class CTMConstrained(StaticCTMProblem):
+class CTMConstrained(CTMStaticProblem):
 
   def con_ctm(self):
     return list(flatten([geq(link.v_flow, 0),
@@ -73,7 +80,7 @@ class CTMConstrained(StaticCTMProblem):
   def constraints(self):
     return super(CTMConstrained, self).constraints() + self.con_ctm()
 
-class LagrangianCTMConstrained(LagrangianConstrained,CTMConstrained):
+class LagrangianCTMConstrained(CTMConstrained,LagrangianConstrained):
   pass
 
 class ComplianceConstrained(LagrangianCTMConstrained):
@@ -108,12 +115,12 @@ class ComplianceConstrained(LagrangianCTMConstrained):
   def constraints(self):
     return super(ComplianceConstrained, self).constraints() + self.con_route_tt()
 
-class MinTTT(StaticCTMProblem):
+class MinTTT(CTMStaticProblem):
 
   def objective(self):
     return minimize(sum(link.l * link.v_dens for link in self.links()))
 
-class MinTTTComplianceProblem(MinTTT, ComplianceConstrained, StaticCTMProblem):
+class MinTTTComplianceProblem(MinTTT, ComplianceConstrained, CTMStaticProblem):
 
   def __init__(self):
     super(MinTTTComplianceProblem, self).__init__()
@@ -124,7 +131,7 @@ class MinTTTComplianceProblem(MinTTT, ComplianceConstrained, StaticCTMProblem):
   def constraints(self):
     return ComplianceConstrained.constraints(self)
 
-class MinTTTLagrangianCTMProblem(MinTTT, LagrangianCTMConstrained, StaticCTMProblem):
+class MinTTTLagrangianCTMProblem(MinTTT, LagrangianCTMConstrained, CTMStaticProblem):
 
   def __init__(self):
     super(MinTTTLagrangianCTMProblem, self).__init__()
