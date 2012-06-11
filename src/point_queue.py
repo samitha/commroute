@@ -1,5 +1,6 @@
 from cr_utils import Dumpable
 from demand import FlowNetwork, RouteDemand
+from cvxpy import square
 
 __author__ = 'jdr'
 
@@ -43,6 +44,9 @@ class AffineLatency(FlowLatency):
   def link_latency(self, link, flow):
     return flow*self.a + self.b
 
+  def link_flow_latency(self, link, flow):
+    return square(flow)*self.a + self.b*flow
+
   @classmethod
   def load_latency(cls, data):
     return cls(
@@ -72,6 +76,9 @@ class FlowLink(Link):
 
   def flow_latency(self, flow):
     return self.latency.link_latency(self, flow)
+
+  def flow_flow_latency(self, flow):
+    return self.latency.link_flow_latency(self, flow)
 
   def jsonify(self):
     json = super(FlowLink, self).jsonify()

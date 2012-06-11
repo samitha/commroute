@@ -1,6 +1,6 @@
 from cr_optimize import SimpleOptimizeMixIn
 from ctm import *
-from cvxpy import variable, eq
+from cvxpy import variable, eq, geq
 from demand import ODDemand, RouteDemand
 
 class LagrangianStaticProblem(FlowNetwork, SimpleOptimizeMixIn):
@@ -48,6 +48,8 @@ class LagrangianConstrained(LagrangianStaticProblem):
            ] + [
     eq(od_flows(dem.source, dem.sink), dem.flow)
     for dem in od_demands
+    ] + [
+      geq(route.v_flow, 0.0) for route in self.all_routes()
     ]
 
   def constraints(self):
