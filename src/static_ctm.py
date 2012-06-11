@@ -2,14 +2,11 @@ from cr_optimize import SimpleOptimizeMixIn
 from ctm import *
 from cvxpy import variable, eq, leq, geq, minimize, program, quad_over_lin, hstack
 from cvxpy import max as cvx_max
-from cr_utils import Dumpable, flatten
-from demand import Demand, ODDemand, RouteDemand
+from cr_utils import flatten
+from demand import ODDemand, RouteDemand
 
-class LagrangianStaticProblem(DensityCTMNetwork, SimpleOptimizeMixIn):
+class LagrangianStaticProblem(FlowNetwork, SimpleOptimizeMixIn):
   """docstring for StaticProblem"""
-
-  def __init__(self):
-    super(LagrangianStaticProblem, self).__init__()
 
   def cvxify(self):
     """docstring for cvxify"""
@@ -20,13 +17,12 @@ class LagrangianStaticProblem(DensityCTMNetwork, SimpleOptimizeMixIn):
       for i, route in enumerate(routes):
         route.v_flow = variable(name='rf: o: {0}, d: {1} [{2}]'.format(source.name, sink.name, i))
 
-class CTMStaticProblem(LagrangianStaticProblem):
+class CTMStaticProblem(DensityCTMNetwork, LagrangianStaticProblem):
 
   def cvxify(self):
     super(CTMStaticProblem,self).cvxify()
     for link in self.links():
       link.v_dens = variable(name='dens: {0}'.format(link.name))
-
 
 class LagrangianConstrained(LagrangianStaticProblem):
 
