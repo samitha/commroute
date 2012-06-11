@@ -4,7 +4,7 @@ from bfs import bfs, all_paths
 from collections import defaultdict
 from cr_utils import Dumpable
 
-class Link(object):
+class Link(Dumpable):
   """docstring for Link"""
 
   def __init__(self, net=None, name=None):
@@ -119,9 +119,12 @@ class Route(object):
 class CRNetwork(DiGraph, Dumpable):
   """docstring for CRNetwork"""
 
+  link_class = Link
+
   def __init__(self):
     super(CRNetwork, self).__init__()
     self.junctions = set()
+    self.CACHE = True
 
   def add_junction(self, junction):
     """docstring for add_junction"""
@@ -129,12 +132,15 @@ class CRNetwork(DiGraph, Dumpable):
     self.add_edges_from(junction.edges())
 
   def route_by_names(self, route):
-    return [r for r in self.all_routes() if r.matches(route)][0]
+    all_routes = self.all_routes()
+    matches = [r for r in self.all_routes() if r.matches(route)]
+    return matches[0]
 
   def link_by_name(self, name):
     return [l for l in self.links() if l.name == name][0]
 
   def all_routes(self):
+    self.cache_props()
     return [r for rs in self.od_routes.itervalues() for r in rs]
 
   def links(self):
@@ -151,9 +157,12 @@ class CRNetwork(DiGraph, Dumpable):
 
   def cache_props(self):
     """docstring for cache_props"""
+    if not self.CACHE:
+      return
     self.sources = self._sources()
     self.sinks = self._sinks()
     self.od_routes = self.calc_od_routes()
+    self.CACHE = False
 
   def calc_od_routes(self):
     """docstring for calc_od_routes"""
@@ -183,37 +192,22 @@ class CRNetwork(DiGraph, Dumpable):
   def d3ize(self):
     d3_js.export_d3_js(self, group='name')
 
-  def inverted_graph(self):
-    new_net = CRNetwork()
-    sources = [Junction([], [source]) for source in self.sources]
-    sinks = [Junction([sink], []) for sink in self.sinks]
-    l_sources = []
-    for source in sources:
-      link = Link(net=new_net,
-                  name='in: [], out: {0}'.format(source.out_links))
-      link.junction = source
-      l_sources.append(link)
-
-    l_sinks = []
-    for sink in sinks:
-      link = Link(net=new_net,
-                  name='in: {0}, out: []'.format(sink.in_links))
-      link.junction = sink
-      l_sinks.append(link)
-    source_edges = [(source, source.junction.out_links[0]) for source in l_sources]
-    sink_edges = [(sink, sink.junction.in_links[0]) for sink in l_sinks]
-    for junc in self.junctions:
-      l_junc = Link(net=new_net,
-                    name='in: {0}, out: {1}'.format(junc.in_links, junc.out_links))
-      junc.l_junc = l_junc
-    junc_edges = []
-    for link in self.links():
-      try:
-        junc_edges.append((link.up_junc.l_junc, link.down_junc.l_junc))
-      except:
-        continue
-    new_net.add_edges_from(junc_edges + source_edges + sink_edges)
-    return new_net
+  @classmethod
+  def load_with_json_data(cls, data):
+    net = cls()
+    links = dict(
+      (link['name'],
+       cls.link_class.load_with_json_data(link, net=net))
+        for link in data['links']
+    )
+    junctions = [
+    Junction([links[name] for name in junc[0]],
+      [links[name] for name in junc[1]])
+    for junc in data['junctions']
+    ]
+    for junction in junctions:
+      net.add_junction(junction)
+    return net
 
 
 def main():

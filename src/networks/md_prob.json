@@ -23,7 +23,7 @@
     "links": [
       {
         "fd": {
-          "q_max": 10.0,
+          "q_max": 20.0,
           "rho_max": 5.0,
           "w": 5.0,
           "v": 5.0
@@ -34,7 +34,7 @@
       },
       {
         "fd": {
-          "q_max": 10.0,
+          "q_max": 20.0,
           "rho_max": 5.0,
           "w": 5.0,
           "v": 5.0
@@ -70,7 +70,7 @@
   "demands": [
     {
       "type": "od",
-      "flow": 10.0,
+      "flow": 5.0,
       "sink": "sink",
       "source": "source"
     }

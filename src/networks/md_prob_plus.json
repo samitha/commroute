@@ -1,5 +1,4 @@
 {
-  "net": {
     "junctions": [
       [
         [
@@ -65,12 +64,11 @@
         "rho": 1.0,
         "l": 2.0
       }
-    ]
-  },
+    ],
   "demands": [
     {
       "type": "od",
-      "flow": 10.0,
+      "flow": 5.0,
       "sink": "sink",
       "source": "source"
     },
@@ -81,7 +79,7 @@
         "left",
         "sink"
       ],
-      "flow": 5.0
+      "flow": 2.0
     }
   ]
 }

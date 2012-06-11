@@ -1,6 +1,6 @@
 from cr_utils import Dumpable
-from crnetwork import Link, CRNetwork, Junction
-from pprint import pprint
+from crnetwork import Link
+from demand import FlowNetwork
 
 class FundamentalDiagram(Dumpable):
   """docstring for FundamentalDiagram"""
@@ -31,7 +31,7 @@ class FundamentalDiagram(Dumpable):
     )
 
 
-class CTMLink(Link, Dumpable):
+class CTMLink(Link):
   """docstring for CTMLink"""
 
   def __init__(self, l, fd, *args, **kwargs):
@@ -78,42 +78,16 @@ class DensityCTMLink(CTMLink):
     )
 
 
-class CTMNetwork(CRNetwork):
+class DensityCTMNetwork(FlowNetwork):
+  link_class = DensityCTMLink
+
   def __init__(self):
-    super(CTMNetwork, self).__init__()
-
-  @classmethod
-  def load_with_json_data(cls, data):
-    net = cls()
-    links = dict(
-      (link['name'],
-       DensityCTMLink.load_with_json_data(link, net=net))
-        for link in data['links']
-    )
-    junctions = [
-    Junction([links[name] for name in junc[0]],
-      [links[name] for name in junc[1]])
-    for junc in data['junctions']
-    ]
-    for junction in junctions:
-      net.add_junction(junction)
-    return net
+    super(DensityCTMNetwork, self).__init__()
 
 
-def main():
-  net = CRNetwork()
-  l = [DensityCTMLink(name=_, net=net, l=1, rho=1, fd=FundamentalDiagram(v=1., w=1., rho_max=10., q_max=10.)) for _ in
-       range(3)]
-  j = Junction([l[0]], [l[1], l[2]])
-  net.add_junction(j)
-  net.dump('simple.json')
-
-
-def main2():
-  net = CTMNetwork.load('networks/fpnet.json')
-  net.cache_props()
-  pprint(net.od_routes)
+  def tt_free_flow(self, route):
+    return sum(link.l / link.fd.v for link in route.links)
 
 if __name__ == '__main__':
-  main2()
+  print 'hei'
   

@@ -1,14 +1,15 @@
+from cr_optimize import SimpleOptimizeMixIn
 from ctm import *
 from cvxpy import variable, eq, leq, geq, minimize, program, quad_over_lin, hstack
 from cvxpy import max as cvx_max
 from cr_utils import Dumpable, flatten
+from demand import Demand, ODDemand, RouteDemand
 
-class StaticCvxNetwork(CTMNetwork):
-  """docstring for StaticCvxNetwork"""
+class StaticCTMProblem(DensityCTMNetwork, SimpleOptimizeMixIn):
+  """docstring for StaticProblem"""
 
-  def __init__(self, *args, **kwargs):
-    super(StaticCvxNetwork, self).__init__()
-    self.cvxify()
+  def __init__(self):
+    super(StaticCTMProblem, self).__init__()
 
   def cvxify(self):
     """docstring for cvxify"""
@@ -17,157 +18,15 @@ class StaticCvxNetwork(CTMNetwork):
       link.v_flow = variable(name='flow: {0}'.format(link.name))
       link.v_dens = variable(name='dens: {0}'.format(link.name))
     for (source, sink), routes in self.od_routes.iteritems():
-      for route in routes:
-        route.v_flow = variable(name='rf: o: {0}, d: {1}'.format(source.name, sink.name))
+      for i, route in enumerate(routes):
+        route.v_flow = variable(name='rf: o: {0}, d: {1} [{2}]'.format(source.name, sink.name, i))
 
-  def tt_free_flow(self, route):
-    return sum(link.l / link.fd.v for link in route.links)
-
-
-class Demand(Dumpable):
-  """docstring for Demand"""
-  types = None
-
-  def __init__(self, net, flow):
-    super(Demand, self).__init__()
-    self.net = net
-    self.flow = flow
-
-  def jsonify(self):
-    return {
-      'flow': self.flow,
-      'type': self.tag()
-    }
-
-  @classmethod
-  def tag(cls):
-    return 'basic'
-
-  @classmethod
-  def load_with_json_data(cls, data, **kwargs):
-    return cls.types[data['type']].load_demand(data, kwargs['net'])
-
-  @classmethod
-  def load_demand(cls, data, net):
-    return cls(
-      net=net,
-      flow=data['flow']
-    )
-
-
-class RouteDemand(Demand):
-  """docstring for RouteDemand"""
-
-  @classmethod
-  def tag(cls):
-    return 'route'
-
-  def __init__(self, route, flow):
-    self.route = route
-    super(RouteDemand, self).__init__(route.net, flow)
-
-  def jsonify(self):
-    json = super(RouteDemand, self).jsonify()
-    json.update({
-      'route': self.route.jsonify(),
-      })
-    return json
-
-  @classmethod
-  def load_demand(cls, data, net):
-    return cls(
-      flow=data['flow'],
-      route=net.route_by_names(data['route'])
-    )
-
-
-class ODDemand(Demand):
-  """docstring for RouteDemand"""
-
-  def __init__(self, source, sink, flow):
-    super(ODDemand, self).__init__(source.net, flow)
-    self.source = source
-    self.sink = sink
-
-  def jsonify(self):
-    json = super(ODDemand, self).jsonify()
-    json.update({
-      'sink': self.sink.name,
-      'source': self.source.name,
-      })
-    return json
-
-  @classmethod
-  def tag(cls):
-    return 'od'
-
-  @classmethod
-  def load_demand(cls, data, net):
-    return cls(
-      flow=data['flow'],
-      source=net.link_by_name(data['source']),
-      sink=net.link_by_name(data['sink'])
-    )
-
-
-class LinkDemand(Demand):
-  """docstring for LinkDemand"""
-
-  def __init__(self, link, flow):
-    super(LinkDemand, self).__init__(link.net, flow)
-    self.link = link
-
-  def jsonify(self):
-    json = super(LinkDemand, self).jsonify()
-    json.update({
-      'link': self.link.name,
-      })
-    return json
-
-  @classmethod
-  def tag(cls):
-    return 'link'
-
-  @classmethod
-  def load_demand(cls, data, net):
-    return cls(
-      flow=data['flow'],
-      link=net.link_by_name(data['link'])
-    )
-
-Demand.types = dict(
-  (cls.tag(), cls)
-    for cls in (Demand, ODDemand, LinkDemand, RouteDemand)
-)
-
-class StaticProblem(Dumpable):
-  """docstring for StaticProblem"""
-
-  def __init__(self, net, demands):
-    super(StaticProblem, self).__init__()
-    self.net = net
-    self.demands = demands
-
-  def jsonify(self):
-    return {
-      'net': self.net.jsonify(),
-      'demands': [demand.jsonify() for demand in self.demands]
-    }
-
-  @classmethod
-  def load_with_json_data(cls, data, **kwargs):
-    net = StaticCvxNetwork.load_with_json_data(data['net'])
-    net.cache_props()
-    demands = [Demand.load_with_json_data(demand, net=net) for demand in data['demands']]
-    return cls(
-      net=net,
-      demands=demands
-    )
+class LagrangianConstrained(StaticCTMProblem):
 
   def con_junc(self):
     return [eq(sum(link.v_flow for link in junction.in_links),
                sum(link.v_flow for link in junction.out_links))
-            for junction in self.net.junctions]
+            for junction in self.junctions]
 
   def con_od_flows(self):
     od_demands = filter(lambda dem: isinstance(dem, ODDemand), self.demands)
@@ -185,17 +44,22 @@ class StaticProblem(Dumpable):
 
     def od_flows(source, sink):
       flow = 0
-      for route in self.net.od_routes[source, sink]:
+      for route in self.od_routes[source, sink]:
         flow += route.v_flow
       return flow
 
     return [
            eq(route_flows(link), link.v_flow)
-           for link in self.net.links()
+           for link in self.links()
            ] + [
     eq(od_flows(dem.source, dem.sink), dem.flow)
     for dem in od_demands
     ]
+
+  def constraints(self):
+    return super(LagrangianConstrained, self).constraints() + self.con_od_flows()
+
+class CTMConstrained(StaticCTMProblem):
 
   def con_ctm(self):
     return list(flatten([geq(link.v_flow, 0),
@@ -204,7 +68,15 @@ class StaticProblem(Dumpable):
                          leq(link.v_flow, link.fd.w * (link.fd.rho_max - link.v_dens)),
                          geq(link.v_dens, 0),
                          leq(link.v_dens, link.fd.rho_max),
-                         ] for link in self.net.links()))
+                         ] for link in self.links()))
+
+  def constraints(self):
+    return super(CTMConstrained, self).constraints() + self.con_ctm()
+
+class LagrangianCTMConstrained(LagrangianConstrained,CTMConstrained):
+  pass
+
+class ComplianceConstrained(LagrangianCTMConstrained):
 
   def route_tt_heuristic(self, route):
     def link_tt_heuristic(link):
@@ -230,41 +102,61 @@ class StaticProblem(Dumpable):
   def con_route_tt(self):
     return [
     leq(self.route_tt_heuristic(route), 10000.0)
-    for routes in self.net.od_routes.itervalues()
-    for route in routes
+    for route in self.all_routes()
     ]
 
-  def obj_min_ttt(self):
-    return minimize(sum(link.l * link.v_dens for link in self.net.links()))
+  def constraints(self):
+    return super(ComplianceConstrained, self).constraints() + self.con_route_tt()
 
-  def obj_feas(self):
-    return minimize(0)
+class MinTTT(StaticCTMProblem):
 
-  def con_feas(self):
-    """docstring for con_feas"""
-    return self.con_ctm() + self.con_od_flows() + self.con_route_tt() #+ self.con_junc()
+  def objective(self):
+    return minimize(sum(link.l * link.v_dens for link in self.links()))
 
-  def solve_feasible(self):
-    self.net.cvxify()
-    p = program(self.obj_feas(), self.con_feas())
-    p.solve()
-    return p
+class MinTTTComplianceProblem(MinTTT, ComplianceConstrained, StaticCTMProblem):
 
-  def solve_ttt(self):
-    self.net.cvxify()
-    p = program(self.obj_min_ttt(), self.con_feas())
-    p.solve()
-    return p
+  def __init__(self):
+    super(MinTTTComplianceProblem, self).__init__()
+
+  def objective(self):
+    return MinTTT.objective(self)
+
+  def constraints(self):
+    return ComplianceConstrained.constraints(self)
+
+class MinTTTLagrangianCTMProblem(MinTTT, LagrangianCTMConstrained, StaticCTMProblem):
+
+  def __init__(self):
+    super(MinTTTLagrangianCTMProblem, self).__init__()
+
+  def objective(self):
+    return MinTTT.objective(self)
+
+  def constraints(self):
+    return LagrangianCTMConstrained.constraints(self)
+
 
 
 def main5():
-  prob = StaticProblem.load('networks/md_prob_plus.json')
-  prog = prob.solve_ttt()
+  net = MinTTTComplianceProblem.load('networks/md_prob_plus.json')
+  prog = net.get_program()
+  prog.solve()
   prog.show()
-  print prob.demands[0].flow
-  for route in prob.net.all_routes():
+  print net.demands[0].flow
+  for route in net.all_routes():
     print route
     print route.v_flow.value
 
+def main6():
+  net = MinTTTComplianceProblem.load('networks/fpnet_with_demands.json')
+  prog = net.get_program()
+  prog.solve(quiet = True)
+  print prog.objective.value
+  net = MinTTTLagrangianCTMProblem.load('networks/fpnet_with_demands.json')
+  prog = net.get_program()
+  prog.solve(quiet = True)
+  print prog.objective.value
+
+
 if __name__ == '__main__':
-  main5()
+  main6()
