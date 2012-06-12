@@ -1,5 +1,5 @@
 from cr_utils import Dumpable
-from crnetwork import CRNetwork
+from cr_network import CRNetwork
 
 __author__ = 'jdr'
 

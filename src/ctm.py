@@ -1,5 +1,5 @@
 from cr_utils import Dumpable
-from crnetwork import Link
+from cr_network import Link
 from demand import FlowNetwork
 
 class FundamentalDiagram(Dumpable):

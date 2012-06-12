@@ -4,7 +4,7 @@ from cvxpy import square
 
 __author__ = 'jdr'
 
-from crnetwork import Link, Junction
+from cr_network import Link, Junction
 
 class FlowLatency(Dumpable):
   """docstring for Demand"""
