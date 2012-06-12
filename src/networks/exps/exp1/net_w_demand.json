@@ -1,0 +1,85 @@
+{
+  "junctions": [
+    [
+      [
+        "source"
+      ],
+      [
+        "left",
+        "right"
+      ]
+    ],
+    [
+      [
+        "left",
+        "right"
+      ],
+      [
+        "sink"
+      ]
+    ]
+  ],
+  "links": [
+    {
+      "fd": {
+        "q_max": 1.0,
+        "rho_max": 3.0,
+        "w": 0.5,
+        "v": 1.0
+      },
+      "name": "source",
+      "rho": 1.0,
+      "l": 1.0
+    },
+    {
+      "fd": {
+        "q_max": 1.0,
+        "rho_max": 3.0,
+        "w": 0.5,
+        "v": 1.0
+      },
+      "name": "left",
+      "rho": 1.0,
+      "l": 1.0
+    },
+    {
+      "fd": {
+        "q_max": 1.0,
+        "rho_max": 3.0,
+        "w": 0.5,
+        "v": 1.0
+      },
+      "name": "right",
+      "rho": 1.0,
+      "l": 2.0
+    },
+    {
+      "fd": {
+        "q_max": 1.0,
+        "rho_max": 3.0,
+        "w": 0.5,
+        "v": 1.0
+      },
+      "name": "sink",
+      "rho": 1.0,
+      "l": 1.0
+    }
+  ],
+  "demands": [
+    {
+      "type": "route",
+      "route": [
+        "source",
+        "left",
+        "sink"
+      ],
+      "flow": 0.2
+    },
+    {
+      "type": "od",
+      "flow": 0.8,
+      "sink": "sink",
+      "source": "source"
+    }
+  ]
+}

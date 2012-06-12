@@ -35,25 +35,3 @@ class MinTTT(LagrangianConstrained):
 
 class MinTTTFlowLinkProblem(MinTTT, CapacityConstrained):
   pass
-
-
-
-def main():
-  net = MinTTTFlowLinkProblem.load('networks/flownet.json')
-  program = net.get_program()
-  program.show()
-  program.solve()
-  print program.objective.value
-  for route in net.all_routes():
-    print route.v_flow.value
-  net = MinTTTFlowLinkProblem.load("networks/flownet_od.json")
-  program = net.get_program()
-  program.show()
-  program.solve()
-  print program.objective.value
-  for route in net.all_routes():
-    print route.v_flow.value
-
-
-if __name__ == '__main__':
-  main()

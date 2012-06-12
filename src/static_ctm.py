@@ -94,30 +94,3 @@ class MinTTTLagrangianCTMProblem(MinTTT, LagrangianCTMConstrained, CTMStaticProb
 
   def constraints(self):
     return LagrangianCTMConstrained.constraints(self)
-
-
-
-def main5():
-  net = MinTTTComplianceProblem.load('networks/md_prob_plus.json')
-  prog = net.get_program()
-  prog.solve()
-  prog.show()
-  print net.demands[0].flow
-  for route in net.all_routes():
-    print route
-    print route.v_flow.value
-
-def main6():
-  net = MinTTTComplianceProblem.load('networks/fpnet_with_demands.json')
-  prog = net.get_program()
-  prog.solve(quiet = True)
-  print prog.objective.value
-  net = MinTTTLagrangianCTMProblem.load('networks/fpnet_with_demands.json')
-  prog = net.get_program()
-  prog.solve(quiet = True)
-  print prog.objective.value
-  net.d3ize()
-
-
-if __name__ == '__main__':
-  main6()

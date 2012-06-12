@@ -248,9 +248,14 @@ class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
 
   def jsonify(self):
     """docstring for jsonify"""
+    self.cache_props()
     return {
       'links': [link.jsonify() for link in self.get_links()],
-      'junctions': [junction.jsonify() for junction in self.junctions]
+      'junctions': [junction.jsonify()
+                    for junction in self.junctions
+                    if not isinstance(junction, Source) and
+                       not isinstance(junction, Sink)
+      ]
     }
 
 
@@ -273,23 +278,3 @@ class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
 
   def d3_edges(self):
     return self.get_links()
-
-
-def main():
-  """docstring for main"""
-  net = CRNetwork()
-  links = [Link(net = net, name = _) for _ in range(3)]
-  junction = Junction([links[0]], [links[1], links[2]])
-  net.add_junction(junction)
-  net.cache_props()
-  print [link.neighbors() for link in links]
-  print [link.upstream_links() for link in links]
-  print [link.downstream_links() for link in links]
-  print [link.is_sink() for link in links]
-  print [link.is_source() for link in links]
-  print net.all_routes()
-  net.d3ize()
-
-
-if __name__ == '__main__':
-  main()
