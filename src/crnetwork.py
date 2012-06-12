@@ -1,10 +1,10 @@
 from networkx import MultiDiGraph
-from networkx.readwrite import d3_js
 from bfs import bfs, all_paths
 from collections import defaultdict
 from cr_utils import Dumpable, flatten
+from d3.d3_mixin import *
 
-class Link(Dumpable):
+class Link(Dumpable, D3Edge):
   """docstring for Link"""
 
   def __init__(self, net=None, name=None):
@@ -77,8 +77,20 @@ class Link(Dumpable):
     """docstring for routes"""
     return [route for routes in self.net.od_routes.itervalues() for route in routes if route.has_link(self)]
 
+  def d3_attrs(self):
+    return self.jsonify()
 
-class Junction(object):
+  def d3_source(self):
+    return self.up_junc
+
+  def d3_target(self):
+    return self.down_junc
+
+  def d3_value(self):
+    return 1.0
+
+
+class Junction(D3Node):
   """docstring for Junction"""
 
   def __init__(self, in_links, out_links):
@@ -90,6 +102,11 @@ class Junction(object):
     for ol in out_links:
       ol.set_up_junc(self)
     self.net = self.get_net()
+
+  def d3_node_name(self):
+    # verbose
+    # return '{0}::{1}'.format(self.in_links,self.out_links)
+    return ''
 
   def edges(self):
     """docstring for edges"""
@@ -154,20 +171,18 @@ class Route(object):
     return [link.name for link in self.links]
 
 
-class CRNetwork(MultiDiGraph, Dumpable):
+class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
   """docstring for CRNetwork"""
 
   link_class = Link
 
   def __init__(self):
     super(CRNetwork, self).__init__()
-    self.junctions = set()
     self.links = set()
     self.CACHE = True
 
   def add_junction(self, junction):
     """docstring for add_junction"""
-    self.junctions.add(junction)
     self.links.update(junction.links())
 
   def route_by_names(self, route):
@@ -210,6 +225,7 @@ class CRNetwork(MultiDiGraph, Dumpable):
     [self.edgify(link) for link in self.links]
     self.sources = self._sources()
     self.sinks = self._sinks()
+    self.junctions = set(flatten([link.up_junc, link.down_junc] for link in self.get_links()))
     self.od_routes = self.calc_od_routes()
     self.CACHE = False
 
@@ -237,8 +253,6 @@ class CRNetwork(MultiDiGraph, Dumpable):
       'junctions': [junction.jsonify() for junction in self.junctions]
     }
 
-  def d3ize(self):
-    d3_js.export_d3_js(self, group='name')
 
   @classmethod
   def load_with_json_data(cls, data):
@@ -257,6 +271,9 @@ class CRNetwork(MultiDiGraph, Dumpable):
       net.add_junction(junction)
     return net
 
+  def d3_edges(self):
+    return self.get_links()
+
 
 def main():
   """docstring for main"""
@@ -271,6 +288,7 @@ def main():
   print [link.is_sink() for link in links]
   print [link.is_source() for link in links]
   print net.all_routes()
+  net.d3ize()
 
 
 if __name__ == '__main__':

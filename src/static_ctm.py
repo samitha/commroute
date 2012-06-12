@@ -14,6 +14,11 @@ class CTMStaticProblem(DensityCTMNetwork, LagrangianStaticProblem):
     super(CTMStaticProblem,self).cvxify()
     for link in self.get_links():
       link.v_dens = variable(name='dens: {0}'.format(link.name))
+      # this next line isn't useful right now
+      # link.d3_value = lambda: link.v_dens.value
+
+
+
 class CTMConstrained(CTMStaticProblem):
 
   def con_ctm(self):
@@ -41,7 +46,7 @@ class ComplianceConstrained(LagrangianCTMConstrained):
       cong = link.l / link.fd.w * (quad_over_lin(link.fd.rho_max ** .5, rho_hat) - 1)
       return cvx_max(hstack([ff, q_max, cong]))
 
-    return sum(map(link_tt_heuristic, route.get_links))
+    return sum(map(link_tt_heuristic, route.links))
 
   def route_tt_real(self, route):
     def link_tt(link):
@@ -111,6 +116,7 @@ def main6():
   prog = net.get_program()
   prog.solve(quiet = True)
   print prog.objective.value
+  net.d3ize()
 
 
 if __name__ == '__main__':

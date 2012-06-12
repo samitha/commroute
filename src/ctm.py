@@ -48,6 +48,9 @@ class CTMLink(Link):
     return json
 
 
+  def d3_value(self):
+    return self.l
+
 class DensityCTMLink(CTMLink):
   """docstring for DensityCTMLink"""
 
