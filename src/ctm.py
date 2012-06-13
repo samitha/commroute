@@ -34,22 +34,25 @@ class FundamentalDiagram(Dumpable):
 class CTMLink(Link):
   """docstring for CTMLink"""
 
-  def __init__(self, l, fd, *args, **kwargs):
+  def __init__(self, l, fd, flow=0.0, *args, **kwargs):
     super(CTMLink, self).__init__(*args, **kwargs)
     self.l = l
     self.fd = fd
+    self.flow = flow
 
   def jsonify(self):
     json = super(CTMLink, self).jsonify()
     json.update({
       'l': self.l,
-      'fd': self.fd.jsonify()
+      'fd': self.fd.jsonify(),
+      'flow': self.flow
     })
     return json
 
 
   def d3_value(self):
     return self.l
+
 
 class DensityCTMLink(CTMLink):
   """docstring for DensityCTMLink"""
@@ -71,6 +74,7 @@ class DensityCTMLink(CTMLink):
     return dict(
       l=data['l'],
       rho=data['rho'],
+      flow=data['flow'],
       fd=FundamentalDiagram.load_with_json_data(data['fd'])
     )
 
