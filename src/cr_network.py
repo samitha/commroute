@@ -37,6 +37,9 @@ class Link(Dumpable, D3Edge):
       raise Exception("junction already set")
     self.down_junc = j
 
+  def travel_time(self):
+    raise NotImplementedError("implement dummy!")
+
   def jsonify(self):
     """docstring for jsonify"""
     return {
@@ -169,6 +172,9 @@ class Route(object):
 
   def jsonify(self):
     return [link.name for link in self.links]
+
+  def travel_time(self):
+    return sum(link.travel_time() for link in self.links)
 
 
 class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):

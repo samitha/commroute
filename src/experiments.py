@@ -119,10 +119,10 @@ def exp_1_nash_feasible():
   print net.check_feasible()
 
 def main():
-#  exp_1_create()
-#  exp_1_demands()
-#  exp_1_opt()
-#  exp_1_nash()
+  exp_1_create()
+  exp_1_demands()
+  exp_1_opt()
+  exp_1_nash()
   exp_1_nash_feasible()
 
 if __name__ == '__main__':

@@ -15,6 +15,10 @@ class LagrangianStaticProblem(FlowNetwork, SimpleOptimizeMixIn):
       for i, route in enumerate(routes):
         route.v_flow = variable(name='rf: o: {0}, d: {1} [{2}]'.format(source.name, sink.name, i))
 
+  def cvx_realize(self):
+    for link in self.get_links():
+      link.flow = link.v_flow.value
+
 class LagrangianConstrained(LagrangianStaticProblem):
 
   def con_junc(self):

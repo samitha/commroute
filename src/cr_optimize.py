@@ -25,6 +25,9 @@ class OptimizeMixIn(object):
     program.solve()
     return program
 
+  def cvx_realize(self):
+    pass
+
 
 class Feasible:
 

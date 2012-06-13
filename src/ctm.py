@@ -95,6 +95,9 @@ class DensityCTMLink(CTMLink):
       fd=FundamentalDiagram.load_with_json_data(data['fd'])
     )
 
+  def travel_time(self):
+    return self.l * self.rho / self.flow
+
 
 class DensityCTMNetwork(FlowNetwork):
   link_class = DensityCTMLink

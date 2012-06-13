@@ -15,7 +15,7 @@ class FlowLatency(Dumpable):
       'type': self.tag()
     }
 
-  def link_latency(self, link, flow):
+  def travel_time(self, link, flow):
     # this should be a convex function to work within cvxpy !!!!
     raise NotImplementedError("abstract")
 
@@ -41,10 +41,10 @@ class AffineLatency(FlowLatency):
   def tag(cls):
     return 'affine'
 
-  def link_latency(self, link, flow):
+  def travel_time(self, link, flow):
     return flow*self.a + self.b
 
-  def link_flow_latency(self, link, flow):
+  def flow_x_travel_time(self, link, flow):
     return square(flow)*self.a + self.b*flow
 
   @classmethod
@@ -69,28 +69,34 @@ FlowLatency.types = dict(
 
 class FlowLink(Link):
 
-  def __init__(self, latency, q_max, *args, **kwargs):
+  def __init__(self, latency, q_max, flow = 0.0, *args, **kwargs):
     super(FlowLink, self).__init__(*args, **kwargs)
     self.q_max = q_max
     self.latency = latency
+    self.flow = flow
 
   def flow_latency(self, flow):
-    return self.latency.link_latency(self, flow)
+    return self.latency.travel_time(self, flow)
 
   def flow_flow_latency(self, flow):
-    return self.latency.link_flow_latency(self, flow)
+    return self.latency.flow_x_travel_time(self, flow)
+
+  def travel_time(self):
+    return self.latency.travel_time(self, self.flow)
 
   def jsonify(self):
     json = super(FlowLink, self).jsonify()
     json['q_max'] = self.q_max
     json['latency'] = self.latency.jsonify()
+    json['flow'] = self.flow
     return json
 
   @classmethod
   def additional_kwargs(cls, data):
     return {
       'q_max': data['q_max'],
-      'latency': FlowLatency.load_with_json_data(data['latency'])
+      'latency': FlowLatency.load_with_json_data(data['latency']),
+      'flow': data['flow']
     }
 
 class FlowLinkNetwork(FlowNetwork):
