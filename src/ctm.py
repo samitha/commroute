@@ -21,6 +21,21 @@ class FundamentalDiagram(Dumpable):
       'q_max': self.q_max
     }
 
+  def rho_cong(self, flow):
+    return self.rho_max - float(flow)/self.w
+
+  def flow_cong(self, rho):
+    return self.w * (self.rho_max - rho)
+
+  def rho_ff(self, flow):
+    return float(flow) / self.v
+
+  def flow_ff(self, rho):
+    return self.v * rho
+
+  def flow(self, rho):
+    return min(self.q_max, self.flow_cong(rho), self.flow_ff(rho))
+
   @classmethod
   def load_with_json_data(cls, data):
     return cls(
@@ -60,6 +75,8 @@ class DensityCTMLink(CTMLink):
   def __init__(self, rho=0.0, *args, **kwargs):
     super(DensityCTMLink, self).__init__(*args, **kwargs)
     self.rho = rho
+
+
 
   def jsonify(self):
     """docstring for jsonify"""

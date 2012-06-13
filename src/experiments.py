@@ -7,6 +7,9 @@ from ctm import DensityCTMLink
 from cr_network import Junction
 
 def exp_1_create():
+  """
+  create the base network
+  """
   v = 1.0
   w = .5
   rho_max = 3
@@ -88,13 +91,39 @@ def exp_1_opt():
   prog.show()
   prog.solve()
   print 'obnjective', prog.objective.value
+  for link in net.get_links():
+    link.flow = link.v_flow.value
+    link.rho = link.v_dens.value
   net.d3ize()
+  print net.check_feasible()
 
+
+def exp_1_nash():
+  net = MinTTTComplianceProblem.load('networks/exps/exp1/net_w_demand.json')
+  left = net.link_by_name('left')
+  right = net.link_by_name('right')
+  left.flow = .75
+  left.rho = left.fd.rho_cong(left.flow)
+  right.flow = 1 - left.flow
+  right.rho = right.fd.rho_ff(right.flow)
+  source = net.link_by_name('source')
+  sink = net.link_by_name('sink')
+  source.flow = 1.0
+  source.rho = source.fd.rho_ff(source.flow)
+  sink.flow = 1.0
+  sink.rho = source.fd.rho_ff(sink.flow)
+  net.dump('networks/exps/exp1/net_nash.json')
+
+def exp_1_nash_feasible():
+  net = MinTTTComplianceProblem.load('networks/exps/exp1/net_nash.json')
+  print net.check_feasible()
 
 def main():
-  exp_1_create()
-  exp_1_demands()
-  exp_1_opt()
+#  exp_1_create()
+#  exp_1_demands()
+#  exp_1_opt()
+#  exp_1_nash()
+  exp_1_nash_feasible()
 
 if __name__ == '__main__':
   main()
