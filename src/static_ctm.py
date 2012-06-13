@@ -1,8 +1,10 @@
 from cvxpy import geq, leq, quad_over_lin, variable, hstack, minimize, eq
 from cvxpy import max as cvx_max
+from cr_optimize import SimpleOptimizeMixIn
 from cr_utils import flatten
 from ctm import DensityCTMNetwork
 from static_op import LagrangianConstrained
+from numpy import inf
 
 __author__ = 'jdr'
 
@@ -10,6 +12,7 @@ __author__ = 'jdr'
 class CTMStaticProblem(DensityCTMNetwork, LagrangianConstrained):
   def cvxify(self):
     super(CTMStaticProblem, self).cvxify()
+    self.cache_props()
     for link in self.get_links():
       link.v_dens = variable(name='dens: {0}'.format(link.name))
       # this next line isn't useful right now
@@ -29,12 +32,25 @@ class CTMConstrained(CTMStaticProblem):
   def constraints(self):
     return super(CTMConstrained, self).constraints() + self.con_ctm()
 
-  def check_feasible(self):
-    extra_cons = list(flatten(
-      [eq(link.v_flow, link.flow), eq(link.v_dens, link.rho)]
+  def check_feasible_constraints(self):
+    return list(flatten(
+      [geq(link.v_flow, link.flow), geq(link.v_dens, link.rho),leq(link.v_flow, link.flow), leq(link.v_dens, link.rho)]
         for link in self.get_links()
     ))
 
+  def check_feasible(self):
+    class FeasibleProgram(SimpleOptimizeMixIn):
+      outer = self
+      def constraints(self):
+        return self.outer.constraints() + self.outer.check_feasible_constraints()
+
+      def cvxify(self):
+        self.outer.cvxify()
+
+    op = FeasibleProgram()
+    prog  = op.get_program()
+    prog.show()
+    return not (prog.solve(quiet=True) == inf)
 
 class ComplianceConstrained(CTMConstrained):
   def route_tt_heuristic(self, route):
