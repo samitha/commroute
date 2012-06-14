@@ -12,6 +12,17 @@ class FundamentalDiagram(Dumpable):
     self.rho_max = float(rho_max)
     self.q_max = float(q_max)
 
+  @classmethod
+  def triangular(cls, v, q_max, rho_max):
+    rho_c = float(q_max) / v
+    w = float(q_max) / (rho_max - rho_c)
+    return cls(
+      v,
+      w,
+      rho_max,
+      q_max
+    )
+
   def jsonify(self):
     """docstring for jsonify"""
     return {

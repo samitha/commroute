@@ -77,7 +77,7 @@ def exp_1_opt():
 
   show that you can add constraints on the fly, and that this increases the objective when you force large densities
   '''
-  net = MinTTTComplianceProblem.load('networks/exps/exp1/net_w_demand.json')
+  net = MinTTTComplacencyProblem.load('networks/exps/exp1/net_w_demand.json')
   prog = net.get_program()
   prog.show()
   prog.solve()
@@ -96,7 +96,7 @@ def exp_1_opt():
   print net.check_feasible()
 
 def exp_1_nash():
-  net = MinTTTComplianceProblem.load('networks/exps/exp1/net_w_demand.json')
+  net = MinTTTComplacencyProblem.load('networks/exps/exp1/net_w_demand.json')
   left = net.link_by_name('left')
   right = net.link_by_name('right')
   left.flow = .75
@@ -112,7 +112,7 @@ def exp_1_nash():
   net.dump('networks/exps/exp1/net_nash.json')
 
 def exp_1_nash_feasible():
-  net = MinTTTComplianceProblem.load('networks/exps/exp1/net_nash.json')
+  net = MinTTTComplacencyProblem.load('networks/exps/exp1/net_nash.json')
   print 'is feasible: ', net.check_feasible()
   for route in net.all_routes():
     print 'route', route

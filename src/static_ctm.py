@@ -57,7 +57,7 @@ class CTMConstrained(CTMStaticProblem):
     prog.show()
     return not (prog.solve(quiet=True) == inf)
 
-class ComplianceConstrained(CTMConstrained):
+class ComplacencyConstrained(CTMConstrained):
   def route_tt_heuristic(self, route):
     def link_tt_heuristic(link):
       ff = link.l / link.fd.v
@@ -75,7 +75,7 @@ class ComplianceConstrained(CTMConstrained):
     ]
 
   def constraints(self):
-    return super(ComplianceConstrained, self).constraints() + self.con_route_tt()
+    return super(ComplacencyConstrained, self).constraints() + self.con_route_tt()
 
 
 class MinTTT(CTMStaticProblem):
@@ -83,15 +83,15 @@ class MinTTT(CTMStaticProblem):
     return minimize(sum(link.l * link.v_dens for link in self.get_links()))
 
 
-class MinTTTComplianceProblem(MinTTT, ComplianceConstrained):
+class MinTTTComplacencyProblem(MinTTT, ComplacencyConstrained):
   def __init__(self):
-    super(MinTTTComplianceProblem, self).__init__()
+    super(MinTTTComplacencyProblem, self).__init__()
 
   def objective(self):
     return MinTTT.objective(self)
 
   def constraints(self):
-    return ComplianceConstrained.constraints(self)
+    return ComplacencyConstrained.constraints(self)
 
 
 class MinTTTLagrangianCTMProblem(MinTTT, CTMConstrained):

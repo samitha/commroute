@@ -6,7 +6,7 @@ __author__ = 'jdr'
 
 class Demand(Dumpable):
   """docstring for Demand"""
-  types = None
+  types = dict()
 
   def __init__(self, net, flow):
     super(Demand, self).__init__()
@@ -33,6 +33,10 @@ class Demand(Dumpable):
       net=net,
       flow=data['flow']
     )
+
+  @classmethod
+  def add_type(cls, new_cls):
+    cls.types[new_cls.tag()] = new_cls
 
 
 class RouteDemand(Demand):
@@ -115,11 +119,8 @@ class LinkDemand(Demand):
       link=net.link_by_name(data['link'])
     )
 
-Demand.types = dict(
-  (cls.tag(), cls)
-    for cls in (Demand, ODDemand, LinkDemand, RouteDemand)
-)
-
+for new_cls in (Demand, ODDemand, LinkDemand, RouteDemand):
+  Demand.add_type(new_cls)
 
 class DemandMixin(object):
 
