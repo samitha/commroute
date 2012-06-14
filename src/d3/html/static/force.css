@@ -1,37 +1,27 @@
 
-circle.node {
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
-
-line.link {
+line {
   stroke: #999;
   stroke-opacity: .6;
 }
 
-.nodetext { pointer-events: none; font: 10px }
+.nodetext {
+    pointer-events: none;
+    font: 10px
+}
 
-path.link {
+path {
   fill: none;
   stroke: #666;
 }
 
-marker#licensing {
-  fill: green;
-}
-
-path.link.licensing {
-  stroke: green;
-}
-
-path.link.resolved {
-  stroke-dasharray: 0,2 1;
+path.marker {
+    fill: #111;
 }
 
 circle {
-  fill: #ccc;
-  stroke: #333;
-  stroke-width: 1.5px;
+    fill: #ccc;
+    stroke: #333;
+    stroke-width: 1.5px;
 }
 
 text {

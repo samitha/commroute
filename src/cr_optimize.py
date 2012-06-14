@@ -20,7 +20,7 @@ class OptimizeMixIn(object):
     self.cvxify()
     return program(self.objective(), self.constraints())
 
-  def solve_problem(self):
+  def solve_program(self):
     program = self.get_program()
     program.solve()
     return program

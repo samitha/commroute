@@ -44,10 +44,9 @@ d3.json("graph.json", function(json) {
         .attr("height", h);
 
 // Per-type markers, as they don't inherit styles.
-    svg.append("svg:defs").selectAll("marker")
-        .data(["suit", "licensing", "resolved"])
-        .enter().append("svg:marker")
-        .attr("id", String)
+    svg.append("svg:defs")
+        .append("svg:marker")
+        .attr("id","marker")
         .attr("viewBox", "0 -5 10 10")
         .attr("refX", 15)
         .attr("refY", -1.5)
@@ -55,15 +54,15 @@ d3.json("graph.json", function(json) {
         .attr("markerHeight", 6)
         .attr("orient", "auto")
         .append("svg:path")
-        .attr("d", "M0,-5L10,0L0,5");
+        .attr("d", "M0,-5L10,0L0,5")
+        .attr("class", "marker");
 
 
     var path = svg.append("svg:g").selectAll("path")
         .data(force.links())
         .enter().append("svg:path")
-        .attr("class", function(d) { return "link suit"; })
 //    .attr("stroke-width", function(d){return d.value;})
-        .attr("marker-end", function(d) { return "url(#suit)"; });
+        .attr("marker-end", "url(marker#marker)");
 
     var circle = svg.append("svg:g").selectAll("circle")
         .data(force.nodes())

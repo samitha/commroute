@@ -61,7 +61,6 @@ def exp_1_create():
 
   net.dump("networks/exps/exp1/net.json")
 
-
 def exp_1_demands():
   net = DensityCTMNetwork.load('networks/exps/exp1/net.json')
   left = net.route_by_names([
@@ -71,7 +70,6 @@ def exp_1_demands():
   od_demand = ODDemand(net.link_by_name('source'), net.link_by_name('sink'), .8)
   net.demands.extend([route_demand, od_demand])
   net.dump('networks/exps/exp1/net_w_demand.json')
-
 
 def exp_1_opt():
   '''
@@ -97,7 +95,6 @@ def exp_1_opt():
   net.d3ize()
   print net.check_feasible()
 
-
 def exp_1_nash():
   net = MinTTTComplianceProblem.load('networks/exps/exp1/net_w_demand.json')
   left = net.link_by_name('left')
@@ -116,7 +113,22 @@ def exp_1_nash():
 
 def exp_1_nash_feasible():
   net = MinTTTComplianceProblem.load('networks/exps/exp1/net_nash.json')
-  print net.check_feasible()
+  print 'is feasible: ', net.check_feasible()
+  for route in net.all_routes():
+    print 'route', route
+    print route.travel_time()
+  for link in net.get_links():
+    print 'link', link
+    print 'flow', link.flow
+    print 'rho', link.rho
+  print 'net tt', net.total_travel_time()
+  net.solve_program()
+  net.cvx_realize()
+  for link in net.get_links():
+    print 'link', link
+    print 'flow', link.flow
+    print 'rho', link.rho
+  print 'net tt', net.total_travel_time()
 
 def main():
   exp_1_create()
