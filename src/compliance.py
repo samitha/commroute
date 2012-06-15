@@ -1,3 +1,6 @@
+from cr_optimize import OptimizeMixIn
+from ctm import DensityCTMLink
+
 __author__ = 'jdr'
 
 from demand import RouteDemand
@@ -32,3 +35,11 @@ class CompliantRouteDemand(RouteDemand):
   def tag(cls):
     return 'compliant route'
 
+
+class CvxDensityLink(DensityCTMLink, OptimizeMixIn):
+
+  def __init__(self, *args, **kwargs):
+    super(CvxDensityLink, self).__init__(*args, **kwargs)
+
+  def variablize(self):
+    self.v_flow =

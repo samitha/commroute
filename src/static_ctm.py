@@ -1,6 +1,6 @@
-from cvxpy import geq, leq, quad_over_lin, variable, hstack, minimize, eq
+from cvxpy import  quad_over_lin, hstack
 from cvxpy import max as cvx_max
-from cr_optimize import SimpleOptimizeMixIn
+from cvxpy_solver import SimpleOptimizeMixIn
 from cr_utils import flatten
 from ctm import DensityCTMNetwork
 from static_op import LagrangianConstrained
@@ -10,28 +10,20 @@ __author__ = 'jdr'
 
 
 class CTMStaticProblem(DensityCTMNetwork, LagrangianConstrained):
-  def cvxify(self):
-    super(CTMStaticProblem, self).cvxify()
-    self.cache_props()
+  def variablize(self):
+    super(CTMStaticProblem, self).variablize()
     for link in self.get_links():
-      link.v_dens = variable(name='dens: {0}'.format(link.name))
-      # this next line isn't useful right now
-      # link.d3_value = lambda: link.v_dens.value
-
-  def cvx_realize(self):
-    super(CTMStaticProblem, self).cvx_realize()
-    for link in self.get_links():
-      link.rho = link.v_dens.value
+      link.v_dens = self.create_var('dens: {0}'.format(link.name), self.attr_realizer(link, 'rho'))
 
 
 class CTMConstrained(CTMStaticProblem):
   def con_ctm(self):
-    return list(flatten([geq(link.v_flow, 0),
-                         leq(link.v_flow, link.fd.q_max),
-                         leq(link.v_flow, link.fd.v * link.v_dens),
-                         leq(link.v_flow, link.fd.w * (link.fd.rho_max - link.v_dens)),
-                         geq(link.v_dens, 0),
-                         leq(link.v_dens, link.fd.rho_max),
+    return list(flatten([self.cr_geq(link.v_flow, 0),
+                         self.cr_leq(link.v_flow, link.fd.q_max),
+                         self.cr_leq(link.v_flow, link.fd.v * link.v_dens),
+                         self.cr_leq(link.v_flow, link.fd.w * (link.fd.rho_max - link.v_dens)),
+                         self.cr_geq(link.v_dens, 0),
+                         self.cr_leq(link.v_dens, link.fd.rho_max),
                          ] for link in self.get_links()))
 
   def constraints(self):
@@ -39,7 +31,7 @@ class CTMConstrained(CTMStaticProblem):
 
   def check_feasible_constraints(self):
     return list(flatten(
-      [geq(link.v_flow, link.flow), geq(link.v_dens, link.rho),leq(link.v_flow, link.flow), leq(link.v_dens, link.rho)]
+      [self.cr_geq(link.v_flow, link.flow), self.cr_geq(link.v_dens, link.rho),self.cr_leq(link.v_flow, link.flow), self.cr_leq(link.v_dens, link.rho)]
         for link in self.get_links()
     ))
 
@@ -49,13 +41,13 @@ class CTMConstrained(CTMStaticProblem):
       def constraints(self):
         return self.outer.constraints() + self.outer.check_feasible_constraints()
 
-      def cvxify(self):
-        self.outer.cvxify()
+      def variablize(self):
+        self.outer.variablize()
 
     op = FeasibleProgram()
     prog  = op.get_program()
-    prog.show()
-    return not (prog.solve(quiet=True) == inf)
+    prog.cr_print()
+    return not (prog.cr_solve(quiet=True) == inf)
 
 class ComplacencyConstrained(CTMConstrained):
   def route_tt_heuristic(self, route):
@@ -70,7 +62,7 @@ class ComplacencyConstrained(CTMConstrained):
 
   def con_route_tt(self):
     return [
-    leq(self.route_tt_heuristic(route), 10000.0)
+    self.cr_leq(self.route_tt_heuristic(route), 10000.0)
     for route in self.all_routes()
     ]
 
@@ -80,7 +72,7 @@ class ComplacencyConstrained(CTMConstrained):
 
 class MinTTT(CTMStaticProblem):
   def objective(self):
-    return minimize(sum(link.l * link.v_dens for link in self.get_links()))
+    return sum(link.l * link.v_dens for link in self.get_links())
 
 
 class MinTTTComplacencyProblem(MinTTT, ComplacencyConstrained):

@@ -79,16 +79,16 @@ def exp_1_opt():
   '''
   net = MinTTTComplacencyProblem.load('networks/exps/exp1/net_w_demand.json')
   prog = net.get_program()
-  prog.show()
-  prog.solve()
-  print 'obnjective', prog.objective.value
+  prog.cr_print()
+  prog.cr_solve()
+  print 'obnjective', prog.cr_objective()
   left = net.link_by_name('left')
-  prog.constraints.extend([
-    geq(left.v_dens, left.fd.v * left.fd.q_max * 1.2)
+  prog.program.constraints.extend([
+    net.cr_geq(left.v_dens, left.fd.v * left.fd.q_max * 1.2)
   ])
-  prog.show()
-  prog.solve()
-  print 'obnjective', prog.objective.value
+  prog.cr_print()
+  prog.cr_solve()
+  print 'obnjective', prog.cr_objective()
   for link in net.get_links():
     link.flow = link.v_flow.value
     link.rho = link.v_dens.value
@@ -122,8 +122,8 @@ def exp_1_nash_feasible():
     print 'flow', link.flow
     print 'rho', link.rho
   print 'net tt', net.total_travel_time()
-  net.solve_program()
-  net.cvx_realize()
+  net.get_program().cr_solve()
+  net.realize()
   for link in net.get_links():
     print 'link', link
     print 'flow', link.flow

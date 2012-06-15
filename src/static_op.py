@@ -1,4 +1,4 @@
-from cr_optimize import SimpleOptimizeMixIn
+from cvxpy_solver import SimpleOptimizeMixIn
 from ctm import *
 from cvxpy import variable, eq, geq
 from demand import ODDemand, RouteDemand
@@ -6,18 +6,15 @@ from demand import ODDemand, RouteDemand
 class LagrangianStaticProblem(FlowNetwork, SimpleOptimizeMixIn):
   """docstring for StaticProblem"""
 
-  def cvxify(self):
+  def variablize(self):
     """docstring for cvxify"""
     self.cache_props()
     for link in self.get_links():
-      link.v_flow = variable(name='flow: {0}'.format(link.name))
-    for (source, sink), routes in self.od_routes.iteritems():
-      for i, route in enumerate(routes):
-        route.v_flow = variable(name='rf: o: {0}, d: {1} [{2}]'.format(source.name, sink.name, i))
-
-  def cvx_realize(self):
-    for link in self.get_links():
-      link.flow = link.v_flow.value
+      link.v_flow = self.create_var('flow: {0}'.format(link.name),self.attr_realizer(link,'flow'))
+    for route in self.all_routes():
+      def realizer(val):
+        self.route.flow = val
+      route.v_flow = self.create_var('route: {0}'.format(route.links), self.attr_realizer(route,'flow'))
 
 class LagrangianConstrained(LagrangianStaticProblem):
 
@@ -47,13 +44,13 @@ class LagrangianConstrained(LagrangianStaticProblem):
       return flow
 
     return [
-           eq(route_flows(link), link.v_flow)
+           self.cr_eq(route_flows(link), link.v_flow)
            for link in self.get_links()
            ] + [
-    eq(od_flows(dem.source, dem.sink), dem.flow)
+    self.cr_eq(od_flows(dem.source, dem.sink), dem.flow)
     for dem in od_demands
     ] + [
-      geq(route.v_flow, 0.0) for route in self.all_routes()
+      self.cr_geq(route.v_flow, 0.0) for route in self.all_routes()
     ]
 
   def constraints(self):
