@@ -2,24 +2,36 @@
   "junctions": [
     [
       [
-        "left",
-        "right"
-      ],
-      [
-        "sink"
-      ]
-    ],
-    [
-      [
         "source"
       ],
       [
         "left",
         "right"
       ]
+    ],
+    [
+      [
+        "left",
+        "right"
+      ],
+      [
+        "sink"
+      ]
     ]
   ],
   "links": [
+    {
+      "fd": {
+        "q_max": 1.0,
+        "rho_max": 3.0,
+        "w": 0.5,
+        "v": 1.0
+      },
+      "flow": 1.0,
+      "name": "source",
+      "rho": 1.0,
+      "l": 1.0
+    },
     {
       "fd": {
         "q_max": 1.0,
@@ -55,18 +67,6 @@
       "name": "right",
       "rho": 0.25,
       "l": 2.0
-    },
-    {
-      "fd": {
-        "q_max": 1.0,
-        "rho_max": 3.0,
-        "w": 0.5,
-        "v": 1.0
-      },
-      "flow": 1.0,
-      "name": "source",
-      "rho": 1.0,
-      "l": 1.0
     }
   ],
   "demands": [

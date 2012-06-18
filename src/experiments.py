@@ -83,9 +83,9 @@ def exp_1_opt():
   prog.cr_solve()
   print 'obnjective', prog.cr_objective()
   left = net.link_by_name('left')
-  prog.program.constraints.extend([
+  prog.add_constraint(
     net.cr_geq(left.v_dens, left.fd.v * left.fd.q_max * 1.2)
-  ])
+  )
   prog.cr_print()
   prog.cr_solve()
   print 'obnjective', prog.cr_objective()

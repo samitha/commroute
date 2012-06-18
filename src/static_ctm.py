@@ -29,25 +29,28 @@ class CTMConstrained(CTMStaticProblem):
   def constraints(self):
     return super(CTMConstrained, self).constraints() + self.con_ctm()
 
-  def check_feasible_constraints(self):
-    return list(flatten(
-      [self.cr_geq(link.v_flow, link.flow), self.cr_geq(link.v_dens, link.rho),self.cr_leq(link.v_flow, link.flow), self.cr_leq(link.v_dens, link.rho)]
-        for link in self.get_links()
-    ))
-
   def check_feasible(self):
+    """
+    checks the feasibility of the problem
+    @rtype: bool
+    """
+    def check_feasible_constraints():
+      return list(flatten(
+        [self.cr_geq(link.v_flow, link.flow), self.cr_geq(link.v_dens, link.rho),self.cr_leq(link.v_flow, link.flow), self.cr_leq(link.v_dens, link.rho)]
+          for link in self.get_links()
+      ))
+
     class FeasibleProgram(SimpleOptimizeMixIn):
       outer = self
       def constraints(self):
-        return self.outer.constraints() + self.outer.check_feasible_constraints()
+        return self.outer.constraints() + check_feasible_constraints()
 
       def variablize(self):
         self.outer.variablize()
 
     op = FeasibleProgram()
-    prog  = op.get_program()
-    prog.cr_print()
-    return not (prog.cr_solve(quiet=True) == inf)
+    return op.is_feasible()
+
 
 class ComplacencyConstrained(CTMConstrained):
   def route_tt_heuristic(self, route):
@@ -95,3 +98,5 @@ class MinTTTLagrangianCTMProblem(MinTTT, CTMConstrained):
 
   def constraints(self):
     return CTMStaticProblem.constraints(self)
+
+

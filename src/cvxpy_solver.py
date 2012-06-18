@@ -1,5 +1,6 @@
 from cvxpy import eq, program, variable, minimize, geq, leq
-from cr_optimize import OptimizeMixIn, Program
+from numpy import inf
+from cr_optimize import OptimizeMixIn, Program, Constraint
 
 __author__ = 'jdr'
 
@@ -15,8 +16,17 @@ class Unconstrained:
   def constraints(self):
     return []
 
+class CVXPyConstraint(Constraint):
 
-class CVXPYProgram(Program):
+  def constraint(self):
+    if self.type == self.Type.EQ:
+      return eq(self.a, self.b)
+    if self.type == self.Type.LEQ:
+      return leq(self.a, self.b)
+    if self.type == self.Type.GEQ:
+      return geq(self.a, self.b)
+
+class CVXPyProgram(Program):
 
   @classmethod
   def new_program(cls, program):
@@ -27,25 +37,22 @@ class CVXPYProgram(Program):
   def cr_objective(self):
     return self.program.objective.value
 
-  def cr_solve(self, **kwargs):
-    self.program.solve(**kwargs)
+  def cr_solve(self, quiet=True, **kwargs):
+    """
+    @rtype: float
+    """
+    self.program.solve(quiet, **kwargs)
 
   def cr_print(self):
     self.program.show()
 
   def add_constraint(self, constraint):
-    self.program.constraints.append(constraint)
+    self.program.constraints.append(constraint.constraint())
 
 class CVXPySolver(OptimizeMixIn):
 
-  def cr_eq(self,a,b):
-    return eq(a,b)
-
-  def cr_leq(self,a,b):
-    return leq(a,b)
-
-  def cr_geq(self,a,b):
-    return geq(a,b)
+  def cr_constraint(self, type, a , b):
+    return CVXPyConstraint(type, a, b)
 
   def cr_value(self, var):
     return var.value
@@ -55,10 +62,14 @@ class CVXPySolver(OptimizeMixIn):
       wrap = minimize
     else:
       wrap = maximize
-    return CVXPYProgram.new_program(program(wrap(cost), constraints))
+    return CVXPyProgram.new_program(program(wrap(cost),
+      [constraint.constraint() for constraint in constraints]))
 
   def cr_var(self, name):
     return variable(name=name)
+
+  def is_feasible(self):
+    return not (self.get_program().cr_solve() == inf)
 
 
 class SimpleOptimizeMixIn(Feasible, Unconstrained, CVXPySolver):
