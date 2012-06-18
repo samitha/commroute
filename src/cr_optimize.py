@@ -77,6 +77,9 @@ class Program(object):
   def cr_objective(self):
     raise NotImplementedError("implement me")
 
+  def add_constraint(self, constraint):
+    raise NotImplementedError("implement me")
+
   def cr_print(self):
     pass
 

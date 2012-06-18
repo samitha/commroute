@@ -23,6 +23,9 @@ class FundamentalDiagram(Dumpable):
       q_max
     )
 
+  def rho_crit(self):
+    return self.q_max / self.v
+
   def jsonify(self):
     """docstring for jsonify"""
     return {

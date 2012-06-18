@@ -12,14 +12,12 @@ class LagrangianStaticProblem(FlowNetwork, SimpleOptimizeMixIn):
     for link in self.get_links():
       link.v_flow = self.create_var('flow: {0}'.format(link.name),self.attr_realizer(link,'flow'))
     for route in self.all_routes():
-      def realizer(val):
-        self.route.flow = val
       route.v_flow = self.create_var('route: {0}'.format(route.links), self.attr_realizer(route,'flow'))
 
 class LagrangianConstrained(LagrangianStaticProblem):
 
   def con_junc(self):
-    return [eq(sum(link.v_flow for link in junction.in_links),
+    return [self.cr_eq(sum(link.v_flow for link in junction.in_links),
                sum(link.v_flow for link in junction.out_links))
             for junction in self.junctions]
 

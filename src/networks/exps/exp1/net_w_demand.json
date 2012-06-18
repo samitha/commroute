@@ -28,7 +28,7 @@
         "v": 1.0
       },
       "flow": 0.0,
-      "name": "sink",
+      "name": "source",
       "rho": 1.0,
       "l": 1.0
     },
@@ -40,9 +40,9 @@
         "v": 1.0
       },
       "flow": 0.0,
-      "name": "right",
+      "name": "sink",
       "rho": 1.0,
-      "l": 2.0
+      "l": 1.0
     },
     {
       "fd": {
@@ -64,9 +64,9 @@
         "v": 1.0
       },
       "flow": 0.0,
-      "name": "source",
+      "name": "right",
       "rho": 1.0,
-      "l": 1.0
+      "l": 2.0
     }
   ],
   "demands": [

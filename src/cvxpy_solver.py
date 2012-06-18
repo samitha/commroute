@@ -33,6 +33,9 @@ class CVXPYProgram(Program):
   def cr_print(self):
     self.program.show()
 
+  def add_constraint(self, constraint):
+    self.program.constraints.append(constraint)
+
 class CVXPySolver(OptimizeMixIn):
 
   def cr_eq(self,a,b):

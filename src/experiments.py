@@ -122,7 +122,11 @@ def exp_1_nash_feasible():
     print 'flow', link.flow
     print 'rho', link.rho
   print 'net tt', net.total_travel_time()
-  net.get_program().cr_solve()
+  program = net.get_program()
+  left = net.link_by_name('left')
+  program.add_constraint(net.cr_geq(left.v_dens,left.fd.rho_crit()*1.5))
+  program.cr_print()
+  program.cr_solve()
   net.realize()
   for link in net.get_links():
     print 'link', link
