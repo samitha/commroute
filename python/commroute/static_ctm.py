@@ -1,7 +1,7 @@
 from cvxpy import  quad_over_lin, hstack
 from cvxpy import max as cvx_max
 from cvxpy_solver import SimpleOptimizeMixIn
-from commroute.cr_utils.cr_utils import flatten
+from cr_utils.cr_utils import flatten
 from ctm import DensityCTMNetwork
 from static_op import LagrangianConstrained
 
@@ -55,6 +55,15 @@ class CTMConstrained(CTMStaticProblem):
 
 
 class ComplacencyConstrained(CTMConstrained):
+
+  # TODO: scale hack, fix this yo!
+  scale = 1.1
+
+  def variablize(self):
+    super(ComplacencyConstrained, self).variablize()
+    for route in self.all_routes():
+      route.old_tt = route.travel_time()
+
   def route_tt_heuristic(self, route):
     def link_tt_heuristic(link):
       ff = link.l / link.fd.v
@@ -67,7 +76,7 @@ class ComplacencyConstrained(CTMConstrained):
 
   def con_route_tt(self):
     return [
-    self.cr_leq(self.route_tt_heuristic(route), 10000.0)
+    self.cr_leq(self.route_tt_heuristic(route), route.old_tt*self.scale)
     for route in self.all_routes()
     ]
 
@@ -75,30 +84,14 @@ class ComplacencyConstrained(CTMConstrained):
     return super(ComplacencyConstrained, self).constraints() + self.con_route_tt()
 
 
-class MinTTT(CTMStaticProblem):
+class MinTTTMixin(CTMStaticProblem):
   def objective(self):
     return sum(link.l * link.v_dens for link in self.get_links())
 
 
-class MinTTTComplacencyProblem(MinTTT, ComplacencyConstrained):
-  def __init__(self):
-    super(MinTTTComplacencyProblem, self).__init__()
+class MinTTTComplacencyProblem(MinTTTMixin, ComplacencyConstrained):
+  pass
 
-  def objective(self):
-    return MinTTT.objective(self)
-
-  def constraints(self):
-    return ComplacencyConstrained.constraints(self)
-
-
-class MinTTTLagrangianCTMProblem(MinTTT, CTMConstrained):
-  def __init__(self):
-    super(MinTTTLagrangianCTMProblem, self).__init__()
-
-  def objective(self):
-    return MinTTT.objective(self)
-
-  def constraints(self):
-    return CTMConstrained.constraints(self)
-
+class MinTTTLagrangianCTMProblem(MinTTTMixin, CTMConstrained):
+  pass
 

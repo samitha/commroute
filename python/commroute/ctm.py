@@ -1,4 +1,4 @@
-from commroute.cr_utils.Dumpable import Dumpable
+from cr_utils.Dumpable import Dumpable
 from cr_network import Link
 from demand import FlowNetwork
 
@@ -117,6 +117,8 @@ class DensityCTMLink(CTMLink):
     )
 
   def travel_time(self):
+    if self.rho <= 10e-8:
+      return self.l / self.fd.v
     return self.l * self.rho / self.flow
 
   def total_travel_time(self):

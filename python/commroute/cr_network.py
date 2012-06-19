@@ -1,9 +1,9 @@
 from networkx import MultiDiGraph
 from bfs import bfs, all_paths
 from collections import defaultdict
-from commroute.cr_utils.Dumpable import Dumpable
-from commroute.cr_utils.cr_utils import  flatten
-from commroute.d3_plot.d3_mixin import *
+from cr_utils.Dumpable import Dumpable
+from cr_utils.cr_utils import  flatten
+from d3_plot.d3_mixin import *
 
 class Link(Dumpable, D3Edge):
   """docstring for Link"""

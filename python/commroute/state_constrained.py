@@ -1,5 +1,5 @@
 from ctm import DensityCTMLink
-from static_ctm import MinTTTLagrangianCTMProblem
+from static_ctm import MinTTTLagrangianCTMProblem, MinTTTComplacencyProblem
 
 __author__ = 'jdr'
 
@@ -64,11 +64,15 @@ class StateConstrainedLink(DensityCTMLink):
 class StateConstrainedNetwork(MinTTTLagrangianCTMProblem):
   link_class = StateConstrainedLink
 
-  def constraints(self):
-    constraints = super(StateConstrainedNetwork, self).constraints()
+  def state_constrained_constraints(self):
+    constraints = []
     for link in self.get_links():
       constraints+=link.ctm_constraints(self)
     return constraints
 
+  def constraints(self):
+    constraints = super(StateConstrainedNetwork, self).constraints()
+    return constraints + self.state_constrained_constraints()
 
-
+class StateConstrainedComplacentNetwork(StateConstrainedNetwork, MinTTTComplacencyProblem):
+  pass
