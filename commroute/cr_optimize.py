@@ -1,11 +1,3 @@
-from operator import eq
-from cvxopt.modeling import variable
-from cvxpy.interface import leq, geq, maximize
-from cr_utils import Dumpable
-from cr_network import CRNetwork
-from demand import Demand
-from cvxpy import program, minimize
-
 __author__ = 'jdr'
 
 def do_nothing():
@@ -61,7 +53,7 @@ class Solver(object):
   def all_vars(self):
     try:
       return self.variables
-    except:
+    except AttributeError:
       self.reset_solver()
       return self.variables
 

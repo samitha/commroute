@@ -1,10 +1,6 @@
-from cr_optimize import OptimizeMixIn
-from ctm import DensityCTMLink
-
 __author__ = 'jdr'
 
 from demand import RouteDemand
-from static_ctm import ComplacencyConstrained
 
 class ComplianceException(Exception):
   pass
@@ -25,6 +21,7 @@ class CompliantRouteDemand(RouteDemand):
     json['compliance'] = self.compliance
     return json
 
+  @classmethod
   def load_demand(cls, data, net):
     return cls(
       route=net.route_by_names(data['route']),
@@ -32,5 +29,6 @@ class CompliantRouteDemand(RouteDemand):
       compliance = data['compliance']
     )
 
+  @classmethod
   def tag(cls):
     return 'compliant route'

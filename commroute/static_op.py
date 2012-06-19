@@ -1,6 +1,5 @@
 from cvxpy_solver import SimpleOptimizeMixIn
 from ctm import *
-from cvxpy import variable, eq, geq
 from demand import ODDemand, RouteDemand
 
 class LagrangianStaticProblem(FlowNetwork, SimpleOptimizeMixIn):

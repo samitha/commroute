@@ -1,4 +1,4 @@
-from cvxpy import eq, program, variable, minimize, geq, leq
+from cvxpy import eq, program, variable, minimize, geq, leq, maximize
 from numpy import inf
 from cr_optimize import OptimizeMixIn, Program, Constraint
 
@@ -28,19 +28,23 @@ class CVXPyConstraint(Constraint):
 
 class CVXPyProgram(Program):
 
+  def __init__(self, program):
+    super(CVXPyProgram, self).__init__()
+    self.program = program
+
   @classmethod
   def new_program(cls, program):
-    prog = cls()
-    prog.program = program
+    prog = cls(program)
     return prog
 
   def cr_objective(self):
     return self.program.objective.value
 
-  def cr_solve(self, quiet=True, **kwargs):
+  def cr_solve(self, **kwargs):
     """
     @rtype: float
     """
+    quiet = kwargs.get('quiet', True)
     return self.program.solve(quiet, **kwargs)
 
   def cr_print(self):

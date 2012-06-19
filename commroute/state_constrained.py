@@ -71,9 +71,4 @@ class StateConstrainedNetwork(MinTTTLagrangianCTMProblem):
     return constraints
 
 
-if __name__ == '__main__':
-  main()
-
-
-
 

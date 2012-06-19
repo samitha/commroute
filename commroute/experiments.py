@@ -73,11 +73,9 @@ def exp_1_demands():
   net.dump('networks/exps/exp1/net_w_demand.json')
 
 def exp_1_opt():
-  '''
-  @return: nothing, demonstrate
-
-  show that you can add constraints on the fly, and that this increases the objective when you force large densities
-  '''
+  """
+show that you can add constraints on the fly, and that this increases the objective when you force large densities
+  """
   net = MinTTTComplacencyProblem.load('networks/exps/exp1/net_w_demand.json')
   prog = net.get_program()
   prog.cr_print()

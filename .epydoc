@@ -8,7 +8,6 @@ url: http://github.com/jackdreilly/commroute
 # dotted names, module filenames, or package directory names.
 # This option may be repeated.
 modules: commroute
-modules: commroute/d3
 
 # Write html output to the directory "apidocs"
 output: html

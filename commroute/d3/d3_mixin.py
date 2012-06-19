@@ -4,8 +4,6 @@ __author__ = 'jdr'
 
 root_dir = 'd3'
 
-
-
 class D3Mixin:
 
   def d3ize(self):

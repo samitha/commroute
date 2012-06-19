@@ -15,7 +15,7 @@ class Link(Dumpable, D3Edge):
     self.name = str(name)
     try:
       props = net.node[self]
-    except:
+    except KeyError:
       net.add_node(self)
       props = net.node[self]
     props['name'] = self.name

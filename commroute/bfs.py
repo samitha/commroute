@@ -25,7 +25,6 @@ def bfs(s):
     unf = 'unfilled'
     sha = 'shaded'
     fil = 'filled'
-  net = s.net         
   colors = defaultdict(lambda: Color.unf)
   d = defaultdict(lambda: -1)
   pi = defaultdict(lambda: None)

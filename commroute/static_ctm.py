@@ -4,7 +4,6 @@ from cvxpy_solver import SimpleOptimizeMixIn
 from cr_utils import flatten
 from ctm import DensityCTMNetwork
 from static_op import LagrangianConstrained
-from numpy import inf
 
 __author__ = 'jdr'
 
