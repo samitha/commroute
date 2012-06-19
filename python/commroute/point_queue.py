@@ -1,4 +1,4 @@
-from cr_utils import Dumpable
+from cr_utils.Dumpable import Dumpable
 from demand import FlowNetwork, RouteDemand
 from cvxpy import square
 

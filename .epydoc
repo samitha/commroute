@@ -7,7 +7,7 @@ url: http://github.com/jackdreilly/commroute
 # The list of modules to document.  Modules can be named using
 # dotted names, module filenames, or package directory names.
 # This option may be repeated.
-modules: commroute, cvxpy, networkx, commroute/d3
+modules: python/commroute, cvxpy, networkx
 
 # Write html output to the directory "apidocs"
 output: html

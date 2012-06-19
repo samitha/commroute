@@ -1,6 +1,7 @@
-__author__ = 'jdr'
+from exceptions import NotImplementedError
 from simplejson import dump, load
-from itertools import chain
+
+__author__ = 'jdr'
 
 class Dumpable(object):
   def dump(self, fn):
@@ -36,8 +37,3 @@ class Dumpable(object):
     @return:
     """
     raise NotImplementedError('need to load object!')
-
-
-def flatten(listOfLists):
-  """Flatten one level of nesting"""
-  return chain.from_iterable(listOfLists)

@@ -1,7 +1,7 @@
 from cvxpy import  quad_over_lin, hstack
 from cvxpy import max as cvx_max
 from cvxpy_solver import SimpleOptimizeMixIn
-from cr_utils import flatten
+from cr_utils.cr_utils import flatten
 from ctm import DensityCTMNetwork
 from static_op import LagrangianConstrained
 

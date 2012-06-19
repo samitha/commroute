@@ -63,20 +63,20 @@ def exp_1_create():
   net.dump("networks/exps/exp1/net.json")
 
 def exp_1_demands():
-  net = DensityCTMNetwork.load('networks/exps/exp1/net.json')
+  net = DensityCTMNetwork.load('../networks/exps/exp1/net.json')
   left = net.route_by_names([
     'source', 'left', 'sink'
   ])
   route_demand = RouteDemand(left, .2)
   od_demand = ODDemand(net.link_by_name('source'), net.link_by_name('sink'), .8)
   net.demands.extend([route_demand, od_demand])
-  net.dump('networks/exps/exp1/net_w_demand.json')
+  net.dump('../networks/exps/exp1/net_w_demand.json')
 
 def exp_1_opt():
   """
 show that you can add constraints on the fly, and that this increases the objective when you force large densities
   """
-  net = MinTTTComplacencyProblem.load('networks/exps/exp1/net_w_demand.json')
+  net = MinTTTComplacencyProblem.load('../networks/exps/exp1/net_w_demand.json')
   prog = net.get_program()
   prog.cr_print()
   prog.cr_solve()
@@ -95,7 +95,7 @@ show that you can add constraints on the fly, and that this increases the object
   print net.check_feasible()
 
 def exp_1_nash():
-  net = MinTTTComplacencyProblem.load('networks/exps/exp1/net_w_demand.json')
+  net = MinTTTComplacencyProblem.load('../networks/exps/exp1/net_w_demand.json')
   left = net.link_by_name('left')
   right = net.link_by_name('right')
   left.flow = .75
@@ -108,10 +108,10 @@ def exp_1_nash():
   source.rho = source.fd.rho_ff(source.flow)
   sink.flow = 1.0
   sink.rho = source.fd.rho_ff(sink.flow)
-  net.dump('networks/exps/exp1/net_nash.json')
+  net.dump('../networks/exps/exp1/net_nash.json')
 
 def exp_1_nash_feasible():
-  net = MinTTTComplacencyProblem.load('networks/exps/exp1/net_nash.json')
+  net = MinTTTComplacencyProblem.load('../networks/exps/exp1/net_nash.json')
   print 'is feasible: ', net.check_feasible()
   for route in net.all_routes():
     print 'route', route
@@ -144,14 +144,14 @@ def exp_2():
   """
   starting to figure out stateconstrained things
   """
-  net = StateConstrainedNetwork.load('networks/exps/exp1/net_state.json')
+  net = StateConstrainedNetwork.load('../networks/exps/exp1/net_state.json')
 
   net.objective = lambda: 0
 
   net.get_program().cr_solve()
   net.realize()
   print net.total_travel_time()
-  net.dump('networks/exps/exp2/lc_rf.json')
+  net.dump('../networks/exps/exp2/lc_rf.json')
 
   net.reset_solver()
   right = net.link_by_name('right')
@@ -160,7 +160,7 @@ def exp_2():
   net.get_program().cr_solve()
   net.realize()
   print net.total_travel_time()
-  net.dump('networks/exps/exp2/lc_rc.json')
+  net.dump('../networks/exps/exp2/lc_rc.json')
   print 'feasible', net.check_feasible()
   right.flow*=.5
   print 'feasible', net.check_feasible()
