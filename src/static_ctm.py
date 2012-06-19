@@ -97,6 +97,6 @@ class MinTTTLagrangianCTMProblem(MinTTT, CTMConstrained):
     return MinTTT.objective(self)
 
   def constraints(self):
-    return CTMStaticProblem.constraints(self)
+    return CTMConstrained.constraints(self)
 
 

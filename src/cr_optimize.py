@@ -40,6 +40,9 @@ class Solver(object):
     MIN = 0
     MAX = 1
 
+  def reset_solver(self):
+    self.variables = []
+
   @staticmethod
   def attr_realizer(obj, attr):
     def helper(val):
@@ -59,7 +62,7 @@ class Solver(object):
     try:
       return self.variables
     except:
-      self.variables = []
+      self.reset_solver()
       return self.variables
 
   def cr_program(self, goal, cost, constraints):

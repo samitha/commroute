@@ -1,4 +1,5 @@
 from demand import RouteDemand, ODDemand
+from state_constrained import StateConstrainedNetwork
 
 __author__ = 'jdr'
 from static_ctm import *
@@ -134,13 +135,36 @@ def exp_1_nash_feasible():
     print 'rho', link.rho
   print 'net tt', net.total_travel_time()
 
-def main():
+def exp_1():
   exp_1_create()
   exp_1_demands()
   exp_1_opt()
   exp_1_nash()
   exp_1_nash_feasible()
 
+def exp_2():
+  """
+  starting to figure out stateconstrained things
+  """
+  net = StateConstrainedNetwork.load('networks/exps/exp1/net_state.json')
+
+  net.objective = lambda: 0
+
+  net.get_program().cr_solve()
+  net.realize()
+  print net.total_travel_time()
+  net.dump('networks/exps/exp2/lc_rf.json')
+
+  net.reset_solver()
+  right = net.link_by_name('right')
+  right.state = right.State.ANY
+
+  net.get_program().cr_solve()
+  net.realize()
+  print net.total_travel_time()
+  net.dump('networks/exps/exp2/lc_rc.json')
+
+
 if __name__ == '__main__':
-  main()
+  exp_2()
 

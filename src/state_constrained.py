@@ -71,11 +71,6 @@ class StateConstrainedNetwork(MinTTTLagrangianCTMProblem):
     return constraints
 
 
-def main():
-  net = StateConstrainedNetwork.load('networks/exps/exp1/net_state.json')
-  net.get_program().cr_print()
-
-
 if __name__ == '__main__':
   main()
 

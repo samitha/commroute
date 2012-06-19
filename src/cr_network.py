@@ -188,7 +188,7 @@ class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
     self.CACHE = True
 
   def total_travel_time(self):
-    return sum(link.travel_time()*link.flow for link in self.get_links())
+    return sum(link.total_travel_time() for link in self.get_links())
 
   def add_junction(self, junction):
     """docstring for add_junction"""

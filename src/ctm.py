@@ -119,8 +119,8 @@ class DensityCTMLink(CTMLink):
   def travel_time(self):
     return self.l * self.rho / self.flow
 
-
-
+  def total_travel_time(self):
+    return self.l * self.rho
 
 
 class DensityCTMNetwork(FlowNetwork):
