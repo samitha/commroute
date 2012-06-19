@@ -1,5 +1,5 @@
+from commroute.cr_utils import Dumpable
 from cr_network import CRNetwork
-from cr_utils.Dumpable import Dumpable
 
 __author__ = 'jdr'
 

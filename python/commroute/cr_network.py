@@ -1,8 +1,8 @@
 from networkx import MultiDiGraph
 from bfs import bfs, all_paths
 from collections import defaultdict
-from cr_utils.Dumpable import Dumpable
-from cr_utils.cr_utils import  flatten
+from commroute.cr_utils import Dumpable
+from commroute.cr_utils.cr_utils import  flatten
 from d3.d3_mixin import *
 
 class Link(Dumpable, D3Edge):

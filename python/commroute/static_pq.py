@@ -1,5 +1,5 @@
 from cvxpy.interface import geq, leq, minimize
-from cr_utils.cr_utils import flatten
+from commroute.cr_utils.cr_utils import flatten
 from point_queue import FlowLinkNetwork
 
 __author__ = 'jdr'
