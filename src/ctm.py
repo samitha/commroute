@@ -64,6 +64,13 @@ class CTMLink(Link):
   """docstring for CTMLink"""
 
   def __init__(self, l, fd, flow=0.0, *args, **kwargs):
+    """
+
+    @param l: length of link
+    @param fd: fundamental diagram
+    @type fd: FundamentalDiagram
+    @param flow: flow state on link
+    """
     super(CTMLink, self).__init__(*args, **kwargs)
     self.l = l
     self.fd = fd
