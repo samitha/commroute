@@ -1,4 +1,4 @@
-from commroute.cr_utils import Dumpable
+from commroute.cr_utils.Dumpable import Dumpable
 from cr_network import Link
 from demand import FlowNetwork
 

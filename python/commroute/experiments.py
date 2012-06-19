@@ -1,11 +1,11 @@
 from demand import RouteDemand, ODDemand
 from state_constrained import StateConstrainedNetwork
-
-__author__ = 'jdr'
 from static_ctm import *
 from ctm import FundamentalDiagram
 from ctm import DensityCTMLink
 from cr_network import Junction
+
+__author__ = 'jdr'
 
 def exp_1_create():
   """
