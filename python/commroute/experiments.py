@@ -228,18 +228,38 @@ def exp_3_info():
 def exp_4():
   net = StateConstrainedNetwork.load('../networks/fpnet_with_demands.json')
   net.objective = lambda: 0
+  l_9 = net.link_by_name('9')
+  l_3 = net.link_by_name('3')
+  l_8 = net.link_by_name('8')
   for link in net.get_links():
-    link.set_state(link.State.CONG)
+    if link in [l_9, l_3, l_8]:
+      link.set_state(link.State.CONG)
+    else:
+      link.set_state(link.State.FF)
   net.get_program().cr_solve()
   net.realize()
   print net.total_travel_time()
-  for link in net.get_links():
-    print 'link', link
-    print link.rho
-    print link.flow
   net.dump('../networks/exps/exp4/net_cong.json')
+
+  net = StateConstrainedNetwork.load('../networks/exps/exp4/net_cong.json')
+  net.get_program().cr_solve()
+  net.realize()
+  print net.total_travel_time()
+
   net = StateConstrainedComplacentNetwork.load('../networks/exps/exp4/net_cong.json')
-  net.get_program().cr_print()
+  net.scale = 1.1
+  net.get_program().cr_solve()
+  net.realize()
+  print net.total_travel_time()
+
+  net = StateConstrainedComplacentNetwork.load('../networks/exps/exp4/net_cong.json')
+  net.scale = 1000.0
+  net.get_program().cr_solve()
+  net.realize()
+  print net.total_travel_time()
+
+  net = StateConstrainedComplacentNetwork.load('../networks/exps/exp4/net_cong.json')
+  net.scale = 10.0
   net.get_program().cr_solve()
   net.realize()
   print net.total_travel_time()
