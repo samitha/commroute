@@ -111,8 +111,8 @@ class DensityCTMLink(CTMLink):
   def additional_kwargs(cls, data):
     return dict(
       l=data['l'],
-      rho=data['rho'],
-      flow=data['flow'],
+      rho=data.get('rho', 0.0),
+      flow=data.get('flow',0.0),
       fd=FundamentalDiagram.load_with_json_data(data['fd'])
     )
 

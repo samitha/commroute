@@ -5,12 +5,11 @@ __author__ = 'jdr'
 
 
 class Demand(Dumpable):
-  """docstring for Demand"""
+  """Base class for defining demands, which are really just flows"""
   types = dict()
 
-  def __init__(self, net, flow):
+  def __init__(self, flow):
     super(Demand, self).__init__()
-    self.net = net
     self.flow = flow
 
   def jsonify(self):
@@ -30,7 +29,6 @@ class Demand(Dumpable):
   @classmethod
   def load_demand(cls, data, net):
     return cls(
-      net=net,
       flow=data['flow']
     )
 
@@ -40,15 +38,15 @@ class Demand(Dumpable):
 
 
 class RouteDemand(Demand):
-  """docstring for RouteDemand"""
+  """A Demand specified over a route"""
 
   @classmethod
   def tag(cls):
     return 'route'
 
-  def __init__(self, route, flow):
+  def __init__(self, route, *args, **kwargs):
+    super(RouteDemand, self).__init__(*args, **kwargs)
     self.route = route
-    super(RouteDemand, self).__init__(route.net, flow)
 
   def jsonify(self):
     json = super(RouteDemand, self).jsonify()
@@ -66,10 +64,13 @@ class RouteDemand(Demand):
 
 
 class ODDemand(Demand):
-  """docstring for RouteDemand"""
+  """
+  A demand specified over a source and sink pair,
+  which gives optimization more freedom that route-based demands
+  """
 
-  def __init__(self, source, sink, flow):
-    super(ODDemand, self).__init__(source.net, flow)
+  def __init__(self, source, sink, *args, **kwargs):
+    super(ODDemand, self).__init__(*args, **kwargs)
     self.source = source
     self.sink = sink
 
@@ -95,10 +96,10 @@ class ODDemand(Demand):
 
 
 class LinkDemand(Demand):
-  """docstring for LinkDemand"""
+  """Demand specified over link, like a static sensor"""
 
-  def __init__(self, link, flow):
-    super(LinkDemand, self).__init__(link.net, flow)
+  def __init__(self, link, *args, **kwargs):
+    super(LinkDemand, self).__init__(*args, **kwargs)
     self.link = link
 
   def jsonify(self):
@@ -123,6 +124,10 @@ for new_cls in (Demand, ODDemand, LinkDemand, RouteDemand):
   Demand.add_type(new_cls)
 
 class DemandMixin(object):
+  """
+  Convenience mixin to provide "load demands" and "dump demands" methods,
+  and also creates `self.demands` attribute
+  """
 
   def __init__(self):
     self.demands = []
@@ -137,6 +142,9 @@ class DemandMixin(object):
 
 
 class FlowNetwork(CRNetwork, DemandMixin):
+  """
+  Better base class for creating networks, since demand is usually necessary
+  """
 
   def __init__(self):
     super(FlowNetwork, self).__init__()
@@ -152,4 +160,3 @@ class FlowNetwork(CRNetwork, DemandMixin):
     json = super(FlowNetwork, self).jsonify()
     self.dump_demands(json)
     return json
-

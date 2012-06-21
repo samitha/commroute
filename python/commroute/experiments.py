@@ -160,7 +160,6 @@ def exp_3_setup():
   r_rho = 3 - l_rho
 
   source = StateConstrainedLink(
-    net=net,
     fd=fd,
     name='source',
     state=StateConstrainedLink.State.ANY,
@@ -169,7 +168,6 @@ def exp_3_setup():
     rho=fd.rho_ff(r)
   )
   left = StateConstrainedLink(
-    net=net,
     fd=fd,
     name='left',
     state=StateConstrainedLink.State.CONG,
@@ -178,7 +176,6 @@ def exp_3_setup():
     rho=l_rho
   )
   right = StateConstrainedLink(
-    net=net,
     fd=fd,
     name='right',
     state=StateConstrainedLink.State.CONG,
@@ -187,7 +184,6 @@ def exp_3_setup():
     rho=r_rho
   )
   sink = StateConstrainedLink(
-    net=net,
     fd=fd,
     name='sink',
     state=StateConstrainedLink.State.ANY,
@@ -215,17 +211,40 @@ def exp_3_setup():
   net.dump('../../networks/exps/exp3/net_demand.json')
 
 def exp_3_info():
-  net = StateConstrainedComplacentNetwork.load('../../networks/exps/exp3/net_demand.json')
+  net = StateConstrainedComplacentNetwork.load('../networks/exps/exp3/net_demand.json')
   print 'ttt previous', net.total_travel_time()
   net.get_program().cr_solve()
   net.realize()
   print 'ttt after complacence optimize', net.total_travel_time()
-  net = StateConstrainedNetwork.load('../../networks/exps/exp3/net_demand.json')
+  for route in net.all_routes():
+    print 'route', route
+    print 'heur tt', net.route_tt_heuristic(route).value
+    print 'actual tt', route.travel_time()
+  net = StateConstrainedNetwork.load('../networks/exps/exp3/net_demand.json')
   net.get_program().cr_solve()
   net.realize()
   print 'ttt after non-comp optimize', net.total_travel_time()
 
+def exp_4():
+  net = StateConstrainedNetwork.load('../networks/fpnet_with_demands.json')
+  net.objective = lambda: 0
+  for link in net.get_links():
+    link.set_state(link.State.CONG)
+  net.get_program().cr_solve()
+  net.realize()
+  print net.total_travel_time()
+  for link in net.get_links():
+    print 'link', link
+    print link.rho
+    print link.flow
+  net.dump('../networks/exps/exp4/net_cong.json')
+  net = StateConstrainedComplacentNetwork.load('../networks/exps/exp4/net_cong.json')
+  net.get_program().cr_print()
+  net.get_program().cr_solve()
+  net.realize()
+  print net.total_travel_time()
+
 
 if __name__ == '__main__':
-  exp_3_info()
+  exp_4()
 

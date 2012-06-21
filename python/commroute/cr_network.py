@@ -5,63 +5,82 @@ from cr_utils.Dumpable import Dumpable
 from cr_utils.cr_utils import  flatten
 from d3_plot.d3_mixin import *
 
-class Link(Dumpable, D3Edge):
-  """docstring for Link"""
+class JunctionException(Exception):
+  pass
+class JunctionException(Exception):
+  pass
 
-  def __init__(self, net=None, name=None):
+
+class Link(Dumpable, D3Edge):
+  """Base class for constructing networks."""
+  current_name = 0
+
+  def __init__(self, name=None):
+    """
+    @param name: identifier of link
+    @type name: str
+    """
     super(Link, self).__init__()
+    if name is None:
+      name = self.next_name()
     self.up_junc = None
     self.down_junc = None
-    self.net = net
     self.name = str(name)
-    try:
-      props = net.node[self]
-    except KeyError:
-      net.add_node(self)
-      props = net.node[self]
-    props['name'] = self.name
     self.up_junc = Source(self)
     self.down_junc = Sink(self)
 
+  @classmethod
+  def next_name(cls):
+    cls.current_name+=1
+    return str(cls.current_name)
+
   def neighbors(self):
-    return self.down_junc.link_neighbors()
+    return self.upstream_links()
 
   def set_up_junc(self, j):
-    """docstring for set_up_junc"""
+    """
+    Set the up junction, and check to make sure it's not already set
+    @param j: upstream junction to set
+    @type j: Junction
+    @rtype: None
+    """
     if not self.is_source():
-      raise Exception("junction already set")
+      raise JunctionException("junction already set")
     self.up_junc = j
 
   def set_down_junc(self, j):
-    """docstring for set_up_junc"""
+    """
+    Set the down junction, and check to make sure it's not already set
+    @param j: down junction to set
+    @type j: Junction
+    @rtype: None
+    """
     if not self.is_sink():
-      raise Exception("junction already set")
+      raise JunctionException("junction already set")
     self.down_junc = j
 
-  def travel_time(self):
-    raise NotImplementedError("implement dummy!")
-
   def jsonify(self):
-    """docstring for jsonify"""
     return {
       'name': self.name
     }
 
   @classmethod
   def load_with_json_data(cls, data, **kwargs):
-    new_kwargs = {'net': kwargs['net'], 'name': data['name']}
+    """Simplified approach to deserializing new links"""
+    new_kwargs = {'name': data['name']}
     new_kwargs.update(cls.additional_kwargs(data))
     return cls(**new_kwargs)
 
   @classmethod
   def additional_kwargs(cls, data):
+    """Specify which new arguments to pass into Link creating"""
     return {}
 
   def upstream_links(self):
-    return self.net.in_edges(self.down_junc)
+    return self.down_junc.link_neighbors()
 
   def downstream_links(self):
-    return self.net.out_edges(self.up_junc)
+    return self.up_junc.link_neighbors()
 
   def is_sink(self):
     return isinstance(self.down_junc, Sink) or self.down_junc is None
@@ -77,9 +96,9 @@ class Link(Dumpable, D3Edge):
   def __str__(self):
     return self.__repr__()
 
-  def routes(self):
+  def routes(self, net):
     """docstring for routes"""
-    return [route for routes in self.net.od_routes.itervalues() for route in routes if route.has_link(self)]
+    return [route for routes in net.od_routes.itervalues() for route in routes if route.has_link(self)]
 
   def d3_attrs(self):
     return self.jsonify()
@@ -98,6 +117,13 @@ class Junction(D3Node):
   """docstring for Junction"""
 
   def __init__(self, in_links, out_links):
+    """
+    Base Junction implementation, no need for subclassing understood yet
+    @param in_links: links coming into junction
+    @type in_links: list
+    @param out_links: links coming out of junction
+    @type out_links: list
+    """
     super(Junction, self).__init__()
     self.in_links = in_links
     self.out_links = out_links
@@ -105,34 +131,24 @@ class Junction(D3Node):
       il.set_down_junc(self)
     for ol in out_links:
       ol.set_up_junc(self)
-    self.net = self.get_net()
 
   def d3_node_name(self):
     # verbose
     # return '{0}::{1}'.format(self.in_links,self.out_links)
     return ''
 
-  def edges(self):
-    """docstring for edges"""
-    return [(i, o) for i in self.in_links for o in self.out_links]
-
   def jsonify(self):
-    """docstring for jsonify"""
     return ([link.name for link in self.in_links],
             [link.name for link in self.out_links])
 
   def link_neighbors(self):
     return self.out_links
 
-  def junction_neighbors(self):
-    return self.net.neighbors(self)
+  def junction_neighbors(self, net):
+    return net.neighbors(self)
 
   def neighbors(self):
     return self.junction_neighbors()
-
-  def get_net(self):
-    for link in self.links():
-      return link.net
 
   def links(self):
     return set(self.in_links + self.out_links)
@@ -151,9 +167,8 @@ class Sink(Junction):
 class Route(object):
   """docstring for Route"""
 
-  def __init__(self, net, *links):
+  def __init__(self, *links):
     super(Route, self).__init__()
-    self.net = net
     if len(links) is 1 and isinstance(links[0], list):
       self.links = links[0]
     else:
@@ -179,7 +194,7 @@ class Route(object):
 
 
 class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
-  """docstring for CRNetwork"""
+  """Base class for creating networks, doesn't support flow out of the box, need to have that"""
 
   link_class = Link
 
@@ -245,7 +260,7 @@ class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
     for source in self.sources:
       dests = self.all_paths(source)
       for sink in self.sinks:
-        routes[source, sink] = [Route(self, *(path + [sink])) for path in dests[sink]]
+        routes[source, sink] = [Route(*(path + [sink])) for path in dests[sink]]
     return routes
 
   def bfs(self, source):

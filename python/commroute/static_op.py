@@ -26,7 +26,7 @@ class LagrangianConstrained(LagrangianStaticProblem):
 
     def route_flows(link):
       flow = 0.0
-      link_routes = link.routes()
+      link_routes = link.routes(self)
       for route in link_routes:
         flow += route.v_flow
       for dem in route_demands:
