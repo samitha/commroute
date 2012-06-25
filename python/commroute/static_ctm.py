@@ -2,13 +2,13 @@ from cvxpy import  quad_over_lin, hstack
 from cvxpy import max as cvx_max
 from cvxpy_solver import SimpleOptimizeMixIn
 from cr_utils.cr_utils import flatten
-from ctm import DensityCTMNetwork
+from ctm import CTMNetwork
 from static_op import LagrangianConstrained
 
 __author__ = 'jdr'
 
 
-class CTMStaticProblem(DensityCTMNetwork, LagrangianConstrained):
+class CTMStaticProblem(CTMNetwork, LagrangianConstrained):
   def variablize(self):
     super(CTMStaticProblem, self).variablize()
     for link in self.get_links():
@@ -62,7 +62,7 @@ class ComplacencyConstrained(CTMConstrained):
   def variablize(self):
     super(ComplacencyConstrained, self).variablize()
     for route in self.all_routes():
-      route.old_tt = route.travel_time()
+      route.old_tt = self.route_travel_time(route)
 
   def route_tt_heuristic(self, route):
     def link_tt_heuristic(link):

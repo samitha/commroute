@@ -2,7 +2,7 @@ from demand import RouteDemand, ODDemand
 from state_constrained import StateConstrainedNetwork, StateConstrainedComplacentNetwork, StateConstrainedLink
 from static_ctm import *
 from ctm import FundamentalDiagram
-from ctm import DensityCTMLink
+from ctm import CTMLink
 from cr_network import Junction
 
 __author__ = 'jdr'
@@ -25,28 +25,28 @@ def exp_1_create():
   )
 
   net = DensityCTMNetwork()
-  source = DensityCTMLink(
+  source = CTMLink(
     net=net,
     name='source',
     l=l,
     fd=fd,
     rho=1.0
   )
-  left = DensityCTMLink(
+  left = CTMLink(
     net=net,
     name='left',
     l=l,
     fd=fd,
     rho=1.0
   )
-  right = DensityCTMLink(
+  right = CTMLink(
     net=net,
     name='right',
     l=2 * l,
     fd=fd,
     rho=1.0
   )
-  sink = DensityCTMLink(
+  sink = CTMLink(
     net=net,
     name='sink',
     l=l,
@@ -162,7 +162,7 @@ def exp_3_setup():
   source = StateConstrainedLink(
     fd=fd,
     name='source',
-    state=StateConstrainedLink.State.ANY,
+    cong_state=StateConstrainedLink.CongState.ANY,
     l=l,
     flow=r,
     rho=fd.rho_ff(r)
@@ -170,7 +170,7 @@ def exp_3_setup():
   left = StateConstrainedLink(
     fd=fd,
     name='left',
-    state=StateConstrainedLink.State.CONG,
+    cong_state=StateConstrainedLink.CongState.CONG,
     l=2*l,
     flow=fd.flow_cong(l_rho),
     rho=l_rho
@@ -178,7 +178,7 @@ def exp_3_setup():
   right = StateConstrainedLink(
     fd=fd,
     name='right',
-    state=StateConstrainedLink.State.CONG,
+    cong_state=StateConstrainedLink.CongState.CONG,
     l=l,
     flow=fd.flow_cong(r_rho),
     rho=r_rho
@@ -186,7 +186,7 @@ def exp_3_setup():
   sink = StateConstrainedLink(
     fd=fd,
     name='sink',
-    state=StateConstrainedLink.State.ANY,
+    cong_state=StateConstrainedLink.CongState.ANY,
     l=l,
     flow=r,
     rho=fd.rho_ff(r)
@@ -233,9 +233,10 @@ def exp_4():
   l_8 = net.link_by_name('8')
   for link in net.get_links():
     if link in [l_9, l_3, l_8]:
-      link.set_state(link.State.CONG)
+      link.set_cong_state(link.CongState.CONG)
     else:
-      link.set_state(link.State.FF)
+      link.set_cong_state(link.CongState.FF)
+  net.get_program().cr_print()
   net.get_program().cr_solve()
   net.realize()
   print net.total_travel_time()

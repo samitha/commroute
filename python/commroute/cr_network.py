@@ -189,9 +189,6 @@ class Route(object):
   def jsonify(self):
     return [link.name for link in self.links]
 
-  def travel_time(self):
-    return sum(link.travel_time() for link in self.links)
-
 
 class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
   """Base class for creating networks, doesn't support flow out of the box, need to have that"""
@@ -202,9 +199,6 @@ class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
     super(CRNetwork, self).__init__()
     self.links = set()
     self.CACHE = True
-
-  def total_travel_time(self):
-    return sum(link.total_travel_time() for link in self.get_links())
 
   def add_junction(self, junction):
     """docstring for add_junction"""

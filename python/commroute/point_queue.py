@@ -1,4 +1,5 @@
 from commroute.cr_utils.Dumpable import Dumpable
+from commroute.traffic import TrafficLink, TrafficState
 from demand import FlowNetwork, RouteDemand
 from cvxpy import square
 
@@ -67,13 +68,22 @@ FlowLatency.types = dict(
   for cls in (AffineLatency, FlowLatency)
 )
 
-class FlowLink(Link):
+class PQState(TrafficState):
+
+  def __init__(self, flow):
+    super(PQState, self).__init__()
+    self.flow = flow
+
+class FlowLink(TrafficLink):
 
   def __init__(self, latency, q_max, flow = 0.0, *args, **kwargs):
     super(FlowLink, self).__init__(*args, **kwargs)
     self.q_max = q_max
     self.latency = latency
-    self.flow = flow
+    self.state = PQState(flow)
+
+  def get_state(self):
+    return self.state
 
   def flow_latency(self, flow):
     return self.latency.travel_time(self, flow)
@@ -81,14 +91,16 @@ class FlowLink(Link):
   def flow_flow_latency(self, flow):
     return self.latency.flow_x_travel_time(self, flow)
 
-  def travel_time(self):
-    return self.latency.travel_time(self, self.flow)
+  def travel_time(self, state=None):
+    if state is None:
+      state = self.get_state()
+    return self.latency.travel_time(self, state.flow)
 
   def jsonify(self):
     json = super(FlowLink, self).jsonify()
     json['q_max'] = self.q_max
     json['latency'] = self.latency.jsonify()
-    json['flow'] = self.flow
+    json['flow'] = self.state.flow
     return json
 
   @classmethod
@@ -107,7 +119,6 @@ def main():
   net = FlowLinkNetwork()
   source = FlowLink(
     name='source',
-    net=net,
     q_max=5.0,
     latency=AffineLatency(
       a=2.0,
@@ -116,7 +127,6 @@ def main():
   )
   sink = FlowLink(
     name='sink',
-    net=net,
     q_max=4.0,
     latency=AffineLatency(
       a=4.0,
@@ -126,13 +136,14 @@ def main():
   junction = Junction([source],[sink])
   net.add_junction(junction)
   net.demands.append(RouteDemand(flow=1.5, route=net.route_by_names(['source','sink'])))
-  net.dump('networks/flownet.json')
+  net.dump('../networks/flownet.json')
 
   del net
-  net = FlowLinkNetwork.load('networks/flownet.json')
+  net = FlowLinkNetwork.load('../networks/flownet.json')
   print net.demands
   print net.get_links()
-  print net.get_links()[0].flow_latency(3.4)
+  for link in net.get_links():
+    print link.flow_latency(3.4)
 
 if __name__ == '__main__':
   main()

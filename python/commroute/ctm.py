@@ -1,3 +1,4 @@
+from commroute.traffic import TrafficLink, TrafficState
 from cr_utils.Dumpable import Dumpable
 from cr_network import Link
 from demand import FlowNetwork
@@ -59,11 +60,17 @@ class FundamentalDiagram(Dumpable):
       rho_max=data['rho_max']
     )
 
+class CTMState(TrafficState):
 
-class CTMLink(Link):
+  def __init__(self, flow, density):
+    super(CTMState, self).__init__()
+    self.flow = flow
+    self.density = density
+
+class CTMLink(TrafficLink):
   """docstring for CTMLink"""
 
-  def __init__(self, l, fd, flow=0.0, *args, **kwargs):
+  def __init__(self, l, fd, flow=0.0, density=0.0, *args, **kwargs):
     """
 
     @param l: length of link
@@ -74,14 +81,15 @@ class CTMLink(Link):
     super(CTMLink, self).__init__(*args, **kwargs)
     self.l = l
     self.fd = fd
-    self.flow = flow
+    self.state = CTMState(flow, density)
 
   def jsonify(self):
     json = super(CTMLink, self).jsonify()
     json.update({
       'l': self.l,
       'fd': self.fd.jsonify(),
-      'flow': self.flow
+      'flow': self.state.flow,
+      'rho': self.state.density
     })
     return json
 
@@ -89,52 +97,30 @@ class CTMLink(Link):
   def d3_value(self):
     return self.l
 
-
-class DensityCTMLink(CTMLink):
-  """docstring for DensityCTMLink"""
-
-  def __init__(self, rho=0.0, *args, **kwargs):
-    super(DensityCTMLink, self).__init__(*args, **kwargs)
-    self.rho = rho
-
-
-
-  def jsonify(self):
-    """docstring for jsonify"""
-    json = super(DensityCTMLink, self).jsonify()
-    json.update({
-      'rho': self.rho
-    })
-    return json
-
   @classmethod
   def additional_kwargs(cls, data):
     return dict(
       l=data['l'],
-      rho=data.get('rho', 0.0),
+      density=data.get('rho', 0.0),
       flow=data.get('flow',0.0),
       fd=FundamentalDiagram.load_with_json_data(data['fd'])
     )
 
-  def travel_time(self):
-    if self.rho <= 10e-8:
+  def travel_time(self, state=None):
+    if state is None:
+      state = self.get_state()
+    if state.density <= 10e-8 or state.flow <= 10e-8:
       return self.l / self.fd.v
-    return self.l * self.rho / self.flow
+    return self.l * state.density / state.flow
 
-  def total_travel_time(self):
-    return self.l * self.rho
+  def total_travel_time(self, state=None):
+    if state is None:
+      state = self.get_state()
+    return self.l * state.density
 
-
-class DensityCTMNetwork(FlowNetwork):
-  link_class = DensityCTMLink
-
-  def __init__(self):
-    super(DensityCTMNetwork, self).__init__()
+  def get_state(self):
+    return self.state
 
 
-  def tt_free_flow(self, route):
-    return sum(link.l / link.fd.v for link in route.get_links)
-
-if __name__ == '__main__':
-  print 'hei'
-  
+class CTMNetwork(FlowNetwork):
+  link_class = CTMLink

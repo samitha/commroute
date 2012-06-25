@@ -1,3 +1,4 @@
+from commroute.traffic import TrafficNetwork
 from cr_utils.Dumpable import Dumpable
 from cr_network import CRNetwork
 
@@ -130,6 +131,7 @@ class DemandMixin(object):
   """
 
   def __init__(self):
+    super(DemandMixin, self).__init__()
     self.demands = []
 
   def load_demands(self, data):
@@ -141,14 +143,10 @@ class DemandMixin(object):
     return json
 
 
-class FlowNetwork(CRNetwork, DemandMixin):
+class FlowNetwork(DemandMixin, TrafficNetwork):
   """
   Better base class for creating networks, since demand is usually necessary
   """
-
-  def __init__(self):
-    super(FlowNetwork, self).__init__()
-    DemandMixin.__init__(self)
 
   @classmethod
   def load_with_json_data(cls, data, **kwargs):

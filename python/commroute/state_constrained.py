@@ -1,39 +1,39 @@
-from ctm import DensityCTMLink
+from ctm import CTMLink
 from static_ctm import MinTTTLagrangianCTMProblem, MinTTTComplacencyProblem
 
 __author__ = 'jdr'
 
-class StateConstrainedLink(DensityCTMLink):
+class StateConstrainedLink(CTMLink):
 
-  class State:
+  class CongState:
     FF = 0
     CONG = 1
     ANY = 2
 
-  def __init__(self, state=None, *args, **kwargs):
-    if state is None:
-      state = self.State.ANY
+  def __init__(self, cong_state=None, *args, **kwargs):
+    if cong_state is None:
+      cong_state = self.CongState.ANY
     super(StateConstrainedLink, self).__init__(*args, **kwargs)
-    self.state = state
+    self.cong_state = cong_state
 
 
-  def state(self):
-    return self.state
+  def cong_state(self):
+    return self.cong_state
 
   def set_ff(self):
-    self.state = self.State.FF
+    self.cong_state = self.CongState.FF
 
   def set_cong(self):
-    self.state = self.State.CONG
+    self.cong_state = self.CongState.CONG
 
   def set_any(self):
-    self.state = self.State.ANY
+    self.cong_state = self.CongState.ANY
 
   def init_state(self):
-    self.set_state(self.State.ANY)
+    self.set_cong_state(self.CongState.ANY)
 
-  def set_state(self, state):
-    self.state = state
+  def set_cong_state(self, state):
+    self.cong_state = state
 
   def ctm_constraints(self, solver):
     """
@@ -43,22 +43,22 @@ class StateConstrainedLink(DensityCTMLink):
     @type solver: cvxpy_solver.CVXPySolver
     @rtype: cvxpy_solver.CVXPyConstraint
     """
-    if self.state is self.State.FF:
+    if self.cong_state is self.CongState.FF:
       return [solver.cr_eq(self.v_flow, self.fd.flow_ff(self.v_dens))]
-    if self.state is self.State.CONG:
+    if self.cong_state is self.CongState.CONG:
       return [solver.cr_eq(self.v_flow, self.fd.flow_cong(self.v_dens))]
-    if self.state is self.State.ANY:
+    if self.cong_state is self.CongState.ANY:
       return []
 
   def jsonify(self):
     json = super(StateConstrainedLink, self).jsonify()
-    json['state'] = self.state
+    json['cong_state'] = self.cong_state
     return json
 
   @classmethod
   def additional_kwargs(cls, data):
     kwargs = super(StateConstrainedLink, cls).additional_kwargs(data)
-    kwargs['state'] = data.get('state', cls.State.ANY)
+    kwargs['cong_state'] = data.get('state', cls.CongState.ANY)
     return kwargs
 
 class StateConstrainedNetwork(MinTTTLagrangianCTMProblem):
