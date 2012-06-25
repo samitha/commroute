@@ -12,7 +12,7 @@ class CTMStaticProblem(CTMNetwork, LagrangianConstrained):
   def variablize(self):
     super(CTMStaticProblem, self).variablize()
     for link in self.get_links():
-      link.v_dens = self.create_var('dens: {0}'.format(link.name), self.attr_realizer(link, 'rho'))
+      link.v_dens = self.create_var('dens: {0}'.format(link.name), self.attr_realizer(link.state, 'density'))
 
 
 class CTMConstrained(CTMStaticProblem):

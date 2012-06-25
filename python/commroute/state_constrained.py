@@ -58,7 +58,7 @@ class StateConstrainedLink(CTMLink):
   @classmethod
   def additional_kwargs(cls, data):
     kwargs = super(StateConstrainedLink, cls).additional_kwargs(data)
-    kwargs['cong_state'] = data.get('state', cls.CongState.ANY)
+    kwargs['cong_state'] = data.get('cong_state', cls.CongState.ANY)
     return kwargs
 
 class StateConstrainedNetwork(MinTTTLagrangianCTMProblem):

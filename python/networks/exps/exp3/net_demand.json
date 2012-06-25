@@ -22,9 +22,22 @@
   "links": [
     {
       "name": "source",
+      "cong_state": 2,
       "flow": 1,
       "l": 1,
-      "state": 2,
+      "fd": {
+        "q_max": 1.0,
+        "rho_max": 2.0,
+        "w": 1.0,
+        "v": 1.0
+      },
+      "rho": 1.0
+    },
+    {
+      "name": "sink",
+      "cong_state": 2,
+      "flow": 1,
+      "l": 1,
       "fd": {
         "q_max": 1.0,
         "rho_max": 2.0,
@@ -35,9 +48,9 @@
     },
     {
       "name": "left",
+      "cong_state": 1,
       "flow": 0.6277186770000001,
       "l": 2,
-      "state": 1,
       "fd": {
         "q_max": 1.0,
         "rho_max": 2.0,
@@ -47,23 +60,10 @@
       "rho": 1.372281323
     },
     {
-      "name": "sink",
-      "flow": 1,
-      "l": 1,
-      "state": 2,
-      "fd": {
-        "q_max": 1.0,
-        "rho_max": 2.0,
-        "w": 1.0,
-        "v": 1.0
-      },
-      "rho": 1.0
-    },
-    {
       "name": "right",
+      "cong_state": 1,
       "flow": 0.37228132299999994,
       "l": 1,
-      "state": 1,
       "fd": {
         "q_max": 1.0,
         "rho_max": 2.0,

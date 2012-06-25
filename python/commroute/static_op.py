@@ -9,7 +9,7 @@ class LagrangianStaticProblem(FlowNetwork, SimpleOptimizeMixIn):
     """docstring for cvxify"""
     self.cache_props()
     for link in self.get_links():
-      link.v_flow = self.create_var('flow: {0}'.format(link.name),self.attr_realizer(link,'flow'))
+      link.v_flow = self.create_var('flow: {0}'.format(link.name),self.attr_realizer(link.state,'flow'))
     for route in self.all_routes():
       route.v_flow = self.create_var('route: {0}'.format(route.links), self.attr_realizer(route,'flow'))
 

@@ -165,7 +165,7 @@ def exp_3_setup():
     cong_state=StateConstrainedLink.CongState.ANY,
     l=l,
     flow=r,
-    rho=fd.rho_ff(r)
+    density=fd.rho_ff(r)
   )
   left = StateConstrainedLink(
     fd=fd,
@@ -173,7 +173,7 @@ def exp_3_setup():
     cong_state=StateConstrainedLink.CongState.CONG,
     l=2*l,
     flow=fd.flow_cong(l_rho),
-    rho=l_rho
+    density=l_rho
   )
   right = StateConstrainedLink(
     fd=fd,
@@ -181,7 +181,7 @@ def exp_3_setup():
     cong_state=StateConstrainedLink.CongState.CONG,
     l=l,
     flow=fd.flow_cong(r_rho),
-    rho=r_rho
+    density=r_rho
   )
   sink = StateConstrainedLink(
     fd=fd,
@@ -189,14 +189,14 @@ def exp_3_setup():
     cong_state=StateConstrainedLink.CongState.ANY,
     l=l,
     flow=r,
-    rho=fd.rho_ff(r)
+    density=fd.rho_ff(r)
   )
   js = [
     Junction([source],[left,right]),
     Junction([left,right],[sink]),
   ]
   [net.add_junction(junction) for junction in js]
-  net.dump('../../networks/exps/exp3/net.json')
+  net.dump('../networks/exps/exp3/net.json')
   left_demand = RouteDemand(
     route=net.route_by_names(['source','left','sink']),
     flow=.2
@@ -208,18 +208,23 @@ def exp_3_setup():
   )
   net.demands.append(left_demand)
   net.demands.append(od_demand)
-  net.dump('../../networks/exps/exp3/net_demand.json')
+  net.dump('../networks/exps/exp3/net_demand.json')
 
 def exp_3_info():
   net = StateConstrainedComplacentNetwork.load('../networks/exps/exp3/net_demand.json')
   print 'ttt previous', net.total_travel_time()
+  net.get_program().cr_print()
   net.get_program().cr_solve()
+  for link in net.get_links():
+    print link
+    print link.v_dens.value
+    print link.l
   net.realize()
   print 'ttt after complacence optimize', net.total_travel_time()
   for route in net.all_routes():
     print 'route', route
     print 'heur tt', net.route_tt_heuristic(route).value
-    print 'actual tt', route.travel_time()
+    print 'actual tt', net.route_travel_time(route)
   net = StateConstrainedNetwork.load('../networks/exps/exp3/net_demand.json')
   net.get_program().cr_solve()
   net.realize()
@@ -236,7 +241,6 @@ def exp_4():
       link.set_cong_state(link.CongState.CONG)
     else:
       link.set_cong_state(link.CongState.FF)
-  net.get_program().cr_print()
   net.get_program().cr_solve()
   net.realize()
   print net.total_travel_time()
@@ -268,4 +272,3 @@ def exp_4():
 
 if __name__ == '__main__':
   exp_4()
-
