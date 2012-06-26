@@ -1,4 +1,4 @@
-from commroute.traffic import TrafficLink, TrafficState
+from traffic import TrafficLink, TrafficState
 from cr_utils.Dumpable import Dumpable
 from cr_network import Link
 from demand import FlowNetwork

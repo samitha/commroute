@@ -8,6 +8,7 @@ class LagrangianStaticProblem(FlowNetwork, SimpleOptimizeMixIn):
   def variablize(self):
     """docstring for cvxify"""
     self.cache_props()
+    super(LagrangianStaticProblem, self).variablize()
     for link in self.get_links():
       link.v_flow = self.create_var('flow: {0}'.format(link.name),self.attr_realizer(link.state,'flow'))
     for route in self.all_routes():

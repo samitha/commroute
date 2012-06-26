@@ -280,6 +280,19 @@ class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
 
   @classmethod
   def load_with_json_data(cls, data):
+    def make_junction(junc):
+      in_links = junc[0]
+      out_links = junc[1]
+      if len(in_links) == 1 and len(out_links) == 0:
+        return Sink(links[in_links[0]])
+      elif len(out_links) == 1 and len(in_links) == 0:
+        return Source(links[out_links[0]])
+      else:
+        return Junction(
+          [links[name] for name in junc[0]],
+          [links[name] for name in junc[1]]
+        )
+
     net = cls()
     links = dict(
       (link['name'],
@@ -287,9 +300,8 @@ class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
         for link in data['links']
     )
     junctions = [
-    Junction([links[name] for name in junc[0]],
-      [links[name] for name in junc[1]])
-    for junc in data['junctions']
+      make_junction(junc)
+      for junc in data['junctions']
     ]
     for junction in junctions:
       net.add_junction(junction)

@@ -1,3 +1,5 @@
+from point_queue import FlowLink, AffineLatency
+from static_pq import MinTTTFlowLinkComplacencyProblem, MinTTTFlowLinkProblem
 from demand import RouteDemand, ODDemand
 from state_constrained import StateConstrainedNetwork, StateConstrainedComplacentNetwork, StateConstrainedLink
 from static_ctm import *
@@ -212,9 +214,11 @@ def exp_3_setup():
 
 def exp_3_info():
   net = StateConstrainedComplacentNetwork.load('../networks/exps/exp3/net_demand.json')
+  for cls in net.__class__.__mro__:
+    print cls
   print 'ttt previous', net.total_travel_time()
   net.get_program().cr_print()
-  net.get_program().cr_solve()
+  net.get_program().cr_solve(quiet=False)
   for link in net.get_links():
     print link
     print link.v_dens.value
@@ -269,6 +273,87 @@ def exp_4():
   net.realize()
   print net.total_travel_time()
 
+def exp_5():
+  net = MinTTTFlowLinkProblem()
+  source = FlowLink(
+    name='source',
+    latency=AffineLatency(
+      a=1.0,
+      b=0.0
+    ),
+    q_max=1.0,
+    flow=1.0
+  )
+  sink = FlowLink(
+    name='sink',
+    latency=AffineLatency(
+      a=1.0,
+      b=0.0
+    ),
+    q_max=1.0,
+    flow=1.0
+  )
+  left = FlowLink(
+    name='left',
+    latency=AffineLatency(
+      a=1.0,
+      b=0.0
+    ),
+    q_max=1.0,
+    flow=2.0/3
+  )
+  right = FlowLink(
+    name='right',
+    latency=AffineLatency(
+      a=.5,
+      b=.5
+    ),
+    q_max=1.0,
+    flow=1.0/3
+  )
+  js = [
+    Junction([source], [left,right]),
+    Junction([left,right], [sink]),
+    ]
+  [net.add_junction(j) for j in js]
+  left_demand = RouteDemand(
+    flow=.1,
+    route=net.route_by_names(['source','left','sink'])
+  )
+  right_demand = RouteDemand(
+    flow=.1,
+    route=net.route_by_names(['source','right','sink'])
+  )
+  od_demand = ODDemand(
+    source=source,
+    sink=sink,
+    flow=.8
+  )
+  net.demands.extend([left_demand,right_demand,od_demand])
+  print net.check_feasible()
+  net.dump('../networks/exps/exp5/net_nash.json')
+
+def exp_5_test():
+  net = MinTTTFlowLinkProblem.load('../networks/exps/exp5/net_nash.json')
+  print net.total_travel_time()
+  for route in net.all_routes():
+    print route
+    print net.route_travel_time(route)
+  net.get_program().cr_solve()
+  net.realize()
+  print net.total_travel_time()
+  for route in net.all_routes():
+    print route
+    print net.route_travel_time(route)
+  net = MinTTTFlowLinkComplacencyProblem.load('../networks/exps/exp5/net_nash.json')
+  net.scale = 1.01
+  net.get_program().cr_solve()
+  net.realize()
+  print net.total_travel_time()
+  for route in net.all_routes():
+    print route
+    print net.route_travel_time(route)
+
 
 if __name__ == '__main__':
-  exp_4()
+  exp_5_test()

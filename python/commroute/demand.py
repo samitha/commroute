@@ -1,6 +1,5 @@
-from commroute.traffic import TrafficNetwork
+from traffic import TrafficNetwork
 from cr_utils.Dumpable import Dumpable
-from cr_network import CRNetwork
 
 __author__ = 'jdr'
 

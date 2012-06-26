@@ -1,5 +1,6 @@
 from cvxpy import  quad_over_lin, hstack
 from cvxpy import max as cvx_max
+from complacency import ComplacencyConstrained
 from cvxpy_solver import SimpleOptimizeMixIn
 from cr_utils.cr_utils import flatten
 from ctm import CTMNetwork
@@ -35,10 +36,10 @@ class CTMConstrained(CTMStaticProblem):
     """
     def check_feasible_constraints():
       return list(flatten(
-        [self.cr_geq(link.v_flow, link.flow),
-         self.cr_geq(link.v_dens, link.rho),
-         self.cr_leq(link.v_flow, link.flow),
-         self.cr_leq(link.v_dens, link.rho)]
+        [self.cr_geq(link.v_flow, link.state.flow),
+         self.cr_geq(link.v_dens, link.state.density),
+         self.cr_leq(link.v_flow, link.state.flow),
+         self.cr_leq(link.v_dens, link.state.density)]
           for link in self.get_links()
       ))
 
@@ -54,16 +55,12 @@ class CTMConstrained(CTMStaticProblem):
     return op.is_feasible()
 
 
-class ComplacencyConstrained(CTMConstrained):
+class MinTTTMixin(CTMStaticProblem):
+  def objective(self):
+    return sum(link.l * link.v_dens for link in self.get_links())
 
-  # TODO: scale hack, fix this yo!
-  scale = 1.1
 
-  def variablize(self):
-    super(ComplacencyConstrained, self).variablize()
-    for route in self.all_routes():
-      route.old_tt = self.route_travel_time(route)
-
+class MinTTTComplacencyProblem(MinTTTMixin, ComplacencyConstrained):
   def route_tt_heuristic(self, route):
     def link_tt_heuristic(link):
       ff = link.l / link.fd.v
@@ -73,24 +70,6 @@ class ComplacencyConstrained(CTMConstrained):
       return cvx_max(hstack([ff, q_max, cong]))
 
     return sum(map(link_tt_heuristic, route.links))
-
-  def con_route_tt(self):
-    return [
-    self.cr_leq(self.route_tt_heuristic(route), route.old_tt*self.scale)
-    for route in self.all_routes()
-    ]
-
-  def constraints(self):
-    return super(ComplacencyConstrained, self).constraints() + self.con_route_tt()
-
-
-class MinTTTMixin(CTMStaticProblem):
-  def objective(self):
-    return sum(link.l * link.v_dens for link in self.get_links())
-
-
-class MinTTTComplacencyProblem(MinTTTMixin, ComplacencyConstrained):
-  pass
 
 class MinTTTLagrangianCTMProblem(MinTTTMixin, CTMConstrained):
   pass

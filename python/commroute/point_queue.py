@@ -1,5 +1,5 @@
-from commroute.cr_utils.Dumpable import Dumpable
-from commroute.traffic import TrafficLink, TrafficState
+from cr_utils.Dumpable import Dumpable
+from traffic import TrafficLink, TrafficState
 from demand import FlowNetwork, RouteDemand
 from cvxpy import square
 
@@ -95,6 +95,11 @@ class FlowLink(TrafficLink):
     if state is None:
       state = self.get_state()
     return self.latency.travel_time(self, state.flow)
+
+  def total_travel_time(self, state=None):
+    if state is None:
+      state = self.get_state()
+    return state.flow * self.latency.travel_time(self, state.flow)
 
   def jsonify(self):
     json = super(FlowLink, self).jsonify()

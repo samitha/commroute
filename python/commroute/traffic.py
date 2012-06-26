@@ -1,4 +1,4 @@
-from commroute.cr_network import CRNetwork
+from cr_network import CRNetwork
 
 __author__ = 'jdr'
 from cr_network import Link
