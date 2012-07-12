@@ -53,12 +53,13 @@ class FundamentalDiagram(Dumpable):
 
   @classmethod
   def load_with_json_data(cls, data):
+    v=data['v']
+    w=data['w']
+    rho_max=data['rho_max']
+    q_max=data.get('q_max', w*rho_max / (v + w))
     return cls(
-      v=data['v'],
-      w=data['w'],
-      q_max=data['q_max'],
-      rho_max=data['rho_max']
-    )
+      v=v,w=w,rho_max=rho_max,q_max=q_max
+      )
 
 class CTMState(TrafficState):
 

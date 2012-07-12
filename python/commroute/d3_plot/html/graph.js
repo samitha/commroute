@@ -34,8 +34,8 @@ d3.json("graph.json", function(json) {
         .links(links)
         .size([w, h])
         .friction(.001)
-        .linkDistance(function(d) {return d.value;})
-        .charge(-5000)
+        .linkDistance(function(d) {return d.value/10.;})
+        .charge(10)
         .on("tick", tick)
         .start();
 

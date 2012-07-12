@@ -44,14 +44,18 @@ class CVXPyProgram(Program):
     """
     @rtype: float
     """
-    quiet = kwargs.pop('quiet', True)
+    quiet = kwargs.pop('quiet', False)
     return self.program.solve(quiet, **kwargs)
 
   def cr_print(self):
     self.program.show()
 
   def add_constraint(self, constraint):
-    self.program.constraints.append(constraint.constraint())
+    if self.type == Constraint.Type.EQ:
+      self.add_constraint(CVXPyConstraint(Constraint.Type.LEQ, constraint.a, constraint.b))
+      self.add_constraint(CVXPyConstraint(Constraint.Type.GEQ, constraint.a, constraint.b))
+    else:
+      self.program.constraints.append(constraint.constraint())
 
 class CVXPySolver(OptimizeMixIn):
 
@@ -60,8 +64,19 @@ class CVXPySolver(OptimizeMixIn):
 
   def cr_value(self, var):
     return var.value
+    
+  def hack_constraints(self, constraints):
+    next = []
+    for c in constraints:
+      if c.type == Constraint.Type.EQ:
+        next.append(self.cr_leq(c.a, c.b))
+        next.append(self.cr_geq(c.a, c.b))
+      else:
+        next.append(c)
+    return next
 
   def cr_program(self, goal, cost, constraints):
+    constraints = self.hack_constraints(constraints)
     if goal == self.Goal.MIN:
       wrap = minimize
     else:

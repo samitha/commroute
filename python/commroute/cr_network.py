@@ -180,6 +180,12 @@ class Route(object):
   def has_link(self, link):
     return link in self.links
 
+  def source(self):
+    return self.links[0]
+
+  def sink(self):
+    return self.links[-1]
+
   def __repr__(self):
     return str(self.links)
 

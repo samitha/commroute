@@ -22,9 +22,42 @@ class LagrangianConstrained(LagrangianStaticProblem):
             for junction in self.junctions]
 
   def con_od_flows(self):
-    od_demands = filter(lambda dem: isinstance(dem, ODDemand), self.demands)
-    route_demands = filter(lambda dem: isinstance(dem, RouteDemand), self.demands)
-
+    od_demands = filter(lambda dem: isinstance(dem, ODDemand), self.get_demands())
+    route_demands = filter(lambda dem: isinstance(dem, RouteDemand), self.get_demands())
+    for route in self.all_routes():
+      matches = [dem for dem in route_demands if dem.route is route]
+      if len(matches) is 0:
+        route_demands.append(RouteDemand(route=route, flow=0.0))
+      elif len(matches) > 1:
+        for dem in matches:
+          route_demands.remove(dem)
+        route_demands.append(RouteDemand(route=route, flow = sum(
+          [dem.flow for dem in matches]
+        )))
+    for source in self.sources:
+      for sink in self.sinks:
+        matches = [
+          dem for dem in od_demands
+          if dem.source is source and dem.sink is sink
+        ]
+        if len(matches) is 0:
+          od_demands.append(ODDemand(
+            source=source,
+            sink=sink,
+            flow=0.0
+          ))
+        elif len(matches) > 1:
+          for dem in matches:
+            od_demands.remove(dem)
+          od_demands.append(
+            ODDemand(
+              source=source,
+              sink=sink,
+              flow=sum(
+                dem.flow for dem in matches
+              )
+            )
+          )
     def route_flows(link):
       flow = 0.0
       link_routes = link.routes(self)

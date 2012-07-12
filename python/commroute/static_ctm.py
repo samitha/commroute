@@ -1,6 +1,5 @@
 from cvxpy import  quad_over_lin, hstack
 from cvxpy import max as cvx_max
-from complacency import ComplacencyConstrained
 from cvxpy_solver import SimpleOptimizeMixIn
 from cr_utils.cr_utils import flatten
 from ctm import CTMNetwork
@@ -58,18 +57,6 @@ class CTMConstrained(CTMStaticProblem):
 class MinTTTMixin(CTMStaticProblem):
   def objective(self):
     return sum(link.l * link.v_dens for link in self.get_links())
-
-
-class MinTTTComplacencyProblem(MinTTTMixin, ComplacencyConstrained):
-  def route_tt_heuristic(self, route):
-    def link_tt_heuristic(link):
-      ff = link.l / link.fd.v
-      q_max = (link.l / link.fd.q_max) * link.v_dens
-      rho_hat = link.fd.rho_max - link.v_dens
-      cong = link.l / link.fd.w * (quad_over_lin(link.fd.rho_max ** .5, rho_hat) - 1)
-      return cvx_max(hstack([ff, q_max, cong]))
-
-    return sum(map(link_tt_heuristic, route.links))
 
 class MinTTTLagrangianCTMProblem(MinTTTMixin, CTMConstrained):
   pass

@@ -141,6 +141,9 @@ class DemandMixin(object):
     json['demands'] = [demand.jsonify() for demand in self.demands]
     return json
 
+  def get_demands(self):
+    return self.demands
+
 
 class FlowNetwork(DemandMixin, TrafficNetwork):
   """

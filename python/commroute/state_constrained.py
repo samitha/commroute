@@ -1,5 +1,6 @@
+from complacency import MinTTTComplacencyProblem
 from ctm import CTMLink
-from static_ctm import MinTTTLagrangianCTMProblem, MinTTTComplacencyProblem
+from static_ctm import MinTTTLagrangianCTMProblem
 
 __author__ = 'jdr'
 

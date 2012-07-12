@@ -30,8 +30,13 @@ class Dumpable(object):
     @param kwargs: extra arguments to help with loading (to handle unforeseen deserialization needs)
     @return: the new object
     """
-    with open(fn, 'r') as fn:
-      data = load(fn)
+    do_cloud = kwargs.pop('cloud', False)
+    if do_cloud:
+      import cloud
+      data = load(cloud.files.getf(fn))
+    else:
+      with open(fn, 'r') as fn:
+        data = load(fn)
     return cls.load_with_json_data(data, **kwargs)
 
   @classmethod

@@ -1,5 +1,8 @@
+from complacency import PQCC, MinTTTFlowLinkComplacencyProblem
+from compliance import CompliantRouteDemand
+from point_queue import MM1Latency
 from point_queue import FlowLink, AffineLatency
-from static_pq import MinTTTFlowLinkComplacencyProblem, MinTTTFlowLinkProblem
+from static_pq import MinTTTFlowLinkProblem
 from demand import RouteDemand, ODDemand
 from state_constrained import StateConstrainedNetwork, StateConstrainedComplacentNetwork, StateConstrainedLink
 from static_ctm import *
@@ -354,6 +357,78 @@ def exp_5_test():
     print route
     print net.route_travel_time(route)
 
+def exp_6():
+  source = FlowLink(
+    name = 'source',
+    q_max=1.0,
+    latency=MM1Latency(
+      rho=1.0,
+      mu=1.0
+    )
+  )
+  sink = FlowLink(
+    name = 'sink',
+    q_max=1.0,
+    latency=MM1Latency(
+      rho=1.0,
+      mu=1.0
+    )
+  )
+  j = Junction([source], [sink])
+  dem = ODDemand(
+    source=source,
+    sink=sink,
+    flow=.5
+  )
+  net = MinTTTFlowLinkProblem()
+  net.add_junction(j)
+  net.demands.append(dem)
+  net.dump('../networks/exps/exp6/net.json')
+  net.get_program().cr_print()
+  net.get_program().cr_solve(quiet=False)
 
-if __name__ == '__main__':
-  exp_5_test()
+def exp_7_setup():
+  net = PQCC.load('../networks/exps/exp5/net_nash.json')
+  net.demands = []
+  left_demand = CompliantRouteDemand(
+    route = net.route_by_names(['source','left','sink']),
+    flow = 2./3,
+    compliance=.8
+  )
+  right_demand = CompliantRouteDemand(
+    route = net.route_by_names(['source','right','sink']),
+    flow = 1./3,
+    compliance=.8
+  )
+  net.demands.append(left_demand)
+  net.demands.append(right_demand)
+  net.dump('../networks/exps/exp7/net.json')
+
+def exp_7_test():
+  net = PQCC.load('../networks/exps/exp7/net.json')
+  net.run()
+  net = PQCC.load('../networks/exps/exp7/net.json')
+  net.scale = 1.01
+  net.run()
+  net = PQCC.load('../networks/exps/exp7/net.json')
+  net.scale = 10.0
+  net.run()
+  net = PQCC.load('../networks/exps/exp7/net.json')
+  net.scale = 1.01
+  net.run()
+
+def exp_8_scala():
+  net = MinTTTLagrangianCTMProblem.load("../networks/exps/exp8/net.json")
+  route = net.all_routes()[0]
+  o = list(net.sources)[0]
+  d = list(net.sinks)[0]
+  r_demand  = RouteDemand(route = route, flow = .000001)
+  o = route.links[0]
+  d = route.links[-1]
+  flow = min(link.fd.q_max for link in net.get_links())
+  print 'flow', flow
+  od_demand = ODDemand(source = o, sink = d, flow = flow*.9)
+  net.demands.extend([r_demand, od_demand])
+  net.dump("../networks/exps/exp8/netd.json")
+  print 'n links', len(net.get_links())
+  net.get_program().cr_solve(quiet=False)

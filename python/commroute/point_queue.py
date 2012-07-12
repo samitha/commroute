@@ -1,3 +1,6 @@
+import cvxpy
+from cvxpy.functions.quad_over_lin import quad_over_lin
+import math
 from cr_utils.Dumpable import Dumpable
 from traffic import TrafficLink, TrafficState
 from demand import FlowNetwork, RouteDemand
@@ -60,6 +63,38 @@ class AffineLatency(FlowLatency):
     json.update({
       'a': self.a,
       'b': self.b
+    })
+    return json
+
+class MM1Latency(FlowLatency):
+
+  def __init__(self, rho, mu):
+    super(FlowLatency, self).__init__()
+    self.rho = rho
+    self.mu = mu
+
+  @classmethod
+  def tag(cls):
+    return 'mm1'
+
+  def travel_time(self, link, flow):
+    return self.rho * quad_over_lin(1.0, self.mu - flow)
+
+  def flow_x_travel_time(self, link, flow):
+    return self.rho * (self.mu * quad_over_lin(1.0, self.mu - flow) - 1.0)
+
+  @classmethod
+  def load_latency(cls, data):
+    return cls(
+      rho = data['rho'],
+      mu = data['mu']
+    )
+
+  def jsonify(self):
+    json = super(MM1Latency, self).jsonify()
+    json.update({
+      'rho': self.rho,
+      'mu': self.mu
     })
     return json
 

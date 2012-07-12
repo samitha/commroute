@@ -1,0 +1,42 @@
+{
+  "junctions": [
+    [
+      [
+        "source"
+      ],
+      [
+        "sink"
+      ]
+    ]
+  ],
+  "links": [
+    {
+      "latency": {
+        "mu": 1.0,
+        "type": "mm1",
+        "rho": 1.0
+      },
+      "q_max": 1.0,
+      "flow": 0.0,
+      "name": "source"
+    },
+    {
+      "latency": {
+        "mu": 1.0,
+        "type": "mm1",
+        "rho": 1.0
+      },
+      "q_max": 1.0,
+      "flow": 0.0,
+      "name": "sink"
+    }
+  ],
+  "demands": [
+    {
+      "type": "od",
+      "flow": 0.5,
+      "sink": "sink",
+      "source": "source"
+    }
+  ]
+}

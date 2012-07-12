@@ -1,7 +1,6 @@
 from cvxpy_solver import SimpleOptimizeMixIn
-from complacency import ComplacencyConstrained
 from cr_utils.cr_utils import flatten
-from point_queue import FlowLinkNetwork, PQState
+from point_queue import FlowLinkNetwork
 
 __author__ = 'jdr'
 
@@ -60,11 +59,3 @@ class MinTTT(LagrangianConstrained):
 
 class MinTTTFlowLinkProblem(MinTTT, CapacityConstrained):
   pass
-
-class MinTTTFlowLinkComplacencyProblem(MinTTTFlowLinkProblem, ComplacencyConstrained):
-
-  def route_tt_heuristic(self, route):
-    return sum(
-      link.travel_time(PQState(link.v_flow))
-      for link in route.links
-    )

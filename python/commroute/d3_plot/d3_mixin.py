@@ -2,7 +2,7 @@ from cr_utils.cr_utils import flatten
 
 __author__ = 'jdr'
 
-root_dir = 'd3'
+root_dir = 'd3_plot'
 
 class D3Mixin:
 
