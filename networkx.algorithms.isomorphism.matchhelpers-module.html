@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.algorithms.isomorphism.matchhelpers</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.algorithms-module.html">Package&nbsp;algorithms</a> ::
+        <a href="networkx.algorithms.isomorphism-module.html">Package&nbsp;isomorphism</a> ::
+        Module&nbsp;matchhelpers
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.algorithms.isomorphism.matchhelpers-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module matchhelpers</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html">source&nbsp;code</a></span></p>
+<p>Functions which help end users define customize node_match and 
+  edge_match functions to use during isomorphism checks.</p>
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="copyfunc"></a><span class="summary-sig-name">copyfunc</span>(<span class="summary-sig-arg">f</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns a deepcopy of a function.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#copyfunc">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.matchhelpers-module.html#allclose" class="summary-sig-name" onclick="show_private();">allclose</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">rtol</span>=<span class="summary-sig-default">1e-05</span>,
+        <span class="summary-sig-arg">atol</span>=<span class="summary-sig-default">1e-08</span>)</span><br />
+      Returns True if x and y are sufficiently close, elementwise.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#allclose">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.matchhelpers-module.html#close" class="summary-sig-name" onclick="show_private();">close</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">rtol</span>=<span class="summary-sig-default">1e-05</span>,
+        <span class="summary-sig-arg">atol</span>=<span class="summary-sig-default">1e-08</span>)</span><br />
+      Returns True if x and y are sufficiently close.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#close">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.matchhelpers-module.html#categorical_node_match" class="summary-sig-name">categorical_node_match</a>(<span class="summary-sig-arg">attr</span>,
+        <span class="summary-sig-arg">default</span>)</span><br />
+      Returns a comparison function for a categorical node attribute.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#categorical_node_match">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.matchhelpers-module.html#categorical_edge_match" class="summary-sig-name">categorical_edge_match</a>(<span class="summary-sig-arg">attr</span>,
+        <span class="summary-sig-arg">default</span>)</span><br />
+      Returns a comparison function for a categorical edge attribute.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#categorical_edge_match">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.matchhelpers-module.html#categorical_multiedge_match" class="summary-sig-name">categorical_multiedge_match</a>(<span class="summary-sig-arg">attr</span>,
+        <span class="summary-sig-arg">default</span>)</span><br />
+      Returns a comparison function for a categorical edge attribute.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#categorical_multiedge_match">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.matchhelpers-module.html#numerical_node_match" class="summary-sig-name">numerical_node_match</a>(<span class="summary-sig-arg">attr</span>,
+        <span class="summary-sig-arg">default</span>,
+        <span class="summary-sig-arg">rtol</span>=<span class="summary-sig-default">1e-05</span>,
+        <span class="summary-sig-arg">atol</span>=<span class="summary-sig-default">1e-08</span>)</span><br />
+      Returns a comparison function for a numerical node attribute.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#numerical_node_match">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.matchhelpers-module.html#numerical_edge_match" class="summary-sig-name">numerical_edge_match</a>(<span class="summary-sig-arg">attr</span>,
+        <span class="summary-sig-arg">default</span>,
+        <span class="summary-sig-arg">rtol</span>=<span class="summary-sig-default">1e-05</span>,
+        <span class="summary-sig-arg">atol</span>=<span class="summary-sig-default">1e-08</span>)</span><br />
+      Returns a comparison function for a numerical edge attribute.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#numerical_edge_match">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.matchhelpers-module.html#numerical_multiedge_match" class="summary-sig-name">numerical_multiedge_match</a>(<span class="summary-sig-arg">attr</span>,
+        <span class="summary-sig-arg">default</span>,
+        <span class="summary-sig-arg">rtol</span>=<span class="summary-sig-default">1e-05</span>,
+        <span class="summary-sig-arg">atol</span>=<span class="summary-sig-default">1e-08</span>)</span><br />
+      Returns a comparison function for a numerical edge attribute.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#numerical_multiedge_match">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.matchhelpers-module.html#generic_node_match" class="summary-sig-name">generic_node_match</a>(<span class="summary-sig-arg">attr</span>,
+        <span class="summary-sig-arg">default</span>,
+        <span class="summary-sig-arg">op</span>)</span><br />
+      Returns a comparison function for a generic attribute.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#generic_node_match">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.matchhelpers-module.html#generic_edge_match" class="summary-sig-name">generic_edge_match</a>(<span class="summary-sig-arg">attr</span>,
+        <span class="summary-sig-arg">default</span>,
+        <span class="summary-sig-arg">op</span>)</span><br />
+      Returns a comparison function for a generic attribute.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#generic_edge_match">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.matchhelpers-module.html#generic_multiedge_match" class="summary-sig-name">generic_multiedge_match</a>(<span class="summary-sig-arg">attr</span>,
+        <span class="summary-sig-arg">default</span>,
+        <span class="summary-sig-arg">op</span>)</span><br />
+      Returns a comparison function for a generic attribute.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#generic_multiedge_match">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.algorithms.isomorphism.matchhelpers-module.html#categorical_doc" class="summary-name" onclick="show_private();">categorical_doc</a> = <code title="'''
+Returns a comparison function for a categorical node attribute.
+
+The value(s) of the attr(s) must be hashable and comparable via the ==
+operator since they are placed into a set([]) object.  If the sets fro\
+m
+G1 and G2 are the same, then the constructed function returns True.
+
+..."><code class="variable-quote">'</code><code class="variable-string">\nReturns a comparison function for a categ</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.algorithms.isomorphism.matchhelpers-module.html#numerical_doc" class="summary-name" onclick="show_private();">numerical_doc</a> = <code title="'''
+Returns a comparison function for a numerical node attribute.
+
+The value(s) of the attr(s) must be numerical and sortable.  If the
+sorted list of values from G1 and G2 are the same within some
+tolerance, then the constructed function returns True.
+
+Parameters
+..."><code class="variable-quote">'</code><code class="variable-string">\nReturns a comparison function for a numeric</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.algorithms.isomorphism.matchhelpers-module.html#tmpdoc" class="summary-name" onclick="show_private();">tmpdoc</a> = <code title="'''
+Returns a comparison function for a numerical edge attribute.
+
+The value(s) of the attr(s) must be numerical and sortable.  If the
+sorted list of values from G1 and G2 are the same within some
+tolerance, then the constructed function returns True.
+
+Parameters
+..."><code class="variable-quote">'</code><code class="variable-string">\nReturns a comparison function for a numerical edge</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.algorithms.isomorphism.matchhelpers-module.html#generic_doc" class="summary-name" onclick="show_private();">generic_doc</a> = <code title="'''
+Returns a comparison function for a generic attribute.
+
+The value(s) of the attr(s) are compared using the specified
+operators. If all the attributes are equal, then the constructed
+function returns True.
+
+Parameters
+..."><code class="variable-quote">'</code><code class="variable-string">\nReturns a comparison function for a generic a</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx.algorithms.isomorphism'"><code class="variable-quote">'</code><code class="variable-string">networkx.algorithms.isomorphism</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="allclose"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">allclose</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>,
+        <span class="sig-arg">rtol</span>=<span class="sig-default">1e-05</span>,
+        <span class="sig-arg">atol</span>=<span class="sig-default">1e-08</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#allclose">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Returns True if x and y are sufficiently close, elementwise.
+
+Parameters
+----------
+rtol : float
+    The relative error tolerance.
+atol : float
+    The absolute error tolerance.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="close"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">close</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>,
+        <span class="sig-arg">rtol</span>=<span class="sig-default">1e-05</span>,
+        <span class="sig-arg">atol</span>=<span class="sig-default">1e-08</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#close">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Returns True if x and y are sufficiently close.
+
+Parameters
+----------
+rtol : float
+    The relative error tolerance.
+atol : float
+    The absolute error tolerance.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="categorical_node_match"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">categorical_node_match</span>(<span class="sig-arg">attr</span>,
+        <span class="sig-arg">default</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#categorical_node_match">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns a comparison function for a categorical node attribute.
+
+The value(s) of the attr(s) must be hashable and comparable via the ==
+operator since they are placed into a set([]) object.  If the sets from
+G1 and G2 are the same, then the constructed function returns True.
+
+Parameters
+----------
+attr : string | list
+    The categorical node attribute to compare, or a list of categorical
+    node attributes to compare.
+default : value | list
+    The default value for the categorical node attribute, or a list of
+    default values for the categorical node attributes.
+
+Returns
+-------
+match : function
+    The customized, categorical `node_match` function.
+
+Examples
+--------
+&gt;&gt;&gt; import networkx.algorithms.isomorphism as iso
+&gt;&gt;&gt; nm = iso.categorical_node_match('size', 1)
+&gt;&gt;&gt; nm = iso.categorical_node_match(['color', 'size'], ['red', 2])
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="categorical_edge_match"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">categorical_edge_match</span>(<span class="sig-arg">attr</span>,
+        <span class="sig-arg">default</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#categorical_edge_match">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns a comparison function for a categorical edge attribute.
+
+The value(s) of the attr(s) must be hashable and comparable via the ==
+operator since they are placed into a set([]) object.  If the sets from
+G1 and G2 are the same, then the constructed function returns True.
+
+Parameters
+----------
+attr : string | list
+    The categorical edge attribute to compare, or a list of categorical
+    edge attributes to compare.
+default : value | list
+    The default value for the categorical edge attribute, or a list of
+    default values for the categorical edge attributes.
+
+Returns
+-------
+match : function
+    The customized, categorical `edge_match` function.
+
+Examples
+--------
+&gt;&gt;&gt; import networkx.algorithms.isomorphism as iso
+&gt;&gt;&gt; nm = iso.categorical_edge_match('size', 1)
+&gt;&gt;&gt; nm = iso.categorical_edge_match(['color', 'size'], ['red', 2])
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="categorical_multiedge_match"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">categorical_multiedge_match</span>(<span class="sig-arg">attr</span>,
+        <span class="sig-arg">default</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#categorical_multiedge_match">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns a comparison function for a categorical edge attribute.
+
+The value(s) of the attr(s) must be hashable and comparable via the ==
+operator since they are placed into a set([]) object.  If the sets from
+G1 and G2 are the same, then the constructed function returns True.
+
+Parameters
+----------
+attr : string | list
+    The categorical edge attribute to compare, or a list of categorical
+    edge attributes to compare.
+default : value | list
+    The default value for the categorical edge attribute, or a list of
+    default values for the categorical edge attributes.
+
+Returns
+-------
+match : function
+    The customized, categorical `edge_match` function.
+
+Examples
+--------
+&gt;&gt;&gt; import networkx.algorithms.isomorphism as iso
+&gt;&gt;&gt; nm = iso.categorical_multiedge_match('size', 1)
+&gt;&gt;&gt; nm = iso.categorical_multiedge_match(['color', 'size'], ['red', 2])
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="numerical_node_match"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">numerical_node_match</span>(<span class="sig-arg">attr</span>,
+        <span class="sig-arg">default</span>,
+        <span class="sig-arg">rtol</span>=<span class="sig-default">1e-05</span>,
+        <span class="sig-arg">atol</span>=<span class="sig-default">1e-08</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#numerical_node_match">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns a comparison function for a numerical node attribute.
+
+The value(s) of the attr(s) must be numerical and sortable.  If the
+sorted list of values from G1 and G2 are the same within some
+tolerance, then the constructed function returns True.
+
+Parameters
+----------
+attr : string | list
+    The numerical node attribute to compare, or a list of numerical
+    node attributes to compare.
+default : value | list
+    The default value for the numerical node attribute, or a list of
+    default values for the numerical node attributes.
+rtol : float
+    The relative error tolerance.
+atol : float
+    The absolute error tolerance.
+
+Returns
+-------
+match : function
+    The customized, numerical `node_match` function.
+
+Examples
+--------
+&gt;&gt;&gt; import networkx.algorithms.isomorphism as iso
+&gt;&gt;&gt; nm = iso.numerical_node_match('weight', 1.0)
+&gt;&gt;&gt; nm = iso.numerical_node_match(['weight', 'linewidth'], [.25, .5])
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="numerical_edge_match"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">numerical_edge_match</span>(<span class="sig-arg">attr</span>,
+        <span class="sig-arg">default</span>,
+        <span class="sig-arg">rtol</span>=<span class="sig-default">1e-05</span>,
+        <span class="sig-arg">atol</span>=<span class="sig-default">1e-08</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#numerical_edge_match">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns a comparison function for a numerical edge attribute.
+
+The value(s) of the attr(s) must be numerical and sortable.  If the
+sorted list of values from G1 and G2 are the same within some
+tolerance, then the constructed function returns True.
+
+Parameters
+----------
+attr : string | list
+    The numerical edge attribute to compare, or a list of numerical
+    edge attributes to compare.
+default : value | list
+    The default value for the numerical edge attribute, or a list of
+    default values for the numerical edge attributes.
+rtol : float
+    The relative error tolerance.
+atol : float
+    The absolute error tolerance.
+
+Returns
+-------
+match : function
+    The customized, numerical `edge_match` function.
+
+Examples
+--------
+&gt;&gt;&gt; import networkx.algorithms.isomorphism as iso
+&gt;&gt;&gt; nm = iso.numerical_edge_match('weight', 1.0)
+&gt;&gt;&gt; nm = iso.numerical_edge_match(['weight', 'linewidth'], [.25, .5])
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="numerical_multiedge_match"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">numerical_multiedge_match</span>(<span class="sig-arg">attr</span>,
+        <span class="sig-arg">default</span>,
+        <span class="sig-arg">rtol</span>=<span class="sig-default">1e-05</span>,
+        <span class="sig-arg">atol</span>=<span class="sig-default">1e-08</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#numerical_multiedge_match">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns a comparison function for a numerical edge attribute.
+
+The value(s) of the attr(s) must be numerical and sortable.  If the
+sorted list of values from G1 and G2 are the same within some
+tolerance, then the constructed function returns True.
+
+Parameters
+----------
+attr : string | list
+    The numerical edge attribute to compare, or a list of numerical
+    edge attributes to compare.
+default : value | list
+    The default value for the numerical edge attribute, or a list of
+    default values for the numerical edge attributes.
+rtol : float
+    The relative error tolerance.
+atol : float
+    The absolute error tolerance.
+
+Returns
+-------
+match : function
+    The customized, numerical `edge_match` function.
+
+Examples
+--------
+&gt;&gt;&gt; import networkx.algorithms.isomorphism as iso
+&gt;&gt;&gt; nm = iso.numerical_multiedge_match('weight', 1.0)
+&gt;&gt;&gt; nm = iso.numerical_multiedge_match(['weight', 'linewidth'], [.25, .5])
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="generic_node_match"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">generic_node_match</span>(<span class="sig-arg">attr</span>,
+        <span class="sig-arg">default</span>,
+        <span class="sig-arg">op</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#generic_node_match">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns a comparison function for a generic attribute.
+
+The value(s) of the attr(s) are compared using the specified
+operators. If all the attributes are equal, then the constructed
+function returns True.
+
+Parameters
+----------
+attr : string | list
+    The node attribute to compare, or a list of node attributes
+    to compare.
+default : value | list
+    The default value for the node attribute, or a list of
+    default values for the node attributes.
+op : callable | list
+    The operator to use when comparing attribute values, or a list
+    of operators to use when comparing values for each attribute.
+
+Returns
+-------
+match : function
+    The customized, generic `node_match` function.
+
+Examples
+--------
+&gt;&gt;&gt; from operator import eq
+&gt;&gt;&gt; from networkx.algorithms.isomorphism.matchhelpers import close
+&gt;&gt;&gt; nm = generic_node_match('weight', 1.0, close)
+&gt;&gt;&gt; nm = generic_node_match('color', 'red', eq)
+&gt;&gt;&gt; nm = generic_node_match(['weight', 'color'], [1.0, 'red'], [close, eq])
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="generic_edge_match"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">generic_edge_match</span>(<span class="sig-arg">attr</span>,
+        <span class="sig-arg">default</span>,
+        <span class="sig-arg">op</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#generic_edge_match">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns a comparison function for a generic attribute.
+
+The value(s) of the attr(s) are compared using the specified
+operators. If all the attributes are equal, then the constructed
+function returns True.
+
+Parameters
+----------
+attr : string | list
+    The edge attribute to compare, or a list of edge attributes
+    to compare.
+default : value | list
+    The default value for the edge attribute, or a list of
+    default values for the edge attributes.
+op : callable | list
+    The operator to use when comparing attribute values, or a list
+    of operators to use when comparing values for each attribute.
+
+Returns
+-------
+match : function
+    The customized, generic `edge_match` function.
+
+Examples
+--------
+&gt;&gt;&gt; from operator import eq
+&gt;&gt;&gt; from networkx.algorithms.isomorphism.matchhelpers import close
+&gt;&gt;&gt; nm = generic_edge_match('weight', 1.0, close)
+&gt;&gt;&gt; nm = generic_edge_match('color', 'red', eq)
+&gt;&gt;&gt; nm = generic_edge_match(['weight', 'color'], [1.0, 'red'], [close, eq])
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="generic_multiedge_match"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">generic_multiedge_match</span>(<span class="sig-arg">attr</span>,
+        <span class="sig-arg">default</span>,
+        <span class="sig-arg">op</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.matchhelpers-pysrc.html#generic_multiedge_match">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Returns a comparison function for a generic attribute.
+
+The value(s) of the attr(s) are compared using the specified
+operators. If all the attributes are equal, then the constructed
+function returns True. Potentially, the constructed edge_match
+function can be slow since it must verify that no isomorphism
+exists between the multiedges before it returns False.
+
+Parameters
+----------
+attr : string | list
+    The edge attribute to compare, or a list of node attributes
+    to compare.
+default : value | list
+    The default value for the edge attribute, or a list of
+    default values for the dgeattributes.
+op : callable | list
+    The operator to use when comparing attribute values, or a list
+    of operators to use when comparing values for each attribute.
+
+Returns
+-------
+match : function
+    The customized, generic `edge_match` function.
+
+Examples
+--------
+&gt;&gt;&gt; from operator import eq
+&gt;&gt;&gt; from networkx.algorithms.isomorphism.matchhelpers import close
+&gt;&gt;&gt; nm = generic_node_match('weight', 1.0, close)
+&gt;&gt;&gt; nm = generic_node_match('color', 'red', eq)
+&gt;&gt;&gt; nm = generic_node_match(['weight', 'color'],
+...                         [1.0, 'red'],
+...                         [close, eq])
+...
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="categorical_doc"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">categorical_doc</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'''</code><code class="variable-string"></code>
+<code class="variable-string">Returns a comparison function for a categorical node attribute.</code>
+<code class="variable-string"></code>
+<code class="variable-string">The value(s) of the attr(s) must be hashable and comparable via the ==</code>
+<code class="variable-string">operator since they are placed into a set([]) object.  If the sets fro</code><span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-string">m</code>
+<code class="variable-string">G1 and G2 are the same, then the constructed function returns True.</code>
+<code class="variable-string"></code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="numerical_doc"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">numerical_doc</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'''</code><code class="variable-string"></code>
+<code class="variable-string">Returns a comparison function for a numerical node attribute.</code>
+<code class="variable-string"></code>
+<code class="variable-string">The value(s) of the attr(s) must be numerical and sortable.  If the</code>
+<code class="variable-string">sorted list of values from G1 and G2 are the same within some</code>
+<code class="variable-string">tolerance, then the constructed function returns True.</code>
+<code class="variable-string"></code>
+<code class="variable-string">Parameters</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="tmpdoc"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">tmpdoc</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'''</code><code class="variable-string"></code>
+<code class="variable-string">Returns a comparison function for a numerical edge attribute.</code>
+<code class="variable-string"></code>
+<code class="variable-string">The value(s) of the attr(s) must be numerical and sortable.  If the</code>
+<code class="variable-string">sorted list of values from G1 and G2 are the same within some</code>
+<code class="variable-string">tolerance, then the constructed function returns True.</code>
+<code class="variable-string"></code>
+<code class="variable-string">Parameters</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="generic_doc"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">generic_doc</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'''</code><code class="variable-string"></code>
+<code class="variable-string">Returns a comparison function for a generic attribute.</code>
+<code class="variable-string"></code>
+<code class="variable-string">The value(s) of the attr(s) are compared using the specified</code>
+<code class="variable-string">operators. If all the attributes are equal, then the constructed</code>
+<code class="variable-string">function returns True.</code>
+<code class="variable-string"></code>
+<code class="variable-string">Parameters</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

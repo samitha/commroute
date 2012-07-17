@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cvxpy.scalars.cvxpy_tree</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cvxpy-module.html">Package&nbsp;cvxpy</a> ::
+        <a href="cvxpy.scalars-module.html">Module&nbsp;scalars</a> ::
+        Class&nbsp;cvxpy_tree
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cvxpy.scalars.cvxpy_tree-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class cvxpy_tree</h1><p class="nomargin-top"><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_cvxpy_sc_4" name="uml_class_diagram_for_cvxpy_sc_4">
+<area shape="rect" id="node1_19" href="cvxpy.scalars.cvxpy_tree-class.html#__init__" title="Class constructor." alt="" coords="17,284,200,303"/>
+<area shape="rect" id="node1_20" href="cvxpy.scalars.cvxpy_tree-class.html#__getattribute__" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="17,303,200,321"/>
+<area shape="rect" id="node1_21" href="cvxpy.scalars.cvxpy_tree-class.html#__str__" title="str(x)" alt="" coords="17,321,200,340"/>
+<area shape="rect" id="node1_22" href="cvxpy.scalars.cvxpy_tree-class.html#is_convex" title="Determines if tree follows DCP rules of convexity." alt="" coords="17,340,200,359"/>
+<area shape="rect" id="node1_23" href="cvxpy.scalars.cvxpy_tree-class.html#is_concave" title="Determines if tree follows DCP rules of concavity." alt="" coords="17,359,200,377"/>
+<area shape="rect" id="node1_24" href="cvxpy.scalars.cvxpy_tree-class.html#is_dcp" title="Determines if tree is DCP&#45;compliant." alt="" coords="17,377,200,396"/>
+<area shape="rect" id="node1_25" href="cvxpy.scalars.cvxpy_tree-class.html#is_affine" title="Determines if tree is an affine expression." alt="" coords="17,396,200,415"/>
+<area shape="rect" id="node1_26" href="cvxpy.scalars.cvxpy_tree-class.html#is_nonnegative_constant" title="Determines if tree is guaranteed to be a nonnegative constant." alt="" coords="17,415,200,433"/>
+<area shape="rect" id="node1_27" href="cvxpy.scalars.cvxpy_tree-class.html#is_nonpositive_constant" title="Determines if tree is guaranteed to be a nonpositive constant." alt="" coords="17,433,200,452"/>
+<area shape="rect" id="node1" href="cvxpy.scalars.cvxpy_tree-class.html" title="cvxpy.scalars.cvxpy_tree" alt="" coords="5,251,211,458"/>
+<area shape="rect" id="node2_28" href="cvxpy.scalars.cvxpy_obj-class.html#__add__" title="cvxpy.scalars.cvxpy_obj.__add__" alt="" coords="23,39,196,57"/>
+<area shape="rect" id="node2_29" href="cvxpy.scalars.cvxpy_obj-class.html#__sub__" title="cvxpy.scalars.cvxpy_obj.__sub__" alt="" coords="23,57,196,76"/>
+<area shape="rect" id="node2_30" href="cvxpy.scalars.cvxpy_obj-class.html#__radd__" title="cvxpy.scalars.cvxpy_obj.__radd__" alt="" coords="23,76,196,95"/>
+<area shape="rect" id="node2_31" href="cvxpy.scalars.cvxpy_obj-class.html#__rsub__" title="cvxpy.scalars.cvxpy_obj.__rsub__" alt="" coords="23,95,196,113"/>
+<area shape="rect" id="node2_32" href="cvxpy.scalars.cvxpy_obj-class.html#__addsub__" title="Handles left add and left subtract." alt="" coords="23,113,196,132"/>
+<area shape="rect" id="node2_33" href="cvxpy.scalars.cvxpy_obj-class.html#__raddsub__" title="Handles right add and right subtract." alt="" coords="23,132,196,151"/>
+<area shape="rect" id="node2_34" href="cvxpy.scalars.cvxpy_obj-class.html#__mul__" title="cvxpy.scalars.cvxpy_obj.__mul__" alt="" coords="23,151,196,169"/>
+<area shape="rect" id="node2_35" href="cvxpy.scalars.cvxpy_obj-class.html#__rmul__" title="cvxpy.scalars.cvxpy_obj.__rmul__" alt="" coords="23,169,196,188"/>
+<area shape="rect" id="node2_36" href="cvxpy.scalars.cvxpy_obj-class.html#__mulhandle__" title="Handles left and right multiply." alt="" coords="23,188,196,207"/>
+<area shape="rect" id="node2_37" href="cvxpy.scalars.cvxpy_obj-class.html#__neg__" title="cvxpy.scalars.cvxpy_obj.__neg__" alt="" coords="23,207,196,225"/>
+<area shape="rect" id="node2" href="cvxpy.scalars.cvxpy_obj-class.html" title="cvxpy.scalars.cvxpy_obj" alt="" coords="11,6,208,231"/>
+</map>
+  <img src="uml_class_diagram_for_cvxpy_sc_4.gif" alt='' usemap="#uml_class_diagram_for_cvxpy_sc_4" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_tree-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>,
+        <span class="summary-sig-arg">children</span>)</span><br />
+      Class constructor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_tree-class.html#__getattribute__" class="summary-sig-name">__getattribute__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      x.__getattribute__('name') &lt;==&gt; x.name</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.__getattribute__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_tree-class.html#__str__" class="summary-sig-name">__str__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      str(x)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.__str__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_tree-class.html#is_convex" class="summary-sig-name">is_convex</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determines if tree follows DCP rules of convexity.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.is_convex">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_tree-class.html#is_concave" class="summary-sig-name">is_concave</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determines if tree follows DCP rules of concavity.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.is_concave">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_tree-class.html#is_dcp" class="summary-sig-name">is_dcp</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determines if tree is DCP-compliant.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.is_dcp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_tree-class.html#is_affine" class="summary-sig-name">is_affine</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determines if tree is an affine expression.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.is_affine">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_tree-class.html#is_nonnegative_constant" class="summary-sig-name">is_nonnegative_constant</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determines if tree is guaranteed to be a nonnegative constant.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.is_nonnegative_constant">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_tree-class.html#is_nonpositive_constant" class="summary-sig-name">is_nonpositive_constant</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determines if tree is guaranteed to be a nonpositive constant.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.is_nonpositive_constant">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="cvxpy.scalars.cvxpy_obj-class.html">cvxpy_obj</a></code></b>:
+      <code><a href="cvxpy.scalars.cvxpy_obj-class.html#__add__">__add__</a></code>,
+      <code><a href="cvxpy.scalars.cvxpy_obj-class.html#__addsub__">__addsub__</a></code>,
+      <code><a href="cvxpy.scalars.cvxpy_obj-class.html#__mul__">__mul__</a></code>,
+      <code><a href="cvxpy.scalars.cvxpy_obj-class.html#__mulhandle__">__mulhandle__</a></code>,
+      <code><a href="cvxpy.scalars.cvxpy_obj-class.html#__neg__">__neg__</a></code>,
+      <code><a href="cvxpy.scalars.cvxpy_obj-class.html#__radd__">__radd__</a></code>,
+      <code><a href="cvxpy.scalars.cvxpy_obj-class.html#__raddsub__">__raddsub__</a></code>,
+      <code><a href="cvxpy.scalars.cvxpy_obj-class.html#__rmul__">__rmul__</a></code>,
+      <code><a href="cvxpy.scalars.cvxpy_obj-class.html#__rsub__">__rsub__</a></code>,
+      <code><a href="cvxpy.scalars.cvxpy_obj-class.html#__sub__">__sub__</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item</span>,
+        <span class="sig-arg">children</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Class constructor.</p>
+  <p>:param item: Operator or function. :param children: List of scalar 
+  objects.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__getattribute__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__getattribute__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.__getattribute__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__getattribute__('name') &lt;==&gt; x.name</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__getattribute__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__str__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__str__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Informal representation operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.__str__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>str(x)</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__str__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="is_convex"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_convex</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.is_convex">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Determines if tree follows DCP rules of convexity.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="cvxpy.scalars.cvxpy_obj-class.html#is_convex">cvxpy_obj.is_convex</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="is_concave"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_concave</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.is_concave">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Determines if tree follows DCP rules of concavity.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="cvxpy.scalars.cvxpy_obj-class.html#is_concave">cvxpy_obj.is_concave</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="is_dcp"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_dcp</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.is_dcp">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Determines if tree is DCP-compliant.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="cvxpy.scalars.cvxpy_obj-class.html#is_dcp">cvxpy_obj.is_dcp</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="is_affine"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_affine</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.is_affine">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Determines if tree is an affine expression.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="cvxpy.scalars.cvxpy_obj-class.html#is_affine">cvxpy_obj.is_affine</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="is_nonnegative_constant"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_nonnegative_constant</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.is_nonnegative_constant">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Determines if tree is guaranteed to be a nonnegative constant.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="cvxpy.scalars.cvxpy_obj-class.html#is_nonnegative_constant">cvxpy_obj.is_nonnegative_constant</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="is_nonpositive_constant"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_nonpositive_constant</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_tree.is_nonpositive_constant">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Determines if tree is guaranteed to be a nonpositive constant.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="cvxpy.scalars.cvxpy_obj-class.html#is_nonpositive_constant">cvxpy_obj.is_nonpositive_constant</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:54 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.algorithms.smetric</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.algorithms-module.html">Package&nbsp;algorithms</a> ::
+        Module&nbsp;smetric
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.algorithms.smetric-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="networkx.algorithms.smetric-module.html">Module networkx.algorithms.smetric</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package networkx=networkx-module.html"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-0', 'networkx', 'link-0');">networkx</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">nx</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-1', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package networkx.generators=networkx.generators-module.html"><a title="networkx.generators" class="py-name" href="#" onclick="return doclink('link-2', 'generators', 'link-2');">generators</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module networkx.generators.degree_seq=networkx.generators.degree_seq-module.html"><a title="networkx.generators.degree_seq" class="py-name" href="#" onclick="return doclink('link-3', 'degree_seq', 'link-3');">degree_seq</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Function networkx.generators.degree_seq.li_smax_graph()=networkx.generators.degree_seq-module.html#li_smax_graph"><a title="networkx.generators.degree_seq.li_smax_graph" class="py-name" href="#" onclick="return doclink('link-4', 'li_smax_graph', 'link-4');">li_smax_graph</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="s_metric"></a><div id="s_metric-def"><a name="L4"></a><tt class="py-lineno"> 4</tt> <a class="py-toggle" href="#" id="s_metric-toggle" onclick="return toggle('s_metric');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.algorithms.smetric-module.html#s_metric">s_metric</a><tt class="py-op">(</tt><tt class="py-param">G</tt><tt class="py-op">,</tt> <tt class="py-param">normalized</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="s_metric-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="s_metric-expanded"><a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return the s-metric of graph.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">    The s-metric is defined as the sum of the products deg(u)*deg(v)</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">    for every edge (u,v) in G. If norm is provided construct the</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">    s-max graph and compute it's s_metric, and return the normalized</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">    s value</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">    Parameters</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">    ----------</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">    G    : graph</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">           The graph used to compute the s-metric.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">    normalized : bool (optional)</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">           Normalize the value.</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">    Returns</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">    -------       </tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">    s : float</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">        The s-metric of the graph.</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring">    References</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring">    ----------</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">    .. [1] Lun Li, David Alderson, John C. Doyle, and Walter Willinger,</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">           Towards a Theory of Scale-Free Graphs:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">           Definition, Properties, and  Implications (Extended Version), 2005.</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">           http://arxiv.org/abs/cond-mat/0501169</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">normalized</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-name">Gmax</tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="networkx.generators.degree_seq.li_smax_graph" class="py-name" href="#" onclick="return doclink('link-5', 'li_smax_graph', 'link-4');">li_smax_graph</a></tt><tt class="py-op">(</tt><tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Function networkx.classes.function.degree()=networkx.classes.function-module.html#degree,Method networkx.classes.graph.Graph.degree()=networkx.classes.graph.Graph-class.html#degree"><a title="networkx.classes.function.degree
+networkx.classes.graph.Graph.degree" class="py-name" href="#" onclick="return doclink('link-6', 'degree', 'link-6');">degree</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">values</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-7" class="py-name" targets="Function networkx.algorithms.smetric.s_metric()=networkx.algorithms.smetric-module.html#s_metric"><a title="networkx.algorithms.smetric.s_metric" class="py-name" href="#" onclick="return doclink('link-7', 's_metric', 'link-7');">s_metric</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">normalized</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt id="link-8" class="py-name"><a title="networkx.algorithms.smetric.s_metric" class="py-name" href="#" onclick="return doclink('link-8', 's_metric', 'link-7');">s_metric</a></tt><tt class="py-op">(</tt><tt class="py-name">Gmax</tt><tt class="py-op">,</tt><tt class="py-name">normalized</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt>     </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name" targets="Function cvxpy.utils.sum()=cvxpy.utils-module.html#sum"><a title="cvxpy.utils.sum" class="py-name" href="#" onclick="return doclink('link-9', 'sum', 'link-9');">sum</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="networkx.classes.function.degree
+networkx.classes.graph.Graph.degree" class="py-name" href="#" onclick="return doclink('link-10', 'degree', 'link-6');">degree</a></tt><tt class="py-op">(</tt><tt class="py-name">u</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="networkx.classes.function.degree
+networkx.classes.graph.Graph.degree" class="py-name" href="#" onclick="return doclink('link-11', 'degree', 'link-6');">degree</a></tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-op">(</tt><tt class="py-name">u</tt><tt class="py-op">,</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method networkx.classes.digraph.DiGraph.edges_iter()=networkx.classes.digraph.DiGraph-class.html#edges_iter,Function networkx.classes.function.edges_iter()=networkx.classes.function-module.html#edges_iter,Method networkx.classes.graph.Graph.edges_iter()=networkx.classes.graph.Graph-class.html#edges_iter,Method networkx.classes.multidigraph.MultiDiGraph.edges_iter()=networkx.classes.multidigraph.MultiDiGraph-class.html#edges_iter,Method networkx.classes.multigraph.MultiGraph.edges_iter()=networkx.classes.multigraph.MultiGraph-class.html#edges_iter"><a title="networkx.classes.digraph.DiGraph.edges_iter
+networkx.classes.function.edges_iter
+networkx.classes.graph.Graph.edges_iter
+networkx.classes.multidigraph.MultiDiGraph.edges_iter
+networkx.classes.multigraph.MultiGraph.edges_iter" class="py-name" href="#" onclick="return doclink('link-12', 'edges_iter', 'link-12');">edges_iter</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:00 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>commroute.state_constrained</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="commroute-module.html">Package&nbsp;commroute</a> ::
+        Module&nbsp;state_constrained
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="commroute.state_constrained-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="commroute.state_constrained-module.html">Module commroute.state_constrained</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module commroute.complacency=commroute.complacency-module.html"><a title="commroute.complacency" class="py-name" href="#" onclick="return doclink('link-0', 'complacency', 'link-0');">complacency</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Class commroute.complacency.MinTTTComplacencyProblem=commroute.complacency.MinTTTComplacencyProblem-class.html"><a title="commroute.complacency.MinTTTComplacencyProblem" class="py-name" href="#" onclick="return doclink('link-1', 'MinTTTComplacencyProblem', 'link-1');">MinTTTComplacencyProblem</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Module commroute.ctm=commroute.ctm-module.html"><a title="commroute.ctm" class="py-name" href="#" onclick="return doclink('link-2', 'ctm', 'link-2');">ctm</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class commroute.ctm.CTMLink=commroute.ctm.CTMLink-class.html"><a title="commroute.ctm.CTMLink" class="py-name" href="#" onclick="return doclink('link-3', 'CTMLink', 'link-3');">CTMLink</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Module commroute.static_ctm=commroute.static_ctm-module.html"><a title="commroute.static_ctm" class="py-name" href="#" onclick="return doclink('link-4', 'static_ctm', 'link-4');">static_ctm</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Class commroute.static_ctm.MinTTTLagrangianCTMProblem=commroute.static_ctm.MinTTTLagrangianCTMProblem-class.html"><a title="commroute.static_ctm.MinTTTLagrangianCTMProblem" class="py-name" href="#" onclick="return doclink('link-5', 'MinTTTLagrangianCTMProblem', 'link-5');">MinTTTLagrangianCTMProblem</a></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">'jdr'</tt> </tt>
+<a name="StateConstrainedLink"></a><div id="StateConstrainedLink-def"><a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="StateConstrainedLink-toggle" onclick="return toggle('StateConstrainedLink');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink-class.html">StateConstrainedLink</a><tt class="py-op">(</tt><tt class="py-base-class">CTMLink</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="StateConstrainedLink-expanded"><a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedLink.CongState"></a><div id="StateConstrainedLink.CongState-def"><a name="L9"></a><tt class="py-lineno"> 9</tt> <a class="py-toggle" href="#" id="StateConstrainedLink.CongState-toggle" onclick="return toggle('StateConstrainedLink.CongState');">-</a><tt class="py-line">  <tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink.CongState-class.html">CongState</a><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink.CongState-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedLink.CongState-expanded"><a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable commroute.state_constrained.StateConstrainedLink.CongState.FF=commroute.state_constrained.StateConstrainedLink.CongState-class.html#FF"><a title="commroute.state_constrained.StateConstrainedLink.CongState.FF" class="py-name" href="#" onclick="return doclink('link-6', 'FF', 'link-6');">FF</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable commroute.state_constrained.StateConstrainedLink.CongState.CONG=commroute.state_constrained.StateConstrainedLink.CongState-class.html#CONG"><a title="commroute.state_constrained.StateConstrainedLink.CongState.CONG" class="py-name" href="#" onclick="return doclink('link-7', 'CONG', 'link-7');">CONG</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable commroute.state_constrained.StateConstrainedLink.CongState.ANY=commroute.state_constrained.StateConstrainedLink.CongState-class.html#ANY"><a title="commroute.state_constrained.StateConstrainedLink.CongState.ANY" class="py-name" href="#" onclick="return doclink('link-8', 'ANY', 'link-8');">ANY</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable commroute.state_constrained.StateConstrainedLink.CongState.BOUND=commroute.state_constrained.StateConstrainedLink.CongState-class.html#BOUND"><a title="commroute.state_constrained.StateConstrainedLink.CongState.BOUND" class="py-name" href="#" onclick="return doclink('link-9', 'BOUND', 'link-9');">BOUND</a></tt> <tt class="py-op">=</tt> <tt class="py-number">3</tt> </tt>
+</div><a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedLink.__init__"></a><div id="StateConstrainedLink.__init__-def"><a name="L15"></a><tt class="py-lineno">15</tt> <a class="py-toggle" href="#" id="StateConstrainedLink.__init__-toggle" onclick="return toggle('StateConstrainedLink.__init__');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">cong_state</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink.__init__-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedLink.__init__-expanded"><a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-10" class="py-name" targets="Method commroute.state_constrained.StateConstrainedLink.cong_state()=commroute.state_constrained.StateConstrainedLink-class.html#cong_state"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-10', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">      <tt id="link-11" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-11', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Class commroute.state_constrained.StateConstrainedLink.CongState=commroute.state_constrained.StateConstrainedLink.CongState-class.html"><a title="commroute.state_constrained.StateConstrainedLink.CongState" class="py-name" href="#" onclick="return doclink('link-12', 'CongState', 'link-12');">CongState</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState.ANY" class="py-name" href="#" onclick="return doclink('link-13', 'ANY', 'link-8');">ANY</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-14" class="py-name" targets="Class commroute.state_constrained.StateConstrainedLink=commroute.state_constrained.StateConstrainedLink-class.html"><a title="commroute.state_constrained.StateConstrainedLink" class="py-name" href="#" onclick="return doclink('link-14', 'StateConstrainedLink', 'link-14');">StateConstrainedLink</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method commroute.bfs.Queue.__init__()=commroute.bfs.Queue-class.html#__init__,Method commroute.compliance.CompliantRouteDemand.__init__()=commroute.compliance.CompliantRouteDemand-class.html#__init__,Method commroute.cr_network.CRNetwork.__init__()=commroute.cr_network.CRNetwork-class.html#__init__,Method commroute.cr_network.Junction.__init__()=commroute.cr_network.Junction-class.html#__init__,Method commroute.cr_network.Link.__init__()=commroute.cr_network.Link-class.html#__init__,Method commroute.cr_network.Route.__init__()=commroute.cr_network.Route-class.html#__init__,Method commroute.cr_network.Sink.__init__()=commroute.cr_network.Sink-class.html#__init__,Method commroute.cr_network.Source.__init__()=commroute.cr_network.Source-class.html#__init__,Method commroute.cr_optimize.Constraint.__init__()=commroute.cr_optimize.Constraint-class.html#__init__,Method commroute.ctm.CTMLink.__init__()=commroute.ctm.CTMLink-class.html#__init__,Method commroute.ctm.CTMState.__init__()=commroute.ctm.CTMState-class.html#__init__,Method commroute.ctm.FundamentalDiagram.__init__()=commroute.ctm.FundamentalDiagram-class.html#__init__,Method commroute.cvxpy_solver.CVXPyProgram.__init__()=commroute.cvxpy_solver.CVXPyProgram-class.html#__init__,Method commroute.demand.Demand.__init__()=commroute.demand.Demand-class.html#__init__,Method commroute.demand.DemandMixin.__init__()=commroute.demand.DemandMixin-class.html#__init__,Method commroute.demand.LinkDemand.__init__()=commroute.demand.LinkDemand-class.html#__init__,Method commroute.demand.ODDemand.__init__()=commroute.demand.ODDemand-class.html#__init__,Method commroute.demand.RouteDemand.__init__()=commroute.demand.RouteDemand-class.html#__init__,Method commroute.dynamic.DynamicDemand.__init__()=commroute.dynamic.DynamicDemand-class.html#__init__,Method commroute.dynamic.DynamicLagrangianProblem.__init__()=commroute.dynamic.DynamicLagrangianProblem-class.html#__init__,Method commroute.dynamic.SourceDemand.__init__()=commroute.dynamic.SourceDemand-class.html#__init__,Method commroute.point_queue.AffineLatency.__init__()=commroute.point_queue.AffineLatency-class.html#__init__,Method commroute.point_queue.FlowLink.__init__()=commroute.point_queue.FlowLink-class.html#__init__,Method commroute.point_queue.MM1Latency.__init__()=commroute.point_queue.MM1Latency-class.html#__init__,Method commroute.point_queue.PQState.__init__()=commroute.point_queue.PQState-class.html#__init__,Method commroute.state_constrained.StateConstrainedLink.__init__()=commroute.state_constrained.StateConstrainedLink-class.html#__init__,Method cvxpy.arrays.cvxpy_array.__init__()=cvxpy.arrays.cvxpy_array-class.html#__init__,Method cvxpy.arrays.cvxpy_matrix.__init__()=cvxpy.arrays.cvxpy_matrix-class.html#__init__,Method cvxpy.arrays.cvxpy_param.__init__()=cvxpy.arrays.cvxpy_param-class.html#__init__,Method cvxpy.arrays.cvxpy_var.__init__()=cvxpy.arrays.cvxpy_var-class.html#__init__,Method cvxpy.constraints.cvxpy_constr.__init__()=cvxpy.constraints.cvxpy_constr-class.html#__init__,Method cvxpy.programs.cvxpy_program.__init__()=cvxpy.programs.cvxpy_program-class.html#__init__,Method cvxpy.scalars.cvxpy_obj.__init__()=cvxpy.scalars.cvxpy_obj-class.html#__init__,Method cvxpy.scalars.cvxpy_scalar_param.__init__()=cvxpy.scalars.cvxpy_scalar_param-class.html#__init__,Method cvxpy.scalars.cvxpy_scalar_var.__init__()=cvxpy.scalars.cvxpy_scalar_var-class.html#__init__,Method cvxpy.scalars.cvxpy_tree.__init__()=cvxpy.scalars.cvxpy_tree-class.html#__init__,Method cvxpy.sets.exp_cone'.cvxpy_exp_cone.__init__()=cvxpy.sets.exp_cone%27.cvxpy_exp_cone-class.html#__init__,Method cvxpy.sets.geo_mean_cone'.cvxpy_geo_mean_cone.__init__()=cvxpy.sets.geo_mean_cone%27.cvxpy_geo_mean_cone-class.html#__init__,Method cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi.__init__()=cvxpy.sets.kl_div_epi%27.cvxpy_kl_div_epi-class.html#__init__,Method cvxpy.sets.log_norm_cdf_hypo'.cvxpy_log_norm_cdf_hypo.__init__()=cvxpy.sets.log_norm_cdf_hypo%27.cvxpy_log_norm_cdf_hypo-class.html#__init__,Method cvxpy.sets.second_order_cone'.cvxpy_second_order_cone.__init__()=cvxpy.sets.second_order_cone%27.cvxpy_second_order_cone-class.html#__init__,Method cvxpy.sets.semidefinite_cone'.cvxpy_semidefinite_cone.__init__()=cvxpy.sets.semidefinite_cone%27.cvxpy_semidefinite_cone-class.html#__init__,Method networkx.algorithms.isomorphism.isomorphvf2.DiGMState.__init__()=networkx.algorithms.isomorphism.isomorphvf2.DiGMState-class.html#__init__,Method networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.__init__()=networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher-class.html#__init__,Method networkx.algorithms.isomorphism.isomorphvf2.GMState.__init__()=networkx.algorithms.isomorphism.isomorphvf2.GMState-class.html#__init__,Method networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher.__init__()=networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#__init__,Method networkx.algorithms.isomorphism.vf2userfunc.DiGraphMatcher.__init__()=networkx.algorithms.isomorphism.vf2userfunc.DiGraphMatcher-class.html#__init__,Method networkx.algorithms.isomorphism.vf2userfunc.GraphMatcher.__init__()=networkx.algorithms.isomorphism.vf2userfunc.GraphMatcher-class.html#__init__,Method networkx.classes.digraph.DiGraph.__init__()=networkx.classes.digraph.DiGraph-class.html#__init__,Method networkx.classes.graph.Graph.__init__()=networkx.classes.graph.Graph-class.html#__init__,Method networkx.readwrite.gexf.GEXFReader.__init__()=networkx.readwrite.gexf.GEXFReader-class.html#__init__,Method networkx.readwrite.gexf.GEXFWriter.__init__()=networkx.readwrite.gexf.GEXFWriter-class.html#__init__,Method networkx.readwrite.graphml.GraphMLReader.__init__()=networkx.readwrite.graphml.GraphMLReader-class.html#__init__,Method networkx.readwrite.graphml.GraphMLWriter.__init__()=networkx.readwrite.graphml.GraphMLWriter-class.html#__init__,Method networkx.tests.benchmark.Benchmark.__init__()=networkx.tests.benchmark.Benchmark-class.html#__init__,Method networkx.tests.test_convert_numpy.TestConvertNumpy.__init__()=networkx.tests.test_convert_numpy.TestConvertNumpy-class.html#__init__,Method networkx.tests.test_convert_scipy.TestConvertNumpy.__init__()=networkx.tests.test_convert_scipy.TestConvertNumpy-class.html#__init__,Method networkx.utils.UnionFind.__init__()=networkx.utils.UnionFind-class.html#__init__"><a title="commroute.bfs.Queue.__init__
+commroute.compliance.CompliantRouteDemand.__init__
+commroute.cr_network.CRNetwork.__init__
+commroute.cr_network.Junction.__init__
+commroute.cr_network.Link.__init__
+commroute.cr_network.Route.__init__
+commroute.cr_network.Sink.__init__
+commroute.cr_network.Source.__init__
+commroute.cr_optimize.Constraint.__init__
+commroute.ctm.CTMLink.__init__
+commroute.ctm.CTMState.__init__
+commroute.ctm.FundamentalDiagram.__init__
+commroute.cvxpy_solver.CVXPyProgram.__init__
+commroute.demand.Demand.__init__
+commroute.demand.DemandMixin.__init__
+commroute.demand.LinkDemand.__init__
+commroute.demand.ODDemand.__init__
+commroute.demand.RouteDemand.__init__
+commroute.dynamic.DynamicDemand.__init__
+commroute.dynamic.DynamicLagrangianProblem.__init__
+commroute.dynamic.SourceDemand.__init__
+commroute.point_queue.AffineLatency.__init__
+commroute.point_queue.FlowLink.__init__
+commroute.point_queue.MM1Latency.__init__
+commroute.point_queue.PQState.__init__
+commroute.state_constrained.StateConstrainedLink.__init__
+cvxpy.arrays.cvxpy_array.__init__
+cvxpy.arrays.cvxpy_matrix.__init__
+cvxpy.arrays.cvxpy_param.__init__
+cvxpy.arrays.cvxpy_var.__init__
+cvxpy.constraints.cvxpy_constr.__init__
+cvxpy.programs.cvxpy_program.__init__
+cvxpy.scalars.cvxpy_obj.__init__
+cvxpy.scalars.cvxpy_scalar_param.__init__
+cvxpy.scalars.cvxpy_scalar_var.__init__
+cvxpy.scalars.cvxpy_tree.__init__
+cvxpy.sets.exp_cone'.cvxpy_exp_cone.__init__
+cvxpy.sets.geo_mean_cone'.cvxpy_geo_mean_cone.__init__
+cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi.__init__
+cvxpy.sets.log_norm_cdf_hypo'.cvxpy_log_norm_cdf_hypo.__init__
+cvxpy.sets.second_order_cone'.cvxpy_second_order_cone.__init__
+cvxpy.sets.semidefinite_cone'.cvxpy_semidefinite_cone.__init__
+networkx.algorithms.isomorphism.isomorphvf2.DiGMState.__init__
+networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.__init__
+networkx.algorithms.isomorphism.isomorphvf2.GMState.__init__
+networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher.__init__
+networkx.algorithms.isomorphism.vf2userfunc.DiGraphMatcher.__init__
+networkx.algorithms.isomorphism.vf2userfunc.GraphMatcher.__init__
+networkx.classes.digraph.DiGraph.__init__
+networkx.classes.graph.Graph.__init__
+networkx.readwrite.gexf.GEXFReader.__init__
+networkx.readwrite.gexf.GEXFWriter.__init__
+networkx.readwrite.graphml.GraphMLReader.__init__
+networkx.readwrite.graphml.GraphMLWriter.__init__
+networkx.tests.benchmark.Benchmark.__init__
+networkx.tests.test_convert_numpy.TestConvertNumpy.__init__
+networkx.tests.test_convert_scipy.TestConvertNumpy.__init__
+networkx.utils.UnionFind.__init__" class="py-name" href="#" onclick="return doclink('link-15', '__init__', 'link-15');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-16', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-17', 'cong_state', 'link-10');">cong_state</a></tt> </tt>
+</div><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedLink.cong_state"></a><div id="StateConstrainedLink.cong_state-def"><a name="L22"></a><tt class="py-lineno">22</tt> <a class="py-toggle" href="#" id="StateConstrainedLink.cong_state-toggle" onclick="return toggle('StateConstrainedLink.cong_state');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink-class.html#cong_state">cong_state</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink.cong_state-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedLink.cong_state-expanded"><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-18', 'cong_state', 'link-10');">cong_state</a></tt> </tt>
+</div><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedLink.set_ff"></a><div id="StateConstrainedLink.set_ff-def"><a name="L25"></a><tt class="py-lineno">25</tt> <a class="py-toggle" href="#" id="StateConstrainedLink.set_ff-toggle" onclick="return toggle('StateConstrainedLink.set_ff');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink-class.html#set_ff">set_ff</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink.set_ff-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedLink.set_ff-expanded"><a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-19', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState" class="py-name" href="#" onclick="return doclink('link-20', 'CongState', 'link-12');">CongState</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState.FF" class="py-name" href="#" onclick="return doclink('link-21', 'FF', 'link-6');">FF</a></tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedLink.set_cong"></a><div id="StateConstrainedLink.set_cong-def"><a name="L28"></a><tt class="py-lineno">28</tt> <a class="py-toggle" href="#" id="StateConstrainedLink.set_cong-toggle" onclick="return toggle('StateConstrainedLink.set_cong');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink-class.html#set_cong">set_cong</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink.set_cong-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedLink.set_cong-expanded"><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-22', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState" class="py-name" href="#" onclick="return doclink('link-23', 'CongState', 'link-12');">CongState</a></tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState.CONG" class="py-name" href="#" onclick="return doclink('link-24', 'CONG', 'link-7');">CONG</a></tt> </tt>
+</div><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedLink.set_any"></a><div id="StateConstrainedLink.set_any-def"><a name="L31"></a><tt class="py-lineno">31</tt> <a class="py-toggle" href="#" id="StateConstrainedLink.set_any-toggle" onclick="return toggle('StateConstrainedLink.set_any');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink-class.html#set_any">set_any</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink.set_any-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedLink.set_any-expanded"><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-25', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState" class="py-name" href="#" onclick="return doclink('link-26', 'CongState', 'link-12');">CongState</a></tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState.ANY" class="py-name" href="#" onclick="return doclink('link-27', 'ANY', 'link-8');">ANY</a></tt> </tt>
+</div><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">     </tt>
+<a name="StateConstrainedLink.set_bound"></a><div id="StateConstrainedLink.set_bound-def"><a name="L34"></a><tt class="py-lineno">34</tt> <a class="py-toggle" href="#" id="StateConstrainedLink.set_bound-toggle" onclick="return toggle('StateConstrainedLink.set_bound');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink-class.html#set_bound">set_bound</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">lower</tt><tt class="py-op">,</tt> <tt class="py-param">upper</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink.set_bound-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedLink.set_bound-expanded"><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-28', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState" class="py-name" href="#" onclick="return doclink('link-29', 'CongState', 'link-12');">CongState</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState.BOUND" class="py-name" href="#" onclick="return doclink('link-30', 'BOUND', 'link-9');">BOUND</a></tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">cong_bounds</tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">      <tt class="py-name">upper</tt><tt class="py-op">=</tt><tt class="py-name">upper</tt><tt class="py-op">,</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">      <tt class="py-name">lower</tt><tt class="py-op">=</tt><tt class="py-name">lower</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+</div><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedLink.init_state"></a><div id="StateConstrainedLink.init_state-def"><a name="L41"></a><tt class="py-lineno">41</tt> <a class="py-toggle" href="#" id="StateConstrainedLink.init_state-toggle" onclick="return toggle('StateConstrainedLink.init_state');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink-class.html#init_state">init_state</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink.init_state-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedLink.init_state-expanded"><a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method commroute.state_constrained.StateConstrainedLink.set_cong_state()=commroute.state_constrained.StateConstrainedLink-class.html#set_cong_state"><a title="commroute.state_constrained.StateConstrainedLink.set_cong_state" class="py-name" href="#" onclick="return doclink('link-31', 'set_cong_state', 'link-31');">set_cong_state</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState" class="py-name" href="#" onclick="return doclink('link-32', 'CongState', 'link-12');">CongState</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState.ANY" class="py-name" href="#" onclick="return doclink('link-33', 'ANY', 'link-8');">ANY</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedLink.set_cong_state"></a><div id="StateConstrainedLink.set_cong_state-def"><a name="L44"></a><tt class="py-lineno">44</tt> <a class="py-toggle" href="#" id="StateConstrainedLink.set_cong_state-toggle" onclick="return toggle('StateConstrainedLink.set_cong_state');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink-class.html#set_cong_state">set_cong_state</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">state</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink.set_cong_state-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedLink.set_cong_state-expanded"><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-34', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-op">=</tt> <tt class="py-name">state</tt> </tt>
+</div><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedLink.ctm_constraints"></a><div id="StateConstrainedLink.ctm_constraints-def"><a name="L47"></a><tt class="py-lineno">47</tt> <a class="py-toggle" href="#" id="StateConstrainedLink.ctm_constraints-toggle" onclick="return toggle('StateConstrainedLink.ctm_constraints');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink-class.html#ctm_constraints">ctm_constraints</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">solver</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink.ctm_constraints-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedLink.ctm_constraints-expanded"><a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"><tt class="py-docstring">    gives the constraint taking into account the state</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"><tt class="py-docstring">    of the link</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"><tt class="py-docstring">    @param solver:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"><tt class="py-docstring">    @type solver: cvxpy_solver.CVXPySolver</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: cvxpy_solver.CVXPyConstraint</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-35', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState" class="py-name" href="#" onclick="return doclink('link-36', 'CongState', 'link-12');">CongState</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState.FF" class="py-name" href="#" onclick="return doclink('link-37', 'FF', 'link-6');">FF</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">      <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-name">solver</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Method commroute.cr_optimize.Solver.cr_leq()=commroute.cr_optimize.Solver-class.html#cr_leq"><a title="commroute.cr_optimize.Solver.cr_leq" class="py-name" href="#" onclick="return doclink('link-38', 'cr_leq', 'link-38');">cr_leq</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">v_dens</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">fd</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Method commroute.ctm.FundamentalDiagram.rho_crit()=commroute.ctm.FundamentalDiagram-class.html#rho_crit"><a title="commroute.ctm.FundamentalDiagram.rho_crit" class="py-name" href="#" onclick="return doclink('link-39', 'rho_crit', 'link-39');">rho_crit</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-40', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState" class="py-name" href="#" onclick="return doclink('link-41', 'CongState', 'link-12');">CongState</a></tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState.CONG" class="py-name" href="#" onclick="return doclink('link-42', 'CONG', 'link-7');">CONG</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">      <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-name">solver</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Method commroute.cr_optimize.Solver.cr_geq()=commroute.cr_optimize.Solver-class.html#cr_geq"><a title="commroute.cr_optimize.Solver.cr_geq" class="py-name" href="#" onclick="return doclink('link-43', 'cr_geq', 'link-43');">cr_geq</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">v_dens</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">fd</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="commroute.ctm.FundamentalDiagram.rho_crit" class="py-name" href="#" onclick="return doclink('link-44', 'rho_crit', 'link-39');">rho_crit</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-45', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState" class="py-name" href="#" onclick="return doclink('link-46', 'CongState', 'link-12');">CongState</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState.BOUND" class="py-name" href="#" onclick="return doclink('link-47', 'BOUND', 'link-9');">BOUND</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">      <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-name">solver</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="commroute.cr_optimize.Solver.cr_geq" class="py-name" href="#" onclick="return doclink('link-48', 'cr_geq', 'link-43');">cr_geq</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">v_dens</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">cong_bounds</tt><tt class="py-op">[</tt><tt class="py-string">'lower'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">solver</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="commroute.cr_optimize.Solver.cr_leq" class="py-name" href="#" onclick="return doclink('link-49', 'cr_leq', 'link-38');">cr_leq</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">v_dens</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">cong_bounds</tt><tt class="py-op">[</tt><tt class="py-string">'upper'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-50', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState" class="py-name" href="#" onclick="return doclink('link-51', 'CongState', 'link-12');">CongState</a></tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState.ANY" class="py-name" href="#" onclick="return doclink('link-52', 'ANY', 'link-8');">ANY</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">      <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedLink.jsonify"></a><div id="StateConstrainedLink.jsonify-def"><a name="L64"></a><tt class="py-lineno">64</tt> <a class="py-toggle" href="#" id="StateConstrainedLink.jsonify-toggle" onclick="return toggle('StateConstrainedLink.jsonify');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink-class.html#jsonify">jsonify</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink.jsonify-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedLink.jsonify-expanded"><a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">    <tt class="py-name">json</tt> <tt class="py-op">=</tt> <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-53" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink" class="py-name" href="#" onclick="return doclink('link-53', 'StateConstrainedLink', 'link-14');">StateConstrainedLink</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name" targets="Method commroute.compliance.CompliantRouteDemand.jsonify()=commroute.compliance.CompliantRouteDemand-class.html#jsonify,Method commroute.cr_network.CRNetwork.jsonify()=commroute.cr_network.CRNetwork-class.html#jsonify,Method commroute.cr_network.Junction.jsonify()=commroute.cr_network.Junction-class.html#jsonify,Method commroute.cr_network.Link.jsonify()=commroute.cr_network.Link-class.html#jsonify,Method commroute.cr_network.Route.jsonify()=commroute.cr_network.Route-class.html#jsonify,Method commroute.cr_utils.Dumpable.Dumpable.jsonify()=commroute.cr_utils.Dumpable.Dumpable-class.html#jsonify,Method commroute.ctm.CTMLink.jsonify()=commroute.ctm.CTMLink-class.html#jsonify,Method commroute.ctm.FundamentalDiagram.jsonify()=commroute.ctm.FundamentalDiagram-class.html#jsonify,Method commroute.demand.Demand.jsonify()=commroute.demand.Demand-class.html#jsonify,Method commroute.demand.FlowNetwork.jsonify()=commroute.demand.FlowNetwork-class.html#jsonify,Method commroute.demand.LinkDemand.jsonify()=commroute.demand.LinkDemand-class.html#jsonify,Method commroute.demand.ODDemand.jsonify()=commroute.demand.ODDemand-class.html#jsonify,Method commroute.demand.RouteDemand.jsonify()=commroute.demand.RouteDemand-class.html#jsonify,Method commroute.dynamic.DynamicDemand.jsonify()=commroute.dynamic.DynamicDemand-class.html#jsonify,Method commroute.dynamic.SourceDemand.jsonify()=commroute.dynamic.SourceDemand-class.html#jsonify,Method commroute.point_queue.AffineLatency.jsonify()=commroute.point_queue.AffineLatency-class.html#jsonify,Method commroute.point_queue.FlowLatency.jsonify()=commroute.point_queue.FlowLatency-class.html#jsonify,Method commroute.point_queue.FlowLink.jsonify()=commroute.point_queue.FlowLink-class.html#jsonify,Method commroute.point_queue.MM1Latency.jsonify()=commroute.point_queue.MM1Latency-class.html#jsonify,Method commroute.state_constrained.StateConstrainedLink.jsonify()=commroute.state_constrained.StateConstrainedLink-class.html#jsonify"><a title="commroute.compliance.CompliantRouteDemand.jsonify
+commroute.cr_network.CRNetwork.jsonify
+commroute.cr_network.Junction.jsonify
+commroute.cr_network.Link.jsonify
+commroute.cr_network.Route.jsonify
+commroute.cr_utils.Dumpable.Dumpable.jsonify
+commroute.ctm.CTMLink.jsonify
+commroute.ctm.FundamentalDiagram.jsonify
+commroute.demand.Demand.jsonify
+commroute.demand.FlowNetwork.jsonify
+commroute.demand.LinkDemand.jsonify
+commroute.demand.ODDemand.jsonify
+commroute.demand.RouteDemand.jsonify
+commroute.dynamic.DynamicDemand.jsonify
+commroute.dynamic.SourceDemand.jsonify
+commroute.point_queue.AffineLatency.jsonify
+commroute.point_queue.FlowLatency.jsonify
+commroute.point_queue.FlowLink.jsonify
+commroute.point_queue.MM1Latency.jsonify
+commroute.state_constrained.StateConstrainedLink.jsonify" class="py-name" href="#" onclick="return doclink('link-54', 'jsonify', 'link-54');">jsonify</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">    <tt class="py-name">json</tt><tt class="py-op">[</tt><tt class="py-string">'cong_state'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-55', 'cong_state', 'link-10');">cong_state</a></tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.cong_state" class="py-name" href="#" onclick="return doclink('link-56', 'cong_state', 'link-10');">cong_state</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState" class="py-name" href="#" onclick="return doclink('link-57', 'CongState', 'link-12');">CongState</a></tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState.BOUND" class="py-name" href="#" onclick="return doclink('link-58', 'BOUND', 'link-9');">BOUND</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">      <tt class="py-name">json</tt><tt class="py-op">[</tt><tt class="py-string">'cong_bounds'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">cong_bounds</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">json</tt> </tt>
+</div><a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line"> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="StateConstrainedLink.additional_kwargs"></a><div id="StateConstrainedLink.additional_kwargs-def"><a name="L72"></a><tt class="py-lineno">72</tt> <a class="py-toggle" href="#" id="StateConstrainedLink.additional_kwargs-toggle" onclick="return toggle('StateConstrainedLink.additional_kwargs');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedLink-class.html#additional_kwargs">additional_kwargs</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedLink.additional_kwargs-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedLink.additional_kwargs-expanded"><a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">    <tt class="py-name">kwargs</tt> <tt class="py-op">=</tt> <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-59" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink" class="py-name" href="#" onclick="return doclink('link-59', 'StateConstrainedLink', 'link-14');">StateConstrainedLink</a></tt><tt class="py-op">,</tt> <tt class="py-name">cls</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name" targets="Class Method commroute.cr_network.Link.additional_kwargs()=commroute.cr_network.Link-class.html#additional_kwargs,Class Method commroute.ctm.CTMLink.additional_kwargs()=commroute.ctm.CTMLink-class.html#additional_kwargs,Class Method commroute.point_queue.FlowLink.additional_kwargs()=commroute.point_queue.FlowLink-class.html#additional_kwargs,Class Method commroute.state_constrained.StateConstrainedLink.additional_kwargs()=commroute.state_constrained.StateConstrainedLink-class.html#additional_kwargs"><a title="commroute.cr_network.Link.additional_kwargs
+commroute.ctm.CTMLink.additional_kwargs
+commroute.point_queue.FlowLink.additional_kwargs
+commroute.state_constrained.StateConstrainedLink.additional_kwargs" class="py-name" href="#" onclick="return doclink('link-60', 'additional_kwargs', 'link-60');">additional_kwargs</a></tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">    <tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">'cong_state'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'cong_state'</tt><tt class="py-op">,</tt> <tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState" class="py-name" href="#" onclick="return doclink('link-61', 'CongState', 'link-12');">CongState</a></tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink.CongState.ANY" class="py-name" href="#" onclick="return doclink('link-62', 'ANY', 'link-8');">ANY</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">    <tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">'cong_bounds'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'cong_bounds'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">kwargs</tt> </tt>
+</div></div><a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedNetwork"></a><div id="StateConstrainedNetwork-def"><a name="L78"></a><tt class="py-lineno">78</tt> <a class="py-toggle" href="#" id="StateConstrainedNetwork-toggle" onclick="return toggle('StateConstrainedNetwork');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedNetwork-class.html">StateConstrainedNetwork</a><tt class="py-op">(</tt><tt class="py-base-class">MinTTTLagrangianCTMProblem</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedNetwork-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="StateConstrainedNetwork-expanded"><a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">  <tt class="py-name">link_class</tt> <tt class="py-op">=</tt> <tt id="link-63" class="py-name"><a title="commroute.state_constrained.StateConstrainedLink" class="py-name" href="#" onclick="return doclink('link-63', 'StateConstrainedLink', 'link-14');">StateConstrainedLink</a></tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedNetwork.state_constrained_constraints"></a><div id="StateConstrainedNetwork.state_constrained_constraints-def"><a name="L81"></a><tt class="py-lineno">81</tt> <a class="py-toggle" href="#" id="StateConstrainedNetwork.state_constrained_constraints-toggle" onclick="return toggle('StateConstrainedNetwork.state_constrained_constraints');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedNetwork-class.html#state_constrained_constraints">state_constrained_constraints</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedNetwork.state_constrained_constraints-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedNetwork.state_constrained_constraints-expanded"><a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">    <tt id="link-64" class="py-name" targets="Method commroute.complacency.ComplacencyConstrained.constraints()=commroute.complacency.ComplacencyConstrained-class.html#constraints,Method commroute.cr_optimize.OptimizeMixIn.constraints()=commroute.cr_optimize.OptimizeMixIn-class.html#constraints,Method commroute.cvxpy_solver.Unconstrained.constraints()=commroute.cvxpy_solver.Unconstrained-class.html#constraints,Method commroute.data_fixer.DataFixer.constraints()=commroute.data_fixer.DataFixer-class.html#constraints,Method commroute.state_constrained.StateConstrainedNetwork.constraints()=commroute.state_constrained.StateConstrainedNetwork-class.html#constraints,Method commroute.static_ctm.CTMConstrained.constraints()=commroute.static_ctm.CTMConstrained-class.html#constraints,Method commroute.static_op.LagrangianConstrained.constraints()=commroute.static_op.LagrangianConstrained-class.html#constraints,Method commroute.static_pq.CapacityConstrained.constraints()=commroute.static_pq.CapacityConstrained-class.html#constraints,Module cvxpy.constraints=cvxpy.constraints-module.html"><a title="commroute.complacency.ComplacencyConstrained.constraints
+commroute.cr_optimize.OptimizeMixIn.constraints
+commroute.cvxpy_solver.Unconstrained.constraints
+commroute.data_fixer.DataFixer.constraints
+commroute.state_constrained.StateConstrainedNetwork.constraints
+commroute.static_ctm.CTMConstrained.constraints
+commroute.static_op.LagrangianConstrained.constraints
+commroute.static_pq.CapacityConstrained.constraints
+cvxpy.constraints" class="py-name" href="#" onclick="return doclink('link-64', 'constraints', 'link-64');">constraints</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">link</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name" targets="Method commroute.cr_network.CRNetwork.get_links()=commroute.cr_network.CRNetwork-class.html#get_links"><a title="commroute.cr_network.CRNetwork.get_links" class="py-name" href="#" onclick="return doclink('link-65', 'get_links', 'link-65');">get_links</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line">      <tt id="link-66" class="py-name"><a title="commroute.complacency.ComplacencyConstrained.constraints
+commroute.cr_optimize.OptimizeMixIn.constraints
+commroute.cvxpy_solver.Unconstrained.constraints
+commroute.data_fixer.DataFixer.constraints
+commroute.state_constrained.StateConstrainedNetwork.constraints
+commroute.static_ctm.CTMConstrained.constraints
+commroute.static_op.LagrangianConstrained.constraints
+commroute.static_pq.CapacityConstrained.constraints
+cvxpy.constraints" class="py-name" href="#" onclick="return doclink('link-66', 'constraints', 'link-64');">constraints</a></tt><tt class="py-op">+=</tt><tt class="py-name">link</tt><tt class="py-op">.</tt><tt id="link-67" class="py-name" targets="Method commroute.state_constrained.StateConstrainedLink.ctm_constraints()=commroute.state_constrained.StateConstrainedLink-class.html#ctm_constraints"><a title="commroute.state_constrained.StateConstrainedLink.ctm_constraints" class="py-name" href="#" onclick="return doclink('link-67', 'ctm_constraints', 'link-67');">ctm_constraints</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-68" class="py-name"><a title="commroute.complacency.ComplacencyConstrained.constraints
+commroute.cr_optimize.OptimizeMixIn.constraints
+commroute.cvxpy_solver.Unconstrained.constraints
+commroute.data_fixer.DataFixer.constraints
+commroute.state_constrained.StateConstrainedNetwork.constraints
+commroute.static_ctm.CTMConstrained.constraints
+commroute.static_op.LagrangianConstrained.constraints
+commroute.static_pq.CapacityConstrained.constraints
+cvxpy.constraints" class="py-name" href="#" onclick="return doclink('link-68', 'constraints', 'link-64');">constraints</a></tt> </tt>
+</div><a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedNetwork.constraints"></a><div id="StateConstrainedNetwork.constraints-def"><a name="L87"></a><tt class="py-lineno">87</tt> <a class="py-toggle" href="#" id="StateConstrainedNetwork.constraints-toggle" onclick="return toggle('StateConstrainedNetwork.constraints');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedNetwork-class.html#constraints">constraints</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedNetwork.constraints-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="StateConstrainedNetwork.constraints-expanded"><a name="L88"></a><tt class="py-lineno">88</tt>  <tt class="py-line">    <tt id="link-69" class="py-name"><a title="commroute.complacency.ComplacencyConstrained.constraints
+commroute.cr_optimize.OptimizeMixIn.constraints
+commroute.cvxpy_solver.Unconstrained.constraints
+commroute.data_fixer.DataFixer.constraints
+commroute.state_constrained.StateConstrainedNetwork.constraints
+commroute.static_ctm.CTMConstrained.constraints
+commroute.static_op.LagrangianConstrained.constraints
+commroute.static_pq.CapacityConstrained.constraints
+cvxpy.constraints" class="py-name" href="#" onclick="return doclink('link-69', 'constraints', 'link-64');">constraints</a></tt> <tt class="py-op">=</tt> <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-70" class="py-name" targets="Class commroute.state_constrained.StateConstrainedNetwork=commroute.state_constrained.StateConstrainedNetwork-class.html"><a title="commroute.state_constrained.StateConstrainedNetwork" class="py-name" href="#" onclick="return doclink('link-70', 'StateConstrainedNetwork', 'link-70');">StateConstrainedNetwork</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="commroute.complacency.ComplacencyConstrained.constraints
+commroute.cr_optimize.OptimizeMixIn.constraints
+commroute.cvxpy_solver.Unconstrained.constraints
+commroute.data_fixer.DataFixer.constraints
+commroute.state_constrained.StateConstrainedNetwork.constraints
+commroute.static_ctm.CTMConstrained.constraints
+commroute.static_op.LagrangianConstrained.constraints
+commroute.static_pq.CapacityConstrained.constraints
+cvxpy.constraints" class="py-name" href="#" onclick="return doclink('link-71', 'constraints', 'link-64');">constraints</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno">89</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-72" class="py-name"><a title="commroute.complacency.ComplacencyConstrained.constraints
+commroute.cr_optimize.OptimizeMixIn.constraints
+commroute.cvxpy_solver.Unconstrained.constraints
+commroute.data_fixer.DataFixer.constraints
+commroute.state_constrained.StateConstrainedNetwork.constraints
+commroute.static_ctm.CTMConstrained.constraints
+commroute.static_op.LagrangianConstrained.constraints
+commroute.static_pq.CapacityConstrained.constraints
+cvxpy.constraints" class="py-name" href="#" onclick="return doclink('link-72', 'constraints', 'link-64');">constraints</a></tt> <tt class="py-op">+</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-73" class="py-name" targets="Method commroute.state_constrained.StateConstrainedNetwork.state_constrained_constraints()=commroute.state_constrained.StateConstrainedNetwork-class.html#state_constrained_constraints"><a title="commroute.state_constrained.StateConstrainedNetwork.state_constrained_constraints" class="py-name" href="#" onclick="return doclink('link-73', 'state_constrained_constraints', 'link-73');">state_constrained_constraints</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L90"></a><tt class="py-lineno">90</tt>  <tt class="py-line"> </tt>
+<a name="StateConstrainedComplacentNetwork"></a><div id="StateConstrainedComplacentNetwork-def"><a name="L91"></a><tt class="py-lineno">91</tt> <a class="py-toggle" href="#" id="StateConstrainedComplacentNetwork-toggle" onclick="return toggle('StateConstrainedComplacentNetwork');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.state_constrained.StateConstrainedComplacentNetwork-class.html">StateConstrainedComplacentNetwork</a><tt class="py-op">(</tt><tt class="py-base-class">StateConstrainedNetwork</tt><tt class="py-op">,</tt> <tt class="py-base-class">MinTTTComplacencyProblem</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StateConstrainedComplacentNetwork-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="StateConstrainedComplacentNetwork-expanded"><a name="L92"></a><tt class="py-lineno">92</tt>  <tt class="py-line">  <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L93"></a><tt class="py-lineno">93</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:04 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

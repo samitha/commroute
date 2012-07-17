@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.algorithms.flow.mincost</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.algorithms-module.html">Package&nbsp;algorithms</a> ::
+        <a href="networkx.algorithms.flow-module.html">Package&nbsp;flow</a> ::
+        Module&nbsp;mincost
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.algorithms.flow.mincost-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module mincost</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html">source&nbsp;code</a></span></p>
+<p>Minimum cost flow algorithms on directed connected graphs.</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Lo\xc3\xafc S\xc3\xa9guin-C. &lt;loicseguin@gmail.com&gt;
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.flow.mincost-module.html#_initial_tree_solution" class="summary-sig-name" onclick="show_private();">_initial_tree_solution</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">r</span>,
+        <span class="summary-sig-arg">demand</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">demand</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">capacity</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span><br />
+      Find a initial tree solution rooted at r.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#_initial_tree_solution">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.flow.mincost-module.html#_find_entering_edge" class="summary-sig-name" onclick="show_private();">_find_entering_edge</a>(<span class="summary-sig-arg">H</span>,
+        <span class="summary-sig-arg">c</span>,
+        <span class="summary-sig-arg">capacity</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>)</span><br />
+      Find an edge which creates a negative cost cycle in the actual tree 
+      solution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#_find_entering_edge">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.flow.mincost-module.html#_find_leaving_edge" class="summary-sig-name" onclick="show_private();">_find_leaving_edge</a>(<span class="summary-sig-arg">H</span>,
+        <span class="summary-sig-arg">T</span>,
+        <span class="summary-sig-arg">cycle</span>,
+        <span class="summary-sig-arg">newEdge</span>,
+        <span class="summary-sig-arg">capacity</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>)</span><br />
+      Find an edge that will leave the basis and the value by which we can 
+      increase or decrease the flow on that edge.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#_find_leaving_edge">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_create_flow_dict"></a><span class="summary-sig-name">_create_flow_dict</span>(<span class="summary-sig-arg">G</span>)</span><br />
+      Creates the flow dict of dicts of graph G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#_create_flow_dict">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.flow.mincost-module.html#network_simplex" class="summary-sig-name">network_simplex</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">demand</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">demand</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">capacity</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span><br />
+      Find a minimum cost flow satisfying all demands in digraph G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#network_simplex">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.flow.mincost-module.html#min_cost_flow_cost" class="summary-sig-name">min_cost_flow_cost</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">demand</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">demand</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">capacity</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span><br />
+      Find the cost of a minimum cost flow satisfying all demands in digraph G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#min_cost_flow_cost">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.flow.mincost-module.html#min_cost_flow" class="summary-sig-name">min_cost_flow</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">demand</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">demand</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">capacity</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span><br />
+      Return a minimum cost flow satisfying all demands in digraph G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#min_cost_flow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.flow.mincost-module.html#cost_of_flow" class="summary-sig-name">cost_of_flow</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">flowDict</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span><br />
+      Compute the cost of the flow given by flowDict on graph G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#cost_of_flow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.flow.mincost-module.html#max_flow_min_cost" class="summary-sig-name">max_flow_min_cost</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">s</span>,
+        <span class="summary-sig-arg">t</span>,
+        <span class="summary-sig-arg">capacity</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span><br />
+      Return a maximum (s, t)-flow of minimum cost.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#max_flow_min_cost">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx.algorithms.flow'"><code class="variable-quote">'</code><code class="variable-string">networkx.algorithms.flow</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_initial_tree_solution"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_initial_tree_solution</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">r</span>,
+        <span class="sig-arg">demand</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">demand</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">capacity</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#_initial_tree_solution">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Find a initial tree solution rooted at r.</p>
+  <p>The initial tree solution is obtained by considering edges (r, v) for 
+  all nodes v with non-negative demand and (v, r) for all nodes with 
+  negative demand. If these edges do not exist, we add them to the graph 
+  and call them artificial edges.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_find_entering_edge"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_find_entering_edge</span>(<span class="sig-arg">H</span>,
+        <span class="sig-arg">c</span>,
+        <span class="sig-arg">capacity</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#_find_entering_edge">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Find an edge which creates a negative cost cycle in the actual tree 
+  solution.</p>
+  <p>The reduced cost of every edge gives the value of the cycle obtained 
+  by adding that edge to the tree solution. If that value is negative, we 
+  will augment the flow in the direction indicated by the edge. Otherwise, 
+  we will augment the flow in the reverse direction.</p>
+  <p>If no edge is found, return and empty tuple. This will cause the main 
+  loop of the algorithm to terminate.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_find_leaving_edge"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_find_leaving_edge</span>(<span class="sig-arg">H</span>,
+        <span class="sig-arg">T</span>,
+        <span class="sig-arg">cycle</span>,
+        <span class="sig-arg">newEdge</span>,
+        <span class="sig-arg">capacity</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#_find_leaving_edge">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Find an edge that will leave the basis and the value by which we can 
+  increase or decrease the flow on that edge.</p>
+  <p>The leaving arc rule is used to prevent cycling.</p>
+  <p>If cycle has no reverse edge and no forward edge of finite capacity, 
+  it means that cycle is a negative cost infinite capacity cycle. This 
+  implies that the cost of a flow satisfying all demands is unbounded 
+  below. An exception is raised in this case.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="network_simplex"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">network_simplex</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">demand</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">demand</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">capacity</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#network_simplex">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Find a minimum cost flow satisfying all demands in digraph G.
+
+This is a primal network simplex algorithm that uses the leaving
+arc rule to prevent cycling.
+
+G is a digraph with edge costs and capacities and in which nodes
+have demand, i.e., they want to send or receive some amount of
+flow. A negative demand means that the node wants to send flow, a
+positive demand means that the node want to receive flow. A flow on
+the digraph G satisfies all demand if the net flow into each node
+is equal to the demand of that node.
+
+Parameters
+----------
+G : NetworkX graph
+    DiGraph on which a minimum cost flow satisfying all demands is
+    to be found.
+
+demand: string
+    Nodes of the graph G are expected to have an attribute demand
+    that indicates how much flow a node wants to send (negative
+    demand) or receive (positive demand). Note that the sum of the
+    demands should be 0 otherwise the problem in not feasible. If
+    this attribute is not present, a node is considered to have 0
+    demand. Default value: 'demand'.
+
+capacity: string
+    Edges of the graph G are expected to have an attribute capacity
+    that indicates how much flow the edge can support. If this
+    attribute is not present, the edge is considered to have
+    infinite capacity. Default value: 'capacity'.
+
+weight: string
+    Edges of the graph G are expected to have an attribute weight
+    that indicates the cost incurred by sending one unit of flow on
+    that edge. If not present, the weight is considered to be 0.
+    Default value: 'weight'.
+
+Returns
+-------
+flowCost: integer, float
+    Cost of a minimum cost flow satisfying all demands.
+
+flowDict: dictionary
+    Dictionary of dictionaries keyed by nodes such that
+    flowDict[u][v] is the flow edge (u, v).
+
+Raises
+------
+NetworkXError
+    This exception is raised if the input graph is not directed or
+    not connected.
+
+NetworkXUnfeasible
+    This exception is raised in the following situations:
+        * The sum of the demands is not zero. Then, there is no
+          flow satisfying all demands.
+        * There is no flow satisfying all demand.
+
+NetworkXUnbounded
+    This exception is raised if the digraph G has a cycle of
+    negative cost and infinite capacity. Then, the cost of a flow
+    satisfying all demands is unbounded below.
+    
+See also
+--------
+cost_of_flow, max_flow_min_cost, min_cost_flow, min_cost_flow_cost
+           
+Examples
+--------
+A simple example of a min cost flow problem.
+
+&gt;&gt;&gt; import networkx as nx
+&gt;&gt;&gt; G = nx.DiGraph()
+&gt;&gt;&gt; G.add_node('a', demand = -5)
+&gt;&gt;&gt; G.add_node('d', demand = 5)
+&gt;&gt;&gt; G.add_edge('a', 'b', weight = 3, capacity = 4)
+&gt;&gt;&gt; G.add_edge('a', 'c', weight = 6, capacity = 10)
+&gt;&gt;&gt; G.add_edge('b', 'd', weight = 1, capacity = 9)
+&gt;&gt;&gt; G.add_edge('c', 'd', weight = 2, capacity = 5)
+&gt;&gt;&gt; flowCost, flowDict = nx.network_simplex(G)
+&gt;&gt;&gt; flowCost
+24
+&gt;&gt;&gt; flowDict
+{'a': {'c': 1, 'b': 4}, 'c': {'d': 1}, 'b': {'d': 4}, 'd': {}}
+
+The mincost flow algorithm can also be used to solve shortest path
+problems. To find the shortest path between two nodes u and v,
+give all edges an infinite capacity, give node u a demand of -1 and
+node v a demand a 1. Then run the network simplex. The value of a
+min cost flow will be the distance between u and v and edges
+carrying positive flow will indicate the path.
+
+&gt;&gt;&gt; G=nx.DiGraph()
+&gt;&gt;&gt; G.add_weighted_edges_from([('s','u',10), ('s','x',5), 
+...                            ('u','v',1), ('u','x',2), 
+...                            ('v','y',1), ('x','u',3), 
+...                            ('x','v',5), ('x','y',2), 
+...                            ('y','s',7), ('y','v',6)])
+&gt;&gt;&gt; G.add_node('s', demand = -1)
+&gt;&gt;&gt; G.add_node('v', demand = 1)
+&gt;&gt;&gt; flowCost, flowDict = nx.network_simplex(G)
+&gt;&gt;&gt; flowCost == nx.shortest_path_length(G, 's', 'v', weight = 'weight')
+True
+&gt;&gt;&gt; [(u, v) for u in flowDict for v in flowDict[u] if flowDict[u][v] &gt; 0]
+[('x', 'u'), ('s', 'x'), ('u', 'v')]
+&gt;&gt;&gt; nx.shortest_path(G, 's', 'v', weight = 'weight')
+['s', 'x', 'u', 'v']
+
+It is possible to change the name of the attributes used for the
+algorithm.
+
+&gt;&gt;&gt; G = nx.DiGraph()
+&gt;&gt;&gt; G.add_node('p', spam = -4)
+&gt;&gt;&gt; G.add_node('q', spam = 2)
+&gt;&gt;&gt; G.add_node('a', spam = -2)
+&gt;&gt;&gt; G.add_node('d', spam = -1)
+&gt;&gt;&gt; G.add_node('t', spam = 2)
+&gt;&gt;&gt; G.add_node('w', spam = 3)
+&gt;&gt;&gt; G.add_edge('p', 'q', cost = 7, vacancies = 5)
+&gt;&gt;&gt; G.add_edge('p', 'a', cost = 1, vacancies = 4)
+&gt;&gt;&gt; G.add_edge('q', 'd', cost = 2, vacancies = 3)
+&gt;&gt;&gt; G.add_edge('t', 'q', cost = 1, vacancies = 2)
+&gt;&gt;&gt; G.add_edge('a', 't', cost = 2, vacancies = 4)
+&gt;&gt;&gt; G.add_edge('d', 'w', cost = 3, vacancies = 4)
+&gt;&gt;&gt; G.add_edge('t', 'w', cost = 4, vacancies = 1)
+&gt;&gt;&gt; flowCost, flowDict = nx.network_simplex(G, demand = 'spam',
+...                                         capacity = 'vacancies',
+...                                         weight = 'cost')
+&gt;&gt;&gt; flowCost
+37
+&gt;&gt;&gt; flowDict
+{'a': {'t': 4}, 'd': {'w': 2}, 'q': {'d': 1}, 'p': {'q': 2, 'a': 2}, 't': {'q': 1, 'w': 1}, 'w': {}}
+
+References
+----------
+W. J. Cook, W. H. Cunningham, W. R. Pulleyblank and A. Schrijver.
+Combinatorial Optimization. Wiley-Interscience, 1998.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="min_cost_flow_cost"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">min_cost_flow_cost</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">demand</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">demand</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">capacity</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#min_cost_flow_cost">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Find the cost of a minimum cost flow satisfying all demands in digraph G.
+
+G is a digraph with edge costs and capacities and in which nodes
+have demand, i.e., they want to send or receive some amount of
+flow. A negative demand means that the node wants to send flow, a
+positive demand means that the node want to receive flow. A flow on
+the digraph G satisfies all demand if the net flow into each node
+is equal to the demand of that node.
+
+Parameters
+----------
+G : NetworkX graph
+    DiGraph on which a minimum cost flow satisfying all demands is
+    to be found.
+
+demand: string
+    Nodes of the graph G are expected to have an attribute demand
+    that indicates how much flow a node wants to send (negative
+    demand) or receive (positive demand). Note that the sum of the
+    demands should be 0 otherwise the problem in not feasible. If
+    this attribute is not present, a node is considered to have 0
+    demand. Default value: 'demand'.
+
+capacity: string
+    Edges of the graph G are expected to have an attribute capacity
+    that indicates how much flow the edge can support. If this
+    attribute is not present, the edge is considered to have
+    infinite capacity. Default value: 'capacity'.
+
+weight: string
+    Edges of the graph G are expected to have an attribute weight
+    that indicates the cost incurred by sending one unit of flow on
+    that edge. If not present, the weight is considered to be 0.
+    Default value: 'weight'.
+
+Returns
+-------
+flowCost: integer, float
+    Cost of a minimum cost flow satisfying all demands.
+
+Raises
+------
+NetworkXError
+    This exception is raised if the input graph is not directed or
+    not connected.
+
+NetworkXUnfeasible
+    This exception is raised in the following situations:
+        * The sum of the demands is not zero. Then, there is no
+          flow satisfying all demands.
+        * There is no flow satisfying all demand.
+
+NetworkXUnbounded
+    This exception is raised if the digraph G has a cycle of
+    negative cost and infinite capacity. Then, the cost of a flow
+    satisfying all demands is unbounded below.
+    
+See also
+--------
+cost_of_flow, max_flow_min_cost, min_cost_flow, network_simplex
+
+Examples
+--------
+A simple example of a min cost flow problem.
+
+&gt;&gt;&gt; import networkx as nx
+&gt;&gt;&gt; G = nx.DiGraph()
+&gt;&gt;&gt; G.add_node('a', demand = -5)
+&gt;&gt;&gt; G.add_node('d', demand = 5)
+&gt;&gt;&gt; G.add_edge('a', 'b', weight = 3, capacity = 4)
+&gt;&gt;&gt; G.add_edge('a', 'c', weight = 6, capacity = 10)
+&gt;&gt;&gt; G.add_edge('b', 'd', weight = 1, capacity = 9)
+&gt;&gt;&gt; G.add_edge('c', 'd', weight = 2, capacity = 5)
+&gt;&gt;&gt; flowCost = nx.min_cost_flow_cost(G)
+&gt;&gt;&gt; flowCost
+24
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="min_cost_flow"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">min_cost_flow</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">demand</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">demand</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">capacity</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#min_cost_flow">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return a minimum cost flow satisfying all demands in digraph G.
+
+G is a digraph with edge costs and capacities and in which nodes
+have demand, i.e., they want to send or receive some amount of
+flow. A negative demand means that the node wants to send flow, a
+positive demand means that the node want to receive flow. A flow on
+the digraph G satisfies all demand if the net flow into each node
+is equal to the demand of that node.
+
+Parameters
+----------
+G : NetworkX graph
+    DiGraph on which a minimum cost flow satisfying all demands is
+    to be found.
+
+demand: string
+    Nodes of the graph G are expected to have an attribute demand
+    that indicates how much flow a node wants to send (negative
+    demand) or receive (positive demand). Note that the sum of the
+    demands should be 0 otherwise the problem in not feasible. If
+    this attribute is not present, a node is considered to have 0
+    demand. Default value: 'demand'.
+
+capacity: string
+    Edges of the graph G are expected to have an attribute capacity
+    that indicates how much flow the edge can support. If this
+    attribute is not present, the edge is considered to have
+    infinite capacity. Default value: 'capacity'.
+
+weight: string
+    Edges of the graph G are expected to have an attribute weight
+    that indicates the cost incurred by sending one unit of flow on
+    that edge. If not present, the weight is considered to be 0.
+    Default value: 'weight'.
+
+Returns
+-------
+flowDict: dictionary
+    Dictionary of dictionaries keyed by nodes such that
+    flowDict[u][v] is the flow edge (u, v).
+
+Raises
+------
+NetworkXError
+    This exception is raised if the input graph is not directed or
+    not connected.
+
+NetworkXUnfeasible
+    This exception is raised in the following situations:
+        * The sum of the demands is not zero. Then, there is no
+          flow satisfying all demands.
+        * There is no flow satisfying all demand.
+
+NetworkXUnbounded
+    This exception is raised if the digraph G has a cycle of
+    negative cost and infinite capacity. Then, the cost of a flow
+    satisfying all demands is unbounded below.
+    
+See also
+--------
+cost_of_flow, max_flow_min_cost, min_cost_flow_cost, network_simplex
+
+Examples
+--------
+A simple example of a min cost flow problem.
+
+&gt;&gt;&gt; import networkx as nx
+&gt;&gt;&gt; G = nx.DiGraph()
+&gt;&gt;&gt; G.add_node('a', demand = -5)
+&gt;&gt;&gt; G.add_node('d', demand = 5)
+&gt;&gt;&gt; G.add_edge('a', 'b', weight = 3, capacity = 4)
+&gt;&gt;&gt; G.add_edge('a', 'c', weight = 6, capacity = 10)
+&gt;&gt;&gt; G.add_edge('b', 'd', weight = 1, capacity = 9)
+&gt;&gt;&gt; G.add_edge('c', 'd', weight = 2, capacity = 5)
+&gt;&gt;&gt; flowDict = nx.min_cost_flow(G)
+&gt;&gt;&gt; flowDict
+{'a': {'c': 1, 'b': 4}, 'c': {'d': 1}, 'b': {'d': 4}, 'd': {}}
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="cost_of_flow"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">cost_of_flow</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">flowDict</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#cost_of_flow">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Compute the cost of the flow given by flowDict on graph G.
+
+Note that this function does not check for the validity of the
+flow flowDict. This function will fail if the graph G and the
+flow don't have the same edge set.
+
+Parameters
+----------
+G : NetworkX graph
+    DiGraph on which a minimum cost flow satisfying all demands is
+    to be found.
+
+weight: string
+    Edges of the graph G are expected to have an attribute weight
+    that indicates the cost incurred by sending one unit of flow on
+    that edge. If not present, the weight is considered to be 0.
+    Default value: 'weight'.
+
+flowDict: dictionary
+    Dictionary of dictionaries keyed by nodes such that
+    flowDict[u][v] is the flow edge (u, v).
+
+Returns
+-------
+cost: Integer, float
+    The total cost of the flow. This is given by the sum over all
+    edges of the product of the edge's flow and the edge's weight.
+
+See also
+--------
+max_flow_min_cost, min_cost_flow, min_cost_flow_cost, network_simplex
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="max_flow_min_cost"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">max_flow_min_cost</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">s</span>,
+        <span class="sig-arg">t</span>,
+        <span class="sig-arg">capacity</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">capacity</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.flow.mincost-pysrc.html#max_flow_min_cost">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return a maximum (s, t)-flow of minimum cost.
+
+G is a digraph with edge costs and capacities. There is a source
+node s and a sink node t. This function finds a maximum flow from
+s to t whose total cost is minimized.
+
+Parameters
+----------
+G : NetworkX graph
+    DiGraph on which a minimum cost flow satisfying all demands is
+    to be found.
+
+s: node label
+    Source of the flow.
+
+t: node label
+    Destination of the flow.
+
+capacity: string
+    Edges of the graph G are expected to have an attribute capacity
+    that indicates how much flow the edge can support. If this
+    attribute is not present, the edge is considered to have
+    infinite capacity. Default value: 'capacity'.
+
+weight: string
+    Edges of the graph G are expected to have an attribute weight
+    that indicates the cost incurred by sending one unit of flow on
+    that edge. If not present, the weight is considered to be 0.
+    Default value: 'weight'.
+
+Returns
+-------
+flowDict: dictionary
+    Dictionary of dictionaries keyed by nodes such that
+    flowDict[u][v] is the flow edge (u, v).
+
+Raises
+------
+NetworkXError
+    This exception is raised if the input graph is not directed or
+    not connected.
+
+NetworkXUnbounded
+    This exception is raised if there is an infinite capacity path
+    from s to t in G. In this case there is no maximum flow. This
+    exception is also raised if the digraph G has a cycle of
+    negative cost and infinite capacity. Then, the cost of a flow
+    is unbounded below.
+
+See also
+--------
+cost_of_flow, ford_fulkerson, min_cost_flow, min_cost_flow_cost,
+network_simplex
+
+Examples
+--------
+&gt;&gt;&gt; G = nx.DiGraph()
+&gt;&gt;&gt; G.add_edges_from([(1, 2, {'capacity': 12, 'weight': 4}),
+...                   (1, 3, {'capacity': 20, 'weight': 6}),
+...                   (2, 3, {'capacity': 6, 'weight': -3}),
+...                   (2, 6, {'capacity': 14, 'weight': 1}),
+...                   (3, 4, {'weight': 9}),
+...                   (3, 5, {'capacity': 10, 'weight': 5}),
+...                   (4, 2, {'capacity': 19, 'weight': 13}),
+...                   (4, 5, {'capacity': 4, 'weight': 0}),
+...                   (5, 7, {'capacity': 28, 'weight': 2}),
+...                   (6, 5, {'capacity': 11, 'weight': 1}),
+...                   (6, 7, {'weight': 8}),
+...                   (7, 4, {'capacity': 6, 'weight': 6})])
+&gt;&gt;&gt; mincostFlow = nx.max_flow_min_cost(G, 1, 7)
+&gt;&gt;&gt; nx.cost_of_flow(G, mincostFlow)
+373
+&gt;&gt;&gt; maxFlow = nx.ford_fulkerson_flow(G, 1, 7)
+&gt;&gt;&gt; nx.cost_of_flow(G, maxFlow)
+428
+&gt;&gt;&gt; mincostFlowValue = (sum((mincostFlow[u][7] for u in G.predecessors(7)))
+...                     - sum((mincostFlow[7][v] for v in G.successors(7))))
+&gt;&gt;&gt; mincostFlowValue == nx.max_flow(G, 1, 7)
+True
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

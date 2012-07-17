@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.readwrite.d3_js.d3_js</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.readwrite-module.html">Package&nbsp;readwrite</a> ::
+        <a href="networkx.readwrite.d3_js-module.html">Package&nbsp;d3_js</a> ::
+        Module&nbsp;d3_js
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.readwrite.d3_js.d3_js-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module d3_js</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.readwrite.d3_js.d3_js-pysrc.html">source&nbsp;code</a></span></p>
+<p>d3_js.py</p>
+  <p>Description: Read and write files in the D3.js JSON file format.  This
+  can be used to generate interactive Java Script embeds from NetworkX 
+  graph objects.</p>
+  <p>These functions will read and write the D3.js JavaScript Object 
+  Notation (JSON) format for a graph object. There is also a function to 
+  write write HTML and Javascript files need to render force-directed 
+  layout of graph object in a browser.  The default redering options are 
+  based on the force-directed example by Mike Bostock at 
+  (http://mbostock.github.com/d3/ex/force.html).</p>
+  <p>Created by Drew Conway (drew.conway@nyu.edu) on 2011-07-13 # Copyright
+  (c) 2011, under the Simplified BSD License. # For more information on 
+  FreeBSD see: http://www.opensource.org/licenses/bsd-license.php # All 
+  rights reserved.</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Drew Conway (drew.conway@nyu.edu)
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.d3_js.d3_js-module.html#write_d3_js" class="summary-sig-name">write_d3_js</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">path</span>,
+        <span class="summary-sig-arg">group</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">encoding</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>)</span><br />
+      Writes a NetworkX graph in D3.js JSON graph format to disk.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.d3_js.d3_js-pysrc.html#write_d3_js">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.d3_js.d3_js-module.html#d3_json" class="summary-sig-name">d3_json</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">group</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Converts a NetworkX Graph to a properly D3.js JSON formatted dictionary</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.d3_js.d3_js-pysrc.html#d3_json">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.d3_js.d3_js-module.html#export_d3_js" class="summary-sig-name">export_d3_js</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">files_dir</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">nx_js_d3_graph</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">graphname</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">nx_js_d3_graph</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">group</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">group</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">width</span>=<span class="summary-sig-default">960</span>,
+        <span class="summary-sig-arg">height</span>=<span class="summary-sig-default">500</span>,
+        <span class="summary-sig-arg">node_labels</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">encoding</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>)</span><br />
+      A function that exports a NetworkX graph as an interavtice D3.js object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.d3_js.d3_js-pysrc.html#export_d3_js">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx.readwrite.d3_js'"><code class="variable-quote">'</code><code class="variable-string">networkx.readwrite.d3_js</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="write_d3_js"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write_d3_js</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">path</span>,
+        <span class="sig-arg">group</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">encoding</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.d3_js.d3_js-pysrc.html#write_d3_js">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Writes a NetworkX graph in D3.js JSON graph format to disk.
+ 
+ Parameters
+ ----------
+ G : graph
+         a NetworkX graph
+ path : file or string
+File or filename to write. If a file is provided, it must be
+opened in 'wb' mode. Filenames ending in .gz or .bz2 will be compressed.
+ group : string, optional
+         The name 'group' key for each node in the graph. This is used to 
+         assign nodes to exclusive partitions, and for node coloring if visualizing.
+ encoding: string, optional
+Specify which encoding to use when writing file.
+         
+ Examples
+ --------
+ &gt;&gt;&gt; from networkx.readwrite import d3_js
+ &gt;&gt;&gt; G = nx.path_graph(4)
+ &gt;&gt;&gt; G.add_nodes_from(map(lambda i: (i, {'group': i}), G.nodes()))
+ &gt;&gt;&gt; d3_js.write_d3_js(G, 'four_color_line.json')
+ 
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="d3_json"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">d3_json</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">group</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.d3_js.d3_js-pysrc.html#d3_json">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Converts a NetworkX Graph to a properly D3.js JSON formatted dictionary
+
+Parameters
+----------
+G : graph
+        a NetworkX graph
+group : string, optional
+        The name 'group' key for each node in the graph. This is used to 
+        assign nodes to exclusive partitions, and for node coloring if visualizing.
+        
+Examples
+--------
+&gt;&gt;&gt; from networkx.readwrite import d3_js
+&gt;&gt;&gt; G = nx.path_graph(4)
+&gt;&gt;&gt; G.add_nodes_from(map(lambda i: (i, {'group': i}), G.nodes()))
+&gt;&gt;&gt; d3_js.d3_json(G)
+{'links': [{'source': 0, 'target': 1, 'value': 1},
+  {'source': 1, 'target': 2, 'value': 1},
+  {'source': 2, 'target': 3, 'value': 1}],
+ 'nodes': [{'group': 0, 'nodeName': 0},
+  {'group': 1, 'nodeName': 1},
+  {'group': 2, 'nodeName': 2},
+  {'group': 3, 'nodeName': 3}]}
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="export_d3_js"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">export_d3_js</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">files_dir</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">nx_js_d3_graph</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">graphname</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">nx_js_d3_graph</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">group</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">group</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">width</span>=<span class="sig-default">960</span>,
+        <span class="sig-arg">height</span>=<span class="sig-default">500</span>,
+        <span class="sig-arg">node_labels</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">encoding</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.d3_js.d3_js-pysrc.html#export_d3_js">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+ A function that exports a NetworkX graph as an interavtice D3.js object.  
+ The function builds a folder, containing the graph's formatted JSON, the D3.js 
+ JavaScript, and an HTML page to load the graph in a browser.
+ 
+ Parameters
+ ----------
+ G : graph
+         a NetworkX graph
+ files_dir : string, optional
+         name of directory to save files
+ graphname : string, optional
+         the name of the graph being save as JSON, will appears in directory as 'graphname.json'
+ group : string, optional
+         The name of the 'group' key for each node in the graph. This is used to 
+         assign nodes to exclusive partitions, and for node coloring if visualizing.
+ width : int, optional
+         width (px) of display frame for graph object in browser window
+ height : int, optional
+         height (px) of display frame for graph object in browser window
+ node_labels : bool, optional
+         If true, nodes are displayed with labels in browser
+ encoding: string, optional
+Specify which encoding to use when writing file.
+         
+ Examples
+ --------
+ &gt;&gt;&gt; from scipy import random
+ &gt;&gt;&gt; from networkx.readwrite import d3_js
+ &gt;&gt;&gt; G = nx.random_lobster(20, .8, .8)
+ &gt;&gt;&gt; low = 0
+ &gt;&gt;&gt; high = 5
+ &gt;&gt;&gt; G.add_nodes_from(map(lambda i: (i, {'group': random.random_integers(low, high, 1)[0]}), G.nodes()))
+ &gt;&gt;&gt; G.add_edges_from(map(lambda e: (e[0], e[1], {'weight': random.random_integers(low+1, high, 1)[0]}), G.edges()))
+ &gt;&gt;&gt; d3_js.export_d3_js(G, files_dir=&quot;random_lobster&quot;, graphname=&quot;random_lobster_graph&quot;, node_labels=False)
+ 
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

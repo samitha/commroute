@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.readwrite.gexf.GEXFReader</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.readwrite-module.html">Package&nbsp;readwrite</a> ::
+        <a href="networkx.readwrite.gexf-module.html">Module&nbsp;gexf</a> ::
+        Class&nbsp;GEXFReader
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.readwrite.gexf.GEXFReader-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class GEXFReader</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_networkx_23" name="uml_class_diagram_for_networkx_23">
+<area shape="rect" id="node1_20" href="networkx.readwrite.gexf.GEXFReader-class.html#__init__" title="x.__init__(...) initializes x; see help(type(x)) for signature" alt="" coords="17,241,360,260"/>
+<area shape="rect" id="node1_21" href="networkx.readwrite.gexf.GEXFReader-class.html#__call__" title="networkx.readwrite.gexf.GEXFReader.__call__" alt="" coords="17,260,360,279"/>
+<area shape="rect" id="node1_22" href="networkx.readwrite.gexf.GEXFReader-class.html#make_graph" title="networkx.readwrite.gexf.GEXFReader.make_graph" alt="" coords="17,279,360,297"/>
+<area shape="rect" id="node1_23" href="networkx.readwrite.gexf.GEXFReader-class.html#add_node" title="networkx.readwrite.gexf.GEXFReader.add_node" alt="" coords="17,297,360,316"/>
+<area shape="rect" id="node1_24" href="networkx.readwrite.gexf.GEXFReader-class.html#add_start_end" title="networkx.readwrite.gexf.GEXFReader.add_start_end" alt="" coords="17,316,360,335"/>
+<area shape="rect" id="node1_25" href="networkx.readwrite.gexf.GEXFReader-class.html#add_viz" title="networkx.readwrite.gexf.GEXFReader.add_viz" alt="" coords="17,335,360,353"/>
+<area shape="rect" id="node1_26" href="networkx.readwrite.gexf.GEXFReader-class.html#add_parents" title="networkx.readwrite.gexf.GEXFReader.add_parents" alt="" coords="17,353,360,372"/>
+<area shape="rect" id="node1_27" href="networkx.readwrite.gexf.GEXFReader-class.html#add_slices" title="networkx.readwrite.gexf.GEXFReader.add_slices" alt="" coords="17,372,360,391"/>
+<area shape="rect" id="node1_28" href="networkx.readwrite.gexf.GEXFReader-class.html#add_spells" title="networkx.readwrite.gexf.GEXFReader.add_spells" alt="" coords="17,391,360,409"/>
+<area shape="rect" id="node1_29" href="networkx.readwrite.gexf.GEXFReader-class.html#add_edge" title="networkx.readwrite.gexf.GEXFReader.add_edge" alt="" coords="17,409,360,428"/>
+<area shape="rect" id="node1_30" href="networkx.readwrite.gexf.GEXFReader-class.html#decode_attr_elements" title="networkx.readwrite.gexf.GEXFReader.decode_attr_elements" alt="" coords="17,428,360,447"/>
+<area shape="rect" id="node1_31" href="networkx.readwrite.gexf.GEXFReader-class.html#find_gexf_attributes" title="networkx.readwrite.gexf.GEXFReader.find_gexf_attributes" alt="" coords="17,447,360,465"/>
+<area shape="rect" id="node1" href="networkx.readwrite.gexf.GEXFReader-class.html" title="networkx.readwrite.gexf.GEXFReader" alt="" coords="5,209,371,471"/>
+<area shape="rect" id="node2_32" href="networkx.readwrite.gexf.GEXF-class.html#versions" title="networkx.readwrite.gexf.GEXF.versions" alt="" coords="112,31,267,49"/>
+<area shape="rect" id="node2_33" href="networkx.readwrite.gexf.GEXF-class.html#d" title="networkx.readwrite.gexf.GEXF.d" alt="" coords="112,49,267,68"/>
+<area shape="rect" id="node2_34" href="networkx.readwrite.gexf.GEXF-class.html#types" title="networkx.readwrite.gexf.GEXF.types" alt="" coords="112,68,267,87"/>
+<area shape="rect" id="node2_35" href="networkx.readwrite.gexf.GEXF-class.html#blurb" title="networkx.readwrite.gexf.GEXF.blurb" alt="" coords="112,87,267,105"/>
+<area shape="rect" id="node2_36" href="networkx.readwrite.gexf.GEXF-class.html#xml_type" title="networkx.readwrite.gexf.GEXF.xml_type" alt="" coords="112,105,267,124"/>
+<area shape="rect" id="node2_37" href="networkx.readwrite.gexf.GEXF-class.html#python_type" title="networkx.readwrite.gexf.GEXF.python_type" alt="" coords="112,124,267,143"/>
+<area shape="rect" id="node2_38" href="networkx.readwrite.gexf.GEXF-class.html#convert_bool" title="networkx.readwrite.gexf.GEXF.convert_bool" alt="" coords="112,143,267,161"/>
+<area shape="rect" id="node2_39" href="networkx.readwrite.gexf.GEXF-class.html#set_version" title="networkx.readwrite.gexf.GEXF.set_version" alt="" coords="112,164,267,183"/>
+<area shape="rect" id="node2" href="networkx.readwrite.gexf.GEXF-class.html" title="networkx.readwrite.gexf.GEXF" alt="" coords="100,6,279,189"/>
+</map>
+  <img src="uml_class_diagram_for_networkx_23.gif" alt='' usemap="#uml_class_diagram_for_networkx_23" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.gexf.GEXFReader-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">node_type</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">version</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">1.1draft</code><code class="variable-quote">'</code></span>)</span><br />
+      x.__init__(...) initializes x; see help(type(x)) for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__call__"></a><span class="summary-sig-name">__call__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">stream</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="make_graph"></a><span class="summary-sig-name">make_graph</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">graph_xml</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.make_graph">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="add_node"></a><span class="summary-sig-name">add_node</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">node_xml</span>,
+        <span class="summary-sig-arg">node_attr</span>,
+        <span class="summary-sig-arg">node_pid</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.add_node">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="add_start_end"></a><span class="summary-sig-name">add_start_end</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">xml</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.add_start_end">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="add_viz"></a><span class="summary-sig-name">add_viz</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">node_xml</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.add_viz">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="add_parents"></a><span class="summary-sig-name">add_parents</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">node_xml</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.add_parents">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="add_slices"></a><span class="summary-sig-name">add_slices</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">node_xml</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.add_slices">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="add_spells"></a><span class="summary-sig-name">add_spells</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">node_xml</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.add_spells">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="add_edge"></a><span class="summary-sig-name">add_edge</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">edge_element</span>,
+        <span class="summary-sig-arg">edge_attr</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.add_edge">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="decode_attr_elements"></a><span class="summary-sig-name">decode_attr_elements</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">gexf_keys</span>,
+        <span class="summary-sig-arg">obj_xml</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.decode_attr_elements">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="find_gexf_attributes"></a><span class="summary-sig-name">find_gexf_attributes</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">attributes_element</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.find_gexf_attributes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="networkx.readwrite.gexf.GEXF-class.html" onclick="show_private();">GEXF</a></code></b>:
+      <code><a href="networkx.readwrite.gexf.GEXF-class.html#set_version">set_version</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="networkx.readwrite.gexf.GEXF-class.html" onclick="show_private();">GEXF</a></code></b>:
+      <code><a href="networkx.readwrite.gexf.GEXF-class.html#blurb">blurb</a></code>,
+      <code><a href="networkx.readwrite.gexf.GEXF-class.html#convert_bool">convert_bool</a></code>,
+      <code><a href="networkx.readwrite.gexf.GEXF-class.html#d">d</a></code>,
+      <code><a href="networkx.readwrite.gexf.GEXF-class.html#python_type">python_type</a></code>,
+      <code><a href="networkx.readwrite.gexf.GEXF-class.html#types">types</a></code>,
+      <code><a href="networkx.readwrite.gexf.GEXF-class.html#versions">versions</a></code>,
+      <code><a href="networkx.readwrite.gexf.GEXF-class.html#xml_type">xml_type</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">node_type</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">version</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">1.1draft</code><code class="variable-quote">'</code></span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXFReader.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see help(type(x)) for signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:55 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

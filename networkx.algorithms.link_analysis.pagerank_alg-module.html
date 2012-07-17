@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.algorithms.link_analysis.pagerank_alg</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.algorithms-module.html">Package&nbsp;algorithms</a> ::
+        <a href="networkx.algorithms.link_analysis-module.html">Package&nbsp;link_analysis</a> ::
+        Module&nbsp;pagerank_alg
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.algorithms.link_analysis.pagerank_alg-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module pagerank_alg</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.algorithms.link_analysis.pagerank_alg-pysrc.html">source&nbsp;code</a></span></p>
+<p>PageRank analysis of graph structure.</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Aric Hagberg (hagberg@lanl.gov)
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.link_analysis.pagerank_alg-module.html#pagerank" class="summary-sig-name">pagerank</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">alpha</span>=<span class="summary-sig-default">0.85</span>,
+        <span class="summary-sig-arg">personalization</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">max_iter</span>=<span class="summary-sig-default">100</span>,
+        <span class="summary-sig-arg">tol</span>=<span class="summary-sig-default">1e-08</span>,
+        <span class="summary-sig-arg">nstart</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span><br />
+      Return the PageRank of the nodes in the graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.link_analysis.pagerank_alg-pysrc.html#pagerank">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.link_analysis.pagerank_alg-module.html#google_matrix" class="summary-sig-name">google_matrix</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">alpha</span>=<span class="summary-sig-default">0.85</span>,
+        <span class="summary-sig-arg">personalization</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">nodelist</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span><br />
+      Return the Google matrix of the graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.link_analysis.pagerank_alg-pysrc.html#google_matrix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.link_analysis.pagerank_alg-module.html#pagerank_numpy" class="summary-sig-name">pagerank_numpy</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">alpha</span>=<span class="summary-sig-default">0.85</span>,
+        <span class="summary-sig-arg">personalization</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span><br />
+      Return the PageRank of the nodes in the graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.link_analysis.pagerank_alg-pysrc.html#pagerank_numpy">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.link_analysis.pagerank_alg-module.html#pagerank_scipy" class="summary-sig-name">pagerank_scipy</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">alpha</span>=<span class="summary-sig-default">0.85</span>,
+        <span class="summary-sig-arg">personalization</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">max_iter</span>=<span class="summary-sig-default">100</span>,
+        <span class="summary-sig-arg">tol</span>=<span class="summary-sig-default">1e-06</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span><br />
+      Return the PageRank of the nodes in the graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.link_analysis.pagerank_alg-pysrc.html#pagerank_scipy">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setup_module"></a><span class="summary-sig-name">setup_module</span>(<span class="summary-sig-arg">module</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.link_analysis.pagerank_alg-pysrc.html#setup_module">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx.algorithms.link_analysis'"><code class="variable-quote">'</code><code class="variable-string">networkx.algorithms.link_analysis</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="pagerank"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">pagerank</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">alpha</span>=<span class="sig-default">0.85</span>,
+        <span class="sig-arg">personalization</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">max_iter</span>=<span class="sig-default">100</span>,
+        <span class="sig-arg">tol</span>=<span class="sig-default">1e-08</span>,
+        <span class="sig-arg">nstart</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.link_analysis.pagerank_alg-pysrc.html#pagerank">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the PageRank of the nodes in the graph.
+
+PageRank computes a ranking of the nodes in the graph G based on
+the structure of the incoming links. It was originally designed as
+an algorithm to rank web pages.
+
+Parameters
+-----------
+G : graph
+  A NetworkX graph 
+
+alpha : float, optional
+  Damping parameter for PageRank, default=0.85
+   
+personalization: dict, optional      
+   The &quot;personalization vector&quot; consisting of a dictionary with a
+   key for every graph node and nonzero personalization value for each node.
+
+max_iter : integer, optional
+  Maximum number of iterations in power method eigenvalue solver.
+
+tol : float, optional
+  Error tolerance used to check convergence in power method solver.
+
+nstart : dictionary, optional
+  Starting value of PageRank iteration for each node. 
+
+weight : key, optional       
+  Edge data key to use as weight.  If None weights are set to 1.
+
+Returns
+-------
+pagerank : dictionary
+   Dictionary of nodes with PageRank as value
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.DiGraph(nx.path_graph(4))
+&gt;&gt;&gt; pr=nx.pagerank(G,alpha=0.9)
+
+Notes
+-----
+The eigenvector calculation is done by the power iteration method
+and has no guarantee of convergence.  The iteration will stop
+after max_iter iterations or an error tolerance of
+number_of_nodes(G)*tol has been reached.
+
+The PageRank algorithm was designed for directed graphs but this
+algorithm does not check if the input graph is directed and will
+execute on undirected graphs by converting each oriented edge in the
+directed graph to two edges.
+
+See Also
+--------
+pagerank_numpy, pagerank_scipy, google_matrix
+
+References
+----------
+.. [1] A. Langville and C. Meyer, 
+   &quot;A survey of eigenvector methods of web information retrieval.&quot;  
+   http://citeseer.ist.psu.edu/713792.html
+.. [2] Page, Lawrence; Brin, Sergey; Motwani, Rajeev and Winograd, Terry, 
+   The PageRank citation ranking: Bringing order to the Web. 1999
+   http://dbpubs.stanford.edu:8090/pub/showDoc.Fulltext?lang=en&amp;doc=1999-66&amp;format=pdf
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="google_matrix"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">google_matrix</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">alpha</span>=<span class="sig-default">0.85</span>,
+        <span class="sig-arg">personalization</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">nodelist</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.link_analysis.pagerank_alg-pysrc.html#google_matrix">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the Google matrix of the graph.
+
+Parameters
+-----------
+G : graph
+  A NetworkX graph 
+
+alpha : float
+  The damping factor
+
+personalization: dict, optional      
+   The &quot;personalization vector&quot; consisting of a dictionary with a
+   key for every graph node and nonzero personalization value for each node.
+
+nodelist : list, optional       
+  The rows and columns are ordered according to the nodes in nodelist.
+  If nodelist is None, then the ordering is produced by G.nodes().
+
+weight : key, optional       
+  Edge data key to use as weight.  If None weights are set to 1.
+
+Returns
+-------
+A : NumPy matrix
+   Google matrix of the graph
+
+See Also
+--------
+pagerank, pagerank_numpy, pagerank_scipy
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="pagerank_numpy"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">pagerank_numpy</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">alpha</span>=<span class="sig-default">0.85</span>,
+        <span class="sig-arg">personalization</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.link_analysis.pagerank_alg-pysrc.html#pagerank_numpy">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the PageRank of the nodes in the graph.
+
+PageRank computes a ranking of the nodes in the graph G based on
+the structure of the incoming links. It was originally designed as
+an algorithm to rank web pages.
+
+Parameters
+-----------
+G : graph
+  A NetworkX graph 
+
+alpha : float, optional
+  Damping parameter for PageRank, default=0.85
+   
+personalization: dict, optional      
+   The &quot;personalization vector&quot; consisting of a dictionary with a
+   key for every graph node and nonzero personalization value for each node.
+
+weight : key, optional       
+  Edge data key to use as weight.  If None weights are set to 1.
+
+Returns
+-------
+pagerank : dictionary
+   Dictionary of nodes with PageRank as value
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.DiGraph(nx.path_graph(4))
+&gt;&gt;&gt; pr=nx.pagerank_numpy(G,alpha=0.9)
+
+Notes
+-----
+The eigenvector calculation uses NumPy's interface to the LAPACK
+eigenvalue solvers.  This will be the fastest and most accurate
+for small graphs.
+
+This implementation works with Multi(Di)Graphs.
+
+See Also
+--------
+pagerank, pagerank_scipy, google_matrix
+
+References
+----------
+.. [1] A. Langville and C. Meyer, 
+   &quot;A survey of eigenvector methods of web information retrieval.&quot;  
+   http://citeseer.ist.psu.edu/713792.html
+.. [2] Page, Lawrence; Brin, Sergey; Motwani, Rajeev and Winograd, Terry, 
+   The PageRank citation ranking: Bringing order to the Web. 1999
+   http://dbpubs.stanford.edu:8090/pub/showDoc.Fulltext?lang=en&amp;doc=1999-66&amp;format=pdf
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="pagerank_scipy"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">pagerank_scipy</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">alpha</span>=<span class="sig-default">0.85</span>,
+        <span class="sig-arg">personalization</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">max_iter</span>=<span class="sig-default">100</span>,
+        <span class="sig-arg">tol</span>=<span class="sig-default">1e-06</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.link_analysis.pagerank_alg-pysrc.html#pagerank_scipy">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the PageRank of the nodes in the graph.
+
+PageRank computes a ranking of the nodes in the graph G based on
+the structure of the incoming links. It was originally designed as
+an algorithm to rank web pages.
+
+Parameters
+-----------
+G : graph
+  A NetworkX graph 
+
+alpha : float, optional
+  Damping parameter for PageRank, default=0.85
+   
+personalization: dict, optional      
+   The &quot;personalization vector&quot; consisting of a dictionary with a
+   key for every graph node and nonzero personalization value for each node.
+
+max_iter : integer, optional
+  Maximum number of iterations in power method eigenvalue solver.
+
+tol : float, optional
+  Error tolerance used to check convergence in power method solver.
+
+weight : key, optional       
+  Edge data key to use as weight.  If None weights are set to 1.
+
+Returns
+-------
+pagerank : dictionary
+   Dictionary of nodes with PageRank as value
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.DiGraph(nx.path_graph(4))
+&gt;&gt;&gt; pr=nx.pagerank_scipy(G,alpha=0.9)
+
+Notes
+-----
+The eigenvector calculation uses power iteration with a SciPy
+sparse matrix representation.
+
+See Also
+--------
+pagerank, pagerank_numpy, google_matrix
+
+References
+----------
+.. [1] A. Langville and C. Meyer, 
+   &quot;A survey of eigenvector methods of web information retrieval.&quot;  
+   http://citeseer.ist.psu.edu/713792.html
+.. [2] Page, Lawrence; Brin, Sergey; Motwani, Rajeev and Winograd, Terry, 
+   The PageRank citation ranking: Bringing order to the Web. 1999
+   http://dbpubs.stanford.edu:8090/pub/showDoc.Fulltext?lang=en&amp;doc=1999-66&amp;format=pdf
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

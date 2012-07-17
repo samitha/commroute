@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.algorithms.cluster</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.algorithms-module.html">Package&nbsp;algorithms</a> ::
+        Module&nbsp;cluster
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.algorithms.cluster-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module cluster</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html">source&nbsp;code</a></span></p>
+<p>Algorithms to characterize the number of triangles in a graph.</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Aric Hagberg &lt;aric.hagberg@gmail.com&gt;
+        Dan Schult (dschult@colgate.edu)
+        Pieter Swart (swart@lanl.gov)
+        Jordi Torrents &lt;jtorrents@milnou.net&gt;
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.cluster-module.html#triangles" class="summary-sig-name">triangles</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodes</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Compute the number of triangles.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#triangles">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.cluster-module.html#_triangles_and_degree_iter" class="summary-sig-name" onclick="show_private();">_triangles_and_degree_iter</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodes</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return an iterator of (node, degree, triangles).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#_triangles_and_degree_iter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.cluster-module.html#_weighted_triangles_and_degree_iter" class="summary-sig-name" onclick="show_private();">_weighted_triangles_and_degree_iter</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodes</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span><br />
+      Return an iterator of (node, degree, weighted_triangles).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#_weighted_triangles_and_degree_iter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.cluster-module.html#average_clustering" class="summary-sig-name">average_clustering</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodes</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">count_zeros</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Compute the average clustering coefficient for the graph G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#average_clustering">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.cluster-module.html#clustering" class="summary-sig-name">clustering</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodes</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Compute the clustering coefficient for nodes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#clustering">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.cluster-module.html#transitivity" class="summary-sig-name">transitivity</a>(<span class="summary-sig-arg">G</span>)</span><br />
+      Compute graph transitivity, the fraction of all possible triangles 
+present in G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#transitivity">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.cluster-module.html#square_clustering" class="summary-sig-name">square_clustering</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodes</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Compute the squares clustering coefficient for nodes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#square_clustering">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx.algorithms'"><code class="variable-quote">'</code><code class="variable-string">networkx.algorithms</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="triangles"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">triangles</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodes</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#triangles">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Compute the number of triangles.
+
+Finds the number of triangles that include a node as one vertex.
+
+Parameters
+----------
+G : graph
+   A networkx graph
+nodes : container of nodes, optional (default= all nodes in G)
+   Compute triangles for nodes in this container. 
+
+Returns
+-------
+out : dictionary
+   Number of triangles keyed by node label.
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.complete_graph(5)
+&gt;&gt;&gt; print(nx.triangles(G,0))
+6
+&gt;&gt;&gt; print(nx.triangles(G))
+{0: 6, 1: 6, 2: 6, 3: 6, 4: 6}
+&gt;&gt;&gt; print(list(nx.triangles(G,(0,1)).values()))
+[6, 6]
+
+Notes
+-----
+When computing triangles for the entire graph each triangle is counted 
+three times, once at each node.  Self loops are ignored.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_triangles_and_degree_iter"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_triangles_and_degree_iter</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodes</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#_triangles_and_degree_iter">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return an iterator of (node, degree, triangles).</p>
+  <p>This double counts triangles so you may want to divide by 2. See 
+  degree() and triangles() for definitions and details.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_weighted_triangles_and_degree_iter"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_weighted_triangles_and_degree_iter</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodes</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#_weighted_triangles_and_degree_iter">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return an iterator of (node, degree, weighted_triangles).</p>
+  <p>Used for weighted clustering.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="average_clustering"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">average_clustering</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodes</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">count_zeros</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#average_clustering">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Compute the average clustering coefficient for the graph G.
+
+The clustering coefficient for the graph is the average, 
+
+.. math::
+
+   C = \frac{1}{n}\sum_{v \in G} c_v,
+   
+where `n` is the number of nodes in `G`.
+
+Parameters
+----------
+G : graph
+
+nodes : container of nodes, optional (default=all nodes in G)
+   Compute average clustering for nodes in this container. 
+
+weight : string or None, optional (default=None)
+   The edge attribute that holds the numerical value used as a weight.
+   If None, then each edge has weight 1.
+
+count_zeros : bool (default=False)       
+   If False include only the nodes with nonzero clustering in the average.
+
+Returns
+-------
+avg : float
+   Average clustering
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.complete_graph(5)
+&gt;&gt;&gt; print(nx.average_clustering(G))
+1.0
+
+Notes
+-----
+This is a space saving routine; it might be faster
+to use the clustering function to get a list and then take the average.
+
+Self loops are ignored.
+
+References
+----------
+.. [1] Generalizations of the clustering coefficient to weighted 
+   complex networks by J. Saram&#228;ki, M. Kivel&#228;, J.-P. Onnela, 
+   K. Kaski, and J. Kert&#233;sz, Physical Review E, 75 027105 (2007).  
+   http://jponnela.com/web_documents/a9.pdf
+.. [2] Marcus Kaiser,  Mean clustering coefficients: the role of isolated 
+   nodes and leafs on clustering measures for small-world networks.
+   http://arxiv.org/abs/0802.2512
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="clustering"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">clustering</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodes</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#clustering">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Compute the clustering coefficient for nodes.
+
+For unweighted graphs the clustering of each node `u`
+is the fraction of possible triangles that exist,
+For each node find the fraction of possible triangles that exist,
+
+.. math::
+
+  c_u = \frac{2 T(u)}{deg(u)(deg(u)-1)},
+
+where `T(u)` is the number of triangles through node `u` and
+`deg(u)` is the degree of `u`.
+
+For weighted graphs the clustering is defined
+as the geometric average of the subgraph edge weights [1]_,
+
+.. math::
+
+   c_u = \frac{1}{deg(u)(deg(u)-1))}
+        \sum_{uv} (\hat{w}_{uv} \hat{w}_{uw} \hat{w}_{vw})^{1/3}.
+  
+The edge weights `\hat{w}_{uv}` are normalized by the maximum weight in the
+network `\hat{w}_{uv} = w_{uv}/\max(w)`.
+
+The value of `c_u` is assigned to 0 if `deg(u) &lt; 2`.
+
+Parameters
+----------
+G : graph
+
+nodes : container of nodes, optional (default=all nodes in G)
+   Compute clustering for nodes in this container. 
+
+weight : string or None, optional (default=None)
+   The edge attribute that holds the numerical value used as a weight.
+   If None, then each edge has weight 1.
+
+Returns
+-------
+out : float, or dictionary
+   Clustering coefficient at specified nodes
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.complete_graph(5)
+&gt;&gt;&gt; print(nx.clustering(G,0))
+1.0
+&gt;&gt;&gt; print(nx.clustering(G))
+{0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0}
+
+Notes
+-----
+Self loops are ignored.
+
+References
+----------
+.. [1] Generalizations of the clustering coefficient to weighted 
+   complex networks by J. Saram&#228;ki, M. Kivel&#228;, J.-P. Onnela, 
+   K. Kaski, and J. Kert&#233;sz, Physical Review E, 75 027105 (2007).  
+   http://jponnela.com/web_documents/a9.pdf
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="transitivity"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">transitivity</span>(<span class="sig-arg">G</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#transitivity">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Compute graph transitivity, the fraction of all possible triangles 
+present in G.
+
+Possible triangles are identified by the number of &quot;triads&quot; 
+(two edges with a shared vertex).
+
+The transitivity is
+
+.. math::
+
+    T = 3\frac{\#triangles}{\#triads}.
+
+Parameters
+----------
+G : graph
+
+Returns
+-------
+out : float
+   Transitivity
+
+Examples
+--------
+&gt;&gt;&gt; G = nx.complete_graph(5)
+&gt;&gt;&gt; print(nx.transitivity(G))
+1.0
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="square_clustering"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">square_clustering</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodes</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.cluster-pysrc.html#square_clustering">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Compute the squares clustering coefficient for nodes.
+
+For each node return the fraction of possible squares that exist at
+the node [1]_
+
+.. math::
+   C_4(v) = \frac{ \sum_{u=1}^{k_v} 
+   \sum_{w=u+1}^{k_v} q_v(u,w) }{ \sum_{u=1}^{k_v} 
+   \sum_{w=u+1}^{k_v} [a_v(u,w) + q_v(u,w)]},
+
+where `q_v(u,w)` are the number of common neighbors of `u` and `w` 
+other than `v` (ie squares), and 
+`a_v(u,w) = (k_u - (1+q_v(u,w)+\theta_{uv}))(k_w - (1+q_v(u,w)+\theta_{uw}))`,
+where `\theta_{uw} = 1` if `u` and `w` are connected and 0 otherwise.
+
+Parameters
+----------
+G : graph
+
+nodes : container of nodes, optional (default=all nodes in G)
+   Compute clustering for nodes in this container. 
+    
+Returns
+-------
+c4 : dictionary
+   A dictionary keyed by node with the square clustering coefficient value. 
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.complete_graph(5)
+&gt;&gt;&gt; print(nx.square_clustering(G,0))
+1.0
+&gt;&gt;&gt; print(nx.square_clustering(G))
+{0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0}
+
+Notes
+-----
+While `C_3(v)` (triangle clustering) gives the probability that
+two neighbors of node v are connected with each other, `C_4(v)` is
+the probability that two neighbors of node v share a common
+neighbor different from v. This algorithm can be applied to both
+bipartite and unipartite networks.
+
+References
+----------
+.. [1] Pedro G. Lind, Marta C. Gonz&#225;lez, and Hans J. Herrmann. 2005
+    Cycles and clustering in bipartite networks.
+    Physical Review E (72) 056127.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

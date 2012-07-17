@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cvxpy.constraints</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cvxpy-module.html">Package&nbsp;cvxpy</a> ::
+        Module&nbsp;constraints
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cvxpy.constraints-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="cvxpy.constraints-module.html">Module cvxpy.constraints</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#***********************************************************************#</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2010-2012 Tomas Tinoco De Rubira                        #</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment">#                                                                       #</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># This file is part of CVXPY                                            #     </tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#                                                                       #</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># CVXPY is free software: you can redistribute it and/or modify         #</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># it under the terms of the GNU General Public License as published by  #</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation, either version 3 of the License, or     #   </tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># (at your option) any later version.                                   # </tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment">#                                                                       #</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment"># CVXPY is distributed in the hope that it will be useful,              #</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment"># but WITHOUT ANY WARRANTY; without even the implied warranty of        #</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment"># GNU General Public License for more details.                          #</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment">#                                                                       #</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment"># You should have received a copy of the GNU General Public License     #</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;. #</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment">#***********************************************************************#</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">np</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package cvxpy=cvxpy-module.html"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-0', 'cvxpy', 'link-0');">cvxpy</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module cvxpy.defs=cvxpy.defs-module.html"><a title="cvxpy.defs" class="py-name" href="#" onclick="return doclink('link-1', 'defs', 'link-1');">defs</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-2', 'cvxpy', 'link-0');">cvxpy</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module cvxpy.scalars=cvxpy.scalars-module.html"><a title="cvxpy.scalars" class="py-name" href="#" onclick="return doclink('link-3', 'scalars', 'link-3');">scalars</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Class cvxpy.scalars.cvxpy_obj=cvxpy.scalars.cvxpy_obj-class.html"><a title="cvxpy.scalars.cvxpy_obj" class="py-name" href="#" onclick="return doclink('link-4', 'cvxpy_obj', 'link-4');">cvxpy_obj</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-5', 'cvxpy', 'link-0');">cvxpy</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Module cvxpy.arrays=cvxpy.arrays-module.html"><a title="cvxpy.arrays" class="py-name" href="#" onclick="return doclink('link-6', 'arrays', 'link-6');">arrays</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Class cvxpy.arrays.cvxpy_array=cvxpy.arrays.cvxpy_array-class.html"><a title="cvxpy.arrays.cvxpy_array" class="py-name" href="#" onclick="return doclink('link-7', 'cvxpy_array', 'link-7');">cvxpy_array</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-8" class="py-name"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-8', 'cvxpy', 'link-0');">cvxpy</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="cvxpy.arrays" class="py-name" href="#" onclick="return doclink('link-9', 'arrays', 'link-6');">arrays</a></tt> <tt class="py-keyword">import</tt> <tt id="link-10" class="py-name" targets="Class cvxpy.arrays.cvxpy_matrix=cvxpy.arrays.cvxpy_matrix-class.html"><a title="cvxpy.arrays.cvxpy_matrix" class="py-name" href="#" onclick="return doclink('link-10', 'cvxpy_matrix', 'link-10');">cvxpy_matrix</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">functools</tt> <tt class="py-keyword">import</tt> <tt class="py-name">reduce</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment">#***********************************************************************#</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"># Class definition: cvxpy_constr                                        #</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment">#***********************************************************************#</tt> </tt>
+<a name="cvxpy_constr"></a><div id="cvxpy_constr-def"><a name="L30"></a><tt class="py-lineno"> 30</tt> <a class="py-toggle" href="#" id="cvxpy_constr-toggle" onclick="return toggle('cvxpy_constr');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_constr-class.html">cvxpy_constr</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_constr-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="cvxpy_constr-expanded"><a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">    <tt class="py-comment"># Method: __init__</tt> </tt>
+<a name="cvxpy_constr.__init__"></a><div id="cvxpy_constr.__init__-def"><a name="L33"></a><tt class="py-lineno"> 33</tt> <a class="py-toggle" href="#" id="cvxpy_constr.__init__-toggle" onclick="return toggle('cvxpy_constr.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_constr-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">left</tt><tt class="py-op">,</tt><tt class="py-param">constraint_type</tt><tt class="py-op">,</tt><tt class="py-param">right</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_constr.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_constr.__init__-expanded"><a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">        Class constructor.</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">        :param left: Left hand side.</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">        :param constraint type: Keyword (See cvxpy.defs).</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">        :param right: Right hand side.</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">left</tt> <tt class="py-op">=</tt> <tt class="py-name">left</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">=</tt> <tt class="py-name">constraint_type</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">right</tt> <tt class="py-op">=</tt> <tt class="py-name">right</tt> </tt>
+</div><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-comment"># Method: __getattribute__</tt> </tt>
+<a name="cvxpy_constr.__getattribute__"></a><div id="cvxpy_constr.__getattribute__-def"><a name="L47"></a><tt class="py-lineno"> 47</tt> <a class="py-toggle" href="#" id="cvxpy_constr.__getattribute__-toggle" onclick="return toggle('cvxpy_constr.__getattribute__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_constr-class.html#__getattribute__">__getattribute__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_constr.__getattribute__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_constr.__getattribute__-expanded"><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-comment"># Variables</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-11" class="py-name" targets="Variable networkx.classes.graph.Graph.name=networkx.classes.graph.Graph-class.html#name,Variable networkx.release.name=networkx.release-module.html#name"><a title="networkx.classes.graph.Graph.name
+networkx.release.name" class="py-name" href="#" onclick="return doclink('link-11', 'name', 'link-11');">name</a></tt> <tt class="py-op">==</tt> <tt class="py-string">'variables'</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">==</tt> <tt id="link-12" class="py-name" targets="Variable cvxpy.defs.BELONGS=cvxpy.defs-module.html#BELONGS,Variable cvxpy.functions.abs'.BELONGS=cvxpy.functions.abs%27-module.html#BELONGS,Variable cvxpy.functions.det_rootn'.BELONGS=cvxpy.functions.det_rootn%27-module.html#BELONGS,Variable cvxpy.functions.exp'.BELONGS=cvxpy.functions.exp%27-module.html#BELONGS,Variable cvxpy.functions.geo_mean'.BELONGS=cvxpy.functions.geo_mean%27-module.html#BELONGS,Variable cvxpy.functions.huber'.BELONGS=cvxpy.functions.huber%27-module.html#BELONGS,Variable cvxpy.functions.kl_div'.BELONGS=cvxpy.functions.kl_div%27-module.html#BELONGS,Variable cvxpy.functions.lambda_max'.BELONGS=cvxpy.functions.lambda_max%27-module.html#BELONGS,Variable cvxpy.functions.lambda_min'.BELONGS=cvxpy.functions.lambda_min%27-module.html#BELONGS,Variable cvxpy.functions.log'.BELONGS=cvxpy.functions.log%27-module.html#BELONGS,Variable cvxpy.functions.log_norm_cdf'.BELONGS=cvxpy.functions.log_norm_cdf%27-module.html#BELONGS,Variable cvxpy.functions.log_sum_exp'.BELONGS=cvxpy.functions.log_sum_exp%27-module.html#BELONGS,Variable cvxpy.functions.max'.BELONGS=cvxpy.functions.max%27-module.html#BELONGS,Variable cvxpy.functions.min'.BELONGS=cvxpy.functions.min%27-module.html#BELONGS,Variable cvxpy.functions.norm1'.BELONGS=cvxpy.functions.norm1%27-module.html#BELONGS,Variable cvxpy.functions.norm2'.BELONGS=cvxpy.functions.norm2%27-module.html#BELONGS,Variable cvxpy.functions.norm_inf'.BELONGS=cvxpy.functions.norm_inf%27-module.html#BELONGS,Variable cvxpy.functions.nuclear_norm'.BELONGS=cvxpy.functions.nuclear_norm%27-module.html#BELONGS,Variable cvxpy.functions.quad_form'.BELONGS=cvxpy.functions.quad_form%27-module.html#BELONGS,Variable cvxpy.functions.quad_over_lin'.BELONGS=cvxpy.functions.quad_over_lin%27-module.html#BELONGS,Variable cvxpy.functions.sqrt'.BELONGS=cvxpy.functions.sqrt%27-module.html#BELONGS,Variable cvxpy.functions.square'.BELONGS=cvxpy.functions.square%27-module.html#BELONGS,Variable cvxpy.sets.exp_cone'.BELONGS=cvxpy.sets.exp_cone%27-module.html#BELONGS,Variable cvxpy.sets.geo_mean_cone'.BELONGS=cvxpy.sets.geo_mean_cone%27-module.html#BELONGS,Variable cvxpy.sets.kl_div_epi'.BELONGS=cvxpy.sets.kl_div_epi%27-module.html#BELONGS,Variable cvxpy.sets.log_norm_cdf_hypo'.BELONGS=cvxpy.sets.log_norm_cdf_hypo%27-module.html#BELONGS,Variable cvxpy.sets.second_order_cone'.BELONGS=cvxpy.sets.second_order_cone%27-module.html#BELONGS,Variable cvxpy.sets.semidefinite_cone'.BELONGS=cvxpy.sets.semidefinite_cone%27-module.html#BELONGS"><a title="cvxpy.defs.BELONGS
+cvxpy.functions.abs'.BELONGS
+cvxpy.functions.det_rootn'.BELONGS
+cvxpy.functions.exp'.BELONGS
+cvxpy.functions.geo_mean'.BELONGS
+cvxpy.functions.huber'.BELONGS
+cvxpy.functions.kl_div'.BELONGS
+cvxpy.functions.lambda_max'.BELONGS
+cvxpy.functions.lambda_min'.BELONGS
+cvxpy.functions.log'.BELONGS
+cvxpy.functions.log_norm_cdf'.BELONGS
+cvxpy.functions.log_sum_exp'.BELONGS
+cvxpy.functions.max'.BELONGS
+cvxpy.functions.min'.BELONGS
+cvxpy.functions.norm1'.BELONGS
+cvxpy.functions.norm2'.BELONGS
+cvxpy.functions.norm_inf'.BELONGS
+cvxpy.functions.nuclear_norm'.BELONGS
+cvxpy.functions.quad_form'.BELONGS
+cvxpy.functions.quad_over_lin'.BELONGS
+cvxpy.functions.sqrt'.BELONGS
+cvxpy.functions.square'.BELONGS
+cvxpy.sets.exp_cone'.BELONGS
+cvxpy.sets.geo_mean_cone'.BELONGS
+cvxpy.sets.kl_div_epi'.BELONGS
+cvxpy.sets.log_norm_cdf_hypo'.BELONGS
+cvxpy.sets.second_order_cone'.BELONGS
+cvxpy.sets.semidefinite_cone'.BELONGS" class="py-name" href="#" onclick="return doclink('link-12', 'BELONGS', 'link-12');">BELONGS</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">left</tt><tt class="py-op">.</tt><tt class="py-name">variables</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt id="link-13" class="py-name" targets="Class cvxpy.constraints.cvxpy_list=cvxpy.constraints.cvxpy_list-class.html"><a title="cvxpy.constraints.cvxpy_list" class="py-name" href="#" onclick="return doclink('link-13', 'cvxpy_list', 'link-13');">cvxpy_list</a></tt><tt class="py-op">(</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">left</tt><tt class="py-op">.</tt><tt class="py-name">variables</tt> <tt class="py-op">+</tt>  </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                                      <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">right</tt><tt class="py-op">.</tt><tt class="py-name">variables</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-comment"># Parameters</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt id="link-14" class="py-name"><a title="networkx.classes.graph.Graph.name
+networkx.release.name" class="py-name" href="#" onclick="return doclink('link-14', 'name', 'link-11');">name</a></tt> <tt class="py-op">==</tt> <tt class="py-string">'parameters'</tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">==</tt> <tt id="link-15" class="py-name"><a title="cvxpy.defs.BELONGS
+cvxpy.functions.abs'.BELONGS
+cvxpy.functions.det_rootn'.BELONGS
+cvxpy.functions.exp'.BELONGS
+cvxpy.functions.geo_mean'.BELONGS
+cvxpy.functions.huber'.BELONGS
+cvxpy.functions.kl_div'.BELONGS
+cvxpy.functions.lambda_max'.BELONGS
+cvxpy.functions.lambda_min'.BELONGS
+cvxpy.functions.log'.BELONGS
+cvxpy.functions.log_norm_cdf'.BELONGS
+cvxpy.functions.log_sum_exp'.BELONGS
+cvxpy.functions.max'.BELONGS
+cvxpy.functions.min'.BELONGS
+cvxpy.functions.norm1'.BELONGS
+cvxpy.functions.norm2'.BELONGS
+cvxpy.functions.norm_inf'.BELONGS
+cvxpy.functions.nuclear_norm'.BELONGS
+cvxpy.functions.quad_form'.BELONGS
+cvxpy.functions.quad_over_lin'.BELONGS
+cvxpy.functions.sqrt'.BELONGS
+cvxpy.functions.square'.BELONGS
+cvxpy.sets.exp_cone'.BELONGS
+cvxpy.sets.geo_mean_cone'.BELONGS
+cvxpy.sets.kl_div_epi'.BELONGS
+cvxpy.sets.log_norm_cdf_hypo'.BELONGS
+cvxpy.sets.second_order_cone'.BELONGS
+cvxpy.sets.semidefinite_cone'.BELONGS" class="py-name" href="#" onclick="return doclink('link-15', 'BELONGS', 'link-12');">BELONGS</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">left</tt><tt class="py-op">.</tt><tt class="py-name">parameters</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt id="link-16" class="py-name"><a title="cvxpy.constraints.cvxpy_list" class="py-name" href="#" onclick="return doclink('link-16', 'cvxpy_list', 'link-13');">cvxpy_list</a></tt><tt class="py-op">(</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">left</tt><tt class="py-op">.</tt><tt class="py-name">parameters</tt> <tt class="py-op">+</tt>  </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                                      <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">right</tt><tt class="py-op">.</tt><tt class="py-name">parameters</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-comment"># Other</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">object</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method cvxpy.arrays.cvxpy_array.__getattribute__()=cvxpy.arrays.cvxpy_array-class.html#__getattribute__,Method cvxpy.arrays.cvxpy_matrix.__getattribute__()=cvxpy.arrays.cvxpy_matrix-class.html#__getattribute__,Method cvxpy.constraints.cvxpy_constr.__getattribute__()=cvxpy.constraints.cvxpy_constr-class.html#__getattribute__,Method cvxpy.constraints.cvxpy_list.__getattribute__()=cvxpy.constraints.cvxpy_list-class.html#__getattribute__,Method cvxpy.programs.cvxpy_program.__getattribute__()=cvxpy.programs.cvxpy_program-class.html#__getattribute__,Method cvxpy.scalars.cvxpy_scalar_param.__getattribute__()=cvxpy.scalars.cvxpy_scalar_param-class.html#__getattribute__,Method cvxpy.scalars.cvxpy_scalar_var.__getattribute__()=cvxpy.scalars.cvxpy_scalar_var-class.html#__getattribute__,Method cvxpy.scalars.cvxpy_tree.__getattribute__()=cvxpy.scalars.cvxpy_tree-class.html#__getattribute__"><a title="cvxpy.arrays.cvxpy_array.__getattribute__
+cvxpy.arrays.cvxpy_matrix.__getattribute__
+cvxpy.constraints.cvxpy_constr.__getattribute__
+cvxpy.constraints.cvxpy_list.__getattribute__
+cvxpy.programs.cvxpy_program.__getattribute__
+cvxpy.scalars.cvxpy_scalar_param.__getattribute__
+cvxpy.scalars.cvxpy_scalar_var.__getattribute__
+cvxpy.scalars.cvxpy_tree.__getattribute__" class="py-name" href="#" onclick="return doclink('link-17', '__getattribute__', 'link-17');">__getattribute__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt><tt id="link-18" class="py-name"><a title="networkx.classes.graph.Graph.name
+networkx.release.name" class="py-name" href="#" onclick="return doclink('link-18', 'name', 'link-11');">name</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-comment"># Method: __str__</tt> </tt>
+<a name="cvxpy_constr.__str__"></a><div id="cvxpy_constr.__str__-def"><a name="L70"></a><tt class="py-lineno"> 70</tt> <a class="py-toggle" href="#" id="cvxpy_constr.__str__-toggle" onclick="return toggle('cvxpy_constr.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_constr-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_constr.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_constr.__str__-expanded"><a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-name">l_text</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name" targets="Class str=str-class.html"><a title="str" class="py-name" href="#" onclick="return doclink('link-19', 'str', 'link-19');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">left</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">type_text</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-name">r_text</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-20', 'str', 'link-19');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">right</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">l_text</tt><tt class="py-op">+</tt><tt class="py-string">' '</tt><tt class="py-op">+</tt><tt class="py-name">type_text</tt><tt class="py-op">+</tt><tt class="py-string">' '</tt><tt class="py-op">+</tt><tt class="py-name">r_text</tt> </tt>
+</div><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">    <tt class="py-comment"># Method: is_dcp</tt> </tt>
+<a name="cvxpy_constr.is_dcp"></a><div id="cvxpy_constr.is_dcp-def"><a name="L78"></a><tt class="py-lineno"> 78</tt> <a class="py-toggle" href="#" id="cvxpy_constr.is_dcp-toggle" onclick="return toggle('cvxpy_constr.is_dcp');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_constr-class.html#is_dcp">is_dcp</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_constr.is_dcp-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_constr.is_dcp-expanded"><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">        Determines if the constraint is DCP-compliant.</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">==</tt> <tt id="link-21" class="py-name" targets="Variable cvxpy.defs.EQUALS=cvxpy.defs-module.html#EQUALS,Variable cvxpy.functions.abs'.EQUALS=cvxpy.functions.abs%27-module.html#EQUALS,Variable cvxpy.functions.det_rootn'.EQUALS=cvxpy.functions.det_rootn%27-module.html#EQUALS,Variable cvxpy.functions.exp'.EQUALS=cvxpy.functions.exp%27-module.html#EQUALS,Variable cvxpy.functions.geo_mean'.EQUALS=cvxpy.functions.geo_mean%27-module.html#EQUALS,Variable cvxpy.functions.huber'.EQUALS=cvxpy.functions.huber%27-module.html#EQUALS,Variable cvxpy.functions.kl_div'.EQUALS=cvxpy.functions.kl_div%27-module.html#EQUALS,Variable cvxpy.functions.lambda_max'.EQUALS=cvxpy.functions.lambda_max%27-module.html#EQUALS,Variable cvxpy.functions.lambda_min'.EQUALS=cvxpy.functions.lambda_min%27-module.html#EQUALS,Variable cvxpy.functions.log'.EQUALS=cvxpy.functions.log%27-module.html#EQUALS,Variable cvxpy.functions.log_norm_cdf'.EQUALS=cvxpy.functions.log_norm_cdf%27-module.html#EQUALS,Variable cvxpy.functions.log_sum_exp'.EQUALS=cvxpy.functions.log_sum_exp%27-module.html#EQUALS,Variable cvxpy.functions.max'.EQUALS=cvxpy.functions.max%27-module.html#EQUALS,Variable cvxpy.functions.min'.EQUALS=cvxpy.functions.min%27-module.html#EQUALS,Variable cvxpy.functions.norm1'.EQUALS=cvxpy.functions.norm1%27-module.html#EQUALS,Variable cvxpy.functions.norm2'.EQUALS=cvxpy.functions.norm2%27-module.html#EQUALS,Variable cvxpy.functions.norm_inf'.EQUALS=cvxpy.functions.norm_inf%27-module.html#EQUALS,Variable cvxpy.functions.nuclear_norm'.EQUALS=cvxpy.functions.nuclear_norm%27-module.html#EQUALS,Variable cvxpy.functions.quad_form'.EQUALS=cvxpy.functions.quad_form%27-module.html#EQUALS,Variable cvxpy.functions.quad_over_lin'.EQUALS=cvxpy.functions.quad_over_lin%27-module.html#EQUALS,Variable cvxpy.functions.sqrt'.EQUALS=cvxpy.functions.sqrt%27-module.html#EQUALS,Variable cvxpy.functions.square'.EQUALS=cvxpy.functions.square%27-module.html#EQUALS,Variable cvxpy.sets.exp_cone'.EQUALS=cvxpy.sets.exp_cone%27-module.html#EQUALS,Variable cvxpy.sets.geo_mean_cone'.EQUALS=cvxpy.sets.geo_mean_cone%27-module.html#EQUALS,Variable cvxpy.sets.kl_div_epi'.EQUALS=cvxpy.sets.kl_div_epi%27-module.html#EQUALS,Variable cvxpy.sets.log_norm_cdf_hypo'.EQUALS=cvxpy.sets.log_norm_cdf_hypo%27-module.html#EQUALS,Variable cvxpy.sets.second_order_cone'.EQUALS=cvxpy.sets.second_order_cone%27-module.html#EQUALS,Variable cvxpy.sets.semidefinite_cone'.EQUALS=cvxpy.sets.semidefinite_cone%27-module.html#EQUALS"><a title="cvxpy.defs.EQUALS
+cvxpy.functions.abs'.EQUALS
+cvxpy.functions.det_rootn'.EQUALS
+cvxpy.functions.exp'.EQUALS
+cvxpy.functions.geo_mean'.EQUALS
+cvxpy.functions.huber'.EQUALS
+cvxpy.functions.kl_div'.EQUALS
+cvxpy.functions.lambda_max'.EQUALS
+cvxpy.functions.lambda_min'.EQUALS
+cvxpy.functions.log'.EQUALS
+cvxpy.functions.log_norm_cdf'.EQUALS
+cvxpy.functions.log_sum_exp'.EQUALS
+cvxpy.functions.max'.EQUALS
+cvxpy.functions.min'.EQUALS
+cvxpy.functions.norm1'.EQUALS
+cvxpy.functions.norm2'.EQUALS
+cvxpy.functions.norm_inf'.EQUALS
+cvxpy.functions.nuclear_norm'.EQUALS
+cvxpy.functions.quad_form'.EQUALS
+cvxpy.functions.quad_over_lin'.EQUALS
+cvxpy.functions.sqrt'.EQUALS
+cvxpy.functions.square'.EQUALS
+cvxpy.sets.exp_cone'.EQUALS
+cvxpy.sets.geo_mean_cone'.EQUALS
+cvxpy.sets.kl_div_epi'.EQUALS
+cvxpy.sets.log_norm_cdf_hypo'.EQUALS
+cvxpy.sets.second_order_cone'.EQUALS
+cvxpy.sets.semidefinite_cone'.EQUALS" class="py-name" href="#" onclick="return doclink('link-21', 'EQUALS', 'link-21');">EQUALS</a></tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">left</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method cvxpy.arrays.cvxpy_array.is_affine()=cvxpy.arrays.cvxpy_array-class.html#is_affine,Method cvxpy.constraints.cvxpy_constr.is_affine()=cvxpy.constraints.cvxpy_constr-class.html#is_affine,Method cvxpy.constraints.cvxpy_list.is_affine()=cvxpy.constraints.cvxpy_list-class.html#is_affine,Method cvxpy.scalars.cvxpy_obj.is_affine()=cvxpy.scalars.cvxpy_obj-class.html#is_affine,Method cvxpy.scalars.cvxpy_tree.is_affine()=cvxpy.scalars.cvxpy_tree-class.html#is_affine"><a title="cvxpy.arrays.cvxpy_array.is_affine
+cvxpy.constraints.cvxpy_constr.is_affine
+cvxpy.constraints.cvxpy_list.is_affine
+cvxpy.scalars.cvxpy_obj.is_affine
+cvxpy.scalars.cvxpy_tree.is_affine" class="py-name" href="#" onclick="return doclink('link-22', 'is_affine', 'link-22');">is_affine</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">right</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="cvxpy.arrays.cvxpy_array.is_affine
+cvxpy.constraints.cvxpy_constr.is_affine
+cvxpy.constraints.cvxpy_list.is_affine
+cvxpy.scalars.cvxpy_obj.is_affine
+cvxpy.scalars.cvxpy_tree.is_affine" class="py-name" href="#" onclick="return doclink('link-23', 'is_affine', 'link-22');">is_affine</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">==</tt> <tt id="link-24" class="py-name" targets="Variable cvxpy.defs.LESS_EQUALS=cvxpy.defs-module.html#LESS_EQUALS,Variable cvxpy.functions.abs'.LESS_EQUALS=cvxpy.functions.abs%27-module.html#LESS_EQUALS,Variable cvxpy.functions.det_rootn'.LESS_EQUALS=cvxpy.functions.det_rootn%27-module.html#LESS_EQUALS,Variable cvxpy.functions.exp'.LESS_EQUALS=cvxpy.functions.exp%27-module.html#LESS_EQUALS,Variable cvxpy.functions.geo_mean'.LESS_EQUALS=cvxpy.functions.geo_mean%27-module.html#LESS_EQUALS,Variable cvxpy.functions.huber'.LESS_EQUALS=cvxpy.functions.huber%27-module.html#LESS_EQUALS,Variable cvxpy.functions.kl_div'.LESS_EQUALS=cvxpy.functions.kl_div%27-module.html#LESS_EQUALS,Variable cvxpy.functions.lambda_max'.LESS_EQUALS=cvxpy.functions.lambda_max%27-module.html#LESS_EQUALS,Variable cvxpy.functions.lambda_min'.LESS_EQUALS=cvxpy.functions.lambda_min%27-module.html#LESS_EQUALS,Variable cvxpy.functions.log'.LESS_EQUALS=cvxpy.functions.log%27-module.html#LESS_EQUALS,Variable cvxpy.functions.log_norm_cdf'.LESS_EQUALS=cvxpy.functions.log_norm_cdf%27-module.html#LESS_EQUALS,Variable cvxpy.functions.log_sum_exp'.LESS_EQUALS=cvxpy.functions.log_sum_exp%27-module.html#LESS_EQUALS,Variable cvxpy.functions.max'.LESS_EQUALS=cvxpy.functions.max%27-module.html#LESS_EQUALS,Variable cvxpy.functions.min'.LESS_EQUALS=cvxpy.functions.min%27-module.html#LESS_EQUALS,Variable cvxpy.functions.norm1'.LESS_EQUALS=cvxpy.functions.norm1%27-module.html#LESS_EQUALS,Variable cvxpy.functions.norm2'.LESS_EQUALS=cvxpy.functions.norm2%27-module.html#LESS_EQUALS,Variable cvxpy.functions.norm_inf'.LESS_EQUALS=cvxpy.functions.norm_inf%27-module.html#LESS_EQUALS,Variable cvxpy.functions.nuclear_norm'.LESS_EQUALS=cvxpy.functions.nuclear_norm%27-module.html#LESS_EQUALS,Variable cvxpy.functions.quad_form'.LESS_EQUALS=cvxpy.functions.quad_form%27-module.html#LESS_EQUALS,Variable cvxpy.functions.quad_over_lin'.LESS_EQUALS=cvxpy.functions.quad_over_lin%27-module.html#LESS_EQUALS,Variable cvxpy.functions.sqrt'.LESS_EQUALS=cvxpy.functions.sqrt%27-module.html#LESS_EQUALS,Variable cvxpy.functions.square'.LESS_EQUALS=cvxpy.functions.square%27-module.html#LESS_EQUALS,Variable cvxpy.sets.exp_cone'.LESS_EQUALS=cvxpy.sets.exp_cone%27-module.html#LESS_EQUALS,Variable cvxpy.sets.geo_mean_cone'.LESS_EQUALS=cvxpy.sets.geo_mean_cone%27-module.html#LESS_EQUALS,Variable cvxpy.sets.kl_div_epi'.LESS_EQUALS=cvxpy.sets.kl_div_epi%27-module.html#LESS_EQUALS,Variable cvxpy.sets.log_norm_cdf_hypo'.LESS_EQUALS=cvxpy.sets.log_norm_cdf_hypo%27-module.html#LESS_EQUALS,Variable cvxpy.sets.second_order_cone'.LESS_EQUALS=cvxpy.sets.second_order_cone%27-module.html#LESS_EQUALS,Variable cvxpy.sets.semidefinite_cone'.LESS_EQUALS=cvxpy.sets.semidefinite_cone%27-module.html#LESS_EQUALS"><a title="cvxpy.defs.LESS_EQUALS
+cvxpy.functions.abs'.LESS_EQUALS
+cvxpy.functions.det_rootn'.LESS_EQUALS
+cvxpy.functions.exp'.LESS_EQUALS
+cvxpy.functions.geo_mean'.LESS_EQUALS
+cvxpy.functions.huber'.LESS_EQUALS
+cvxpy.functions.kl_div'.LESS_EQUALS
+cvxpy.functions.lambda_max'.LESS_EQUALS
+cvxpy.functions.lambda_min'.LESS_EQUALS
+cvxpy.functions.log'.LESS_EQUALS
+cvxpy.functions.log_norm_cdf'.LESS_EQUALS
+cvxpy.functions.log_sum_exp'.LESS_EQUALS
+cvxpy.functions.max'.LESS_EQUALS
+cvxpy.functions.min'.LESS_EQUALS
+cvxpy.functions.norm1'.LESS_EQUALS
+cvxpy.functions.norm2'.LESS_EQUALS
+cvxpy.functions.norm_inf'.LESS_EQUALS
+cvxpy.functions.nuclear_norm'.LESS_EQUALS
+cvxpy.functions.quad_form'.LESS_EQUALS
+cvxpy.functions.quad_over_lin'.LESS_EQUALS
+cvxpy.functions.sqrt'.LESS_EQUALS
+cvxpy.functions.square'.LESS_EQUALS
+cvxpy.sets.exp_cone'.LESS_EQUALS
+cvxpy.sets.geo_mean_cone'.LESS_EQUALS
+cvxpy.sets.kl_div_epi'.LESS_EQUALS
+cvxpy.sets.log_norm_cdf_hypo'.LESS_EQUALS
+cvxpy.sets.second_order_cone'.LESS_EQUALS
+cvxpy.sets.semidefinite_cone'.LESS_EQUALS" class="py-name" href="#" onclick="return doclink('link-24', 'LESS_EQUALS', 'link-24');">LESS_EQUALS</a></tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">              <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">left</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method cvxpy.scalars.cvxpy_obj.is_convex()=cvxpy.scalars.cvxpy_obj-class.html#is_convex,Method cvxpy.scalars.cvxpy_tree.is_convex()=cvxpy.scalars.cvxpy_tree-class.html#is_convex"><a title="cvxpy.scalars.cvxpy_obj.is_convex
+cvxpy.scalars.cvxpy_tree.is_convex" class="py-name" href="#" onclick="return doclink('link-25', 'is_convex', 'link-25');">is_convex</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">              <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">right</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Method cvxpy.scalars.cvxpy_obj.is_concave()=cvxpy.scalars.cvxpy_obj-class.html#is_concave,Method cvxpy.scalars.cvxpy_tree.is_concave()=cvxpy.scalars.cvxpy_tree-class.html#is_concave"><a title="cvxpy.scalars.cvxpy_obj.is_concave
+cvxpy.scalars.cvxpy_tree.is_concave" class="py-name" href="#" onclick="return doclink('link-26', 'is_concave', 'link-26');">is_concave</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">==</tt> <tt id="link-27" class="py-name" targets="Variable cvxpy.defs.GREATER_EQUALS=cvxpy.defs-module.html#GREATER_EQUALS,Variable cvxpy.functions.abs'.GREATER_EQUALS=cvxpy.functions.abs%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.det_rootn'.GREATER_EQUALS=cvxpy.functions.det_rootn%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.exp'.GREATER_EQUALS=cvxpy.functions.exp%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.geo_mean'.GREATER_EQUALS=cvxpy.functions.geo_mean%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.huber'.GREATER_EQUALS=cvxpy.functions.huber%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.kl_div'.GREATER_EQUALS=cvxpy.functions.kl_div%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.lambda_max'.GREATER_EQUALS=cvxpy.functions.lambda_max%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.lambda_min'.GREATER_EQUALS=cvxpy.functions.lambda_min%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.log'.GREATER_EQUALS=cvxpy.functions.log%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.log_norm_cdf'.GREATER_EQUALS=cvxpy.functions.log_norm_cdf%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.log_sum_exp'.GREATER_EQUALS=cvxpy.functions.log_sum_exp%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.max'.GREATER_EQUALS=cvxpy.functions.max%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.min'.GREATER_EQUALS=cvxpy.functions.min%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.norm1'.GREATER_EQUALS=cvxpy.functions.norm1%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.norm2'.GREATER_EQUALS=cvxpy.functions.norm2%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.norm_inf'.GREATER_EQUALS=cvxpy.functions.norm_inf%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.nuclear_norm'.GREATER_EQUALS=cvxpy.functions.nuclear_norm%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.quad_form'.GREATER_EQUALS=cvxpy.functions.quad_form%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.quad_over_lin'.GREATER_EQUALS=cvxpy.functions.quad_over_lin%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.sqrt'.GREATER_EQUALS=cvxpy.functions.sqrt%27-module.html#GREATER_EQUALS,Variable cvxpy.functions.square'.GREATER_EQUALS=cvxpy.functions.square%27-module.html#GREATER_EQUALS,Variable cvxpy.sets.exp_cone'.GREATER_EQUALS=cvxpy.sets.exp_cone%27-module.html#GREATER_EQUALS,Variable cvxpy.sets.geo_mean_cone'.GREATER_EQUALS=cvxpy.sets.geo_mean_cone%27-module.html#GREATER_EQUALS,Variable cvxpy.sets.kl_div_epi'.GREATER_EQUALS=cvxpy.sets.kl_div_epi%27-module.html#GREATER_EQUALS,Variable cvxpy.sets.log_norm_cdf_hypo'.GREATER_EQUALS=cvxpy.sets.log_norm_cdf_hypo%27-module.html#GREATER_EQUALS,Variable cvxpy.sets.second_order_cone'.GREATER_EQUALS=cvxpy.sets.second_order_cone%27-module.html#GREATER_EQUALS,Variable cvxpy.sets.semidefinite_cone'.GREATER_EQUALS=cvxpy.sets.semidefinite_cone%27-module.html#GREATER_EQUALS"><a title="cvxpy.defs.GREATER_EQUALS
+cvxpy.functions.abs'.GREATER_EQUALS
+cvxpy.functions.det_rootn'.GREATER_EQUALS
+cvxpy.functions.exp'.GREATER_EQUALS
+cvxpy.functions.geo_mean'.GREATER_EQUALS
+cvxpy.functions.huber'.GREATER_EQUALS
+cvxpy.functions.kl_div'.GREATER_EQUALS
+cvxpy.functions.lambda_max'.GREATER_EQUALS
+cvxpy.functions.lambda_min'.GREATER_EQUALS
+cvxpy.functions.log'.GREATER_EQUALS
+cvxpy.functions.log_norm_cdf'.GREATER_EQUALS
+cvxpy.functions.log_sum_exp'.GREATER_EQUALS
+cvxpy.functions.max'.GREATER_EQUALS
+cvxpy.functions.min'.GREATER_EQUALS
+cvxpy.functions.norm1'.GREATER_EQUALS
+cvxpy.functions.norm2'.GREATER_EQUALS
+cvxpy.functions.norm_inf'.GREATER_EQUALS
+cvxpy.functions.nuclear_norm'.GREATER_EQUALS
+cvxpy.functions.quad_form'.GREATER_EQUALS
+cvxpy.functions.quad_over_lin'.GREATER_EQUALS
+cvxpy.functions.sqrt'.GREATER_EQUALS
+cvxpy.functions.square'.GREATER_EQUALS
+cvxpy.sets.exp_cone'.GREATER_EQUALS
+cvxpy.sets.geo_mean_cone'.GREATER_EQUALS
+cvxpy.sets.kl_div_epi'.GREATER_EQUALS
+cvxpy.sets.log_norm_cdf_hypo'.GREATER_EQUALS
+cvxpy.sets.second_order_cone'.GREATER_EQUALS
+cvxpy.sets.semidefinite_cone'.GREATER_EQUALS" class="py-name" href="#" onclick="return doclink('link-27', 'GREATER_EQUALS', 'link-27');">GREATER_EQUALS</a></tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">              <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">left</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="cvxpy.scalars.cvxpy_obj.is_concave
+cvxpy.scalars.cvxpy_tree.is_concave" class="py-name" href="#" onclick="return doclink('link-28', 'is_concave', 'link-26');">is_concave</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">              <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">right</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="cvxpy.scalars.cvxpy_obj.is_convex
+cvxpy.scalars.cvxpy_tree.is_convex" class="py-name" href="#" onclick="return doclink('link-29', 'is_convex', 'link-25');">is_convex</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">==</tt> <tt id="link-30" class="py-name"><a title="cvxpy.defs.BELONGS
+cvxpy.functions.abs'.BELONGS
+cvxpy.functions.det_rootn'.BELONGS
+cvxpy.functions.exp'.BELONGS
+cvxpy.functions.geo_mean'.BELONGS
+cvxpy.functions.huber'.BELONGS
+cvxpy.functions.kl_div'.BELONGS
+cvxpy.functions.lambda_max'.BELONGS
+cvxpy.functions.lambda_min'.BELONGS
+cvxpy.functions.log'.BELONGS
+cvxpy.functions.log_norm_cdf'.BELONGS
+cvxpy.functions.log_sum_exp'.BELONGS
+cvxpy.functions.max'.BELONGS
+cvxpy.functions.min'.BELONGS
+cvxpy.functions.norm1'.BELONGS
+cvxpy.functions.norm2'.BELONGS
+cvxpy.functions.norm_inf'.BELONGS
+cvxpy.functions.nuclear_norm'.BELONGS
+cvxpy.functions.quad_form'.BELONGS
+cvxpy.functions.quad_over_lin'.BELONGS
+cvxpy.functions.sqrt'.BELONGS
+cvxpy.functions.square'.BELONGS
+cvxpy.sets.exp_cone'.BELONGS
+cvxpy.sets.geo_mean_cone'.BELONGS
+cvxpy.sets.kl_div_epi'.BELONGS
+cvxpy.sets.log_norm_cdf_hypo'.BELONGS
+cvxpy.sets.second_order_cone'.BELONGS
+cvxpy.sets.semidefinite_cone'.BELONGS" class="py-name" href="#" onclick="return doclink('link-30', 'BELONGS', 'link-12');">BELONGS</a></tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">              <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">left</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="cvxpy.arrays.cvxpy_array.is_affine
+cvxpy.constraints.cvxpy_constr.is_affine
+cvxpy.constraints.cvxpy_list.is_affine
+cvxpy.scalars.cvxpy_obj.is_affine
+cvxpy.scalars.cvxpy_tree.is_affine" class="py-name" href="#" onclick="return doclink('link-31', 'is_affine', 'link-22');">is_affine</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">         </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">    <tt class="py-comment"># Method: is_affine</tt> </tt>
+<a name="cvxpy_constr.is_affine"></a><div id="cvxpy_constr.is_affine-def"><a name="L102"></a><tt class="py-lineno">102</tt> <a class="py-toggle" href="#" id="cvxpy_constr.is_affine-toggle" onclick="return toggle('cvxpy_constr.is_affine');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_constr-class.html#is_affine">is_affine</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_constr.is_affine-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_constr.is_affine-expanded"><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">         </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">==</tt> <tt id="link-32" class="py-name"><a title="cvxpy.defs.BELONGS
+cvxpy.functions.abs'.BELONGS
+cvxpy.functions.det_rootn'.BELONGS
+cvxpy.functions.exp'.BELONGS
+cvxpy.functions.geo_mean'.BELONGS
+cvxpy.functions.huber'.BELONGS
+cvxpy.functions.kl_div'.BELONGS
+cvxpy.functions.lambda_max'.BELONGS
+cvxpy.functions.lambda_min'.BELONGS
+cvxpy.functions.log'.BELONGS
+cvxpy.functions.log_norm_cdf'.BELONGS
+cvxpy.functions.log_sum_exp'.BELONGS
+cvxpy.functions.max'.BELONGS
+cvxpy.functions.min'.BELONGS
+cvxpy.functions.norm1'.BELONGS
+cvxpy.functions.norm2'.BELONGS
+cvxpy.functions.norm_inf'.BELONGS
+cvxpy.functions.nuclear_norm'.BELONGS
+cvxpy.functions.quad_form'.BELONGS
+cvxpy.functions.quad_over_lin'.BELONGS
+cvxpy.functions.sqrt'.BELONGS
+cvxpy.functions.square'.BELONGS
+cvxpy.sets.exp_cone'.BELONGS
+cvxpy.sets.geo_mean_cone'.BELONGS
+cvxpy.sets.kl_div_epi'.BELONGS
+cvxpy.sets.log_norm_cdf_hypo'.BELONGS
+cvxpy.sets.second_order_cone'.BELONGS
+cvxpy.sets.semidefinite_cone'.BELONGS" class="py-name" href="#" onclick="return doclink('link-32', 'BELONGS', 'link-12');">BELONGS</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">left</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="cvxpy.arrays.cvxpy_array.is_affine
+cvxpy.constraints.cvxpy_constr.is_affine
+cvxpy.constraints.cvxpy_list.is_affine
+cvxpy.scalars.cvxpy_obj.is_affine
+cvxpy.scalars.cvxpy_tree.is_affine" class="py-name" href="#" onclick="return doclink('link-33', 'is_affine', 'link-22');">is_affine</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">right</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="cvxpy.arrays.cvxpy_array.is_affine
+cvxpy.constraints.cvxpy_constr.is_affine
+cvxpy.constraints.cvxpy_list.is_affine
+cvxpy.scalars.cvxpy_obj.is_affine
+cvxpy.scalars.cvxpy_tree.is_affine" class="py-name" href="#" onclick="return doclink('link-34', 'is_affine', 'link-22');">is_affine</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">         </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-comment">#***********************************************************************#</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-comment"># Class definition: cvxpy_list                                          #</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-comment">#***********************************************************************#</tt> </tt>
+<a name="cvxpy_list"></a><div id="cvxpy_list-def"><a name="L112"></a><tt class="py-lineno">112</tt> <a class="py-toggle" href="#" id="cvxpy_list-toggle" onclick="return toggle('cvxpy_list');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_list-class.html">cvxpy_list</a><tt class="py-op">(</tt><tt class="py-base-class">list</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_list-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="cvxpy_list-expanded"><a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-comment"># Method: __getattributes__</tt> </tt>
+<a name="cvxpy_list.__getattribute__"></a><div id="cvxpy_list.__getattribute__-def"><a name="L115"></a><tt class="py-lineno">115</tt> <a class="py-toggle" href="#" id="cvxpy_list.__getattribute__-toggle" onclick="return toggle('cvxpy_list.__getattribute__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_list-class.html#__getattribute__">__getattribute__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_list.__getattribute__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_list.__getattribute__-expanded"><a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-comment"># Variables</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-35" class="py-name"><a title="networkx.classes.graph.Graph.name
+networkx.release.name" class="py-name" href="#" onclick="return doclink('link-35', 'name', 'link-11');">name</a></tt> <tt class="py-op">==</tt> <tt class="py-string">'variables'</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">            <tt id="link-36" class="py-name" targets="Method commroute.cr_optimize.Solver.all_vars()=commroute.cr_optimize.Solver-class.html#all_vars"><a title="commroute.cr_optimize.Solver.all_vars" class="py-name" href="#" onclick="return doclink('link-36', 'all_vars', 'link-36');">all_vars</a></tt> <tt class="py-op">=</tt> <tt class="py-name">reduce</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">,</tt><tt class="py-name">y</tt><tt class="py-op">:</tt> <tt class="py-name">x</tt><tt class="py-op">+</tt><tt class="py-name">y</tt><tt class="py-op">,</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">                              <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">x</tt><tt class="py-op">.</tt><tt class="py-name">variables</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-37" class="py-name"><a title="cvxpy.constraints.cvxpy_list" class="py-name" href="#" onclick="return doclink('link-37', 'cvxpy_list', 'link-13');">cvxpy_list</a></tt><tt class="py-op">(</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt id="link-38" class="py-name"><a title="commroute.cr_optimize.Solver.all_vars" class="py-name" href="#" onclick="return doclink('link-38', 'all_vars', 'link-36');">all_vars</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-comment"># Parameters</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt id="link-39" class="py-name"><a title="networkx.classes.graph.Graph.name
+networkx.release.name" class="py-name" href="#" onclick="return doclink('link-39', 'name', 'link-11');">name</a></tt> <tt class="py-op">==</tt> <tt class="py-string">'parameters'</tt><tt class="py-op">:</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">            <tt class="py-name">all_params</tt> <tt class="py-op">=</tt> <tt class="py-name">reduce</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">,</tt><tt class="py-name">y</tt><tt class="py-op">:</tt> <tt class="py-name">x</tt><tt class="py-op">+</tt><tt class="py-name">y</tt><tt class="py-op">,</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">                                <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">x</tt><tt class="py-op">.</tt><tt class="py-name">parameters</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-40" class="py-name"><a title="cvxpy.constraints.cvxpy_list" class="py-name" href="#" onclick="return doclink('link-40', 'cvxpy_list', 'link-13');">cvxpy_list</a></tt><tt class="py-op">(</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-name">all_params</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-comment"># Other</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">object</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="cvxpy.arrays.cvxpy_array.__getattribute__
+cvxpy.arrays.cvxpy_matrix.__getattribute__
+cvxpy.constraints.cvxpy_constr.__getattribute__
+cvxpy.constraints.cvxpy_list.__getattribute__
+cvxpy.programs.cvxpy_program.__getattribute__
+cvxpy.scalars.cvxpy_scalar_param.__getattribute__
+cvxpy.scalars.cvxpy_scalar_var.__getattribute__
+cvxpy.scalars.cvxpy_tree.__getattribute__" class="py-name" href="#" onclick="return doclink('link-41', '__getattribute__', 'link-17');">__getattribute__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt><tt id="link-42" class="py-name"><a title="networkx.classes.graph.Graph.name
+networkx.release.name" class="py-name" href="#" onclick="return doclink('link-42', 'name', 'link-11');">name</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">                     </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">    <tt class="py-comment"># Method: _get_eq</tt> </tt>
+<a name="cvxpy_list._get_eq"></a><div id="cvxpy_list._get_eq-def"><a name="L134"></a><tt class="py-lineno">134</tt> <a class="py-toggle" href="#" id="cvxpy_list._get_eq-toggle" onclick="return toggle('cvxpy_list._get_eq');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_list-class.html#_get_eq">_get_eq</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_list._get_eq-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_list._get_eq-expanded"><a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring">        Gives equality constraints.</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">     </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-43" class="py-name"><a title="cvxpy.constraints.cvxpy_list" class="py-name" href="#" onclick="return doclink('link-43', 'cvxpy_list', 'link-13');">cvxpy_list</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">c</tt> <tt class="py-keyword">for</tt> <tt class="py-name">c</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt> <tt class="py-keyword">if</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">==</tt> <tt id="link-44" class="py-name"><a title="cvxpy.defs.EQUALS
+cvxpy.functions.abs'.EQUALS
+cvxpy.functions.det_rootn'.EQUALS
+cvxpy.functions.exp'.EQUALS
+cvxpy.functions.geo_mean'.EQUALS
+cvxpy.functions.huber'.EQUALS
+cvxpy.functions.kl_div'.EQUALS
+cvxpy.functions.lambda_max'.EQUALS
+cvxpy.functions.lambda_min'.EQUALS
+cvxpy.functions.log'.EQUALS
+cvxpy.functions.log_norm_cdf'.EQUALS
+cvxpy.functions.log_sum_exp'.EQUALS
+cvxpy.functions.max'.EQUALS
+cvxpy.functions.min'.EQUALS
+cvxpy.functions.norm1'.EQUALS
+cvxpy.functions.norm2'.EQUALS
+cvxpy.functions.norm_inf'.EQUALS
+cvxpy.functions.nuclear_norm'.EQUALS
+cvxpy.functions.quad_form'.EQUALS
+cvxpy.functions.quad_over_lin'.EQUALS
+cvxpy.functions.sqrt'.EQUALS
+cvxpy.functions.square'.EQUALS
+cvxpy.sets.exp_cone'.EQUALS
+cvxpy.sets.geo_mean_cone'.EQUALS
+cvxpy.sets.kl_div_epi'.EQUALS
+cvxpy.sets.log_norm_cdf_hypo'.EQUALS
+cvxpy.sets.second_order_cone'.EQUALS
+cvxpy.sets.semidefinite_cone'.EQUALS" class="py-name" href="#" onclick="return doclink('link-44', 'EQUALS', 'link-21');">EQUALS</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">    <tt class="py-comment"># Method: _get_ineq_in</tt> </tt>
+<a name="cvxpy_list._get_ineq_in"></a><div id="cvxpy_list._get_ineq_in-def"><a name="L142"></a><tt class="py-lineno">142</tt> <a class="py-toggle" href="#" id="cvxpy_list._get_ineq_in-toggle" onclick="return toggle('cvxpy_list._get_ineq_in');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_list-class.html#_get_ineq_in">_get_ineq_in</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_list._get_ineq_in-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_list._get_ineq_in-expanded"><a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring">        Gives inequality and membership constraints.</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">         </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-45" class="py-name"><a title="cvxpy.constraints.cvxpy_list" class="py-name" href="#" onclick="return doclink('link-45', 'cvxpy_list', 'link-13');">cvxpy_list</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">c</tt> <tt class="py-keyword">for</tt> <tt class="py-name">c</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt> <tt class="py-keyword">if</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">!=</tt> <tt id="link-46" class="py-name"><a title="cvxpy.defs.EQUALS
+cvxpy.functions.abs'.EQUALS
+cvxpy.functions.det_rootn'.EQUALS
+cvxpy.functions.exp'.EQUALS
+cvxpy.functions.geo_mean'.EQUALS
+cvxpy.functions.huber'.EQUALS
+cvxpy.functions.kl_div'.EQUALS
+cvxpy.functions.lambda_max'.EQUALS
+cvxpy.functions.lambda_min'.EQUALS
+cvxpy.functions.log'.EQUALS
+cvxpy.functions.log_norm_cdf'.EQUALS
+cvxpy.functions.log_sum_exp'.EQUALS
+cvxpy.functions.max'.EQUALS
+cvxpy.functions.min'.EQUALS
+cvxpy.functions.norm1'.EQUALS
+cvxpy.functions.norm2'.EQUALS
+cvxpy.functions.norm_inf'.EQUALS
+cvxpy.functions.nuclear_norm'.EQUALS
+cvxpy.functions.quad_form'.EQUALS
+cvxpy.functions.quad_over_lin'.EQUALS
+cvxpy.functions.sqrt'.EQUALS
+cvxpy.functions.square'.EQUALS
+cvxpy.sets.exp_cone'.EQUALS
+cvxpy.sets.geo_mean_cone'.EQUALS
+cvxpy.sets.kl_div_epi'.EQUALS
+cvxpy.sets.log_norm_cdf_hypo'.EQUALS
+cvxpy.sets.second_order_cone'.EQUALS
+cvxpy.sets.semidefinite_cone'.EQUALS" class="py-name" href="#" onclick="return doclink('link-46', 'EQUALS', 'link-21');">EQUALS</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">    <tt class="py-comment"># Method: is_dcp</tt> </tt>
+<a name="cvxpy_list.is_dcp"></a><div id="cvxpy_list.is_dcp-def"><a name="L150"></a><tt class="py-lineno">150</tt> <a class="py-toggle" href="#" id="cvxpy_list.is_dcp-toggle" onclick="return toggle('cvxpy_list.is_dcp');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_list-class.html#is_dcp">is_dcp</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_list.is_dcp-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_list.is_dcp-expanded"><a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-docstring">        Determines if all constraints are DCP-compliant.</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt><tt class="py-name">x</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Method cvxpy.constraints.cvxpy_constr.is_dcp()=cvxpy.constraints.cvxpy_constr-class.html#is_dcp,Method cvxpy.constraints.cvxpy_list.is_dcp()=cvxpy.constraints.cvxpy_list-class.html#is_dcp,Method cvxpy.programs.cvxpy_program.is_dcp()=cvxpy.programs.cvxpy_program-class.html#is_dcp,Method cvxpy.scalars.cvxpy_obj.is_dcp()=cvxpy.scalars.cvxpy_obj-class.html#is_dcp,Method cvxpy.scalars.cvxpy_tree.is_dcp()=cvxpy.scalars.cvxpy_tree-class.html#is_dcp"><a title="cvxpy.constraints.cvxpy_constr.is_dcp
+cvxpy.constraints.cvxpy_list.is_dcp
+cvxpy.programs.cvxpy_program.is_dcp
+cvxpy.scalars.cvxpy_obj.is_dcp
+cvxpy.scalars.cvxpy_tree.is_dcp" class="py-name" href="#" onclick="return doclink('link-47', 'is_dcp', 'link-47');">is_dcp</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">    <tt class="py-comment"># Method: is_affine</tt> </tt>
+<a name="cvxpy_list.is_affine"></a><div id="cvxpy_list.is_affine-def"><a name="L158"></a><tt class="py-lineno">158</tt> <a class="py-toggle" href="#" id="cvxpy_list.is_affine-toggle" onclick="return toggle('cvxpy_list.is_affine');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_list-class.html#is_affine">is_affine</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_list.is_affine-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_list.is_affine-expanded"><a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">        Determines if all constraints are affine.</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">         </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">all</tt><tt class="py-op">(</tt><tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt><tt class="py-name">x</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="cvxpy.arrays.cvxpy_array.is_affine
+cvxpy.constraints.cvxpy_constr.is_affine
+cvxpy.constraints.cvxpy_list.is_affine
+cvxpy.scalars.cvxpy_obj.is_affine
+cvxpy.scalars.cvxpy_tree.is_affine" class="py-name" href="#" onclick="return doclink('link-48', 'is_affine', 'link-22');">is_affine</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">         </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">    <tt class="py-comment"># Method: __add__</tt> </tt>
+<a name="cvxpy_list.__add__"></a><div id="cvxpy_list.__add__-def"><a name="L166"></a><tt class="py-lineno">166</tt> <a class="py-toggle" href="#" id="cvxpy_list.__add__-toggle" onclick="return toggle('cvxpy_list.__add__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_list-class.html#__add__">__add__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">other</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>         </tt>
+</div><a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">         </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-49" class="py-name"><a title="cvxpy.constraints.cvxpy_list" class="py-name" href="#" onclick="return doclink('link-49', 'cvxpy_list', 'link-13');">cvxpy_list</a></tt><tt class="py-op">(</tt><tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">other</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">    <tt class="py-comment"># Method: __radd__</tt> </tt>
+<a name="cvxpy_list.__radd__"></a><div id="cvxpy_list.__radd__-def"><a name="L171"></a><tt class="py-lineno">171</tt> <a class="py-toggle" href="#" id="cvxpy_list.__radd__-toggle" onclick="return toggle('cvxpy_list.__radd__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_list-class.html#__radd__">__radd__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">other</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_list.__radd__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_list.__radd__-expanded"><a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">         </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-50" class="py-name"><a title="cvxpy.constraints.cvxpy_list" class="py-name" href="#" onclick="return doclink('link-50', 'cvxpy_list', 'link-13');">cvxpy_list</a></tt><tt class="py-op">(</tt><tt class="py-name">other</tt> <tt class="py-op">+</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">    <tt class="py-comment"># Method: __str__</tt> </tt>
+<a name="cvxpy_list.__str__"></a><div id="cvxpy_list.__str__-def"><a name="L176"></a><tt class="py-lineno">176</tt> <a class="py-toggle" href="#" id="cvxpy_list.__str__-toggle" onclick="return toggle('cvxpy_list.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints.cvxpy_list-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_list.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_list.__str__-expanded"><a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">        <tt class="py-name">output</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-51" class="py-name" targets="Variable cvxpy.scalars.cvxpy_scalar_param.i=cvxpy.scalars.cvxpy_scalar_param-class.html#i,Variable cvxpy.scalars.cvxpy_scalar_var.i=cvxpy.scalars.cvxpy_scalar_var-class.html#i"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-51', 'i', 'link-51');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">            <tt class="py-name">output</tt> <tt class="py-op">+=</tt> <tt id="link-52" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-52', 'str', 'link-19');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">[</tt><tt id="link-53" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-53', 'i', 'link-51');">i</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-54" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-54', 'i', 'link-51');">i</a></tt> <tt class="py-op">!=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">                <tt class="py-name">output</tt> <tt class="py-op">+=</tt> <tt class="py-string">'\n'</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">output</tt> </tt>
+</div></div><a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"><tt class="py-comment">#***********************************************************************#</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"><tt class="py-comment"># Function definition: compare                                          #</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line"><tt class="py-comment">#***********************************************************************#</tt> </tt>
+<a name="compare"></a><div id="compare-def"><a name="L188"></a><tt class="py-lineno">188</tt> <a class="py-toggle" href="#" id="compare-toggle" onclick="return toggle('compare');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.constraints-module.html#compare">compare</a><tt class="py-op">(</tt><tt class="py-param">obj1</tt><tt class="py-op">,</tt><tt class="py-param">constraint_type</tt><tt class="py-op">,</tt><tt class="py-param">obj2</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="compare-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="compare-expanded"><a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"><tt class="py-docstring">    Compares obj1 with obj2.</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"><tt class="py-docstring">    :param obj1: Left hand side obejct.</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line"><tt class="py-docstring">    :param constraint_type: Keyword (See cvxpy.defs.).</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"><tt class="py-docstring">    :param obj2: Right hand side object.</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">     </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">    <tt class="py-comment"># Both scalars </tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">isscalar</tt><tt class="py-op">(</tt><tt class="py-name">obj1</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">obj1</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> <tt class="py-keyword">in</tt> <tt id="link-55" class="py-name" targets="Variable cvxpy.defs.SCALAR_OBJS=cvxpy.defs-module.html#SCALAR_OBJS,Variable cvxpy.functions.abs'.SCALAR_OBJS=cvxpy.functions.abs%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.det_rootn'.SCALAR_OBJS=cvxpy.functions.det_rootn%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.exp'.SCALAR_OBJS=cvxpy.functions.exp%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.geo_mean'.SCALAR_OBJS=cvxpy.functions.geo_mean%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.huber'.SCALAR_OBJS=cvxpy.functions.huber%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.kl_div'.SCALAR_OBJS=cvxpy.functions.kl_div%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.lambda_max'.SCALAR_OBJS=cvxpy.functions.lambda_max%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.lambda_min'.SCALAR_OBJS=cvxpy.functions.lambda_min%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.log'.SCALAR_OBJS=cvxpy.functions.log%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.log_norm_cdf'.SCALAR_OBJS=cvxpy.functions.log_norm_cdf%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.log_sum_exp'.SCALAR_OBJS=cvxpy.functions.log_sum_exp%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.max'.SCALAR_OBJS=cvxpy.functions.max%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.min'.SCALAR_OBJS=cvxpy.functions.min%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.norm1'.SCALAR_OBJS=cvxpy.functions.norm1%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.norm2'.SCALAR_OBJS=cvxpy.functions.norm2%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.norm_inf'.SCALAR_OBJS=cvxpy.functions.norm_inf%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.nuclear_norm'.SCALAR_OBJS=cvxpy.functions.nuclear_norm%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.quad_form'.SCALAR_OBJS=cvxpy.functions.quad_form%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.quad_over_lin'.SCALAR_OBJS=cvxpy.functions.quad_over_lin%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.sqrt'.SCALAR_OBJS=cvxpy.functions.sqrt%27-module.html#SCALAR_OBJS,Variable cvxpy.functions.square'.SCALAR_OBJS=cvxpy.functions.square%27-module.html#SCALAR_OBJS,Variable cvxpy.sets.exp_cone'.SCALAR_OBJS=cvxpy.sets.exp_cone%27-module.html#SCALAR_OBJS,Variable cvxpy.sets.geo_mean_cone'.SCALAR_OBJS=cvxpy.sets.geo_mean_cone%27-module.html#SCALAR_OBJS,Variable cvxpy.sets.kl_div_epi'.SCALAR_OBJS=cvxpy.sets.kl_div_epi%27-module.html#SCALAR_OBJS,Variable cvxpy.sets.log_norm_cdf_hypo'.SCALAR_OBJS=cvxpy.sets.log_norm_cdf_hypo%27-module.html#SCALAR_OBJS,Variable cvxpy.sets.second_order_cone'.SCALAR_OBJS=cvxpy.sets.second_order_cone%27-module.html#SCALAR_OBJS,Variable cvxpy.sets.semidefinite_cone'.SCALAR_OBJS=cvxpy.sets.semidefinite_cone%27-module.html#SCALAR_OBJS"><a title="cvxpy.defs.SCALAR_OBJS
+cvxpy.functions.abs'.SCALAR_OBJS
+cvxpy.functions.det_rootn'.SCALAR_OBJS
+cvxpy.functions.exp'.SCALAR_OBJS
+cvxpy.functions.geo_mean'.SCALAR_OBJS
+cvxpy.functions.huber'.SCALAR_OBJS
+cvxpy.functions.kl_div'.SCALAR_OBJS
+cvxpy.functions.lambda_max'.SCALAR_OBJS
+cvxpy.functions.lambda_min'.SCALAR_OBJS
+cvxpy.functions.log'.SCALAR_OBJS
+cvxpy.functions.log_norm_cdf'.SCALAR_OBJS
+cvxpy.functions.log_sum_exp'.SCALAR_OBJS
+cvxpy.functions.max'.SCALAR_OBJS
+cvxpy.functions.min'.SCALAR_OBJS
+cvxpy.functions.norm1'.SCALAR_OBJS
+cvxpy.functions.norm2'.SCALAR_OBJS
+cvxpy.functions.norm_inf'.SCALAR_OBJS
+cvxpy.functions.nuclear_norm'.SCALAR_OBJS
+cvxpy.functions.quad_form'.SCALAR_OBJS
+cvxpy.functions.quad_over_lin'.SCALAR_OBJS
+cvxpy.functions.sqrt'.SCALAR_OBJS
+cvxpy.functions.square'.SCALAR_OBJS
+cvxpy.sets.exp_cone'.SCALAR_OBJS
+cvxpy.sets.geo_mean_cone'.SCALAR_OBJS
+cvxpy.sets.kl_div_epi'.SCALAR_OBJS
+cvxpy.sets.log_norm_cdf_hypo'.SCALAR_OBJS
+cvxpy.sets.second_order_cone'.SCALAR_OBJS
+cvxpy.sets.semidefinite_cone'.SCALAR_OBJS" class="py-name" href="#" onclick="return doclink('link-55', 'SCALAR_OBJS', 'link-55');">SCALAR_OBJS</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">isscalar</tt><tt class="py-op">(</tt><tt class="py-name">obj2</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">obj2</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> <tt class="py-keyword">in</tt> <tt id="link-56" class="py-name"><a title="cvxpy.defs.SCALAR_OBJS
+cvxpy.functions.abs'.SCALAR_OBJS
+cvxpy.functions.det_rootn'.SCALAR_OBJS
+cvxpy.functions.exp'.SCALAR_OBJS
+cvxpy.functions.geo_mean'.SCALAR_OBJS
+cvxpy.functions.huber'.SCALAR_OBJS
+cvxpy.functions.kl_div'.SCALAR_OBJS
+cvxpy.functions.lambda_max'.SCALAR_OBJS
+cvxpy.functions.lambda_min'.SCALAR_OBJS
+cvxpy.functions.log'.SCALAR_OBJS
+cvxpy.functions.log_norm_cdf'.SCALAR_OBJS
+cvxpy.functions.log_sum_exp'.SCALAR_OBJS
+cvxpy.functions.max'.SCALAR_OBJS
+cvxpy.functions.min'.SCALAR_OBJS
+cvxpy.functions.norm1'.SCALAR_OBJS
+cvxpy.functions.norm2'.SCALAR_OBJS
+cvxpy.functions.norm_inf'.SCALAR_OBJS
+cvxpy.functions.nuclear_norm'.SCALAR_OBJS
+cvxpy.functions.quad_form'.SCALAR_OBJS
+cvxpy.functions.quad_over_lin'.SCALAR_OBJS
+cvxpy.functions.sqrt'.SCALAR_OBJS
+cvxpy.functions.square'.SCALAR_OBJS
+cvxpy.sets.exp_cone'.SCALAR_OBJS
+cvxpy.sets.geo_mean_cone'.SCALAR_OBJS
+cvxpy.sets.kl_div_epi'.SCALAR_OBJS
+cvxpy.sets.log_norm_cdf_hypo'.SCALAR_OBJS
+cvxpy.sets.second_order_cone'.SCALAR_OBJS
+cvxpy.sets.semidefinite_cone'.SCALAR_OBJS" class="py-name" href="#" onclick="return doclink('link-56', 'SCALAR_OBJS', 'link-55');">SCALAR_OBJS</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">         </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">        <tt class="py-comment"># Upgrade scalars to cvxpy_obj</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">isscalar</tt><tt class="py-op">(</tt><tt class="py-name">obj1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">            <tt class="py-name">obj1</tt> <tt class="py-op">=</tt> <tt id="link-57" class="py-name"><a title="cvxpy.scalars.cvxpy_obj" class="py-name" href="#" onclick="return doclink('link-57', 'cvxpy_obj', 'link-4');">cvxpy_obj</a></tt><tt class="py-op">(</tt><tt id="link-58" class="py-name" targets="Variable cvxpy.defs.CONSTANT=cvxpy.defs-module.html#CONSTANT,Variable cvxpy.functions.abs'.CONSTANT=cvxpy.functions.abs%27-module.html#CONSTANT,Variable cvxpy.functions.det_rootn'.CONSTANT=cvxpy.functions.det_rootn%27-module.html#CONSTANT,Variable cvxpy.functions.exp'.CONSTANT=cvxpy.functions.exp%27-module.html#CONSTANT,Variable cvxpy.functions.geo_mean'.CONSTANT=cvxpy.functions.geo_mean%27-module.html#CONSTANT,Variable cvxpy.functions.huber'.CONSTANT=cvxpy.functions.huber%27-module.html#CONSTANT,Variable cvxpy.functions.kl_div'.CONSTANT=cvxpy.functions.kl_div%27-module.html#CONSTANT,Variable cvxpy.functions.lambda_max'.CONSTANT=cvxpy.functions.lambda_max%27-module.html#CONSTANT,Variable cvxpy.functions.lambda_min'.CONSTANT=cvxpy.functions.lambda_min%27-module.html#CONSTANT,Variable cvxpy.functions.log'.CONSTANT=cvxpy.functions.log%27-module.html#CONSTANT,Variable cvxpy.functions.log_norm_cdf'.CONSTANT=cvxpy.functions.log_norm_cdf%27-module.html#CONSTANT,Variable cvxpy.functions.log_sum_exp'.CONSTANT=cvxpy.functions.log_sum_exp%27-module.html#CONSTANT,Variable cvxpy.functions.max'.CONSTANT=cvxpy.functions.max%27-module.html#CONSTANT,Variable cvxpy.functions.min'.CONSTANT=cvxpy.functions.min%27-module.html#CONSTANT,Variable cvxpy.functions.norm1'.CONSTANT=cvxpy.functions.norm1%27-module.html#CONSTANT,Variable cvxpy.functions.norm2'.CONSTANT=cvxpy.functions.norm2%27-module.html#CONSTANT,Variable cvxpy.functions.norm_inf'.CONSTANT=cvxpy.functions.norm_inf%27-module.html#CONSTANT,Variable cvxpy.functions.nuclear_norm'.CONSTANT=cvxpy.functions.nuclear_norm%27-module.html#CONSTANT,Variable cvxpy.functions.quad_form'.CONSTANT=cvxpy.functions.quad_form%27-module.html#CONSTANT,Variable cvxpy.functions.quad_over_lin'.CONSTANT=cvxpy.functions.quad_over_lin%27-module.html#CONSTANT,Variable cvxpy.functions.sqrt'.CONSTANT=cvxpy.functions.sqrt%27-module.html#CONSTANT,Variable cvxpy.functions.square'.CONSTANT=cvxpy.functions.square%27-module.html#CONSTANT,Variable cvxpy.sets.exp_cone'.CONSTANT=cvxpy.sets.exp_cone%27-module.html#CONSTANT,Variable cvxpy.sets.geo_mean_cone'.CONSTANT=cvxpy.sets.geo_mean_cone%27-module.html#CONSTANT,Variable cvxpy.sets.kl_div_epi'.CONSTANT=cvxpy.sets.kl_div_epi%27-module.html#CONSTANT,Variable cvxpy.sets.log_norm_cdf_hypo'.CONSTANT=cvxpy.sets.log_norm_cdf_hypo%27-module.html#CONSTANT,Variable cvxpy.sets.second_order_cone'.CONSTANT=cvxpy.sets.second_order_cone%27-module.html#CONSTANT,Variable cvxpy.sets.semidefinite_cone'.CONSTANT=cvxpy.sets.semidefinite_cone%27-module.html#CONSTANT"><a title="cvxpy.defs.CONSTANT
+cvxpy.functions.abs'.CONSTANT
+cvxpy.functions.det_rootn'.CONSTANT
+cvxpy.functions.exp'.CONSTANT
+cvxpy.functions.geo_mean'.CONSTANT
+cvxpy.functions.huber'.CONSTANT
+cvxpy.functions.kl_div'.CONSTANT
+cvxpy.functions.lambda_max'.CONSTANT
+cvxpy.functions.lambda_min'.CONSTANT
+cvxpy.functions.log'.CONSTANT
+cvxpy.functions.log_norm_cdf'.CONSTANT
+cvxpy.functions.log_sum_exp'.CONSTANT
+cvxpy.functions.max'.CONSTANT
+cvxpy.functions.min'.CONSTANT
+cvxpy.functions.norm1'.CONSTANT
+cvxpy.functions.norm2'.CONSTANT
+cvxpy.functions.norm_inf'.CONSTANT
+cvxpy.functions.nuclear_norm'.CONSTANT
+cvxpy.functions.quad_form'.CONSTANT
+cvxpy.functions.quad_over_lin'.CONSTANT
+cvxpy.functions.sqrt'.CONSTANT
+cvxpy.functions.square'.CONSTANT
+cvxpy.sets.exp_cone'.CONSTANT
+cvxpy.sets.geo_mean_cone'.CONSTANT
+cvxpy.sets.kl_div_epi'.CONSTANT
+cvxpy.sets.log_norm_cdf_hypo'.CONSTANT
+cvxpy.sets.second_order_cone'.CONSTANT
+cvxpy.sets.semidefinite_cone'.CONSTANT" class="py-name" href="#" onclick="return doclink('link-58', 'CONSTANT', 'link-58');">CONSTANT</a></tt><tt class="py-op">,</tt><tt class="py-name">obj1</tt><tt class="py-op">,</tt><tt id="link-59" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-59', 'str', 'link-19');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">obj1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">isscalar</tt><tt class="py-op">(</tt><tt class="py-name">obj2</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">            <tt class="py-name">obj2</tt> <tt class="py-op">=</tt> <tt id="link-60" class="py-name"><a title="cvxpy.scalars.cvxpy_obj" class="py-name" href="#" onclick="return doclink('link-60', 'cvxpy_obj', 'link-4');">cvxpy_obj</a></tt><tt class="py-op">(</tt><tt id="link-61" class="py-name"><a title="cvxpy.defs.CONSTANT
+cvxpy.functions.abs'.CONSTANT
+cvxpy.functions.det_rootn'.CONSTANT
+cvxpy.functions.exp'.CONSTANT
+cvxpy.functions.geo_mean'.CONSTANT
+cvxpy.functions.huber'.CONSTANT
+cvxpy.functions.kl_div'.CONSTANT
+cvxpy.functions.lambda_max'.CONSTANT
+cvxpy.functions.lambda_min'.CONSTANT
+cvxpy.functions.log'.CONSTANT
+cvxpy.functions.log_norm_cdf'.CONSTANT
+cvxpy.functions.log_sum_exp'.CONSTANT
+cvxpy.functions.max'.CONSTANT
+cvxpy.functions.min'.CONSTANT
+cvxpy.functions.norm1'.CONSTANT
+cvxpy.functions.norm2'.CONSTANT
+cvxpy.functions.norm_inf'.CONSTANT
+cvxpy.functions.nuclear_norm'.CONSTANT
+cvxpy.functions.quad_form'.CONSTANT
+cvxpy.functions.quad_over_lin'.CONSTANT
+cvxpy.functions.sqrt'.CONSTANT
+cvxpy.functions.square'.CONSTANT
+cvxpy.sets.exp_cone'.CONSTANT
+cvxpy.sets.geo_mean_cone'.CONSTANT
+cvxpy.sets.kl_div_epi'.CONSTANT
+cvxpy.sets.log_norm_cdf_hypo'.CONSTANT
+cvxpy.sets.second_order_cone'.CONSTANT
+cvxpy.sets.semidefinite_cone'.CONSTANT" class="py-name" href="#" onclick="return doclink('link-61', 'CONSTANT', 'link-58');">CONSTANT</a></tt><tt class="py-op">,</tt><tt class="py-name">obj2</tt><tt class="py-op">,</tt><tt id="link-62" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-62', 'str', 'link-19');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">obj2</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line"> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">        <tt class="py-comment"># Construct and return constraint</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-63" class="py-name" targets="Class cvxpy.constraints.cvxpy_constr=cvxpy.constraints.cvxpy_constr-class.html"><a title="cvxpy.constraints.cvxpy_constr" class="py-name" href="#" onclick="return doclink('link-63', 'cvxpy_constr', 'link-63');">cvxpy_constr</a></tt><tt class="py-op">(</tt><tt class="py-name">obj1</tt><tt class="py-op">,</tt><tt class="py-name">constraint_type</tt><tt class="py-op">,</tt><tt class="py-name">obj2</tt><tt class="py-op">)</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line"> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">    <tt class="py-comment"># Upgrate scalars to arrays</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">obj1</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-64" class="py-name"><a title="cvxpy.arrays.cvxpy_matrix" class="py-name" href="#" onclick="return doclink('link-64', 'cvxpy_matrix', 'link-10');">cvxpy_matrix</a></tt> <tt class="py-keyword">or</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">obj1</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> <tt class="py-keyword">in</tt> <tt id="link-65" class="py-name" targets="Variable cvxpy.defs.ARRAY_OBJS=cvxpy.defs-module.html#ARRAY_OBJS,Variable cvxpy.functions.abs'.ARRAY_OBJS=cvxpy.functions.abs%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.det_rootn'.ARRAY_OBJS=cvxpy.functions.det_rootn%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.exp'.ARRAY_OBJS=cvxpy.functions.exp%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.geo_mean'.ARRAY_OBJS=cvxpy.functions.geo_mean%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.huber'.ARRAY_OBJS=cvxpy.functions.huber%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.kl_div'.ARRAY_OBJS=cvxpy.functions.kl_div%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.lambda_max'.ARRAY_OBJS=cvxpy.functions.lambda_max%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.lambda_min'.ARRAY_OBJS=cvxpy.functions.lambda_min%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.log'.ARRAY_OBJS=cvxpy.functions.log%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.log_norm_cdf'.ARRAY_OBJS=cvxpy.functions.log_norm_cdf%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.log_sum_exp'.ARRAY_OBJS=cvxpy.functions.log_sum_exp%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.max'.ARRAY_OBJS=cvxpy.functions.max%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.min'.ARRAY_OBJS=cvxpy.functions.min%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.norm1'.ARRAY_OBJS=cvxpy.functions.norm1%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.norm2'.ARRAY_OBJS=cvxpy.functions.norm2%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.norm_inf'.ARRAY_OBJS=cvxpy.functions.norm_inf%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.nuclear_norm'.ARRAY_OBJS=cvxpy.functions.nuclear_norm%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.quad_form'.ARRAY_OBJS=cvxpy.functions.quad_form%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.quad_over_lin'.ARRAY_OBJS=cvxpy.functions.quad_over_lin%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.sqrt'.ARRAY_OBJS=cvxpy.functions.sqrt%27-module.html#ARRAY_OBJS,Variable cvxpy.functions.square'.ARRAY_OBJS=cvxpy.functions.square%27-module.html#ARRAY_OBJS,Variable cvxpy.sets.exp_cone'.ARRAY_OBJS=cvxpy.sets.exp_cone%27-module.html#ARRAY_OBJS,Variable cvxpy.sets.geo_mean_cone'.ARRAY_OBJS=cvxpy.sets.geo_mean_cone%27-module.html#ARRAY_OBJS,Variable cvxpy.sets.kl_div_epi'.ARRAY_OBJS=cvxpy.sets.kl_div_epi%27-module.html#ARRAY_OBJS,Variable cvxpy.sets.log_norm_cdf_hypo'.ARRAY_OBJS=cvxpy.sets.log_norm_cdf_hypo%27-module.html#ARRAY_OBJS,Variable cvxpy.sets.second_order_cone'.ARRAY_OBJS=cvxpy.sets.second_order_cone%27-module.html#ARRAY_OBJS,Variable cvxpy.sets.semidefinite_cone'.ARRAY_OBJS=cvxpy.sets.semidefinite_cone%27-module.html#ARRAY_OBJS"><a title="cvxpy.defs.ARRAY_OBJS
+cvxpy.functions.abs'.ARRAY_OBJS
+cvxpy.functions.det_rootn'.ARRAY_OBJS
+cvxpy.functions.exp'.ARRAY_OBJS
+cvxpy.functions.geo_mean'.ARRAY_OBJS
+cvxpy.functions.huber'.ARRAY_OBJS
+cvxpy.functions.kl_div'.ARRAY_OBJS
+cvxpy.functions.lambda_max'.ARRAY_OBJS
+cvxpy.functions.lambda_min'.ARRAY_OBJS
+cvxpy.functions.log'.ARRAY_OBJS
+cvxpy.functions.log_norm_cdf'.ARRAY_OBJS
+cvxpy.functions.log_sum_exp'.ARRAY_OBJS
+cvxpy.functions.max'.ARRAY_OBJS
+cvxpy.functions.min'.ARRAY_OBJS
+cvxpy.functions.norm1'.ARRAY_OBJS
+cvxpy.functions.norm2'.ARRAY_OBJS
+cvxpy.functions.norm_inf'.ARRAY_OBJS
+cvxpy.functions.nuclear_norm'.ARRAY_OBJS
+cvxpy.functions.quad_form'.ARRAY_OBJS
+cvxpy.functions.quad_over_lin'.ARRAY_OBJS
+cvxpy.functions.sqrt'.ARRAY_OBJS
+cvxpy.functions.square'.ARRAY_OBJS
+cvxpy.sets.exp_cone'.ARRAY_OBJS
+cvxpy.sets.geo_mean_cone'.ARRAY_OBJS
+cvxpy.sets.kl_div_epi'.ARRAY_OBJS
+cvxpy.sets.log_norm_cdf_hypo'.ARRAY_OBJS
+cvxpy.sets.second_order_cone'.ARRAY_OBJS
+cvxpy.sets.semidefinite_cone'.ARRAY_OBJS" class="py-name" href="#" onclick="return doclink('link-65', 'ARRAY_OBJS', 'link-65');">ARRAY_OBJS</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">isscalar</tt><tt class="py-op">(</tt><tt class="py-name">obj2</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">obj2</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> <tt class="py-keyword">in</tt> <tt id="link-66" class="py-name"><a title="cvxpy.defs.SCALAR_OBJS
+cvxpy.functions.abs'.SCALAR_OBJS
+cvxpy.functions.det_rootn'.SCALAR_OBJS
+cvxpy.functions.exp'.SCALAR_OBJS
+cvxpy.functions.geo_mean'.SCALAR_OBJS
+cvxpy.functions.huber'.SCALAR_OBJS
+cvxpy.functions.kl_div'.SCALAR_OBJS
+cvxpy.functions.lambda_max'.SCALAR_OBJS
+cvxpy.functions.lambda_min'.SCALAR_OBJS
+cvxpy.functions.log'.SCALAR_OBJS
+cvxpy.functions.log_norm_cdf'.SCALAR_OBJS
+cvxpy.functions.log_sum_exp'.SCALAR_OBJS
+cvxpy.functions.max'.SCALAR_OBJS
+cvxpy.functions.min'.SCALAR_OBJS
+cvxpy.functions.norm1'.SCALAR_OBJS
+cvxpy.functions.norm2'.SCALAR_OBJS
+cvxpy.functions.norm_inf'.SCALAR_OBJS
+cvxpy.functions.nuclear_norm'.SCALAR_OBJS
+cvxpy.functions.quad_form'.SCALAR_OBJS
+cvxpy.functions.quad_over_lin'.SCALAR_OBJS
+cvxpy.functions.sqrt'.SCALAR_OBJS
+cvxpy.functions.square'.SCALAR_OBJS
+cvxpy.sets.exp_cone'.SCALAR_OBJS
+cvxpy.sets.geo_mean_cone'.SCALAR_OBJS
+cvxpy.sets.kl_div_epi'.SCALAR_OBJS
+cvxpy.sets.log_norm_cdf_hypo'.SCALAR_OBJS
+cvxpy.sets.second_order_cone'.SCALAR_OBJS
+cvxpy.sets.semidefinite_cone'.SCALAR_OBJS" class="py-name" href="#" onclick="return doclink('link-66', 'SCALAR_OBJS', 'link-55');">SCALAR_OBJS</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt id="link-67" class="py-name" targets="Variable networkx.m=networkx-module.html#m"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-67', 'm', 'link-67');">m</a></tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">)</tt> <tt class="py-op">=</tt> <tt class="py-name">obj1</tt><tt class="py-op">.</tt><tt class="py-name">shape</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">        <tt class="py-name">new_ar</tt> <tt class="py-op">=</tt> <tt id="link-68" class="py-name"><a title="cvxpy.arrays.cvxpy_array" class="py-name" href="#" onclick="return doclink('link-68', 'cvxpy_array', 'link-7');">cvxpy_array</a></tt><tt class="py-op">(</tt><tt id="link-69" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-69', 'm', 'link-67');">m</a></tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">)</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-70" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-70', 'i', 'link-51');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt id="link-71" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-71', 'm', 'link-67');">m</a></tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">                <tt class="py-name">new_ar</tt><tt class="py-op">[</tt><tt id="link-72" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-72', 'i', 'link-51');">i</a></tt><tt class="py-op">,</tt><tt class="py-name">j</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">obj2</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">        <tt class="py-name">obj2</tt> <tt class="py-op">=</tt> <tt class="py-name">new_ar</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">obj2</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-73" class="py-name"><a title="cvxpy.arrays.cvxpy_matrix" class="py-name" href="#" onclick="return doclink('link-73', 'cvxpy_matrix', 'link-10');">cvxpy_matrix</a></tt> <tt class="py-keyword">or</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">obj2</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> <tt class="py-keyword">in</tt> <tt id="link-74" class="py-name"><a title="cvxpy.defs.ARRAY_OBJS
+cvxpy.functions.abs'.ARRAY_OBJS
+cvxpy.functions.det_rootn'.ARRAY_OBJS
+cvxpy.functions.exp'.ARRAY_OBJS
+cvxpy.functions.geo_mean'.ARRAY_OBJS
+cvxpy.functions.huber'.ARRAY_OBJS
+cvxpy.functions.kl_div'.ARRAY_OBJS
+cvxpy.functions.lambda_max'.ARRAY_OBJS
+cvxpy.functions.lambda_min'.ARRAY_OBJS
+cvxpy.functions.log'.ARRAY_OBJS
+cvxpy.functions.log_norm_cdf'.ARRAY_OBJS
+cvxpy.functions.log_sum_exp'.ARRAY_OBJS
+cvxpy.functions.max'.ARRAY_OBJS
+cvxpy.functions.min'.ARRAY_OBJS
+cvxpy.functions.norm1'.ARRAY_OBJS
+cvxpy.functions.norm2'.ARRAY_OBJS
+cvxpy.functions.norm_inf'.ARRAY_OBJS
+cvxpy.functions.nuclear_norm'.ARRAY_OBJS
+cvxpy.functions.quad_form'.ARRAY_OBJS
+cvxpy.functions.quad_over_lin'.ARRAY_OBJS
+cvxpy.functions.sqrt'.ARRAY_OBJS
+cvxpy.functions.square'.ARRAY_OBJS
+cvxpy.sets.exp_cone'.ARRAY_OBJS
+cvxpy.sets.geo_mean_cone'.ARRAY_OBJS
+cvxpy.sets.kl_div_epi'.ARRAY_OBJS
+cvxpy.sets.log_norm_cdf_hypo'.ARRAY_OBJS
+cvxpy.sets.second_order_cone'.ARRAY_OBJS
+cvxpy.sets.semidefinite_cone'.ARRAY_OBJS" class="py-name" href="#" onclick="return doclink('link-74', 'ARRAY_OBJS', 'link-65');">ARRAY_OBJS</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">isscalar</tt><tt class="py-op">(</tt><tt class="py-name">obj1</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">obj1</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> <tt class="py-keyword">in</tt> <tt id="link-75" class="py-name"><a title="cvxpy.defs.SCALAR_OBJS
+cvxpy.functions.abs'.SCALAR_OBJS
+cvxpy.functions.det_rootn'.SCALAR_OBJS
+cvxpy.functions.exp'.SCALAR_OBJS
+cvxpy.functions.geo_mean'.SCALAR_OBJS
+cvxpy.functions.huber'.SCALAR_OBJS
+cvxpy.functions.kl_div'.SCALAR_OBJS
+cvxpy.functions.lambda_max'.SCALAR_OBJS
+cvxpy.functions.lambda_min'.SCALAR_OBJS
+cvxpy.functions.log'.SCALAR_OBJS
+cvxpy.functions.log_norm_cdf'.SCALAR_OBJS
+cvxpy.functions.log_sum_exp'.SCALAR_OBJS
+cvxpy.functions.max'.SCALAR_OBJS
+cvxpy.functions.min'.SCALAR_OBJS
+cvxpy.functions.norm1'.SCALAR_OBJS
+cvxpy.functions.norm2'.SCALAR_OBJS
+cvxpy.functions.norm_inf'.SCALAR_OBJS
+cvxpy.functions.nuclear_norm'.SCALAR_OBJS
+cvxpy.functions.quad_form'.SCALAR_OBJS
+cvxpy.functions.quad_over_lin'.SCALAR_OBJS
+cvxpy.functions.sqrt'.SCALAR_OBJS
+cvxpy.functions.square'.SCALAR_OBJS
+cvxpy.sets.exp_cone'.SCALAR_OBJS
+cvxpy.sets.geo_mean_cone'.SCALAR_OBJS
+cvxpy.sets.kl_div_epi'.SCALAR_OBJS
+cvxpy.sets.log_norm_cdf_hypo'.SCALAR_OBJS
+cvxpy.sets.second_order_cone'.SCALAR_OBJS
+cvxpy.sets.semidefinite_cone'.SCALAR_OBJS" class="py-name" href="#" onclick="return doclink('link-75', 'SCALAR_OBJS', 'link-55');">SCALAR_OBJS</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt id="link-76" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-76', 'm', 'link-67');">m</a></tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">)</tt> <tt class="py-op">=</tt> <tt class="py-name">obj2</tt><tt class="py-op">.</tt><tt class="py-name">shape</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">        <tt class="py-name">new_ar</tt> <tt class="py-op">=</tt> <tt id="link-77" class="py-name"><a title="cvxpy.arrays.cvxpy_array" class="py-name" href="#" onclick="return doclink('link-77', 'cvxpy_array', 'link-7');">cvxpy_array</a></tt><tt class="py-op">(</tt><tt id="link-78" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-78', 'm', 'link-67');">m</a></tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">)</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-79" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-79', 'i', 'link-51');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt id="link-80" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-80', 'm', 'link-67');">m</a></tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">                <tt class="py-name">new_ar</tt><tt class="py-op">[</tt><tt id="link-81" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-81', 'i', 'link-51');">i</a></tt><tt class="py-op">,</tt><tt class="py-name">j</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">obj1</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">        <tt class="py-name">obj1</tt> <tt class="py-op">=</tt> <tt class="py-name">new_ar</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">     </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">    <tt class="py-comment"># Both arrays</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">obj1</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-82" class="py-name"><a title="cvxpy.arrays.cvxpy_matrix" class="py-name" href="#" onclick="return doclink('link-82', 'cvxpy_matrix', 'link-10');">cvxpy_matrix</a></tt> <tt class="py-keyword">or</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">obj1</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> <tt class="py-keyword">in</tt> <tt id="link-83" class="py-name"><a title="cvxpy.defs.ARRAY_OBJS
+cvxpy.functions.abs'.ARRAY_OBJS
+cvxpy.functions.det_rootn'.ARRAY_OBJS
+cvxpy.functions.exp'.ARRAY_OBJS
+cvxpy.functions.geo_mean'.ARRAY_OBJS
+cvxpy.functions.huber'.ARRAY_OBJS
+cvxpy.functions.kl_div'.ARRAY_OBJS
+cvxpy.functions.lambda_max'.ARRAY_OBJS
+cvxpy.functions.lambda_min'.ARRAY_OBJS
+cvxpy.functions.log'.ARRAY_OBJS
+cvxpy.functions.log_norm_cdf'.ARRAY_OBJS
+cvxpy.functions.log_sum_exp'.ARRAY_OBJS
+cvxpy.functions.max'.ARRAY_OBJS
+cvxpy.functions.min'.ARRAY_OBJS
+cvxpy.functions.norm1'.ARRAY_OBJS
+cvxpy.functions.norm2'.ARRAY_OBJS
+cvxpy.functions.norm_inf'.ARRAY_OBJS
+cvxpy.functions.nuclear_norm'.ARRAY_OBJS
+cvxpy.functions.quad_form'.ARRAY_OBJS
+cvxpy.functions.quad_over_lin'.ARRAY_OBJS
+cvxpy.functions.sqrt'.ARRAY_OBJS
+cvxpy.functions.square'.ARRAY_OBJS
+cvxpy.sets.exp_cone'.ARRAY_OBJS
+cvxpy.sets.geo_mean_cone'.ARRAY_OBJS
+cvxpy.sets.kl_div_epi'.ARRAY_OBJS
+cvxpy.sets.log_norm_cdf_hypo'.ARRAY_OBJS
+cvxpy.sets.second_order_cone'.ARRAY_OBJS
+cvxpy.sets.semidefinite_cone'.ARRAY_OBJS" class="py-name" href="#" onclick="return doclink('link-83', 'ARRAY_OBJS', 'link-65');">ARRAY_OBJS</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">obj2</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-84" class="py-name"><a title="cvxpy.arrays.cvxpy_matrix" class="py-name" href="#" onclick="return doclink('link-84', 'cvxpy_matrix', 'link-10');">cvxpy_matrix</a></tt> <tt class="py-keyword">or</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">obj2</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> <tt class="py-keyword">in</tt> <tt id="link-85" class="py-name"><a title="cvxpy.defs.ARRAY_OBJS
+cvxpy.functions.abs'.ARRAY_OBJS
+cvxpy.functions.det_rootn'.ARRAY_OBJS
+cvxpy.functions.exp'.ARRAY_OBJS
+cvxpy.functions.geo_mean'.ARRAY_OBJS
+cvxpy.functions.huber'.ARRAY_OBJS
+cvxpy.functions.kl_div'.ARRAY_OBJS
+cvxpy.functions.lambda_max'.ARRAY_OBJS
+cvxpy.functions.lambda_min'.ARRAY_OBJS
+cvxpy.functions.log'.ARRAY_OBJS
+cvxpy.functions.log_norm_cdf'.ARRAY_OBJS
+cvxpy.functions.log_sum_exp'.ARRAY_OBJS
+cvxpy.functions.max'.ARRAY_OBJS
+cvxpy.functions.min'.ARRAY_OBJS
+cvxpy.functions.norm1'.ARRAY_OBJS
+cvxpy.functions.norm2'.ARRAY_OBJS
+cvxpy.functions.norm_inf'.ARRAY_OBJS
+cvxpy.functions.nuclear_norm'.ARRAY_OBJS
+cvxpy.functions.quad_form'.ARRAY_OBJS
+cvxpy.functions.quad_over_lin'.ARRAY_OBJS
+cvxpy.functions.sqrt'.ARRAY_OBJS
+cvxpy.functions.square'.ARRAY_OBJS
+cvxpy.sets.exp_cone'.ARRAY_OBJS
+cvxpy.sets.geo_mean_cone'.ARRAY_OBJS
+cvxpy.sets.kl_div_epi'.ARRAY_OBJS
+cvxpy.sets.log_norm_cdf_hypo'.ARRAY_OBJS
+cvxpy.sets.second_order_cone'.ARRAY_OBJS
+cvxpy.sets.semidefinite_cone'.ARRAY_OBJS" class="py-name" href="#" onclick="return doclink('link-85', 'ARRAY_OBJS', 'link-65');">ARRAY_OBJS</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line">        <tt class="py-name">constr</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">obj1</tt><tt class="py-op">.</tt><tt class="py-name">shape</tt> <tt class="py-op">!=</tt> <tt class="py-name">obj2</tt><tt class="py-op">.</tt><tt class="py-name">shape</tt><tt class="py-op">:</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'Invalid dimensions'</tt><tt class="py-op">)</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt id="link-86" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-86', 'm', 'link-67');">m</a></tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">)</tt> <tt class="py-op">=</tt> <tt class="py-name">obj1</tt><tt class="py-op">.</tt><tt class="py-name">shape</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-87" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-87', 'i', 'link-51');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt id="link-88" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-88', 'm', 'link-67');">m</a></tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line">                <tt class="py-name">constr</tt> <tt class="py-op">+=</tt> <tt class="py-op">[</tt><tt id="link-89" class="py-name" targets="Function cvxpy.constraints.compare()=cvxpy.constraints-module.html#compare"><a title="cvxpy.constraints.compare" class="py-name" href="#" onclick="return doclink('link-89', 'compare', 'link-89');">compare</a></tt><tt class="py-op">(</tt><tt class="py-name">obj1</tt><tt class="py-op">[</tt><tt id="link-90" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-90', 'i', 'link-51');">i</a></tt><tt class="py-op">,</tt><tt class="py-name">j</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">constraint_type</tt><tt class="py-op">,</tt><tt class="py-name">obj2</tt><tt class="py-op">[</tt><tt id="link-91" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-91', 'i', 'link-51');">i</a></tt><tt class="py-op">,</tt><tt class="py-name">j</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-92" class="py-name"><a title="cvxpy.constraints.cvxpy_list" class="py-name" href="#" onclick="return doclink('link-92', 'cvxpy_list', 'link-13');">cvxpy_list</a></tt><tt class="py-op">(</tt><tt class="py-name">constr</tt><tt class="py-op">)</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line"> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">    <tt class="py-comment"># Invalid arguments</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">TypeError</tt><tt class="py-op">(</tt><tt class="py-string">'Objects not comparable'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:03 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

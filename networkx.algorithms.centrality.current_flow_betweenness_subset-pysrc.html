@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.algorithms.centrality.current_flow_betweenness_subset</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.algorithms-module.html">Package&nbsp;algorithms</a> ::
+        <a href="networkx.algorithms.centrality-module.html">Package&nbsp;centrality</a> ::
+        Module&nbsp;current_flow_betweenness_subset
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.algorithms.centrality.current_flow_betweenness_subset-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="networkx.algorithms.centrality.current_flow_betweenness_subset-module.html">Module networkx.algorithms.centrality.current_flow_betweenness_subset</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Current-flow betweenness centrality measures for subsets of nodes.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#    Copyright (C) 2010 by </tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment">#    Aric Hagberg &lt;hagberg@lanl.gov&gt;</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">#    Dan Schult &lt;dschult@colgate.edu&gt;</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment">#    Pieter Swart &lt;swart@lanl.gov&gt;</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">#    All rights reserved.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment">#    BSD license.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">"""Aric Hagberg (hagberg@lanl.gov)"""</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-name">__all__</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'current_flow_betweenness_centrality_subset'</tt><tt class="py-op">,</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">           <tt class="py-string">'edge_current_flow_betweenness_centrality_subset'</tt><tt class="py-op">]</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package networkx=networkx-module.html"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-0', 'networkx', 'link-0');">networkx</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">nx</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"> </tt>
+<a name="current_flow_betweenness_centrality_subset"></a><div id="current_flow_betweenness_centrality_subset-def"><a name="L18"></a><tt class="py-lineno"> 18</tt> <a class="py-toggle" href="#" id="current_flow_betweenness_centrality_subset-toggle" onclick="return toggle('current_flow_betweenness_centrality_subset');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.algorithms.centrality.current_flow_betweenness_subset-module.html#current_flow_betweenness_centrality_subset">current_flow_betweenness_centrality_subset</a><tt class="py-op">(</tt><tt class="py-param">G</tt><tt class="py-op">,</tt><tt class="py-param">sources</tt><tt class="py-op">,</tt><tt class="py-param">targets</tt><tt class="py-op">,</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">                                               <tt class="py-param">normalized</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">                                               <tt class="py-param">weight</tt><tt class="py-op">=</tt><tt class="py-string">'weight'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="current_flow_betweenness_centrality_subset-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="current_flow_betweenness_centrality_subset-expanded"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">    <tt class="py-docstring">"""Compute current-flow betweenness centrality for subsets nodes.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">    Current-flow betweenness centrality uses an electrical current</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">    model for information spreading in contrast to betweenness</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">    centrality which uses shortest paths.</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">    Current-flow betweenness centrality is also known as</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">    random-walk betweenness centrality [2]_.</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">    Parameters</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">    ----------</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    G : graph</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">      A networkx graph </tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">    sources: list of nodes</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">      Nodes to use as sources for current</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">    targets: list of nodes</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">      Nodes to use as sinks for current</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    normalized : bool, optional</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">      If True the betweenness values are normalized by b=b/(n-1)(n-2) where</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">      n is the number of nodes in G.</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">    weight : string or None, optional (default='weight')</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">      Key for edge data used as the edge weight.</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">      If None, then use 1 as each edge weight.</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">    Returns</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">    -------</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">    nodes : dictionary</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">       Dictionary of nodes with betweenness centrality as the value.</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">    See Also</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">    --------</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">    betweenness_centrality</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">    edge_betweenness_centrality</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">    edge_current_flow_betweenness_centrality</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">    Notes</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">    -----</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">    The algorithm is from Brandes [1]_.</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">    If the edges have a 'weight' attribute they will be used as </tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">    weights in this algorithm.  Unspecified weights are set to 1.</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">    References</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">    ----------</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">    .. [1] Centrality Measures Based on Current Flow. </tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">       Ulrik Brandes and Daniel Fleischer,</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">       Proc. 22nd Symp. Theoretical Aspects of Computer Science (STACS '05). </tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">       LNCS 3404, pp. 533-544. Springer-Verlag, 2005. </tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">       http://www.inf.uni-konstanz.de/algo/publications/bf-cmbcf-05.pdf</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">    .. [2] A measure of betweenness centrality based on random walks,</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">       M. E. J. Newman, Social Networks 27, 39-54 (2005).</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">np</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ImportError</tt><tt class="py-op">(</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-string">"""current_flow_betweenness_centrality_subset() requires NumPy </tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-string">http://scipy.org/"""</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method networkx.classes.digraph.DiGraph.is_directed()=networkx.classes.digraph.DiGraph-class.html#is_directed,Function networkx.classes.function.is_directed()=networkx.classes.function-module.html#is_directed,Method networkx.classes.graph.Graph.is_directed()=networkx.classes.graph.Graph-class.html#is_directed,Method networkx.classes.multidigraph.MultiDiGraph.is_directed()=networkx.classes.multidigraph.MultiDiGraph-class.html#is_directed,Method networkx.classes.multigraph.MultiGraph.is_directed()=networkx.classes.multigraph.MultiGraph-class.html#is_directed"><a title="networkx.classes.digraph.DiGraph.is_directed
+networkx.classes.function.is_directed
+networkx.classes.graph.Graph.is_directed
+networkx.classes.multidigraph.MultiDiGraph.is_directed
+networkx.classes.multigraph.MultiGraph.is_directed" class="py-name" href="#" onclick="return doclink('link-1', 'is_directed', 'link-1');">is_directed</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Class networkx.exception.NetworkXError=networkx.exception.NetworkXError-class.html"><a title="networkx.exception.NetworkXError" class="py-name" href="#" onclick="return doclink('link-2', 'NetworkXError', 'link-2');">NetworkXError</a></tt><tt class="py-op">(</tt>\ </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">            <tt class="py-string">"current_flow_betweenness_centrality_subset() not defined for digraphs."</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Function networkx.algorithms.components.connected.is_connected()=networkx.algorithms.components.connected-module.html#is_connected"><a title="networkx.algorithms.components.connected.is_connected" class="py-name" href="#" onclick="return doclink('link-3', 'is_connected', 'link-3');">is_connected</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="networkx.exception.NetworkXError" class="py-name" href="#" onclick="return doclink('link-4', 'NetworkXError', 'link-2');">NetworkXError</a></tt><tt class="py-op">(</tt><tt class="py-string">"Graph not connected."</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Module networkx.algorithms.centrality.betweenness=networkx.algorithms.centrality.betweenness-module.html"><a title="networkx.algorithms.centrality.betweenness" class="py-name" href="#" onclick="return doclink('link-5', 'betweenness', 'link-5');">betweenness</a></tt><tt class="py-op">=</tt><tt class="py-name">dict</tt><tt class="py-op">.</tt><tt class="py-name">fromkeys</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-number">0.0</tt><tt class="py-op">)</tt> <tt class="py-comment"># b[v]=0 for v in G</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-name">F</tt><tt class="py-op">=</tt><tt id="link-6" class="py-name" targets="Function networkx.algorithms.centrality.current_flow_betweenness._compute_F()=networkx.algorithms.centrality.current_flow_betweenness-module.html#_compute_F,Function networkx.algorithms.centrality.current_flow_betweenness_subset._compute_F()=networkx.algorithms.centrality.current_flow_betweenness_subset-module.html#_compute_F"><a title="networkx.algorithms.centrality.current_flow_betweenness._compute_F
+networkx.algorithms.centrality.current_flow_betweenness_subset._compute_F" class="py-name" href="#" onclick="return doclink('link-6', '_compute_F', 'link-6');">_compute_F</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">weight</tt><tt class="py-op">)</tt> <tt class="py-comment"># Current-flow matrix</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable networkx.m=networkx-module.html#m"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-7', 'm', 'link-7');">m</a></tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">=</tt><tt class="py-name">F</tt><tt class="py-op">.</tt><tt class="py-name">shape</tt> <tt class="py-comment"># m edges and n nodes</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">    <tt class="py-name">mapping</tt><tt class="py-op">=</tt><tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>  <tt class="py-comment"># map nodes to integers</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-op">(</tt><tt class="py-name">ei</tt><tt class="py-op">,</tt><tt class="py-name">e</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method networkx.classes.digraph.DiGraph.edges_iter()=networkx.classes.digraph.DiGraph-class.html#edges_iter,Function networkx.classes.function.edges_iter()=networkx.classes.function-module.html#edges_iter,Method networkx.classes.graph.Graph.edges_iter()=networkx.classes.graph.Graph-class.html#edges_iter,Method networkx.classes.multidigraph.MultiDiGraph.edges_iter()=networkx.classes.multidigraph.MultiDiGraph-class.html#edges_iter,Method networkx.classes.multigraph.MultiGraph.edges_iter()=networkx.classes.multigraph.MultiGraph-class.html#edges_iter"><a title="networkx.classes.digraph.DiGraph.edges_iter
+networkx.classes.function.edges_iter
+networkx.classes.graph.Graph.edges_iter
+networkx.classes.multidigraph.MultiDiGraph.edges_iter
+networkx.classes.multigraph.MultiGraph.edges_iter" class="py-name" href="#" onclick="return doclink('link-8', 'edges_iter', 'link-8');">edges_iter</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>  </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-name">u</tt><tt class="py-op">,</tt><tt class="py-name">v</tt><tt class="py-op">=</tt><tt class="py-name">e</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-comment"># ei is index of edge</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-name">Fe</tt><tt class="py-op">=</tt><tt class="py-name">F</tt><tt class="py-op">[</tt><tt class="py-name">ei</tt><tt class="py-op">,</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-comment"># ei row of F</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">s</tt> <tt class="py-keyword">in</tt> <tt class="py-name">sources</tt><tt class="py-op">:</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt id="link-9" class="py-name" targets="Variable cvxpy.scalars.cvxpy_scalar_param.i=cvxpy.scalars.cvxpy_scalar_param-class.html#i,Variable cvxpy.scalars.cvxpy_scalar_var.i=cvxpy.scalars.cvxpy_scalar_var-class.html#i"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-9', 'i', 'link-9');">i</a></tt><tt class="py-op">=</tt><tt class="py-name">mapping</tt><tt class="py-op">[</tt><tt class="py-name">s</tt><tt class="py-op">]</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">t</tt> <tt class="py-keyword">in</tt> <tt class="py-name">targets</tt><tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">=</tt><tt class="py-name">mapping</tt><tt class="py-op">[</tt><tt class="py-name">t</tt><tt class="py-op">]</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                <tt id="link-10" class="py-name"><a title="networkx.algorithms.centrality.betweenness" class="py-name" href="#" onclick="return doclink('link-10', 'betweenness', 'link-5');">betweenness</a></tt><tt class="py-op">[</tt><tt class="py-name">u</tt><tt class="py-op">]</tt><tt class="py-op">+=</tt><tt class="py-number">0.5</tt><tt class="py-op">*</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Function cvxpy.functions.abs'.abs()=cvxpy.functions.abs%27-module.html#abs"><a title="cvxpy.functions.abs'.abs" class="py-name" href="#" onclick="return doclink('link-11', 'abs', 'link-11');">abs</a></tt><tt class="py-op">(</tt><tt class="py-name">Fe</tt><tt class="py-op">[</tt><tt id="link-12" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-12', 'i', 'link-9');">i</a></tt><tt class="py-op">]</tt><tt class="py-op">-</tt><tt class="py-name">Fe</tt><tt class="py-op">[</tt><tt class="py-name">j</tt><tt class="py-op">]</tt><tt class="py-op">)</tt>  </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                <tt id="link-13" class="py-name"><a title="networkx.algorithms.centrality.betweenness" class="py-name" href="#" onclick="return doclink('link-13', 'betweenness', 'link-5');">betweenness</a></tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">]</tt><tt class="py-op">+=</tt><tt class="py-number">0.5</tt><tt class="py-op">*</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="cvxpy.functions.abs'.abs" class="py-name" href="#" onclick="return doclink('link-14', 'abs', 'link-11');">abs</a></tt><tt class="py-op">(</tt><tt class="py-name">Fe</tt><tt class="py-op">[</tt><tt id="link-15" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-15', 'i', 'link-9');">i</a></tt><tt class="py-op">]</tt><tt class="py-op">-</tt><tt class="py-name">Fe</tt><tt class="py-op">[</tt><tt class="py-name">j</tt><tt class="py-op">]</tt><tt class="py-op">)</tt>  </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">normalized</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-name">nb</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">-</tt><tt class="py-number">1.0</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">-</tt><tt class="py-number">2.0</tt><tt class="py-op">)</tt> <tt class="py-comment"># normalization factor</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-name">nb</tt><tt class="py-op">=</tt><tt class="py-number">2.0</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt class="py-name">G</tt><tt class="py-op">:</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt id="link-16" class="py-name"><a title="networkx.algorithms.centrality.betweenness" class="py-name" href="#" onclick="return doclink('link-16', 'betweenness', 'link-5');">betweenness</a></tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt id="link-17" class="py-name"><a title="networkx.algorithms.centrality.betweenness" class="py-name" href="#" onclick="return doclink('link-17', 'betweenness', 'link-5');">betweenness</a></tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">]</tt><tt class="py-op">/</tt><tt class="py-name">nb</tt><tt class="py-op">+</tt><tt class="py-number">1.0</tt><tt class="py-op">/</tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">-</tt><tt class="py-name">n</tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-18" class="py-name"><a title="networkx.algorithms.centrality.betweenness" class="py-name" href="#" onclick="return doclink('link-18', 'betweenness', 'link-5');">betweenness</a></tt> </tt>
+</div><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"> </tt>
+<a name="edge_current_flow_betweenness_centrality_subset"></a><div id="edge_current_flow_betweenness_centrality_subset-def"><a name="L113"></a><tt class="py-lineno">113</tt> <a class="py-toggle" href="#" id="edge_current_flow_betweenness_centrality_subset-toggle" onclick="return toggle('edge_current_flow_betweenness_centrality_subset');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.algorithms.centrality.current_flow_betweenness_subset-module.html#edge_current_flow_betweenness_centrality_subset">edge_current_flow_betweenness_centrality_subset</a><tt class="py-op">(</tt><tt class="py-param">G</tt><tt class="py-op">,</tt><tt class="py-param">sources</tt><tt class="py-op">,</tt><tt class="py-param">targets</tt><tt class="py-op">,</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">                                               <tt class="py-param">normalized</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                                               <tt class="py-param">weight</tt><tt class="py-op">=</tt><tt class="py-string">'weight'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="edge_current_flow_betweenness_centrality_subset-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="edge_current_flow_betweenness_centrality_subset-expanded"><a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">    <tt class="py-docstring">"""Compute edge current-flow betweenness centrality for subsets</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">    of nodes.</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">    Current-flow betweenness centrality uses an electrical current</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-docstring">    model for information spreading in contrast to betweenness</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-docstring">    centrality which uses shortest paths.</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">    Current-flow betweenness centrality is also known as</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">    random-walk betweenness centrality [2]_.</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">    Parameters</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">    ----------</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">    G : graph</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring">      A networkx graph </tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">    sources: list of nodes</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">      Nodes to use as sources for current</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">    targets: list of nodes</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">      Nodes to use as sinks for current</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">    normalized : bool, optional</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-docstring">      If True the betweenness values are normalized by b=b/(n-1)(n-2) where</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">      n is the number of nodes in G.</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-docstring">    weight : string or None, optional (default='weight')</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-docstring">      Key for edge data used as the edge weight.</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-docstring">      If None, then use 1 as each edge weight.</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">    Returns</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring">    -------</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-docstring">    nodes : dictionary</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-docstring">       Dictionary of edge tuples with betweenness centrality as the value.</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-docstring">    See Also</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-docstring">    --------</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-docstring">    betweenness_centrality</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-docstring">    edge_betweenness_centrality</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">    current_flow_betweenness_centrality</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring">    Notes</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">    -----</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring">    The algorithm is from Brandes [1]_.</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">    If the edges have a 'weight' attribute they will be used as </tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">    weights in this algorithm.  Unspecified weights are set to 1.</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-docstring">    References</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-docstring">    ----------</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt class="py-docstring">    .. [1] Centrality Measures Based on Current Flow. </tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-docstring">       Ulrik Brandes and Daniel Fleischer,</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"><tt class="py-docstring">       Proc. 22nd Symp. Theoretical Aspects of Computer Science (STACS '05). </tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-docstring">       LNCS 3404, pp. 533-544. Springer-Verlag, 2005. </tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-docstring">       http://www.inf.uni-konstanz.de/algo/publications/bf-cmbcf-05.pdf</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"><tt class="py-docstring">    .. [2] A measure of betweenness centrality based on random walks, </tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"><tt class="py-docstring">       M. E. J. Newman, Social Networks 27, 39-54 (2005).</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">np</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ImportError</tt><tt class="py-op">(</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">            <tt class="py-string">"""current_flow_betweenness_centrality_subset() requires NumPy </tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"><tt class="py-string">http://scipy.org/"""</tt><tt class="py-op">)</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line"> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="networkx.classes.digraph.DiGraph.is_directed
+networkx.classes.function.is_directed
+networkx.classes.graph.Graph.is_directed
+networkx.classes.multidigraph.MultiDiGraph.is_directed
+networkx.classes.multigraph.MultiGraph.is_directed" class="py-name" href="#" onclick="return doclink('link-19', 'is_directed', 'link-1');">is_directed</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="networkx.exception.NetworkXError" class="py-name" href="#" onclick="return doclink('link-20', 'NetworkXError', 'link-2');">NetworkXError</a></tt><tt class="py-op">(</tt>\ </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">            <tt class="py-string">"edge_current_flow_closeness_centrality_subset() not defined for digraphs."</tt><tt class="py-op">)</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="networkx.algorithms.components.connected.is_connected" class="py-name" href="#" onclick="return doclink('link-21', 'is_connected', 'link-3');">is_connected</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="networkx.exception.NetworkXError" class="py-name" href="#" onclick="return doclink('link-22', 'NetworkXError', 'link-2');">NetworkXError</a></tt><tt class="py-op">(</tt><tt class="py-string">"Graph not connected."</tt><tt class="py-op">)</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">    <tt id="link-23" class="py-name"><a title="networkx.algorithms.centrality.betweenness" class="py-name" href="#" onclick="return doclink('link-23', 'betweenness', 'link-5');">betweenness</a></tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt class="py-name">dict</tt><tt class="py-op">.</tt><tt class="py-name">fromkeys</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Function networkx.classes.function.edges()=networkx.classes.function-module.html#edges,Method networkx.classes.graph.Graph.edges()=networkx.classes.graph.Graph-class.html#edges,Method networkx.classes.multigraph.MultiGraph.edges()=networkx.classes.multigraph.MultiGraph-class.html#edges"><a title="networkx.classes.function.edges
+networkx.classes.graph.Graph.edges
+networkx.classes.multigraph.MultiGraph.edges" class="py-name" href="#" onclick="return doclink('link-24', 'edges', 'link-24');">edges</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-number">0.0</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>  </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">    <tt class="py-name">F</tt><tt class="py-op">=</tt><tt id="link-25" class="py-name"><a title="networkx.algorithms.centrality.current_flow_betweenness._compute_F
+networkx.algorithms.centrality.current_flow_betweenness_subset._compute_F" class="py-name" href="#" onclick="return doclink('link-25', '_compute_F', 'link-6');">_compute_F</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">weight</tt><tt class="py-op">)</tt> <tt class="py-comment"># Current-flow matrix</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">    <tt id="link-26" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-26', 'm', 'link-7');">m</a></tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">=</tt><tt class="py-name">F</tt><tt class="py-op">.</tt><tt class="py-name">shape</tt> <tt class="py-comment"># m edges and n nodes</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">normalized</tt><tt class="py-op">:</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-name">nb</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">-</tt><tt class="py-number">1.0</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">-</tt><tt class="py-number">2.0</tt><tt class="py-op">)</tt> <tt class="py-comment"># normalization factor</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">        <tt class="py-name">nb</tt><tt class="py-op">=</tt><tt class="py-number">2.0</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">    <tt class="py-name">mapping</tt><tt class="py-op">=</tt><tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>  <tt class="py-comment"># map nodes to integers</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-op">(</tt><tt class="py-name">ei</tt><tt class="py-op">,</tt><tt class="py-name">e</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="networkx.classes.digraph.DiGraph.edges_iter
+networkx.classes.function.edges_iter
+networkx.classes.graph.Graph.edges_iter
+networkx.classes.multidigraph.MultiDiGraph.edges_iter
+networkx.classes.multigraph.MultiGraph.edges_iter" class="py-name" href="#" onclick="return doclink('link-27', 'edges_iter', 'link-8');">edges_iter</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>  </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">        <tt class="py-comment"># ei is index of edge</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">        <tt class="py-name">Fe</tt><tt class="py-op">=</tt><tt class="py-name">F</tt><tt class="py-op">[</tt><tt class="py-name">ei</tt><tt class="py-op">,</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> <tt class="py-comment"># ei row of F</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">s</tt> <tt class="py-keyword">in</tt> <tt class="py-name">sources</tt><tt class="py-op">:</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">            <tt id="link-28" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-28', 'i', 'link-9');">i</a></tt><tt class="py-op">=</tt><tt class="py-name">mapping</tt><tt class="py-op">[</tt><tt class="py-name">s</tt><tt class="py-op">]</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">t</tt> <tt class="py-keyword">in</tt> <tt class="py-name">targets</tt><tt class="py-op">:</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">=</tt><tt class="py-name">mapping</tt><tt class="py-op">[</tt><tt class="py-name">t</tt><tt class="py-op">]</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">                <tt id="link-29" class="py-name"><a title="networkx.algorithms.centrality.betweenness" class="py-name" href="#" onclick="return doclink('link-29', 'betweenness', 'link-5');">betweenness</a></tt><tt class="py-op">[</tt><tt class="py-name">e</tt><tt class="py-op">]</tt><tt class="py-op">+=</tt><tt class="py-number">0.5</tt><tt class="py-op">*</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="cvxpy.functions.abs'.abs" class="py-name" href="#" onclick="return doclink('link-30', 'abs', 'link-11');">abs</a></tt><tt class="py-op">(</tt><tt class="py-name">Fe</tt><tt class="py-op">[</tt><tt id="link-31" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-31', 'i', 'link-9');">i</a></tt><tt class="py-op">]</tt><tt class="py-op">-</tt><tt class="py-name">Fe</tt><tt class="py-op">[</tt><tt class="py-name">j</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">        <tt id="link-32" class="py-name"><a title="networkx.algorithms.centrality.betweenness" class="py-name" href="#" onclick="return doclink('link-32', 'betweenness', 'link-5');">betweenness</a></tt><tt class="py-op">[</tt><tt class="py-name">e</tt><tt class="py-op">]</tt><tt class="py-op">/=</tt><tt class="py-name">nb</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-33" class="py-name"><a title="networkx.algorithms.centrality.betweenness" class="py-name" href="#" onclick="return doclink('link-33', 'betweenness', 'link-5');">betweenness</a></tt> </tt>
+</div><a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line"> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line"> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line"> </tt>
+<a name="_compute_C"></a><div id="_compute_C-def"><a name="L207"></a><tt class="py-lineno">207</tt> <a class="py-toggle" href="#" id="_compute_C-toggle" onclick="return toggle('_compute_C');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.algorithms.centrality.current_flow_betweenness_subset-module.html#_compute_C">_compute_C</a><tt class="py-op">(</tt><tt class="py-param">G</tt><tt class="py-op">,</tt><tt class="py-param">weight</tt><tt class="py-op">=</tt><tt class="py-string">'weight'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_compute_C-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="_compute_C-expanded"><a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">    <tt class="py-docstring">"""Inverse of Laplacian."""</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">np</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ImportError</tt><tt class="py-op">(</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">            <tt class="py-string">"""current_flow_betweenness_centrality_subset() requires NumPy </tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"><tt class="py-string">http://scipy.org/"""</tt><tt class="py-op">)</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line"> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">    <tt class="py-name">L</tt><tt class="py-op">=</tt><tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Function networkx.linalg.spectrum.laplacian()=networkx.linalg.spectrum-module.html#laplacian"><a title="networkx.linalg.spectrum.laplacian" class="py-name" href="#" onclick="return doclink('link-34', 'laplacian', 'link-34');">laplacian</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">weight</tt><tt class="py-op">=</tt><tt class="py-name">weight</tt><tt class="py-op">)</tt> <tt class="py-comment"># use ordering of G.nodes() </tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">    <tt class="py-comment"># remove first row and column</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">    <tt class="py-name">LR</tt><tt class="py-op">=</tt><tt class="py-name">L</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">    <tt class="py-name">LRinv</tt><tt class="py-op">=</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Package networkx.linalg=networkx.linalg-module.html"><a title="networkx.linalg" class="py-name" href="#" onclick="return doclink('link-35', 'linalg', 'link-35');">linalg</a></tt><tt class="py-op">.</tt><tt class="py-name">inv</tt><tt class="py-op">(</tt><tt class="py-name">LR</tt><tt class="py-op">)</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">    <tt class="py-name">C</tt><tt class="py-op">=</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Function cvxpy.utils.zeros()=cvxpy.utils-module.html#zeros"><a title="cvxpy.utils.zeros" class="py-name" href="#" onclick="return doclink('link-36', 'zeros', 'link-36');">zeros</a></tt><tt class="py-op">(</tt><tt class="py-name">L</tt><tt class="py-op">.</tt><tt class="py-name">shape</tt><tt class="py-op">)</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">    <tt class="py-name">C</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-name">LRinv</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">C</tt> </tt>
+</div><a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line"> </tt>
+<a name="_compute_F"></a><div id="_compute_F-def"><a name="L224"></a><tt class="py-lineno">224</tt> <a class="py-toggle" href="#" id="_compute_F-toggle" onclick="return toggle('_compute_F');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.algorithms.centrality.current_flow_betweenness_subset-module.html#_compute_F">_compute_F</a><tt class="py-op">(</tt><tt class="py-param">G</tt><tt class="py-op">,</tt><tt class="py-param">weight</tt><tt class="py-op">=</tt><tt class="py-string">'weight'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_compute_F-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="_compute_F-expanded"><a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">    <tt class="py-docstring">"""Current flow matrix."""</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">np</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ImportError</tt><tt class="py-op">(</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">            <tt class="py-string">"""current_flow_betweenness_centrality_subset() requires NumPy </tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line"><tt class="py-string">http://scipy.org/"""</tt><tt class="py-op">)</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">    <tt class="py-name">C</tt><tt class="py-op">=</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">asmatrix</tt><tt class="py-op">(</tt><tt id="link-37" class="py-name" targets="Function networkx.algorithms.centrality.current_flow_betweenness._compute_C()=networkx.algorithms.centrality.current_flow_betweenness-module.html#_compute_C,Function networkx.algorithms.centrality.current_flow_betweenness_subset._compute_C()=networkx.algorithms.centrality.current_flow_betweenness_subset-module.html#_compute_C,Function networkx.algorithms.centrality.current_flow_closeness._compute_C()=networkx.algorithms.centrality.current_flow_closeness-module.html#_compute_C"><a title="networkx.algorithms.centrality.current_flow_betweenness._compute_C
+networkx.algorithms.centrality.current_flow_betweenness_subset._compute_C
+networkx.algorithms.centrality.current_flow_closeness._compute_C" class="py-name" href="#" onclick="return doclink('link-37', '_compute_C', 'link-37');">_compute_C</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">weight</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line">    <tt class="py-name">n</tt><tt class="py-op">=</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Function networkx.classes.function.number_of_nodes()=networkx.classes.function-module.html#number_of_nodes,Method networkx.classes.graph.Graph.number_of_nodes()=networkx.classes.graph.Graph-class.html#number_of_nodes"><a title="networkx.classes.function.number_of_nodes
+networkx.classes.graph.Graph.number_of_nodes" class="py-name" href="#" onclick="return doclink('link-38', 'number_of_nodes', 'link-38');">number_of_nodes</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">    <tt id="link-39" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-39', 'm', 'link-7');">m</a></tt><tt class="py-op">=</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Function networkx.classes.function.number_of_edges()=networkx.classes.function-module.html#number_of_edges,Method networkx.classes.graph.Graph.number_of_edges()=networkx.classes.graph.Graph-class.html#number_of_edges,Method networkx.classes.multigraph.MultiGraph.number_of_edges()=networkx.classes.multigraph.MultiGraph-class.html#number_of_edges"><a title="networkx.classes.function.number_of_edges
+networkx.classes.graph.Graph.number_of_edges
+networkx.classes.multigraph.MultiGraph.number_of_edges" class="py-name" href="#" onclick="return doclink('link-40', 'number_of_edges', 'link-40');">number_of_edges</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">    <tt class="py-name">B</tt><tt class="py-op">=</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="cvxpy.utils.zeros" class="py-name" href="#" onclick="return doclink('link-41', 'zeros', 'link-36');">zeros</a></tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">,</tt><tt id="link-42" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-42', 'm', 'link-7');">m</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">    <tt class="py-comment"># use G.nodes() and G.edges() ordering of edges for B  </tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line">    <tt class="py-name">mapping</tt><tt class="py-op">=</tt><tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>  <tt class="py-comment"># map nodes to integers</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-op">(</tt><tt class="py-name">ei</tt><tt class="py-op">,</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">,</tt><tt class="py-name">w</tt><tt class="py-op">,</tt><tt id="link-43" class="py-name" targets="Variable networkx.readwrite.gexf.GEXF.d=networkx.readwrite.gexf.GEXF-class.html#d"><a title="networkx.readwrite.gexf.GEXF.d" class="py-name" href="#" onclick="return doclink('link-43', 'd', 'link-43');">d</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="networkx.classes.digraph.DiGraph.edges_iter
+networkx.classes.function.edges_iter
+networkx.classes.graph.Graph.edges_iter
+networkx.classes.multidigraph.MultiDiGraph.edges_iter
+networkx.classes.multigraph.MultiGraph.edges_iter" class="py-name" href="#" onclick="return doclink('link-44', 'edges_iter', 'link-8');">edges_iter</a></tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>  </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line">        <tt class="py-name">c</tt><tt class="py-op">=</tt><tt id="link-45" class="py-name"><a title="networkx.readwrite.gexf.GEXF.d" class="py-name" href="#" onclick="return doclink('link-45', 'd', 'link-43');">d</a></tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-name">weight</tt><tt class="py-op">,</tt><tt class="py-number">1.0</tt><tt class="py-op">)</tt> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">        <tt class="py-name">vi</tt><tt class="py-op">=</tt><tt class="py-name">mapping</tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">]</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">        <tt class="py-name">wi</tt><tt class="py-op">=</tt><tt class="py-name">mapping</tt><tt class="py-op">[</tt><tt class="py-name">w</tt><tt class="py-op">]</tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line">        <tt class="py-name">B</tt><tt class="py-op">[</tt><tt class="py-name">vi</tt><tt class="py-op">,</tt><tt class="py-name">ei</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-name">c</tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">        <tt class="py-name">B</tt><tt class="py-op">[</tt><tt class="py-name">wi</tt><tt class="py-op">,</tt><tt class="py-name">ei</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-op">-</tt><tt class="py-name">c</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">asarray</tt><tt class="py-op">(</tt><tt class="py-name">B</tt><tt class="py-op">.</tt><tt class="py-name">T</tt><tt class="py-op">*</tt><tt class="py-name">C</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line"> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line"> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line"><tt class="py-comment"># fixture for nose tests</tt> </tt>
+<a name="setup_module"></a><div id="setup_module-def"><a name="L248"></a><tt class="py-lineno">248</tt> <a class="py-toggle" href="#" id="setup_module-toggle" onclick="return toggle('setup_module');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.algorithms.centrality.current_flow_betweenness_subset-module.html#setup_module">setup_module</a><tt class="py-op">(</tt><tt class="py-param">module</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="setup_module-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="setup_module-expanded"><a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">nose</tt> <tt class="py-keyword">import</tt> <tt class="py-name">SkipTest</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">SkipTest</tt><tt class="py-op">(</tt><tt class="py-string">"NumPy not available"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:57 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

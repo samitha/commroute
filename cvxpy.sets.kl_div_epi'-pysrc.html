@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cvxpy.sets.kl_div_epi'</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cvxpy-module.html">Package&nbsp;cvxpy</a> ::
+        <a href="cvxpy.sets-module.html">Package&nbsp;sets</a> ::
+        Module&nbsp;kl_div_epi'
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cvxpy.sets.kl_div_epi%27-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="cvxpy.sets.kl_div_epi%27-module.html">Module cvxpy.sets.kl_div_epi'</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#***********************************************************************#</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2010-2012 Tomas Tinoco De Rubira                        #</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment">#                                                                       #</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># This file is part of CVXPY                                            #     </tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#                                                                       #</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># CVXPY is free software: you can redistribute it and/or modify         #</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># it under the terms of the GNU General Public License as published by  #</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation, either version 3 of the License, or     #   </tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># (at your option) any later version.                                   # </tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment">#                                                                       #</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment"># CVXPY is distributed in the hope that it will be useful,              #</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment"># but WITHOUT ANY WARRANTY; without even the implied warranty of        #</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment"># GNU General Public License for more details.                          #</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment">#                                                                       #</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment"># You should have received a copy of the GNU General Public License     #</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;. #</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment">#***********************************************************************#</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">np</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">cvxopt</tt> <tt class="py-keyword">as</tt> <tt class="py-name">opt</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package cvxpy=cvxpy-module.html"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-0', 'cvxpy', 'link-0');">cvxpy</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module cvxpy.defs=cvxpy.defs-module.html"><a title="cvxpy.defs" class="py-name" href="#" onclick="return doclink('link-1', 'defs', 'link-1');">defs</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-2', 'cvxpy', 'link-0');">cvxpy</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module cvxpy.scalars=cvxpy.scalars-module.html"><a title="cvxpy.scalars" class="py-name" href="#" onclick="return doclink('link-3', 'scalars', 'link-3');">scalars</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Class cvxpy.scalars.cvxpy_obj=cvxpy.scalars.cvxpy_obj-class.html"><a title="cvxpy.scalars.cvxpy_obj" class="py-name" href="#" onclick="return doclink('link-4', 'cvxpy_obj', 'link-4');">cvxpy_obj</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-5', 'cvxpy', 'link-0');">cvxpy</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="cvxpy.scalars" class="py-name" href="#" onclick="return doclink('link-6', 'scalars', 'link-3');">scalars</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Class cvxpy.scalars.cvxpy_scalar_var=cvxpy.scalars.cvxpy_scalar_var-class.html"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-7', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-8" class="py-name"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-8', 'cvxpy', 'link-0');">cvxpy</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Module cvxpy.utils=cvxpy.utils-module.html,Module networkx.utils=networkx.utils-module.html"><a title="cvxpy.utils
+networkx.utils" class="py-name" href="#" onclick="return doclink('link-9', 'utils', 'link-9');">utils</a></tt> <tt class="py-keyword">import</tt> <tt id="link-10" class="py-name" targets="Function cvxpy.utils.vstack()=cvxpy.utils-module.html#vstack"><a title="cvxpy.utils.vstack" class="py-name" href="#" onclick="return doclink('link-10', 'vstack', 'link-10');">vstack</a></tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"># Class definition</tt> </tt>
+<a name="cvxpy_kl_div_epi"></a><div id="cvxpy_kl_div_epi-def"><a name="L28"></a><tt class="py-lineno"> 28</tt> <a class="py-toggle" href="#" id="cvxpy_kl_div_epi-toggle" onclick="return toggle('cvxpy_kl_div_epi');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi-class.html">cvxpy_kl_div_epi</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_kl_div_epi-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="cvxpy_kl_div_epi-expanded"><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">    | :math:`\{(x,y,t) \in \mathbb{R}_{++}^n \\times \mathbb{R}_{++}^n</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">      \\times \mathbb{R} \ | </tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">      \ \sum_{i=1}^n (x_i \mbox{log} (x_i/y_i) - x_i + y_i) \leq t \}`.</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">    <tt class="py-comment"># Method: __init__</tt> </tt>
+<a name="cvxpy_kl_div_epi.__init__"></a><div id="cvxpy_kl_div_epi.__init__-def"><a name="L36"></a><tt class="py-lineno"> 36</tt> <a class="py-toggle" href="#" id="cvxpy_kl_div_epi.__init__-toggle" onclick="return toggle('cvxpy_kl_div_epi.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_kl_div_epi.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_kl_div_epi.__init__-expanded"><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">        Class constructor.</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name" targets="Variable cvxpy.defs.SET=cvxpy.defs-module.html#SET,Variable cvxpy.functions.abs'.SET=cvxpy.functions.abs%27-module.html#SET,Variable cvxpy.functions.det_rootn'.SET=cvxpy.functions.det_rootn%27-module.html#SET,Variable cvxpy.functions.exp'.SET=cvxpy.functions.exp%27-module.html#SET,Variable cvxpy.functions.geo_mean'.SET=cvxpy.functions.geo_mean%27-module.html#SET,Variable cvxpy.functions.huber'.SET=cvxpy.functions.huber%27-module.html#SET,Variable cvxpy.functions.kl_div'.SET=cvxpy.functions.kl_div%27-module.html#SET,Variable cvxpy.functions.lambda_max'.SET=cvxpy.functions.lambda_max%27-module.html#SET,Variable cvxpy.functions.lambda_min'.SET=cvxpy.functions.lambda_min%27-module.html#SET,Variable cvxpy.functions.log'.SET=cvxpy.functions.log%27-module.html#SET,Variable cvxpy.functions.log_norm_cdf'.SET=cvxpy.functions.log_norm_cdf%27-module.html#SET,Variable cvxpy.functions.log_sum_exp'.SET=cvxpy.functions.log_sum_exp%27-module.html#SET,Variable cvxpy.functions.max'.SET=cvxpy.functions.max%27-module.html#SET,Variable cvxpy.functions.min'.SET=cvxpy.functions.min%27-module.html#SET,Variable cvxpy.functions.norm1'.SET=cvxpy.functions.norm1%27-module.html#SET,Variable cvxpy.functions.norm2'.SET=cvxpy.functions.norm2%27-module.html#SET,Variable cvxpy.functions.norm_inf'.SET=cvxpy.functions.norm_inf%27-module.html#SET,Variable cvxpy.functions.nuclear_norm'.SET=cvxpy.functions.nuclear_norm%27-module.html#SET,Variable cvxpy.functions.quad_form'.SET=cvxpy.functions.quad_form%27-module.html#SET,Variable cvxpy.functions.quad_over_lin'.SET=cvxpy.functions.quad_over_lin%27-module.html#SET,Variable cvxpy.functions.sqrt'.SET=cvxpy.functions.sqrt%27-module.html#SET,Variable cvxpy.functions.square'.SET=cvxpy.functions.square%27-module.html#SET,Variable cvxpy.sets.exp_cone'.SET=cvxpy.sets.exp_cone%27-module.html#SET,Variable cvxpy.sets.geo_mean_cone'.SET=cvxpy.sets.geo_mean_cone%27-module.html#SET,Variable cvxpy.sets.kl_div_epi'.SET=cvxpy.sets.kl_div_epi%27-module.html#SET,Variable cvxpy.sets.log_norm_cdf_hypo'.SET=cvxpy.sets.log_norm_cdf_hypo%27-module.html#SET,Variable cvxpy.sets.second_order_cone'.SET=cvxpy.sets.second_order_cone%27-module.html#SET,Variable cvxpy.sets.semidefinite_cone'.SET=cvxpy.sets.semidefinite_cone%27-module.html#SET"><a title="cvxpy.defs.SET
+cvxpy.functions.abs'.SET
+cvxpy.functions.det_rootn'.SET
+cvxpy.functions.exp'.SET
+cvxpy.functions.geo_mean'.SET
+cvxpy.functions.huber'.SET
+cvxpy.functions.kl_div'.SET
+cvxpy.functions.lambda_max'.SET
+cvxpy.functions.lambda_min'.SET
+cvxpy.functions.log'.SET
+cvxpy.functions.log_norm_cdf'.SET
+cvxpy.functions.log_sum_exp'.SET
+cvxpy.functions.max'.SET
+cvxpy.functions.min'.SET
+cvxpy.functions.norm1'.SET
+cvxpy.functions.norm2'.SET
+cvxpy.functions.norm_inf'.SET
+cvxpy.functions.nuclear_norm'.SET
+cvxpy.functions.quad_form'.SET
+cvxpy.functions.quad_over_lin'.SET
+cvxpy.functions.sqrt'.SET
+cvxpy.functions.square'.SET
+cvxpy.sets.exp_cone'.SET
+cvxpy.sets.geo_mean_cone'.SET
+cvxpy.sets.kl_div_epi'.SET
+cvxpy.sets.log_norm_cdf_hypo'.SET
+cvxpy.sets.second_order_cone'.SET
+cvxpy.sets.semidefinite_cone'.SET" class="py-name" href="#" onclick="return doclink('link-11', 'SET', 'link-11');">SET</a></tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Variable networkx.classes.graph.Graph.name=networkx.classes.graph.Graph-class.html#name,Variable networkx.release.name=networkx.release-module.html#name"><a title="networkx.classes.graph.Graph.name
+networkx.release.name" class="py-name" href="#" onclick="return doclink('link-12', 'name', 'link-12');">name</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'kl_div_epi'</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">expansion_type</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name" targets="Variable cvxpy.defs.DIF=cvxpy.defs-module.html#DIF,Variable cvxpy.functions.abs'.DIF=cvxpy.functions.abs%27-module.html#DIF,Variable cvxpy.functions.det_rootn'.DIF=cvxpy.functions.det_rootn%27-module.html#DIF,Variable cvxpy.functions.exp'.DIF=cvxpy.functions.exp%27-module.html#DIF,Variable cvxpy.functions.geo_mean'.DIF=cvxpy.functions.geo_mean%27-module.html#DIF,Variable cvxpy.functions.huber'.DIF=cvxpy.functions.huber%27-module.html#DIF,Variable cvxpy.functions.kl_div'.DIF=cvxpy.functions.kl_div%27-module.html#DIF,Variable cvxpy.functions.lambda_max'.DIF=cvxpy.functions.lambda_max%27-module.html#DIF,Variable cvxpy.functions.lambda_min'.DIF=cvxpy.functions.lambda_min%27-module.html#DIF,Variable cvxpy.functions.log'.DIF=cvxpy.functions.log%27-module.html#DIF,Variable cvxpy.functions.log_norm_cdf'.DIF=cvxpy.functions.log_norm_cdf%27-module.html#DIF,Variable cvxpy.functions.log_sum_exp'.DIF=cvxpy.functions.log_sum_exp%27-module.html#DIF,Variable cvxpy.functions.max'.DIF=cvxpy.functions.max%27-module.html#DIF,Variable cvxpy.functions.min'.DIF=cvxpy.functions.min%27-module.html#DIF,Variable cvxpy.functions.norm1'.DIF=cvxpy.functions.norm1%27-module.html#DIF,Variable cvxpy.functions.norm2'.DIF=cvxpy.functions.norm2%27-module.html#DIF,Variable cvxpy.functions.norm_inf'.DIF=cvxpy.functions.norm_inf%27-module.html#DIF,Variable cvxpy.functions.nuclear_norm'.DIF=cvxpy.functions.nuclear_norm%27-module.html#DIF,Variable cvxpy.functions.quad_form'.DIF=cvxpy.functions.quad_form%27-module.html#DIF,Variable cvxpy.functions.quad_over_lin'.DIF=cvxpy.functions.quad_over_lin%27-module.html#DIF,Variable cvxpy.functions.sqrt'.DIF=cvxpy.functions.sqrt%27-module.html#DIF,Variable cvxpy.functions.square'.DIF=cvxpy.functions.square%27-module.html#DIF,Variable cvxpy.sets.exp_cone'.DIF=cvxpy.sets.exp_cone%27-module.html#DIF,Variable cvxpy.sets.geo_mean_cone'.DIF=cvxpy.sets.geo_mean_cone%27-module.html#DIF,Variable cvxpy.sets.kl_div_epi'.DIF=cvxpy.sets.kl_div_epi%27-module.html#DIF,Variable cvxpy.sets.log_norm_cdf_hypo'.DIF=cvxpy.sets.log_norm_cdf_hypo%27-module.html#DIF,Variable cvxpy.sets.second_order_cone'.DIF=cvxpy.sets.second_order_cone%27-module.html#DIF,Variable cvxpy.sets.semidefinite_cone'.DIF=cvxpy.sets.semidefinite_cone%27-module.html#DIF"><a title="cvxpy.defs.DIF
+cvxpy.functions.abs'.DIF
+cvxpy.functions.det_rootn'.DIF
+cvxpy.functions.exp'.DIF
+cvxpy.functions.geo_mean'.DIF
+cvxpy.functions.huber'.DIF
+cvxpy.functions.kl_div'.DIF
+cvxpy.functions.lambda_max'.DIF
+cvxpy.functions.lambda_min'.DIF
+cvxpy.functions.log'.DIF
+cvxpy.functions.log_norm_cdf'.DIF
+cvxpy.functions.log_sum_exp'.DIF
+cvxpy.functions.max'.DIF
+cvxpy.functions.min'.DIF
+cvxpy.functions.norm1'.DIF
+cvxpy.functions.norm2'.DIF
+cvxpy.functions.norm_inf'.DIF
+cvxpy.functions.nuclear_norm'.DIF
+cvxpy.functions.quad_form'.DIF
+cvxpy.functions.quad_over_lin'.DIF
+cvxpy.functions.sqrt'.DIF
+cvxpy.functions.square'.DIF
+cvxpy.sets.exp_cone'.DIF
+cvxpy.sets.geo_mean_cone'.DIF
+cvxpy.sets.kl_div_epi'.DIF
+cvxpy.sets.log_norm_cdf_hypo'.DIF
+cvxpy.sets.second_order_cone'.DIF
+cvxpy.sets.semidefinite_cone'.DIF" class="py-name" href="#" onclick="return doclink('link-13', 'DIF', 'link-13');">DIF</a></tt> </tt>
+</div><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-comment"># Method: valid_shape</tt> </tt>
+<a name="cvxpy_kl_div_epi.valid_shape"></a><div id="cvxpy_kl_div_epi.valid_shape-def"><a name="L46"></a><tt class="py-lineno"> 46</tt> <a class="py-toggle" href="#" id="cvxpy_kl_div_epi.valid_shape-toggle" onclick="return toggle('cvxpy_kl_div_epi.valid_shape');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi-class.html#valid_shape">valid_shape</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">shape</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_kl_div_epi.valid_shape-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_kl_div_epi.valid_shape-expanded"><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt id="link-14" class="py-name" targets="Variable networkx.m=networkx-module.html#m"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-14', 'm', 'link-14');">m</a></tt><tt class="py-op">,</tt><tt class="py-name">n</tt> <tt class="py-op">=</tt> <tt class="py-name">shape</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">n</tt> <tt class="py-op">==</tt> <tt class="py-number">1</tt> <tt class="py-keyword">and</tt> <tt id="link-15" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-15', 'm', 'link-14');">m</a></tt> <tt class="py-op">&gt;=</tt> <tt class="py-number">3</tt> <tt class="py-keyword">and</tt> <tt id="link-16" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-16', 'm', 'link-14');">m</a></tt><tt class="py-op">%</tt><tt class="py-number">2</tt> <tt class="py-op">==</tt> <tt class="py-number">1</tt> </tt>
+</div><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-comment"># Method: __str__</tt> </tt>
+<a name="cvxpy_kl_div_epi.__str__"></a><div id="cvxpy_kl_div_epi.__str__-def"><a name="L51"></a><tt class="py-lineno"> 51</tt> <a class="py-toggle" href="#" id="cvxpy_kl_div_epi.__str__-toggle" onclick="return toggle('cvxpy_kl_div_epi.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_kl_div_epi.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_kl_div_epi.__str__-expanded"><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="networkx.classes.graph.Graph.name
+networkx.release.name" class="py-name" href="#" onclick="return doclink('link-17', 'name', 'link-12');">name</a></tt> </tt>
+</div><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-comment"># Method: _construct</tt> </tt>
+<a name="cvxpy_kl_div_epi._construct"></a><div id="cvxpy_kl_div_epi._construct-def"><a name="L56"></a><tt class="py-lineno"> 56</tt> <a class="py-toggle" href="#" id="cvxpy_kl_div_epi._construct-toggle" onclick="return toggle('cvxpy_kl_div_epi._construct');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi-class.html#_construct">_construct</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">el</tt><tt class="py-op">,</tt><tt class="py-param">mp</tt><tt class="py-op">,</tt><tt class="py-param">p</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cvxpy_kl_div_epi._construct-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="cvxpy_kl_div_epi._construct-expanded"><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">         </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-name">n</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">el</tt><tt class="py-op">.</tt><tt class="py-name">shape</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">-</tt><tt class="py-number">1.</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-number">2.</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-name">u</tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name"><a title="cvxpy.utils.vstack" class="py-name" href="#" onclick="return doclink('link-18', 'vstack', 'link-10');">vstack</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">el</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">:</tt><tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-name">v</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name"><a title="cvxpy.utils.vstack" class="py-name" href="#" onclick="return doclink('link-19', 'vstack', 'link-10');">vstack</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">el</tt><tt class="py-op">[</tt><tt class="py-name">n</tt><tt class="py-op">:</tt><tt class="py-number">2</tt><tt class="py-op">*</tt><tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">t</tt> <tt class="py-op">=</tt> <tt class="py-name">el</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">*</tt><tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-comment"># Prepare u and v</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-20" class="py-name" targets="Variable cvxpy.scalars.cvxpy_scalar_param.i=cvxpy.scalars.cvxpy_scalar_param-class.html#i,Variable cvxpy.scalars.cvxpy_scalar_var.i=cvxpy.scalars.cvxpy_scalar_var-class.html#i"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-20', 'i', 'link-20');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-21" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-21', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-22" class="py-name"><a title="cvxpy.scalars.cvxpy_obj" class="py-name" href="#" onclick="return doclink('link-22', 'cvxpy_obj', 'link-4');">cvxpy_obj</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                <tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-23" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-23', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-24" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-24', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">value</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-25" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-25', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-26" class="py-name"><a title="cvxpy.scalars.cvxpy_obj" class="py-name" href="#" onclick="return doclink('link-26', 'cvxpy_obj', 'link-4');">cvxpy_obj</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                <tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-27" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-27', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-28" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-28', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">value</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-comment"># Prepare t</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">t</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-29" class="py-name"><a title="cvxpy.scalars.cvxpy_obj" class="py-name" href="#" onclick="return doclink('link-29', 'cvxpy_obj', 'link-4');">cvxpy_obj</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">            <tt class="py-name">t</tt> <tt class="py-op">=</tt> <tt class="py-name">t</tt><tt class="py-op">.</tt><tt class="py-name">value</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-comment"># f</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">f</tt><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-name">temp</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt id="link-30" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-30', 'i', 'link-20');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-31" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-31', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-32" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-32', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                    <tt class="py-name">u_i</tt> <tt class="py-op">=</tt> <tt class="py-name">x</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-33" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-33', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                    <tt class="py-name">u_i</tt> <tt class="py-op">=</tt> <tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-34" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-34', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-35" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-35', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-36" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-36', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">                    <tt class="py-name">v_i</tt> <tt class="py-op">=</tt> <tt class="py-name">x</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-37" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-37', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                    <tt class="py-name">v_i</tt> <tt class="py-op">=</tt> <tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-38" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-38', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                <tt class="py-name">temp</tt> <tt class="py-op">+=</tt> <tt class="py-name">u_i</tt><tt class="py-op">*</tt><tt class="py-name">np</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Function cvxpy.functions.log'.log()=cvxpy.functions.log%27-module.html#log"><a title="cvxpy.functions.log'.log" class="py-name" href="#" onclick="return doclink('link-39', 'log', 'link-39');">log</a></tt><tt class="py-op">(</tt><tt class="py-name">u_i</tt><tt class="py-op">*</tt><tt class="py-number">1.</tt><tt class="py-op">/</tt><tt class="py-name">v_i</tt><tt class="py-op">)</tt><tt class="py-op">-</tt><tt class="py-name">u_i</tt><tt class="py-op">+</tt><tt class="py-name">v_i</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">t</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-40" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-40', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">temp</tt> <tt class="py-op">-</tt> <tt class="py-name">x</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">t</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">temp</tt> <tt class="py-op">-</tt> <tt class="py-name">t</tt> </tt>
+</div><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-comment"># grad f</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">grad_f</tt><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">            <tt class="py-name">g</tt> <tt class="py-op">=</tt> <tt class="py-name">opt</tt><tt class="py-op">.</tt><tt class="py-name">spmatrix</tt><tt class="py-op">(</tt><tt class="py-number">0.0</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt id="link-41" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-41', 'i', 'link-20');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-42" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-42', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-43" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-43', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                    <tt class="py-name">u_i</tt> <tt class="py-op">=</tt> <tt class="py-name">x</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-44" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-44', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                    <tt class="py-name">u_i</tt> <tt class="py-op">=</tt> <tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-45" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-45', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-46" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-46', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-47" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-47', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                    <tt class="py-name">v_i</tt> <tt class="py-op">=</tt> <tt class="py-name">x</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-48" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-48', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                    <tt class="py-name">v_i</tt> <tt class="py-op">=</tt> <tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-49" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-49', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-50" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-50', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-51" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-51', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                    <tt class="py-name">g</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-52" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-52', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="cvxpy.functions.log'.log" class="py-name" href="#" onclick="return doclink('link-53', 'log', 'link-39');">log</a></tt><tt class="py-op">(</tt><tt class="py-name">u_i</tt><tt class="py-op">*</tt><tt class="py-number">1.</tt><tt class="py-op">/</tt><tt class="py-name">v_i</tt><tt class="py-op">)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-54" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-54', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-55" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-55', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                    <tt class="py-name">g</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-56" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-56', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-name">u_i</tt><tt class="py-op">*</tt><tt class="py-number">1.</tt><tt class="py-op">/</tt><tt class="py-name">v_i</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-number">1.</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">t</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-57" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-57', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                <tt class="py-name">g</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">t</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">-</tt><tt class="py-number">1.</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">g</tt> </tt>
+</div><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-comment"># hess f</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">hess_f</tt><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">            <tt class="py-name">h</tt> <tt class="py-op">=</tt> <tt class="py-name">opt</tt><tt class="py-op">.</tt><tt class="py-name">spmatrix</tt><tt class="py-op">(</tt><tt class="py-number">0.0</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">,</tt><tt class="py-name">p</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt id="link-58" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-58', 'i', 'link-20');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-59" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-59', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-60" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-60', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">                    <tt class="py-name">u_i</tt> <tt class="py-op">=</tt> <tt class="py-name">x</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-61" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-61', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                    <tt class="py-name">u_i</tt> <tt class="py-op">=</tt> <tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-62" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-62', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-63" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-63', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-64" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-64', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                    <tt class="py-name">v_i</tt> <tt class="py-op">=</tt> <tt class="py-name">x</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-65" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-65', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">                    <tt class="py-name">v_i</tt> <tt class="py-op">=</tt> <tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-66" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-66', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-67" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-67', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-68" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-68', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">                    <tt class="py-name">h</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-69" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-69', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-70" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-70', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">1.</tt><tt class="py-op">/</tt><tt class="py-name">u_i</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-71" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-71', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-72" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-72', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">                    <tt class="py-name">h</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-73" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-73', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-74" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-74', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">u_i</tt><tt class="py-op">*</tt><tt class="py-number">1.</tt><tt class="py-op">/</tt><tt class="py-op">(</tt><tt class="py-name">v_i</tt><tt class="py-op">**</tt><tt class="py-number">2.</tt><tt class="py-op">)</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-75" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-75', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-76" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-76', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">                    <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-77" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-77', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-78" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-78', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">                    <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt class="py-op">-</tt><tt class="py-number">1.</tt><tt class="py-op">/</tt><tt class="py-name">v_i</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">                    <tt class="py-name">h</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-79" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-79', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-80" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-80', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">w</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">                    <tt class="py-name">h</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-81" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-81', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-82" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-82', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">w</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">h</tt> </tt>
+</div><a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-comment"># ind f</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">ind_f</tt><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt id="link-83" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-83', 'i', 'link-20');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-84" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-84', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-85" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-85', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">x</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-86" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-86', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">u</tt><tt class="py-op">[</tt><tt id="link-87" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-87', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-88" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-88', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt id="link-89" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_var" class="py-name" href="#" onclick="return doclink('link-89', 'cvxpy_scalar_var', 'link-7');">cvxpy_scalar_var</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">x</tt><tt class="py-op">[</tt><tt class="py-name">mp</tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-90" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-90', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">v</tt><tt class="py-op">[</tt><tt id="link-91" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-91', 'i', 'link-20');">i</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+</div><a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">        <tt class="py-comment"># Return functions</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">f</tt><tt class="py-op">,</tt> <tt class="py-name">grad_f</tt><tt class="py-op">,</tt> <tt class="py-name">hess_f</tt><tt class="py-op">,</tt> <tt class="py-name">ind_f</tt> </tt>
+</div></div><a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-comment"># Create instance</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt id="link-92" class="py-name" targets="Variable cvxpy.functions.det_rootn'.kl_div_epi=cvxpy.functions.det_rootn%27-module.html#kl_div_epi,Variable cvxpy.functions.exp'.kl_div_epi=cvxpy.functions.exp%27-module.html#kl_div_epi,Variable cvxpy.functions.geo_mean'.kl_div_epi=cvxpy.functions.geo_mean%27-module.html#kl_div_epi,Variable cvxpy.functions.kl_div'.kl_div_epi=cvxpy.functions.kl_div%27-module.html#kl_div_epi,Variable cvxpy.functions.lambda_max'.kl_div_epi=cvxpy.functions.lambda_max%27-module.html#kl_div_epi,Variable cvxpy.functions.lambda_min'.kl_div_epi=cvxpy.functions.lambda_min%27-module.html#kl_div_epi,Variable cvxpy.functions.log'.kl_div_epi=cvxpy.functions.log%27-module.html#kl_div_epi,Variable cvxpy.functions.log_norm_cdf'.kl_div_epi=cvxpy.functions.log_norm_cdf%27-module.html#kl_div_epi,Variable cvxpy.functions.log_sum_exp'.kl_div_epi=cvxpy.functions.log_sum_exp%27-module.html#kl_div_epi,Variable cvxpy.functions.norm2'.kl_div_epi=cvxpy.functions.norm2%27-module.html#kl_div_epi,Variable cvxpy.functions.nuclear_norm'.kl_div_epi=cvxpy.functions.nuclear_norm%27-module.html#kl_div_epi,Variable cvxpy.functions.quad_form'.kl_div_epi=cvxpy.functions.quad_form%27-module.html#kl_div_epi,Variable cvxpy.functions.quad_over_lin'.kl_div_epi=cvxpy.functions.quad_over_lin%27-module.html#kl_div_epi,Variable cvxpy.functions.sqrt'.kl_div_epi=cvxpy.functions.sqrt%27-module.html#kl_div_epi,Variable cvxpy.functions.square'.kl_div_epi=cvxpy.functions.square%27-module.html#kl_div_epi,Variable cvxpy.sets.kl_div_epi'.kl_div_epi=cvxpy.sets.kl_div_epi%27-module.html#kl_div_epi"><a title="cvxpy.functions.det_rootn'.kl_div_epi
+cvxpy.functions.exp'.kl_div_epi
+cvxpy.functions.geo_mean'.kl_div_epi
+cvxpy.functions.kl_div'.kl_div_epi
+cvxpy.functions.lambda_max'.kl_div_epi
+cvxpy.functions.lambda_min'.kl_div_epi
+cvxpy.functions.log'.kl_div_epi
+cvxpy.functions.log_norm_cdf'.kl_div_epi
+cvxpy.functions.log_sum_exp'.kl_div_epi
+cvxpy.functions.norm2'.kl_div_epi
+cvxpy.functions.nuclear_norm'.kl_div_epi
+cvxpy.functions.quad_form'.kl_div_epi
+cvxpy.functions.quad_over_lin'.kl_div_epi
+cvxpy.functions.sqrt'.kl_div_epi
+cvxpy.functions.square'.kl_div_epi
+cvxpy.sets.kl_div_epi'.kl_div_epi" class="py-name" href="#" onclick="return doclink('link-92', 'kl_div_epi', 'link-92');">kl_div_epi</a></tt> <tt class="py-op">=</tt> <tt id="link-93" class="py-name" targets="Class cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi=cvxpy.sets.kl_div_epi%27.cvxpy_kl_div_epi-class.html"><a title="cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi" class="py-name" href="#" onclick="return doclink('link-93', 'cvxpy_kl_div_epi', 'link-93');">cvxpy_kl_div_epi</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:02 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.algorithms.core</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.algorithms-module.html">Package&nbsp;algorithms</a> ::
+        Module&nbsp;core
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.algorithms.core-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module core</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.algorithms.core-pysrc.html">source&nbsp;code</a></span></p>
+<p>Find the k-cores of a graph.</p>
+  <p>The k-core is found by recursively pruning nodes with degrees less 
+  than k.</p>
+  <p>See the following reference for details:</p>
+  <p>An O(m) Algorithm for Cores Decomposition of Networks Vladimir 
+  Batagelj and Matjaz Zaversnik, 2003. 
+  http://arxiv.org/abs/cs.DS/0310049</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Dan Schult (dschult@colgate.edu)
+        Jason Grout (jason-sage@creativetrax.com)
+        Aric Hagberg (hagberg@lanl.gov)
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.core-module.html#core_number" class="summary-sig-name">core_number</a>(<span class="summary-sig-arg">G</span>)</span><br />
+      Return the core number for each vertex.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.core-pysrc.html#core_number">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.core-module.html#find_cores" class="summary-sig-name">find_cores</a>(<span class="summary-sig-arg">G</span>)</span><br />
+      Return the core number for each vertex.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.core-pysrc.html#core_number">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.core-module.html#k_core" class="summary-sig-name">k_core</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">k</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">core_number</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return the k-core of G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.core-pysrc.html#k_core">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.core-module.html#k_shell" class="summary-sig-name">k_shell</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">k</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">core_number</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return the k-shell of G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.core-pysrc.html#k_shell">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.core-module.html#k_crust" class="summary-sig-name">k_crust</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">k</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">core_number</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return the k-crust of G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.core-pysrc.html#k_crust">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.core-module.html#k_corona" class="summary-sig-name">k_corona</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">k</span>,
+        <span class="summary-sig-arg">core_number</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return the k-crust of G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.core-pysrc.html#k_corona">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx.algorithms'"><code class="variable-quote">'</code><code class="variable-string">networkx.algorithms</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="core_number"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">core_number</span>(<span class="sig-arg">G</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.core-pysrc.html#core_number">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the core number for each vertex.
+
+A k-core is a maximal subgraph that contains nodes of degree k or more.
+
+The core number of a node is the largest value k of a k-core containing 
+that node.
+
+Parameters
+----------
+G : NetworkX graph 
+   A graph or directed graph
+
+Returns
+-------
+core_number : dictionary 
+   A dictionary keyed by node to the core number. 
+
+Raises
+------
+NetworkXError
+    The k-core is not defined for graphs with self loops or parallel edges.
+
+Notes
+-----
+Not implemented for graphs with parallel edges or self loops.
+
+For directed graphs the node degree is defined to be the 
+in-degree + out-degree. 
+
+References
+----------
+.. [1] An O(m) Algorithm for Cores Decomposition of Networks
+   Vladimir Batagelj and Matjaz Zaversnik, 2003.
+   http://arxiv.org/abs/cs.DS/0310049 
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="find_cores"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">find_cores</span>(<span class="sig-arg">G</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.core-pysrc.html#core_number">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the core number for each vertex.
+
+A k-core is a maximal subgraph that contains nodes of degree k or more.
+
+The core number of a node is the largest value k of a k-core containing 
+that node.
+
+Parameters
+----------
+G : NetworkX graph 
+   A graph or directed graph
+
+Returns
+-------
+core_number : dictionary 
+   A dictionary keyed by node to the core number. 
+
+Raises
+------
+NetworkXError
+    The k-core is not defined for graphs with self loops or parallel edges.
+
+Notes
+-----
+Not implemented for graphs with parallel edges or self loops.
+
+For directed graphs the node degree is defined to be the 
+in-degree + out-degree. 
+
+References
+----------
+.. [1] An O(m) Algorithm for Cores Decomposition of Networks
+   Vladimir Batagelj and Matjaz Zaversnik, 2003.
+   http://arxiv.org/abs/cs.DS/0310049 
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="k_core"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">k_core</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">k</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">core_number</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.core-pysrc.html#k_core">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the k-core of G.
+
+A k-core is a maximal subgraph that contains nodes of degree k or more.
+
+Parameters
+----------
+G : NetworkX graph
+  A graph or directed graph
+k : int, optional
+  The order of the core.  If not specified return the main core.
+core_number : dictionary, optional
+  Precomputed core numbers for the graph G.
+
+Returns
+-------
+G : NetworkX graph
+  The k-core subgraph
+
+Raises
+------
+NetworkXError
+  The k-core is not defined for graphs with self loops or parallel edges.
+
+Notes
+-----
+The main core is the core with the largest degree.
+
+Not implemented for graphs with parallel edges or self loops.
+
+For directed graphs the node degree is defined to be the 
+in-degree + out-degree. 
+
+See Also
+--------
+core_number
+
+References
+----------
+.. [1] An O(m) Algorithm for Cores Decomposition of Networks
+   Vladimir Batagelj and Matjaz Zaversnik,  2003.
+   http://arxiv.org/abs/cs.DS/0310049 
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="k_shell"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">k_shell</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">k</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">core_number</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.core-pysrc.html#k_shell">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the k-shell of G.
+
+The k-shell is the subgraph of nodes in the k-core containing 
+nodes of exactly degree k.
+
+Parameters
+----------
+G : NetworkX graph
+  A graph or directed graph.
+k : int, optional      
+  The order of the shell.  If not specified return the main shell.
+core_number : dictionary, optional
+  Precomputed core numbers for the graph G.
+
+
+Returns
+-------
+G : NetworkX graph
+   The k-shell subgraph
+
+Raises
+------
+NetworkXError
+    The k-shell is not defined for graphs with self loops or parallel edges.
+
+Notes
+-----
+Not implemented for graphs with parallel edges or self loops.
+
+For directed graphs the node degree is defined to be the 
+in-degree + out-degree. 
+
+See Also
+--------
+core_number
+
+References
+----------
+.. [1] A model of Internet topology using k-shell decomposition 
+   Shai Carmi, Shlomo Havlin, Scott Kirkpatrick, Yuval Shavitt, 
+   and Eran Shir, PNAS  July 3, 2007   vol. 104  no. 27  11150-11154 
+   http://www.pnas.org/content/104/27/11150.full
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="k_crust"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">k_crust</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">k</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">core_number</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.core-pysrc.html#k_crust">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the k-crust of G.
+
+The k-crust is the graph G with the k-core removed.
+
+Parameters
+----------
+G : NetworkX graph
+   A graph or directed graph.
+k : int, optional      
+  The order of the shell.  If not specified return the main crust.
+core_number : dictionary, optional
+  Precomputed core numbers for the graph G.
+
+Returns
+-------
+G : NetworkX graph
+   The k-crust subgraph
+
+Raises
+------
+NetworkXError
+    The k-crust is not defined for graphs with self loops or parallel edges.
+
+Notes
+-----
+This definition of k-crust is different than the definition in [1]_.
+The k-crust in [1]_ is equivalent to the k+1 crust of this algorithm.
+
+Not implemented for graphs with parallel edges or self loops.
+
+For directed graphs the node degree is defined to be the 
+in-degree + out-degree. 
+
+See Also
+--------
+core_number
+
+References
+----------
+.. [1] A model of Internet topology using k-shell decomposition 
+   Shai Carmi, Shlomo Havlin, Scott Kirkpatrick, Yuval Shavitt, 
+   and Eran Shir, PNAS  July 3, 2007   vol. 104  no. 27  11150-11154 
+   http://www.pnas.org/content/104/27/11150.full
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="k_corona"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">k_corona</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">k</span>,
+        <span class="sig-arg">core_number</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.core-pysrc.html#k_corona">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the k-crust of G.
+
+The k-corona is the subset of vertices in the k-core which have
+exactly k neighbours in the k-core.
+
+Parameters
+----------
+G : NetworkX graph 
+   A graph or directed graph
+k : int
+   The order of the corona.
+core_number : dictionary, optional
+   Precomputed core numbers for the graph G.
+
+Returns
+-------
+G : NetworkX graph
+   The k-corona subgraph
+
+Raises
+------
+NetworkXError
+    The k-cornoa is not defined for graphs with self loops or 
+    parallel edges.
+
+Notes
+-----
+Not implemented for graphs with parallel edges or self loops.
+
+For directed graphs the node degree is defined to be the 
+in-degree + out-degree. 
+
+See Also
+--------
+core_number
+
+References
+----------
+.. [1]  k -core (bootstrap) percolation on complex networks: 
+   Critical phenomena and nonlocal effects, 
+   A. V. Goltsev, S. N. Dorogovtsev, and J. F. F. Mendes,
+   Phys. Rev. E 73, 056101 (2006) 
+   http://link.aps.org/doi/10.1103/PhysRevE.73.056101
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

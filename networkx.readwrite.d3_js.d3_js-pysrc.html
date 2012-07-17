@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.readwrite.d3_js.d3_js</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.readwrite-module.html">Package&nbsp;readwrite</a> ::
+        <a href="networkx.readwrite.d3_js-module.html">Package&nbsp;d3_js</a> ::
+        Module&nbsp;d3_js
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.readwrite.d3_js.d3_js-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="networkx.readwrite.d3_js.d3_js-module.html">Module networkx.readwrite.d3_js.d3_js</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/env python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># encoding: utf-8</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">d3_js.py</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">Description: Read and write files in the D3.js JSON file format.  This</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">can be used to generate interactive Java Script embeds from NetworkX</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">graph objects.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">These functions will read and write the D3.js JavaScript Object Notation (JSON)</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">format for a graph object. There is also a function to write write HTML and Javascript </tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">files need to render force-directed layout of graph object in a browser.  The default</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">redering options are based on the force-directed example by Mike Bostock at</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">(http://mbostock.github.com/d3/ex/force.html).</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">Created by Drew Conway (drew.conway@nyu.edu) on 2011-07-13 </tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring"># Copyright (c) 2011, under the Simplified BSD License.  </tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring"># For more information on FreeBSD see: http://www.opensource.org/licenses/bsd-license.php</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring"># All rights reserved.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-name">__author__</tt><tt class="py-op">=</tt><tt class="py-string">"""Drew Conway (drew.conway@nyu.edu)"""</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-name">__all__</tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt class="py-string">'write_d3_js'</tt><tt class="py-op">,</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">                 <tt class="py-string">'d3_json'</tt><tt class="py-op">,</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">                 <tt class="py-string">'export_d3_js'</tt><tt class="py-op">]</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">shutil</tt> <tt class="py-keyword">import</tt> <tt class="py-name">copyfile</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package networkx=networkx-module.html"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-0', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module cvxpy.utils=cvxpy.utils-module.html,Module networkx.utils=networkx.utils-module.html"><a title="cvxpy.utils
+networkx.utils" class="py-name" href="#" onclick="return doclink('link-1', 'utils', 'link-1');">utils</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Function networkx.utils._get_fh()=networkx.utils-module.html#_get_fh"><a title="networkx.utils._get_fh" class="py-name" href="#" onclick="return doclink('link-2', '_get_fh', 'link-2');">_get_fh</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Function networkx.utils.make_str()=networkx.utils-module.html#make_str"><a title="networkx.utils.make_str" class="py-name" href="#" onclick="return doclink('link-3', 'make_str', 'link-3');">make_str</a></tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-4" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-4', 'networkx', 'link-0');">networkx</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">nx</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-5', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Package networkx.readwrite=networkx.readwrite-module.html"><a title="networkx.readwrite" class="py-name" href="#" onclick="return doclink('link-6', 'readwrite', 'link-6');">readwrite</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Package networkx.readwrite.d3_js=networkx.readwrite.d3_js-module.html,Module networkx.readwrite.d3_js.d3_js=networkx.readwrite.d3_js.d3_js-module.html,Variable networkx.readwrite.d3_js.d3_js_files.d3_js=networkx.readwrite.d3_js.d3_js_files-module.html#d3_js"><a title="networkx.readwrite.d3_js
+networkx.readwrite.d3_js.d3_js
+networkx.readwrite.d3_js.d3_js_files.d3_js" class="py-name" href="#" onclick="return doclink('link-7', 'd3_js', 'link-7');">d3_js</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Module networkx.readwrite.d3_js.d3_js_files=networkx.readwrite.d3_js.d3_js_files-module.html"><a title="networkx.readwrite.d3_js.d3_js_files" class="py-name" href="#" onclick="return doclink('link-8', 'd3_js_files', 'link-8');">d3_js_files</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">json</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt>        </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="write_d3_js"></a><div id="write_d3_js-def"><a name="L37"></a><tt class="py-lineno"> 37</tt> <a class="py-toggle" href="#" id="write_d3_js-toggle" onclick="return toggle('write_d3_js');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.readwrite.d3_js.d3_js-module.html#write_d3_js">write_d3_js</a><tt class="py-op">(</tt><tt class="py-param">G</tt><tt class="py-op">,</tt> <tt class="py-param">path</tt><tt class="py-op">,</tt> <tt class="py-param">group</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">encoding</tt><tt class="py-op">=</tt><tt class="py-string">"utf-8"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="write_d3_js-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="write_d3_js-expanded"><a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-docstring">"""Writes a NetworkX graph in D3.js JSON graph format to disk.</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">        Parameters</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">        ----------</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">        G : graph</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">                a NetworkX graph</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">        path : file or string</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">       File or filename to write. If a file is provided, it must be</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">       opened in 'wb' mode. Filenames ending in .gz or .bz2 will be compressed.</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">        group : string, optional</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">                The name 'group' key for each node in the graph. This is used to </tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">                assign nodes to exclusive partitions, and for node coloring if visualizing.</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">        encoding: string, optional</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">       Specify which encoding to use when writing file.</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">        Examples</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">        --------</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; from networkx.readwrite import d3_js</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; G = nx.path_graph(4)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; G.add_nodes_from(map(lambda i: (i, {'group': i}), G.nodes()))</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; d3_js.write_d3_js(G, 'four_color_line.json')</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-name">fh</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="networkx.utils._get_fh" class="py-name" href="#" onclick="return doclink('link-9', '_get_fh', 'link-2');">_get_fh</a></tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">,</tt> <tt class="py-string">'wb'</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">graph_json</tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name" targets="Function networkx.readwrite.d3_js.d3_js.d3_json()=networkx.readwrite.d3_js.d3_js-module.html#d3_json"><a title="networkx.readwrite.d3_js.d3_js.d3_json" class="py-name" href="#" onclick="return doclink('link-10', 'd3_json', 'link-10');">d3_json</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt> <tt class="py-name">group</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-name">graph_dump</tt> <tt class="py-op">=</tt> <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">dumps</tt><tt class="py-op">(</tt><tt class="py-name">graph_json</tt><tt class="py-op">,</tt> <tt id="link-11" class="py-name" targets="Method networkx.readwrite.gexf.GEXFWriter.indent()=networkx.readwrite.gexf.GEXFWriter-class.html#indent,Method networkx.readwrite.graphml.GraphMLWriter.indent()=networkx.readwrite.graphml.GraphMLWriter-class.html#indent"><a title="networkx.readwrite.gexf.GEXFWriter.indent
+networkx.readwrite.graphml.GraphMLWriter.indent" class="py-name" href="#" onclick="return doclink('link-11', 'indent', 'link-11');">indent</a></tt><tt class="py-op">=</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-name">fh</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method networkx.readwrite.gexf.GEXFWriter.write()=networkx.readwrite.gexf.GEXFWriter-class.html#write"><a title="networkx.readwrite.gexf.GEXFWriter.write" class="py-name" href="#" onclick="return doclink('link-12', 'write', 'link-12');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">graph_dump</tt><tt class="py-op">.</tt><tt class="py-name">encode</tt><tt class="py-op">(</tt><tt class="py-name">encoding</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">         </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
+<a name="d3_json"></a><div id="d3_json-def"><a name="L66"></a><tt class="py-lineno"> 66</tt> <a class="py-toggle" href="#" id="d3_json-toggle" onclick="return toggle('d3_json');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.readwrite.d3_js.d3_js-module.html#d3_json">d3_json</a><tt class="py-op">(</tt><tt class="py-param">G</tt><tt class="py-op">,</tt> <tt class="py-param">group</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="d3_json-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="d3_json-expanded"><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-docstring">"""Converts a NetworkX Graph to a properly D3.js JSON formatted dictionary</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">        Parameters</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">        ----------</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">        G : graph</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">                a NetworkX graph</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">        group : string, optional</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">                The name 'group' key for each node in the graph. This is used to </tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">                assign nodes to exclusive partitions, and for node coloring if visualizing.</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">        Examples</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">        --------</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; from networkx.readwrite import d3_js</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; G = nx.path_graph(4)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; G.add_nodes_from(map(lambda i: (i, {'group': i}), G.nodes()))</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; d3_js.d3_json(G)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">        {'links': [{'source': 0, 'target': 1, 'value': 1},</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">          {'source': 1, 'target': 2, 'value': 1},</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">          {'source': 2, 'target': 3, 'value': 1}],</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">         'nodes': [{'group': 0, 'nodeName': 0},</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">          {'group': 1, 'nodeName': 1},</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">          {'group': 2, 'nodeName': 2},</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">          {'group': 3, 'nodeName': 3}]}</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-name">ints_graph</tt> <tt class="py-op">=</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Function networkx.relabel.convert_node_labels_to_integers()=networkx.relabel-module.html#convert_node_labels_to_integers"><a title="networkx.relabel.convert_node_labels_to_integers" class="py-name" href="#" onclick="return doclink('link-13', 'convert_node_labels_to_integers', 'link-13');">convert_node_labels_to_integers</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt> <tt class="py-name">discard_old_labels</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-name">graph_nodes</tt> <tt class="py-op">=</tt> <tt class="py-name">ints_graph</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Function networkx.classes.function.nodes()=networkx.classes.function-module.html#nodes,Method networkx.classes.graph.Graph.nodes()=networkx.classes.graph.Graph-class.html#nodes"><a title="networkx.classes.function.nodes
+networkx.classes.graph.Graph.nodes" class="py-name" href="#" onclick="return doclink('link-14', 'nodes', 'link-14');">nodes</a></tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-name">graph_edges</tt> <tt class="py-op">=</tt> <tt class="py-name">ints_graph</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Function networkx.classes.function.edges()=networkx.classes.function-module.html#edges,Method networkx.classes.graph.Graph.edges()=networkx.classes.graph.Graph-class.html#edges,Method networkx.classes.multigraph.MultiGraph.edges()=networkx.classes.multigraph.MultiGraph-class.html#edges"><a title="networkx.classes.function.edges
+networkx.classes.graph.Graph.edges
+networkx.classes.multigraph.MultiGraph.edges" class="py-name" href="#" onclick="return doclink('link-15', 'edges', 'link-15');">edges</a></tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">         </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-name">node_labels</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-name">b</tt><tt class="py-op">,</tt><tt class="py-name">a</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-op">(</tt><tt class="py-name">a</tt><tt class="py-op">,</tt><tt class="py-name">b</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">ints_graph</tt><tt class="py-op">.</tt><tt class="py-name">node_labels</tt><tt class="py-op">.</tt><tt class="py-name">items</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-name">node_labels</tt><tt class="py-op">.</tt><tt class="py-name">sort</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">         </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-comment"># Build up node dictionary in JSON format</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">group</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                <tt class="py-name">graph_json</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'nodes'</tt><tt class="py-op">:</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">n</tt><tt class="py-op">:</tt> <tt class="py-op">{</tt><tt class="py-string">'name'</tt><tt class="py-op">:</tt> <tt id="link-16" class="py-name" targets="Class str=str-class.html"><a title="str" class="py-name" href="#" onclick="return doclink('link-16', 'str', 'link-16');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">node_labels</tt><tt class="py-op">[</tt><tt class="py-name">n</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'group'</tt> <tt class="py-op">:</tt> <tt class="py-number">0</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">node_labels</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">}</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                        <tt class="py-name">graph_json</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'nodes'</tt> <tt class="py-op">:</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">n</tt><tt class="py-op">:</tt> <tt class="py-op">{</tt><tt class="py-string">'name'</tt><tt class="py-op">:</tt> <tt id="link-17" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-17', 'str', 'link-16');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">node_labels</tt><tt class="py-op">[</tt><tt class="py-name">n</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'group'</tt> <tt class="py-op">:</tt> <tt class="py-name">graph_nodes</tt><tt class="py-op">[</tt><tt class="py-name">n</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-name">group</tt><tt class="py-op">]</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">node_labels</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">}</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Class networkx.exception.NetworkXError=networkx.exception.NetworkXError-class.html"><a title="networkx.exception.NetworkXError" class="py-name" href="#" onclick="return doclink('link-18', 'NetworkXError', 'link-18');">NetworkXError</a></tt><tt class="py-op">(</tt><tt class="py-string">"The graph had no node attribute for '"</tt><tt class="py-op">+</tt><tt class="py-name">group</tt><tt class="py-op">+</tt><tt class="py-string">"'"</tt><tt class="py-op">)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                 </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-comment"># Build up edge dictionary in JSON format</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-name">json_edges</tt> <tt class="py-op">=</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">j</tt><tt class="py-op">,</tt> <tt class="py-name">k</tt><tt class="py-op">,</tt> <tt class="py-name">w</tt> <tt class="py-keyword">in</tt> <tt class="py-name">graph_edges</tt><tt class="py-op">:</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                <tt class="py-name">e</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'source'</tt> <tt class="py-op">:</tt> <tt class="py-name">j</tt><tt class="py-op">,</tt> <tt class="py-string">'target'</tt> <tt class="py-op">:</tt> <tt class="py-name">k</tt><tt class="py-op">}</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">any</tt><tt class="py-op">(</tt><tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">k</tt><tt class="py-op">:</tt> <tt class="py-name">k</tt><tt class="py-op">==</tt><tt class="py-string">'weight'</tt><tt class="py-op">,</tt> <tt class="py-name">w</tt><tt class="py-op">.</tt><tt class="py-name">keys</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                        <tt class="py-name">e</tt><tt class="py-op">[</tt><tt class="py-string">'value'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">w</tt><tt class="py-op">[</tt><tt class="py-string">'weight'</tt><tt class="py-op">]</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">                        <tt class="py-name">e</tt><tt class="py-op">[</tt><tt class="py-string">'value'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                <tt class="py-name">json_edges</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">         </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-name">graph_json</tt><tt class="py-op">[</tt><tt class="py-string">'links'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">json_edges</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">graph_json</tt> </tt>
+</div><a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">         </tt>
+<a name="export_d3_js"></a><div id="export_d3_js-def"><a name="L120"></a><tt class="py-lineno">120</tt> <a class="py-toggle" href="#" id="export_d3_js-toggle" onclick="return toggle('export_d3_js');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.readwrite.d3_js.d3_js-module.html#export_d3_js">export_d3_js</a><tt class="py-op">(</tt><tt class="py-param">G</tt><tt class="py-op">,</tt> <tt class="py-param">files_dir</tt><tt class="py-op">=</tt><tt class="py-string">'nx_js_d3_graph'</tt><tt class="py-op">,</tt> <tt class="py-param">graphname</tt><tt class="py-op">=</tt><tt class="py-string">"nx_js_d3_graph"</tt><tt class="py-op">,</tt> <tt class="py-param">group</tt><tt class="py-op">=</tt><tt class="py-string">'group'</tt><tt class="py-op">,</tt>  </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                                <tt class="py-param">width</tt><tt class="py-op">=</tt><tt class="py-number">960</tt><tt class="py-op">,</tt> <tt class="py-param">height</tt><tt class="py-op">=</tt><tt class="py-number">500</tt><tt class="py-op">,</tt> <tt class="py-param">node_labels</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-param">encoding</tt><tt class="py-op">=</tt><tt class="py-string">"utf-8"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="export_d3_js-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="export_d3_js-expanded"><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">        A function that exports a NetworkX graph as an interavtice D3.js object.  </tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">        The function builds a folder, containing the graph's formatted JSON, the D3.js </tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">        JavaScript, and an HTML page to load the graph in a browser.</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">        Parameters</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">        ----------</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring">        G : graph</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring">                a NetworkX graph</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">        files_dir : string, optional</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">                name of directory to save files</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">        graphname : string, optional</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">                the name of the graph being save as JSON, will appears in directory as 'graphname.json'</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">        group : string, optional</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring">                The name of the 'group' key for each node in the graph. This is used to </tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">                assign nodes to exclusive partitions, and for node coloring if visualizing.</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-docstring">        width : int, optional</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">                width (px) of display frame for graph object in browser window</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-docstring">        height : int, optional</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-docstring">                height (px) of display frame for graph object in browser window</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-docstring">        node_labels : bool, optional</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-docstring">                If true, nodes are displayed with labels in browser</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring">        encoding: string, optional</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">       Specify which encoding to use when writing file.</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-docstring">        Examples</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-docstring">        --------</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; from scipy import random</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; from networkx.readwrite import d3_js</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; G = nx.random_lobster(20, .8, .8)</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; low = 0</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; high = 5</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; G.add_nodes_from(map(lambda i: (i, {'group': random.random_integers(low, high, 1)[0]}), G.nodes()))</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; G.add_edges_from(map(lambda e: (e[0], e[1], {'weight': random.random_integers(low+1, high, 1)[0]}), G.edges()))</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; d3_js.export_d3_js(G, files_dir="random_lobster", graphname="random_lobster_graph", node_labels=False)</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">exists</tt><tt class="py-op">(</tt><tt class="py-name">files_dir</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">            <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">makedirs</tt><tt class="py-op">(</tt><tt class="py-name">files_dir</tt><tt class="py-op">)</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">         </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">        <tt id="link-19" class="py-name" targets="Function networkx.readwrite.d3_js.d3_js.write_d3_js()=networkx.readwrite.d3_js.d3_js-module.html#write_d3_js"><a title="networkx.readwrite.d3_js.d3_js.write_d3_js" class="py-name" href="#" onclick="return doclink('link-19', 'write_d3_js', 'link-19');">write_d3_js</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt> <tt class="py-name">path</tt><tt class="py-op">=</tt><tt class="py-name">files_dir</tt><tt class="py-op">+</tt><tt class="py-string">"/"</tt><tt class="py-op">+</tt><tt class="py-name">graphname</tt><tt class="py-op">+</tt><tt class="py-string">".json"</tt><tt class="py-op">,</tt> <tt class="py-name">group</tt><tt class="py-op">=</tt><tt class="py-name">group</tt><tt class="py-op">,</tt> <tt class="py-name">encoding</tt><tt class="py-op">=</tt><tt class="py-name">encoding</tt><tt class="py-op">)</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">         </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">exists</tt><tt class="py-op">(</tt><tt class="py-name">files_dir</tt><tt class="py-op">+</tt><tt class="py-string">"/d3"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">makedirs</tt><tt class="py-op">(</tt><tt class="py-name">files_dir</tt><tt class="py-op">+</tt><tt class="py-string">"/d3"</tt><tt class="py-op">)</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">         </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">        <tt class="py-comment"># Begin by creating the necessary JS and HTML files</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">         </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">        <tt class="py-comment"># This part really sucks bad, someone needs to make this better.</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">        <tt class="py-name">d3_files</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'d3.js'</tt> <tt class="py-op">:</tt> <tt id="link-20" class="py-name"><a title="networkx.readwrite.d3_js
+networkx.readwrite.d3_js.d3_js
+networkx.readwrite.d3_js.d3_js_files.d3_js" class="py-name" href="#" onclick="return doclink('link-20', 'd3_js', 'link-7');">d3_js</a></tt><tt class="py-op">,</tt> <tt class="py-string">'d3.geom.js'</tt> <tt class="py-op">:</tt> <tt id="link-21" class="py-name" targets="Variable networkx.readwrite.d3_js.d3_js_files.d3_geom=networkx.readwrite.d3_js.d3_js_files-module.html#d3_geom"><a title="networkx.readwrite.d3_js.d3_js_files.d3_geom" class="py-name" href="#" onclick="return doclink('link-21', 'd3_geom', 'link-21');">d3_geom</a></tt><tt class="py-op">,</tt> <tt class="py-string">'d3.layout.js'</tt> <tt class="py-op">:</tt> <tt id="link-22" class="py-name" targets="Variable networkx.readwrite.d3_js.d3_js_files.d3_layout=networkx.readwrite.d3_js.d3_js_files-module.html#d3_layout"><a title="networkx.readwrite.d3_js.d3_js_files.d3_layout" class="py-name" href="#" onclick="return doclink('link-22', 'd3_layout', 'link-22');">d3_layout</a></tt><tt class="py-op">,</tt> <tt class="py-string">'force.css'</tt> <tt class="py-op">:</tt> <tt id="link-23" class="py-name" targets="Variable networkx.readwrite.d3_js.d3_js_files.d3_css=networkx.readwrite.d3_js.d3_js_files-module.html#d3_css"><a title="networkx.readwrite.d3_js.d3_js_files.d3_css" class="py-name" href="#" onclick="return doclink('link-23', 'd3_css', 'link-23');">d3_css</a></tt><tt class="py-op">,</tt> <tt class="py-string">'LICENSE'</tt> <tt class="py-op">:</tt> <tt id="link-24" class="py-name" targets="Variable networkx.readwrite.d3_js.d3_js_files.d3_license=networkx.readwrite.d3_js.d3_js_files-module.html#d3_license"><a title="networkx.readwrite.d3_js.d3_js_files.d3_license" class="py-name" href="#" onclick="return doclink('link-24', 'd3_license', 'link-24');">d3_license</a></tt><tt class="py-op">}</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">f</tt> <tt class="py-keyword">in</tt> <tt class="py-name">d3_files</tt><tt class="py-op">.</tt><tt class="py-name">keys</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">                <tt class="py-name">f_open</tt> <tt class="py-op">=</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">files_dir</tt><tt class="py-op">+</tt><tt class="py-string">'/d3/'</tt><tt class="py-op">+</tt><tt class="py-name">f</tt><tt class="py-op">,</tt> <tt class="py-string">"w"</tt><tt class="py-op">)</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">                <tt class="py-name">f_open</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="networkx.readwrite.gexf.GEXFWriter.write" class="py-name" href="#" onclick="return doclink('link-25', 'write', 'link-12');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">d3_files</tt><tt class="py-op">[</tt><tt class="py-name">f</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">                <tt class="py-name">f_open</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Function networkx.algorithms.isomorphism.matchhelpers.close()=networkx.algorithms.isomorphism.matchhelpers-module.html#close"><a title="networkx.algorithms.isomorphism.matchhelpers.close" class="py-name" href="#" onclick="return doclink('link-26', 'close', 'link-26');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">                 </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">        <tt class="py-comment"># Next, go through and customize force.js and html to the given export</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">         </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">        <tt class="py-name">graph_force_js</tt> <tt class="py-op">=</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">files_dir</tt><tt class="py-op">+</tt><tt class="py-string">'/'</tt><tt class="py-op">+</tt><tt class="py-name">graphname</tt><tt class="py-op">+</tt><tt class="py-string">'.js'</tt><tt class="py-op">,</tt> <tt class="py-string">"w"</tt><tt class="py-op">)</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-27" class="py-name" targets="Module networkx.generators.line=networkx.generators.line-module.html"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-27', 'line', 'link-27');">line</a></tt> <tt class="py-keyword">in</tt> <tt id="link-28" class="py-name" targets="Variable networkx.readwrite.d3_js.d3_js_files.d3_force=networkx.readwrite.d3_js.d3_js_files-module.html#d3_force"><a title="networkx.readwrite.d3_js.d3_js_files.d3_force" class="py-name" href="#" onclick="return doclink('link-28', 'd3_force', 'link-28');">d3_force</a></tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'\n'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt id="link-29" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-29', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'w = 960'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">                        <tt id="link-30" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-30', 'line', 'link-27');">line</a></tt> <tt class="py-op">=</tt> <tt id="link-31" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-31', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'w = 960'</tt><tt class="py-op">,</tt> <tt class="py-string">'w = '</tt><tt class="py-op">+</tt><tt id="link-32" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-32', 'str', 'link-16');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">width</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt id="link-33" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-33', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'h = 500'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">                        <tt id="link-34" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-34', 'line', 'link-27');">line</a></tt> <tt class="py-op">=</tt> <tt id="link-35" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-35', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'h = 500'</tt><tt class="py-op">,</tt> <tt class="py-string">'h = '</tt><tt class="py-op">+</tt><tt id="link-36" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-36', 'str', 'link-16');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">height</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt id="link-37" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-37', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'"miserables.json"'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">                        <tt id="link-38" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-38', 'line', 'link-27');">line</a></tt> <tt class="py-op">=</tt> <tt id="link-39" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-39', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'"miserables.json"'</tt><tt class="py-op">,</tt> <tt class="py-string">'"'</tt><tt class="py-op">+</tt><tt class="py-name">graphname</tt><tt class="py-op">+</tt><tt class="py-string">'.json"'</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">                <tt class="py-name">graph_force_js</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="networkx.readwrite.gexf.GEXFWriter.write" class="py-name" href="#" onclick="return doclink('link-40', 'write', 'link-12');">write</a></tt><tt class="py-op">(</tt><tt id="link-41" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-41', 'line', 'link-27');">line</a></tt><tt class="py-op">+</tt><tt class="py-string">'\n'</tt><tt class="py-op">.</tt><tt class="py-name">encode</tt><tt class="py-op">(</tt><tt class="py-name">encoding</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt id="link-42" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-42', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'drag'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt> <tt class="py-keyword">and</tt> <tt class="py-name">node_labels</tt><tt class="py-op">:</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">                        <tt class="py-name">label_func</tt> <tt class="py-op">=</tt> <tt class="py-string">'''\n  node.append("svg:text")</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"><tt class="py-string">    .attr("class", "nodetext")</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line"><tt class="py-string">    .attr("dx", 10)</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"><tt class="py-string">        .attr("dy", ".35em")</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"><tt class="py-string">        .text(function(d) { return d.name; });</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line"><tt class="py-string">  node.append("svg:title")</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"><tt class="py-string">    .text(function(d) { return d.name; });\n'''</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">                        <tt class="py-name">graph_force_js</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="networkx.readwrite.gexf.GEXFWriter.write" class="py-name" href="#" onclick="return doclink('link-43', 'write', 'link-12');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">label_func</tt><tt class="py-op">.</tt><tt class="py-name">encode</tt><tt class="py-op">(</tt><tt class="py-name">encoding</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">        <tt class="py-name">graph_force_js</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="networkx.algorithms.isomorphism.matchhelpers.close" class="py-name" href="#" onclick="return doclink('link-44', 'close', 'link-26');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">         </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">        <tt class="py-name">graph_force_html</tt> <tt class="py-op">=</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">files_dir</tt><tt class="py-op">+</tt><tt class="py-string">'/'</tt><tt class="py-op">+</tt><tt class="py-name">graphname</tt><tt class="py-op">+</tt><tt class="py-string">'.html'</tt><tt class="py-op">,</tt> <tt class="py-string">'w'</tt><tt class="py-op">)</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-45" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-45', 'line', 'link-27');">line</a></tt> <tt class="py-keyword">in</tt> <tt id="link-46" class="py-name" targets="Variable networkx.readwrite.d3_js.d3_js_files.d3_html=networkx.readwrite.d3_js.d3_js_files-module.html#d3_html"><a title="networkx.readwrite.d3_js.d3_js_files.d3_html" class="py-name" href="#" onclick="return doclink('link-46', 'd3_html', 'link-46');">d3_html</a></tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">"\n"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt id="link-47" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-47', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'"../../d3.js"'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">                        <tt id="link-48" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-48', 'line', 'link-27');">line</a></tt> <tt class="py-op">=</tt> <tt id="link-49" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-49', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'"../../d3.js"'</tt><tt class="py-op">,</tt> <tt class="py-string">'"d3/d3.js"'</tt><tt class="py-op">)</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt id="link-50" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-50', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'"../../d3.geom.js"'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">                        <tt id="link-51" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-51', 'line', 'link-27');">line</a></tt> <tt class="py-op">=</tt> <tt id="link-52" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-52', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'"../../d3.geom.js"'</tt><tt class="py-op">,</tt> <tt class="py-string">'"d3/d3.geom.js"'</tt><tt class="py-op">)</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt id="link-53" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-53', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'"../../d3.layout.js"'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">                        <tt id="link-54" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-54', 'line', 'link-27');">line</a></tt> <tt class="py-op">=</tt> <tt id="link-55" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-55', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'"../../d3.layout.js"'</tt><tt class="py-op">,</tt> <tt class="py-string">'"d3/d3.layout.js"'</tt><tt class="py-op">)</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt id="link-56" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-56', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'"force.css"'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">                        <tt id="link-57" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-57', 'line', 'link-27');">line</a></tt> <tt class="py-op">=</tt> <tt id="link-58" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-58', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'"force.css"'</tt><tt class="py-op">,</tt> <tt class="py-string">'"d3/force.css"'</tt><tt class="py-op">)</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt id="link-59" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-59', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'"force.js"'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">                        <tt id="link-60" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-60', 'line', 'link-27');">line</a></tt> <tt class="py-op">=</tt> <tt id="link-61" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-61', 'line', 'link-27');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'"force.js"'</tt><tt class="py-op">,</tt> <tt class="py-string">'"'</tt><tt class="py-op">+</tt><tt class="py-name">graphname</tt><tt class="py-op">+</tt><tt class="py-string">'.js"'</tt><tt class="py-op">)</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">                <tt class="py-name">graph_force_html</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="networkx.readwrite.gexf.GEXFWriter.write" class="py-name" href="#" onclick="return doclink('link-62', 'write', 'link-12');">write</a></tt><tt class="py-op">(</tt><tt id="link-63" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-63', 'line', 'link-27');">line</a></tt><tt class="py-op">+</tt><tt class="py-string">'\n'</tt><tt class="py-op">.</tt><tt class="py-name">encode</tt><tt class="py-op">(</tt><tt class="py-name">encoding</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">        <tt class="py-name">graph_force_html</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="networkx.algorithms.isomorphism.matchhelpers.close" class="py-name" href="#" onclick="return doclink('link-64', 'close', 'link-26');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:02 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

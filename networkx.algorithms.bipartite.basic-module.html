@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.algorithms.bipartite.basic</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.algorithms-module.html">Package&nbsp;algorithms</a> ::
+        <a href="networkx.algorithms.bipartite-module.html">Package&nbsp;bipartite</a> ::
+        Module&nbsp;basic
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.algorithms.bipartite.basic-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module basic</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html">source&nbsp;code</a></span></p>
+<p>========================== Bipartite Graph Algorithms 
+  ==========================</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Aric Hagberg (hagberg@lanl.gov)
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.bipartite.basic-module.html#color" class="summary-sig-name">color</a>(<span class="summary-sig-arg">G</span>)</span><br />
+      Returns a two-coloring of the graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html#color">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.bipartite.basic-module.html#is_bipartite" class="summary-sig-name">is_bipartite</a>(<span class="summary-sig-arg">G</span>)</span><br />
+      Returns True if graph G is bipartite, False if not.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html#is_bipartite">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.bipartite.basic-module.html#is_bipartite_node_set" class="summary-sig-name">is_bipartite_node_set</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodes</span>)</span><br />
+      Returns True if nodes and G/nodes are a bipartition of G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html#is_bipartite_node_set">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.bipartite.basic-module.html#sets" class="summary-sig-name">sets</a>(<span class="summary-sig-arg">G</span>)</span><br />
+      Returns bipartite node sets of graph G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html#sets">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.bipartite.basic-module.html#density" class="summary-sig-name">density</a>(<span class="summary-sig-arg">B</span>,
+        <span class="summary-sig-arg">nodes</span>)</span><br />
+      Return density of bipartite graph B.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html#density">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.bipartite.basic-module.html#degrees" class="summary-sig-name">degrees</a>(<span class="summary-sig-arg">B</span>,
+        <span class="summary-sig-arg">nodes</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return the degrees of the two node sets in the bipartite graph B.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html#degrees">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx.algorithms.bipartite'"><code class="variable-quote">'</code><code class="variable-string">networkx.algorithms.bipartite</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="color"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">color</span>(<span class="sig-arg">G</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html#color">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Returns a two-coloring of the graph.
+
+Raises an exception if the graph is not bipartite.
+
+Parameters
+----------
+G : NetworkX graph 
+
+Returns
+-------
+color : dictionary
+   A dictionary keyed by node with a 1 or 0 as data for each node color.
+
+Raises
+------
+NetworkXError if the graph is not two-colorable.
+
+Examples
+--------
+&gt;&gt;&gt; from networkx.algorithms import bipartite
+&gt;&gt;&gt; G = nx.path_graph(4)
+&gt;&gt;&gt; c = bipartite.color(G)
+&gt;&gt;&gt; print(c)
+{0: 1, 1: 0, 2: 1, 3: 0}
+
+You can use this to set a node attribute indicating the biparite set:
+
+&gt;&gt;&gt; nx.set_node_attributes(G, 'bipartite', c)
+&gt;&gt;&gt; print(G.node[0]['bipartite'])
+1
+&gt;&gt;&gt; print(G.node[1]['bipartite'])
+0
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="is_bipartite"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_bipartite</span>(<span class="sig-arg">G</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html#is_bipartite">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Returns True if graph G is bipartite, False if not.
+
+Parameters
+----------
+G : NetworkX graph 
+
+Examples
+--------
+&gt;&gt;&gt; from networkx.algorithms import bipartite
+&gt;&gt;&gt; G = nx.path_graph(4)
+&gt;&gt;&gt; print(bipartite.is_bipartite(G))
+True
+
+See Also
+--------
+color, is_bipartite_node_set
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="is_bipartite_node_set"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_bipartite_node_set</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodes</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html#is_bipartite_node_set">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Returns True if nodes and G/nodes are a bipartition of G.
+
+Parameters
+----------
+G : NetworkX graph 
+
+nodes: list or container
+  Check if nodes are a one of a bipartite set.
+
+Examples
+--------
+&gt;&gt;&gt; from networkx.algorithms import bipartite
+&gt;&gt;&gt; G = nx.path_graph(4)
+&gt;&gt;&gt; X = set([1,3])
+&gt;&gt;&gt; bipartite.is_bipartite_node_set(G,X)
+True
+
+Notes
+-----
+For connected graphs the bipartite sets are unique.  This function handles
+disconnected graphs.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="sets"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">sets</span>(<span class="sig-arg">G</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html#sets">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Returns bipartite node sets of graph G.
+
+Raises an exception if the graph is not bipartite.
+
+Parameters
+----------
+G : NetworkX graph 
+
+Returns
+-------
+(X,Y) : two-tuple of sets
+   One set of nodes for each part of the bipartite graph.
+
+Examples
+--------
+&gt;&gt;&gt; from networkx.algorithms import bipartite
+&gt;&gt;&gt; G = nx.path_graph(4)
+&gt;&gt;&gt; X, Y = bipartite.sets(G)
+&gt;&gt;&gt; list(X)
+[0, 2]
+&gt;&gt;&gt; list(Y)
+[1, 3]
+
+See Also
+--------
+color
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="density"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">density</span>(<span class="sig-arg">B</span>,
+        <span class="sig-arg">nodes</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html#density">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return density of bipartite graph B.
+
+Parameters
+----------
+G : NetworkX graph 
+
+nodes: list or container
+  Nodes in one set of the bipartite graph.
+
+Returns
+-------
+d : float
+   The bipartite density
+
+Examples
+--------
+&gt;&gt;&gt; from networkx.algorithms import bipartite
+&gt;&gt;&gt; G = nx.complete_bipartite_graph(3,2)
+&gt;&gt;&gt; X=set([0,1,2])
+&gt;&gt;&gt; bipartite.density(G,X)
+1.0
+&gt;&gt;&gt; Y=set([3,4])
+&gt;&gt;&gt; bipartite.density(G,Y)
+1.0
+
+See Also
+--------
+color
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="degrees"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">degrees</span>(<span class="sig-arg">B</span>,
+        <span class="sig-arg">nodes</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.bipartite.basic-pysrc.html#degrees">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the degrees of the two node sets in the bipartite graph B.
+
+Parameters
+----------
+G : NetworkX graph 
+
+nodes: list or container
+  Nodes in one set of the bipartite graph.
+
+weight : string or None, optional (default=None)
+   The edge attribute that holds the numerical value used as a weight.
+   If None, then each edge has weight 1.
+   The degree is the sum of the edge weights adjacent to the node.
+
+Returns
+-------
+(degX,degY) : tuple of dictionaries
+   The degrees of the two bipartite sets as dictionaries keyed by node.
+
+Examples
+--------
+&gt;&gt;&gt; from networkx.algorithms import bipartite
+&gt;&gt;&gt; G = nx.complete_bipartite_graph(3,2)
+&gt;&gt;&gt; Y=set([3,4])
+&gt;&gt;&gt; degX,degY=bipartite.degrees(G,Y)
+&gt;&gt;&gt; degX
+{0: 2, 1: 2, 2: 2}
+
+See Also
+--------
+color, density
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

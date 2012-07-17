@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.readwrite.gexf</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.readwrite-module.html">Package&nbsp;readwrite</a> ::
+        Module&nbsp;gexf
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.readwrite.gexf-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module gexf</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+****
+GEXF
+****
+Read and write graphs in GEXF format.
+
+GEXF (Graph Exchange XML Format) is a language for describing complex
+network structures, their associated data and dynamics.
+
+This implementation does not support mixed graphs (directed and
+unidirected edges together).
+
+Format
+------
+GEXF is an XML format.  See http://gexf.net/format/schema.html for the
+specification and http://gexf.net/format/basic.html for examples.
+
+</pre>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Aric Hagberg (hagberg@lanl.gov)
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.readwrite.gexf.GEXF-class.html" class="summary-name" onclick="show_private();">GEXF</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.readwrite.gexf.GEXFWriter-class.html" class="summary-name" onclick="show_private();">GEXFWriter</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.readwrite.gexf.GEXFReader-class.html" class="summary-name" onclick="show_private();">GEXFReader</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.gexf-module.html#write_gexf" class="summary-sig-name">write_gexf</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">path</span>,
+        <span class="summary-sig-arg">encoding</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">prettyprint</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">version</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">1.1draft</code><code class="variable-quote">'</code></span>)</span><br />
+      Write G in GEXF format to path.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#write_gexf">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.gexf-module.html#generate_gexf" class="summary-sig-name">generate_gexf</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">encoding</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">prettyprint</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">version</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">1.1draft</code><code class="variable-quote">'</code></span>)</span><br />
+      Generate lines of GEXF format representation of G&quot;</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#generate_gexf">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.gexf-module.html#read_gexf" class="summary-sig-name">read_gexf</a>(<span class="summary-sig-arg">path</span>,
+        <span class="summary-sig-arg">node_type</span>=<span class="summary-sig-default">&lt;type 'str'&gt;</span>,
+        <span class="summary-sig-arg">relabel</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">version</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">1.1draft</code><code class="variable-quote">'</code></span>)</span><br />
+      Read graph in GEXF format from path.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#read_gexf">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.gexf-module.html#relabel_gexf_graph" class="summary-sig-name">relabel_gexf_graph</a>(<span class="summary-sig-arg">G</span>)</span><br />
+      Relabel graph using &quot;label&quot; node keyword for node label.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#relabel_gexf_graph">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setup_module"></a><span class="summary-sig-name">setup_module</span>(<span class="summary-sig-arg">module</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#setup_module">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="teardown_module"></a><span class="summary-sig-name">teardown_module</span>(<span class="summary-sig-arg">module</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#teardown_module">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx.readwrite'"><code class="variable-quote">'</code><code class="variable-string">networkx.readwrite</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="write_gexf"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write_gexf</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">path</span>,
+        <span class="sig-arg">encoding</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">prettyprint</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">version</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">1.1draft</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#write_gexf">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Write G in GEXF format to path.
+
+&quot;GEXF (Graph Exchange XML Format) is a language for describing
+complex networks structures, their associated data and dynamics&quot; [1]_.
+
+Parameters
+----------
+G : graph
+   A NetworkX graph
+path : file or string
+   File or filename to write.  
+   Filenames ending in .gz or .bz2 will be compressed.
+encoding : string (optional)
+   Encoding for text data.
+prettyprint : bool (optional)
+   If True use line breaks and indenting in output XML.
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.path_graph(4)
+&gt;&gt;&gt; nx.write_gexf(G, &quot;test.gexf&quot;)
+
+Notes
+-----
+This implementation does not support mixed graphs (directed and unidirected 
+edges together).
+
+The node id attribute is set to be the string of the node label.  
+If you want to specify an id use set it as node data, e.g.
+node['a']['id']=1 to set the id of node 'a' to 1.
+
+References
+----------
+.. [1] GEXF graph format, http://gexf.net/format/
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="generate_gexf"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">generate_gexf</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">encoding</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">prettyprint</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">version</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">1.1draft</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#generate_gexf">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Generate lines of GEXF format representation of G&quot;
+
+&quot;GEXF (Graph Exchange XML Format) is a language for describing
+complex networks structures, their associated data and dynamics&quot; [1]_.
+
+Parameters
+----------
+G : graph
+   A NetworkX graph
+encoding : string (optional)
+   Encoding for text data.
+prettyprint : bool (optional)
+   If True use line breaks and indenting in output XML.
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.path_graph(4)
+&gt;&gt;&gt; linefeed=chr(10) # linefeed=
+
+&gt;&gt;&gt; s=linefeed.join(nx.generate_gexf(G))  # a string
+&gt;&gt;&gt; for line in nx.generate_gexf(G):  # doctest: +SKIP
+...    print line                   
+
+Notes
+-----
+This implementation does not support mixed graphs (directed and unidirected 
+edges together).
+
+The node id attribute is set to be the string of the node label.  
+If you want to specify an id use set it as node data, e.g.
+node['a']['id']=1 to set the id of node 'a' to 1.
+
+References
+----------
+.. [1] GEXF graph format, http://gexf.net/format/
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="read_gexf"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read_gexf</span>(<span class="sig-arg">path</span>,
+        <span class="sig-arg">node_type</span>=<span class="sig-default">&lt;type 'str'&gt;</span>,
+        <span class="sig-arg">relabel</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">version</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">1.1draft</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#read_gexf">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Read graph in GEXF format from path.
+
+&quot;GEXF (Graph Exchange XML Format) is a language for describing
+complex networks structures, their associated data and dynamics&quot; [1]_.
+
+Parameters
+----------
+path : file or string
+   File or filename to write.  
+   Filenames ending in .gz or .bz2 will be compressed.
+
+node_type: Python type (default: str)
+   Convert node ids to this type 
+
+relabel : bool (default: False)       
+   If True relabel the nodes to use the GEXF node &quot;label&quot; attribute 
+   instead of the node &quot;id&quot; attribute as the NetworkX node label.
+
+Returns
+-------
+graph: NetworkX graph
+    If no parallel edges are found a Graph or DiGraph is returned.
+    Otherwise a MultiGraph or MultiDiGraph is returned.
+
+Notes
+-----
+This implementation does not support mixed graphs (directed and unidirected 
+edges together).
+
+References
+----------
+.. [1] GEXF graph format, http://gexf.net/format/
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="relabel_gexf_graph"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">relabel_gexf_graph</span>(<span class="sig-arg">G</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#relabel_gexf_graph">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Relabel graph using &quot;label&quot; node keyword for node label.
+
+Parameters
+----------
+G : graph
+   A NetworkX graph read from GEXF data
+
+Returns
+-------
+H : graph
+  A NetworkX graph with relabed nodes
+
+Notes
+-----
+This function relabels the nodes in a NetworkX graph with the
+&quot;label&quot; attribute.  It also handles relabeling the specific GEXF
+node attributes &quot;parents&quot;, and &quot;pid&quot;.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

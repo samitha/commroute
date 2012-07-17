@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cvxpy.scalars.cvxpy_obj</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cvxpy-module.html">Package&nbsp;cvxpy</a> ::
+        <a href="cvxpy.scalars-module.html">Module&nbsp;scalars</a> ::
+        Class&nbsp;cvxpy_obj
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cvxpy.scalars.cvxpy_obj-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class cvxpy_obj</h1><p class="nomargin-top"><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_cvxpy_sc" name="uml_class_diagram_for_cvxpy_sc">
+<area shape="rect" id="node1_14" href="cvxpy.scalars.cvxpy_obj-class.html#__init__" title="Class constructor." alt="" coords="143,39,380,57"/>
+<area shape="rect" id="node1_15" href="cvxpy.scalars.cvxpy_obj-class.html#is_convex" title="Determines if object follows DCP rules of convexity." alt="" coords="143,57,380,76"/>
+<area shape="rect" id="node1_16" href="cvxpy.scalars.cvxpy_obj-class.html#is_concave" title="Determines if object follows DCP rules of concavity." alt="" coords="143,76,380,95"/>
+<area shape="rect" id="node1_17" href="cvxpy.scalars.cvxpy_obj-class.html#is_dcp" title="Determines if object is DCP&#45;compliant." alt="" coords="143,95,380,113"/>
+<area shape="rect" id="node1_18" href="cvxpy.scalars.cvxpy_obj-class.html#is_affine" title="Determines if object is affine." alt="" coords="143,113,380,132"/>
+<area shape="rect" id="node1_19" href="cvxpy.scalars.cvxpy_obj-class.html#is_nonnegative_constant" title="Determines if object is a nonnegative constant." alt="" coords="143,132,380,151"/>
+<area shape="rect" id="node1_20" href="cvxpy.scalars.cvxpy_obj-class.html#is_nonpositive_constant" title="Determines if object is a nonpositive constant." alt="" coords="143,151,380,169"/>
+<area shape="rect" id="node1_21" href="cvxpy.scalars.cvxpy_obj-class.html#__add__" title="cvxpy.scalars.cvxpy_obj.__add__" alt="" coords="143,169,380,188"/>
+<area shape="rect" id="node1_22" href="cvxpy.scalars.cvxpy_obj-class.html#__sub__" title="cvxpy.scalars.cvxpy_obj.__sub__" alt="" coords="143,188,380,207"/>
+<area shape="rect" id="node1_23" href="cvxpy.scalars.cvxpy_obj-class.html#__radd__" title="cvxpy.scalars.cvxpy_obj.__radd__" alt="" coords="143,207,380,225"/>
+<area shape="rect" id="node1_24" href="cvxpy.scalars.cvxpy_obj-class.html#__rsub__" title="cvxpy.scalars.cvxpy_obj.__rsub__" alt="" coords="143,225,380,244"/>
+<area shape="rect" id="node1_25" href="cvxpy.scalars.cvxpy_obj-class.html#__addsub__" title="Handles left add and left subtract." alt="" coords="143,244,380,263"/>
+<area shape="rect" id="node1_26" href="cvxpy.scalars.cvxpy_obj-class.html#__raddsub__" title="Handles right add and right subtract." alt="" coords="143,263,380,281"/>
+<area shape="rect" id="node1_27" href="cvxpy.scalars.cvxpy_obj-class.html#__str__" title="str(x)" alt="" coords="143,300,380,319"/>
+<area shape="rect" id="node1" href="cvxpy.scalars.cvxpy_obj-class.html" title="cvxpy.scalars.cvxpy_obj" alt="" coords="131,6,392,325"/>
+<area shape="rect" id="node2" href="cvxpy.scalars.cvxpy_scalar_param-class.html" title="cvxpy.scalars.cvxpy_scalar_param" alt="" coords="5,345,163,383"/>
+<area shape="rect" id="node3" href="cvxpy.scalars.cvxpy_scalar_var-class.html" title="cvxpy.scalars.cvxpy_scalar_var" alt="" coords="192,345,331,383"/>
+<area shape="rect" id="node4" href="cvxpy.scalars.cvxpy_tree-class.html" title="cvxpy.scalars.cvxpy_tree" alt="" coords="361,345,461,383"/>
+</map>
+  <img src="uml_class_diagram_for_cvxpy_sc.gif" alt='' usemap="#uml_class_diagram_for_cvxpy_sc" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_obj-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">object_type</span>,
+        <span class="summary-sig-arg">value</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Class constructor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="is_convex"></a><span class="summary-sig-name">is_convex</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determines if object follows DCP rules of convexity.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.is_convex">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="is_concave"></a><span class="summary-sig-name">is_concave</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determines if object follows DCP rules of concavity.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.is_concave">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="is_dcp"></a><span class="summary-sig-name">is_dcp</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determines if object is DCP-compliant.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.is_dcp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="is_affine"></a><span class="summary-sig-name">is_affine</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determines if object is affine.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.is_affine">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="is_nonnegative_constant"></a><span class="summary-sig-name">is_nonnegative_constant</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determines if object is a nonnegative constant.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.is_nonnegative_constant">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="is_nonpositive_constant"></a><span class="summary-sig-name">is_nonpositive_constant</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Determines if object is a nonpositive constant.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.is_nonpositive_constant">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__add__"></a><span class="summary-sig-name">__add__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__add__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__sub__"></a><span class="summary-sig-name">__sub__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__sub__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__radd__"></a><span class="summary-sig-name">__radd__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__radd__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__rsub__"></a><span class="summary-sig-name">__rsub__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__rsub__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_obj-class.html#__addsub__" class="summary-sig-name">__addsub__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>,
+        <span class="summary-sig-arg">op</span>)</span><br />
+      Handles left add and left subtract.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__addsub__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_obj-class.html#__raddsub__" class="summary-sig-name">__raddsub__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>,
+        <span class="summary-sig-arg">op</span>)</span><br />
+      Handles right add and right subtract.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__raddsub__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__mul__"></a><span class="summary-sig-name">__mul__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__mul__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__rmul__"></a><span class="summary-sig-name">__rmul__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__rmul__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_obj-class.html#__mulhandle__" class="summary-sig-name">__mulhandle__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span><br />
+      Handles left and right multiply.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__mulhandle__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__neg__"></a><span class="summary-sig-name">__neg__</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__neg__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.scalars.cvxpy_obj-class.html#__str__" class="summary-sig-name">__str__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      str(x)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__str__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">object_type</span>,
+        <span class="sig-arg">value</span>,
+        <span class="sig-arg">name</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Class constructor.</p>
+  <p>:param object_type: Keyword (See cvxpy.def). :param value: Number. 
+  :param name: String.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__addsub__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__addsub__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>,
+        <span class="sig-arg">op</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__addsub__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles left add and left subtract.</p>
+  <p>:param other: Right hand side. :param op: Keyword (See cvxpy.defs)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__raddsub__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__raddsub__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>,
+        <span class="sig-arg">op</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__raddsub__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles right add and right subtract.</p>
+  <p>:param other: Left hand side. :param op: Keyword (See cvxpy.defs)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__mulhandle__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__mulhandle__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__mulhandle__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles left and right multiply. Important: If other is a constant, 
+  the multiplication tree formed has the constant object as the first 
+  child.</p>
+  <p>:param other: Other operand.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__str__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__str__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Informal representation operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.scalars-pysrc.html#cvxpy_obj.__str__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>str(x)</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__str__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:54 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

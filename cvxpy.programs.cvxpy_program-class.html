@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cvxpy.programs.cvxpy_program</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cvxpy-module.html">Package&nbsp;cvxpy</a> ::
+        <a href="cvxpy.programs-module.html">Module&nbsp;programs</a> ::
+        Class&nbsp;cvxpy_program
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cvxpy.programs.cvxpy_program-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class cvxpy_program</h1><p class="nomargin-top"><span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_cvxpy_pr" name="uml_class_diagram_for_cvxpy_pr">
+<area shape="rect" id="node1_7" href="cvxpy.programs.cvxpy_program-class.html#__init__" title="Class constructor." alt="" coords="17,39,417,57"/>
+<area shape="rect" id="node1_8" href="cvxpy.programs.cvxpy_program-class.html#__getattribute__" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="17,57,417,76"/>
+<area shape="rect" id="node1_9" href="cvxpy.programs.cvxpy_program-class.html#solve" title="Solves optimization program using current parameter values." alt="" coords="17,76,417,95"/>
+<area shape="rect" id="node1_10" href="cvxpy.programs.cvxpy_program-class.html#__str__" title="str(x)" alt="" coords="17,95,417,113"/>
+<area shape="rect" id="node1_11" href="cvxpy.programs.cvxpy_program-class.html#show" title="Shows description of the optimization program." alt="" coords="17,113,417,132"/>
+<area shape="rect" id="node1_12" href="cvxpy.programs.cvxpy_program-class.html#__call__" title="Invokes program." alt="" coords="17,132,417,151"/>
+<area shape="rect" id="node1_13" href="cvxpy.programs.cvxpy_program-class.html#is_dcp" title="Determines if program is DCP&#45;compliant." alt="" coords="17,151,417,169"/>
+<area shape="rect" id="node1" href="cvxpy.programs.cvxpy_program-class.html" title="cvxpy.programs.cvxpy_program" alt="" coords="5,6,429,175"/>
+</map>
+  <img src="uml_class_diagram_for_cvxpy_pr.gif" alt='' usemap="#uml_class_diagram_for_cvxpy_pr" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.programs.cvxpy_program-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">action</span>,
+        <span class="summary-sig-arg">objective</span>,
+        <span class="summary-sig-arg">constraints</span>,
+        <span class="summary-sig-arg">formals</span>,
+        <span class="summary-sig-arg">options</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Class constructor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.programs.cvxpy_program-class.html#_get_expanded_objects" class="summary-sig-name" onclick="show_private();">_get_expanded_objects</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">args</span>)</span><br />
+      Expands list of objects to list of scalar objects.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program._get_expanded_objects">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.programs.cvxpy_program-class.html#_upgrade_scalars" class="summary-sig-name" onclick="show_private();">_upgrade_scalars</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">args</span>)</span><br />
+      Upgrades scalars to cvxpy_obj.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program._upgrade_scalars">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_get_expanded_program"></a><span class="summary-sig-name">_get_expanded_program</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Constructs a new program by applying the expansion algorithm to the 
+      objective and constraints.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program._get_expanded_program">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.programs.cvxpy_program-class.html#__getattribute__" class="summary-sig-name">__getattribute__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      x.__getattribute__('name') &lt;==&gt; x.name</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program.__getattribute__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="solve"></a><span class="summary-sig-name">solve</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">quiet</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Solves optimization program using current parameter values.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program.solve">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.programs.cvxpy_program-class.html#__str__" class="summary-sig-name">__str__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      str(x)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program.__str__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="show"></a><span class="summary-sig-name">show</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Shows description of the optimization program.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program.show">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.programs.cvxpy_program-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span><br />
+      Invokes program.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.programs.cvxpy_program-class.html#is_dcp" class="summary-sig-name">is_dcp</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">args</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Determines if program is DCP-compliant.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program.is_dcp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.programs.cvxpy_program-class.html#_pm_expand" class="summary-sig-name" onclick="show_private();">_pm_expand</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">constr</span>)</span><br />
+      Returns constraints that embed the program into
+the parent program.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program._pm_expand">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">action</span>,
+        <span class="sig-arg">objective</span>,
+        <span class="sig-arg">constraints</span>,
+        <span class="sig-arg">formals</span>,
+        <span class="sig-arg">options</span>,
+        <span class="sig-arg">name</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Class constructor.</p>
+  <p>:param action: Keyword (see cvxpy.def). :param objective: Scalar 
+  expression. :param constraints: List of constraints. :param formals: List
+  of variables or parameters. :para options: Dictionary. :param name: 
+  String.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_get_expanded_objects"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_get_expanded_objects</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">args</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program._get_expanded_objects">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Expands list of objects to list of scalar objects.</p>
+  <p>:param args: List of objects.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_upgrade_scalars"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_upgrade_scalars</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">args</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program._upgrade_scalars">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Upgrades scalars to cvxpy_obj.</p>
+  <p>:param args: List of objects.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__getattribute__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__getattribute__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program.__getattribute__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__getattribute__('name') &lt;==&gt; x.name</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__getattribute__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__str__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__str__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Informal representation operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program.__str__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>str(x)</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__str__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Invokes program.</p>
+  <p>:param args: List of arguments.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="is_dcp"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_dcp</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">args</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program.is_dcp">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Determines if program is DCP-compliant.</p>
+  <p>:param args: List of scalar arguments.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_pm_expand"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_pm_expand</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">constr</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.programs-pysrc.html#cvxpy_program._pm_expand">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns constraints that embed the program into
+the parent program.
+
+:param constr: cvxpy_constr of the form 
+               self(args), comparison-type, variable.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:54 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

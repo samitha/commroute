@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.algorithms-module.html">Package&nbsp;algorithms</a> ::
+        <a href="networkx.algorithms.isomorphism-module.html">Package&nbsp;isomorphism</a> ::
+        <a href="networkx.algorithms.isomorphism.isomorphvf2-module.html">Module&nbsp;isomorphvf2</a> ::
+        Class&nbsp;GraphMatcher
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class GraphMatcher</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_networkx_5" name="uml_class_diagram_for_networkx_5">
+<area shape="rect" id="node1" href="networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher-class.html" title="Implementation of VF2 algorithm for matching directed graphs." alt="" coords="67,270,200,309"/>
+<area shape="rect" id="node3" href="networkx.algorithms.isomorphism.vf2userfunc.DiGraphMatcher-class.html" title="VF2 isomorphism checker for directed graphs." alt="" coords="19,329,224,367"/>
+<area shape="rect" id="node2" href="networkx.algorithms.isomorphism.vf2userfunc.GraphMatcher-class.html" title="VF2 isomorphism checker for undirected graphs." alt="" coords="254,270,447,309"/>
+<area shape="rect" id="node5" href="networkx.algorithms.isomorphism.vf2userfunc.MultiGraphMatcher-class.html" title="VF2 isomorphism checker for undirected multigraphs." alt="" coords="253,329,475,367"/>
+<area shape="rect" id="node6" href="networkx.algorithms.isomorphism.vf2userfunc.MultiDiGraphMatcher-class.html" title="VF2 isomorphism checker for directed multigraphs." alt="" coords="5,387,238,426"/>
+<area shape="rect" id="node4_11" href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#__init__" title="Initialize GraphMatcher." alt="" coords="103,39,379,57"/>
+<area shape="rect" id="node4_12" href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#reset_recursion_limit" title="Restores the recursion limit." alt="" coords="103,57,379,76"/>
+<area shape="rect" id="node4_13" href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#candidate_pairs_iter" title="Iterator over candidate pairs of nodes in G1 and G2." alt="" coords="103,76,379,95"/>
+<area shape="rect" id="node4_14" href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#initialize" title="Reinitializes the state of the algorithm." alt="" coords="103,95,379,113"/>
+<area shape="rect" id="node4_15" href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#is_isomorphic" title="Returns True if G1 and G2 are isomorphic graphs." alt="" coords="103,113,379,132"/>
+<area shape="rect" id="node4_16" href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#isomorphisms_iter" title="Generator over isomorphisms between G1 and G2." alt="" coords="103,132,379,151"/>
+<area shape="rect" id="node4_17" href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#match" title="Extends the isomorphism mapping." alt="" coords="103,151,379,169"/>
+<area shape="rect" id="node4_18" href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#semantic_feasibility" title="Returns True if adding (G1_node, G2_node) is symantically feasible." alt="" coords="103,169,379,188"/>
+<area shape="rect" id="node4_19" href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#subgraph_is_isomorphic" title="Returns True if a subgraph of G1 is isomorphic to G2." alt="" coords="103,188,379,207"/>
+<area shape="rect" id="node4_20" href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#subgraph_isomorphisms_iter" title="Generator over isomorphisms between a subgraph of G1 and G2." alt="" coords="103,207,379,225"/>
+<area shape="rect" id="node4_21" href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#syntactic_feasibility" title="Returns True if adding (G1_node, G2_node) is syntactically feasible." alt="" coords="103,225,379,244"/>
+<area shape="rect" id="node4" href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html" title="Implementation of VF2 algorithm for matching undirected graphs." alt="" coords="90,6,390,250"/>
+</map>
+  <img src="uml_class_diagram_for_networkx_5.gif" alt='' usemap="#uml_class_diagram_for_networkx_5" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Implementation of VF2 algorithm for matching undirected graphs.</p>
+  <p>Suitable for Graph and MultiGraph instances.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">G1</span>,
+        <span class="summary-sig-arg">G2</span>)</span><br />
+      Initialize GraphMatcher.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="reset_recursion_limit"></a><span class="summary-sig-name">reset_recursion_limit</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Restores the recursion limit.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.reset_recursion_limit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="candidate_pairs_iter"></a><span class="summary-sig-name">candidate_pairs_iter</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Iterator over candidate pairs of nodes in G1 and G2.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.candidate_pairs_iter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#initialize" class="summary-sig-name">initialize</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reinitializes the state of the algorithm.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.initialize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="is_isomorphic"></a><span class="summary-sig-name">is_isomorphic</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns True if G1 and G2 are isomorphic graphs.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.is_isomorphic">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="isomorphisms_iter"></a><span class="summary-sig-name">isomorphisms_iter</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Generator over isomorphisms between G1 and G2.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.isomorphisms_iter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#match" class="summary-sig-name">match</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Extends the isomorphism mapping.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.match">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#semantic_feasibility" class="summary-sig-name">semantic_feasibility</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">G1_node</span>,
+        <span class="summary-sig-arg">G2_node</span>)</span><br />
+      Returns True if adding (G1_node, G2_node) is symantically feasible.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.semantic_feasibility">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="subgraph_is_isomorphic"></a><span class="summary-sig-name">subgraph_is_isomorphic</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns True if a subgraph of G1 is isomorphic to G2.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.subgraph_is_isomorphic">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="subgraph_isomorphisms_iter"></a><span class="summary-sig-name">subgraph_isomorphisms_iter</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Generator over isomorphisms between a subgraph of G1 and G2.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.subgraph_isomorphisms_iter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#syntactic_feasibility" class="summary-sig-name">syntactic_feasibility</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">G1_node</span>,
+        <span class="summary-sig-arg">G2_node</span>)</span><br />
+      Returns True if adding (G1_node, G2_node) is syntactically feasible.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.syntactic_feasibility">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">G1</span>,
+        <span class="sig-arg">G2</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Initialize GraphMatcher.
+
+Parameters
+----------
+G1,G2: NetworkX Graph or MultiGraph instances.
+   The two graphs to check for isomorphism.
+
+Examples
+--------
+To create a GraphMatcher which checks for syntactic feasibility:
+
+&gt;&gt;&gt; from networkx.algorithms import isomorphism
+&gt;&gt;&gt; G1 = nx.path_graph(4)
+&gt;&gt;&gt; G2 = nx.path_graph(4)
+&gt;&gt;&gt; GM = isomorphism.GraphMatcher(G1,G2)
+
+</pre>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="initialize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">initialize</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.initialize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reinitializes the state of the algorithm.</p>
+  <p>This method should be redefined if using something other than GMState.
+  If only subclassing GraphMatcher, a redefinition is not necessary.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="match"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">match</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.match">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Extends the isomorphism mapping.</p>
+  <p>This function is called recursively to determine if a complete 
+  isomorphism can be found between G1 and G2.  It cleans up the class 
+  variables after each recursive call. If an isomorphism is found, we yield
+  the mapping.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="semantic_feasibility"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">semantic_feasibility</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">G1_node</span>,
+        <span class="sig-arg">G2_node</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.semantic_feasibility">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Returns True if adding (G1_node, G2_node) is symantically feasible.
+
+The semantic feasibility function should return True if it is
+acceptable to add the candidate pair (G1_node, G2_node) to the current
+partial isomorphism mapping.   The logic should focus on semantic
+information contained in the edge data or a formalized node class.
+
+By acceptable, we mean that the subsequent mapping can still become a
+complete isomorphism mapping.  Thus, if adding the candidate pair
+definitely makes it so that the subsequent mapping cannot become a
+complete isomorphism mapping, then this function must return False.
+
+The default semantic feasibility function always returns True. The
+effect is that semantics are not considered in the matching of G1
+and G2.
+
+The semantic checks might differ based on the what type of test is
+being performed.  A keyword description of the test is stored in
+self.test.  Here is a quick description of the currently implemented
+tests:
+
+  test='graph'
+    Indicates that the graph matcher is looking for a graph-graph
+    isomorphism.
+  test='subgraph'
+    Indicates that the graph matcher is looking for a subgraph-graph
+    isomorphism such that a subgraph of G1 is isomorphic to G2.
+
+Any subclass which redefines semantic_feasibility() must maintain
+the above form to keep the match() method functional. Implementations
+should consider multigraphs.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="syntactic_feasibility"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">syntactic_feasibility</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">G1_node</span>,
+        <span class="sig-arg">G2_node</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.isomorphism.isomorphvf2-pysrc.html#GraphMatcher.syntactic_feasibility">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns True if adding (G1_node, G2_node) is syntactically 
+  feasible.</p>
+  <p>This function returns True if it is adding the candidate pair to the 
+  current partial isomorphism mapping is allowable.  The addition is 
+  allowable if the inclusion of the candidate pair does not make it 
+  impossible for an isomorphism to be found.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:54 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

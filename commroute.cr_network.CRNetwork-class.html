@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>commroute.cr_network.CRNetwork</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="commroute-module.html">Package&nbsp;commroute</a> ::
+        <a href="commroute.cr_network-module.html">Module&nbsp;cr_network</a> ::
+        Class&nbsp;CRNetwork
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="commroute.cr_network.CRNetwork-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class CRNetwork</h1><p class="nomargin-top"><span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_commrout_9" name="uml_class_diagram_for_commrout_9">
+<area shape="rect" id="node1_69" href="commroute.cr_utils.Dumpable.Dumpable-class.html#dump" title="Serialize your data from `self.jsonify()` and store in the file `fn`" alt="" coords="17,851,189,869"/>
+<area shape="rect" id="node1_70" href="commroute.cr_utils.Dumpable.Dumpable-class.html#load" title="Load an object deserialized in the file `fn` of the same type as `cls`" alt="" coords="17,869,189,888"/>
+<area shape="rect" id="node1" href="commroute.cr_utils.Dumpable.Dumpable-class.html" title="commroute.cr_utils.Dumpable.Dumpable" alt="" coords="5,818,201,894"/>
+<area shape="rect" id="node6_71" href="commroute.cr_network.Link-class.html" title="Base class for constructing networks." alt="" coords="332,1060,519,1079"/>
+<area shape="rect" id="node6_72" href="commroute.cr_network.CRNetwork-class.html#__init__" title="Initialize a graph with edges, name, graph attributes." alt="" coords="332,1081,519,1100"/>
+<area shape="rect" id="node6_73" href="commroute.cr_network.CRNetwork-class.html#add_junction" title="docstring for add_junction" alt="" coords="332,1100,519,1119"/>
+<area shape="rect" id="node6_74" href="commroute.cr_network.CRNetwork-class.html#route_by_names" title="commroute.cr_network.CRNetwork.route_by_names" alt="" coords="332,1119,519,1137"/>
+<area shape="rect" id="node6_75" href="commroute.cr_network.CRNetwork-class.html#link_by_name" title="commroute.cr_network.CRNetwork.link_by_name" alt="" coords="332,1137,519,1156"/>
+<area shape="rect" id="node6_76" href="commroute.cr_network.CRNetwork-class.html#all_routes" title="commroute.cr_network.CRNetwork.all_routes" alt="" coords="332,1156,519,1175"/>
+<area shape="rect" id="node6_77" href="commroute.cr_network.CRNetwork-class.html#get_links" title="docstring for links" alt="" coords="332,1175,519,1193"/>
+<area shape="rect" id="node6_78" href="commroute.cr_network.CRNetwork-class.html#out_links" title="commroute.cr_network.CRNetwork.out_links" alt="" coords="332,1193,519,1212"/>
+<area shape="rect" id="node6_79" href="commroute.cr_network.CRNetwork-class.html#edgify" title="commroute.cr_network.CRNetwork.edgify" alt="" coords="332,1212,519,1231"/>
+<area shape="rect" id="node6_80" href="commroute.cr_network.CRNetwork-class.html#cache_props" title="docstring for cache_props" alt="" coords="332,1231,519,1249"/>
+<area shape="rect" id="node6_81" href="commroute.cr_network.CRNetwork-class.html#calc_od_routes" title="docstring for calc_od_routes" alt="" coords="332,1249,519,1268"/>
+<area shape="rect" id="node6_82" href="commroute.cr_network.CRNetwork-class.html#bfs" title="docstring for bfs" alt="" coords="332,1268,519,1287"/>
+<area shape="rect" id="node6_83" href="commroute.cr_network.CRNetwork-class.html#all_paths" title="docstring for bfs" alt="" coords="332,1287,519,1305"/>
+<area shape="rect" id="node6_84" href="commroute.cr_network.CRNetwork-class.html#jsonify" title="docstring for jsonify" alt="" coords="332,1305,519,1324"/>
+<area shape="rect" id="node6_85" href="commroute.cr_network.CRNetwork-class.html#load_with_json_data" title="The method that should be overridden for deserialization, needs to be &#160;overridden" alt="" coords="332,1324,519,1343"/>
+<area shape="rect" id="node6_86" href="commroute.cr_network.CRNetwork-class.html#d3_edges" title="commroute.cr_network.CRNetwork.d3_edges" alt="" coords="332,1343,519,1361"/>
+<area shape="rect" id="node6" href="commroute.cr_network.CRNetwork-class.html" title="Base class for creating networks, doesn&#39;t support flow out of the box, need to have that" alt="" coords="320,1035,531,1367"/>
+<area shape="rect" id="node2_87" href="networkx.classes.multidigraph.MultiDiGraph-class.html#add_edge" title="Add an edge between u and v." alt="" coords="243,729,607,748"/>
+<area shape="rect" id="node2_88" href="networkx.classes.multidigraph.MultiDiGraph-class.html#remove_edge" title="Remove an edge between u and v." alt="" coords="243,748,607,767"/>
+<area shape="rect" id="node2_89" href="networkx.classes.multidigraph.MultiDiGraph-class.html#edges_iter" title="Return an iterator over the edges." alt="" coords="243,767,607,785"/>
+<area shape="rect" id="node2_90" href="networkx.classes.multidigraph.MultiDiGraph-class.html#out_edges_iter" title="Return an iterator over the edges." alt="" coords="243,785,607,804"/>
+<area shape="rect" id="node2_91" href="networkx.classes.multidigraph.MultiDiGraph-class.html#out_edges" title="Return a list of the outgoing edges." alt="" coords="243,804,607,823"/>
+<area shape="rect" id="node2_92" href="networkx.classes.multidigraph.MultiDiGraph-class.html#in_edges_iter" title="Return an iterator over the incoming edges." alt="" coords="243,823,607,841"/>
+<area shape="rect" id="node2_93" href="networkx.classes.multidigraph.MultiDiGraph-class.html#in_edges" title="Return a list of the incoming edges." alt="" coords="243,841,607,860"/>
+<area shape="rect" id="node2_94" href="networkx.classes.multidigraph.MultiDiGraph-class.html#degree_iter" title="Return an iterator for (node, degree)." alt="" coords="243,860,607,879"/>
+<area shape="rect" id="node2_95" href="networkx.classes.multidigraph.MultiDiGraph-class.html#in_degree_iter" title="Return an iterator for (node, in&#45;degree)." alt="" coords="243,879,607,897"/>
+<area shape="rect" id="node2_96" href="networkx.classes.multidigraph.MultiDiGraph-class.html#out_degree_iter" title="Return an iterator for (node, out&#45;degree)." alt="" coords="243,897,607,916"/>
+<area shape="rect" id="node2_97" href="networkx.classes.multidigraph.MultiDiGraph-class.html#is_multigraph" title="Return True if graph is a multigraph, False otherwise." alt="" coords="243,916,607,935"/>
+<area shape="rect" id="node2_98" href="networkx.classes.multidigraph.MultiDiGraph-class.html#is_directed" title="Return True if graph is directed, False otherwise." alt="" coords="243,935,607,953"/>
+<area shape="rect" id="node2_99" href="networkx.classes.multidigraph.MultiDiGraph-class.html#to_directed" title="Return a directed copy of the graph." alt="" coords="243,953,607,972"/>
+<area shape="rect" id="node2_100" href="networkx.classes.multidigraph.MultiDiGraph-class.html#reverse" title="Return the reverse of the graph." alt="" coords="243,991,607,1009"/>
+<area shape="rect" id="node2" href="networkx.classes.multidigraph.MultiDiGraph-class.html" title="A directed graph class that can store multiedges." alt="" coords="230,697,618,1015"/>
+<area shape="rect" id="node3_101" href="networkx.classes.multigraph.MultiGraph-class.html#add_edges_from" title="Add all the edges in ebunch." alt="" coords="89,465,408,484"/>
+<area shape="rect" id="node3_102" href="networkx.classes.multigraph.MultiGraph-class.html#remove_edges_from" title="Remove all edges specified in ebunch." alt="" coords="89,484,408,503"/>
+<area shape="rect" id="node3_103" href="networkx.classes.multigraph.MultiGraph-class.html#has_edge" title="Return True if the graph has an edge between nodes u and v." alt="" coords="89,503,408,521"/>
+<area shape="rect" id="node3_104" href="networkx.classes.multigraph.MultiGraph-class.html#edges" title="Return a list of edges." alt="" coords="89,521,408,540"/>
+<area shape="rect" id="node3_105" href="networkx.classes.multigraph.MultiGraph-class.html#get_edge_data" title="Return the attribute dictionary associated with edge (u,v)." alt="" coords="89,540,408,559"/>
+<area shape="rect" id="node3_106" href="networkx.classes.multigraph.MultiGraph-class.html#selfloop_edges" title="Return a list of selfloop edges." alt="" coords="89,559,408,577"/>
+<area shape="rect" id="node3_107" href="networkx.classes.multigraph.MultiGraph-class.html#number_of_edges" title="Return the number of edges between two nodes." alt="" coords="89,577,408,596"/>
+<area shape="rect" id="node3" href="networkx.classes.multigraph.MultiGraph-class.html" title="An undirected graph class that can store multiedges." alt="" coords="77,433,419,602"/>
+<area shape="rect" id="node4_108" href="networkx.classes.graph.Graph-class.html#name" title="networkx.classes.graph.Graph.name" alt="" coords="283,31,568,49"/>
+<area shape="rect" id="node4_109" href="networkx.classes.graph.Graph-class.html#__str__" title="Return the graph name." alt="" coords="283,52,568,71"/>
+<area shape="rect" id="node4_110" href="networkx.classes.graph.Graph-class.html#__iter__" title="Iterate over the nodes." alt="" coords="283,71,568,89"/>
+<area shape="rect" id="node4_111" href="networkx.classes.graph.Graph-class.html#__contains__" title="Return True if n is a node, False otherwise." alt="" coords="283,89,568,108"/>
+<area shape="rect" id="node4_112" href="networkx.classes.graph.Graph-class.html#__len__" title="Return the number of nodes." alt="" coords="283,108,568,127"/>
+<area shape="rect" id="node4_113" href="networkx.classes.graph.Graph-class.html#__getitem__" title="Return a dict of neighbors of node n." alt="" coords="283,127,568,145"/>
+<area shape="rect" id="node4_114" href="networkx.classes.graph.Graph-class.html#nodes_iter" title="Return an iterator over the nodes." alt="" coords="283,145,568,164"/>
+<area shape="rect" id="node4_115" href="networkx.classes.graph.Graph-class.html#nodes" title="Return a list of the nodes in the graph." alt="" coords="283,164,568,183"/>
+<area shape="rect" id="node4_116" href="networkx.classes.graph.Graph-class.html#number_of_nodes" title="Return the number of nodes in the graph." alt="" coords="283,183,568,201"/>
+<area shape="rect" id="node4_117" href="networkx.classes.graph.Graph-class.html#order" title="Return the number of nodes in the graph." alt="" coords="283,201,568,220"/>
+<area shape="rect" id="node4_118" href="networkx.classes.graph.Graph-class.html#has_node" title="Return True if the graph contains the node n." alt="" coords="283,220,568,239"/>
+<area shape="rect" id="node4_119" href="networkx.classes.graph.Graph-class.html#add_weighted_edges_from" title="Add all the edges in ebunch as weighted edges with specified weights." alt="" coords="283,239,568,257"/>
+<area shape="rect" id="node4_120" href="networkx.classes.graph.Graph-class.html#adjacency_list" title="Return an adjacency list representation of the graph." alt="" coords="283,257,568,276"/>
+<area shape="rect" id="node4_121" href="networkx.classes.graph.Graph-class.html#adjacency_iter" title="Return an iterator of (node, adjacency dict) tuples for all nodes." alt="" coords="283,276,568,295"/>
+<area shape="rect" id="node4_122" href="networkx.classes.graph.Graph-class.html#nbunch_iter" title="Return an iterator of nodes contained in nbunch that are also in the graph." alt="" coords="283,313,568,332"/>
+<area shape="rect" id="node4" href="networkx.classes.graph.Graph-class.html" title="Base class for undirected graphs." alt="" coords="271,6,580,338"/>
+<area shape="rect" id="node7_123" href="networkx.classes.digraph.DiGraph-class.html#add_node" title="Add a single node n and update node attributes." alt="" coords="461,391,741,409"/>
+<area shape="rect" id="node7_124" href="networkx.classes.digraph.DiGraph-class.html#add_nodes_from" title="Add multiple nodes." alt="" coords="461,409,741,428"/>
+<area shape="rect" id="node7_125" href="networkx.classes.digraph.DiGraph-class.html#remove_node" title="Remove node n." alt="" coords="461,428,741,447"/>
+<area shape="rect" id="node7_126" href="networkx.classes.digraph.DiGraph-class.html#remove_nodes_from" title="Remove multiple nodes." alt="" coords="461,447,741,465"/>
+<area shape="rect" id="node7_127" href="networkx.classes.digraph.DiGraph-class.html#has_successor" title="Return True if node u has successor v." alt="" coords="461,465,741,484"/>
+<area shape="rect" id="node7_128" href="networkx.classes.digraph.DiGraph-class.html#has_predecessor" title="Return True if node u has predecessor v." alt="" coords="461,484,741,503"/>
+<area shape="rect" id="node7_129" href="networkx.classes.digraph.DiGraph-class.html#successors_iter" title="Return an iterator over successor nodes of n." alt="" coords="461,503,741,521"/>
+<area shape="rect" id="node7_130" href="networkx.classes.digraph.DiGraph-class.html#predecessors_iter" title="Return an iterator over predecessor nodes of n." alt="" coords="461,521,741,540"/>
+<area shape="rect" id="node7_131" href="networkx.classes.digraph.DiGraph-class.html#successors" title="Return a list of successor nodes of n." alt="" coords="461,540,741,559"/>
+<area shape="rect" id="node7_132" href="networkx.classes.digraph.DiGraph-class.html#predecessors" title="Return a list of predecessor nodes of n." alt="" coords="461,559,741,577"/>
+<area shape="rect" id="node7_133" href="networkx.classes.digraph.DiGraph-class.html#neighbors" title="Return a list of successor nodes of n." alt="" coords="461,577,741,596"/>
+<area shape="rect" id="node7_134" href="networkx.classes.digraph.DiGraph-class.html#neighbors_iter" title="Return an iterator over successor nodes of n." alt="" coords="461,596,741,615"/>
+<area shape="rect" id="node7_135" href="networkx.classes.digraph.DiGraph-class.html#in_degree" title="Return the in&#45;degree of a node or nodes." alt="" coords="461,615,741,633"/>
+<area shape="rect" id="node7_136" href="networkx.classes.digraph.DiGraph-class.html#out_degree" title="Return the out&#45;degree of a node or nodes." alt="" coords="461,633,741,652"/>
+<area shape="rect" id="node7_137" href="networkx.classes.digraph.DiGraph-class.html#clear" title="Remove all nodes and edges from the graph." alt="" coords="461,652,741,671"/>
+<area shape="rect" id="node7" href="networkx.classes.digraph.DiGraph-class.html" title="Base class for directed graphs." alt="" coords="449,358,753,677"/>
+<area shape="rect" id="node5" href="javascript:void(0);" title="??&#45;51" alt="" coords="648,834,707,878"/>
+</map>
+  <img src="uml_class_diagram_for_commrout_9.gif" alt='' usemap="#uml_class_diagram_for_commrout_9" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Base class for creating networks, doesn't support flow out of the box,
+  need to have that</p>
+
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="commroute.cr_network.Link-class.html" class="summary-name">link_class</a><br />
+      Base class for constructing networks.
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="commroute.cr_network.CRNetwork-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Initialize a graph with edges, name, graph attributes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="add_junction"></a><span class="summary-sig-name">add_junction</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">junction</span>)</span><br />
+      docstring for add_junction</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.add_junction">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="route_by_names"></a><span class="summary-sig-name">route_by_names</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">route</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.route_by_names">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="link_by_name"></a><span class="summary-sig-name">link_by_name</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.link_by_name">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="all_routes"></a><span class="summary-sig-name">all_routes</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.all_routes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_links"></a><span class="summary-sig-name">get_links</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      docstring for links</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.get_links">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="out_links"></a><span class="summary-sig-name">out_links</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">junction</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.out_links">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_sources"></a><span class="summary-sig-name">_sources</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      docstring for _sources</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork._sources">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_sinks"></a><span class="summary-sig-name">_sinks</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      docstring for _sources</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork._sinks">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="edgify"></a><span class="summary-sig-name">edgify</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">link</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.edgify">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cache_props"></a><span class="summary-sig-name">cache_props</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      docstring for cache_props</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.cache_props">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="calc_od_routes"></a><span class="summary-sig-name">calc_od_routes</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      docstring for calc_od_routes</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.calc_od_routes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="bfs"></a><span class="summary-sig-name">bfs</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">source</span>)</span><br />
+      docstring for bfs</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.bfs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="all_paths"></a><span class="summary-sig-name">all_paths</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">source</span>)</span><br />
+      docstring for bfs</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.all_paths">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="commroute.cr_network.CRNetwork-class.html#jsonify" class="summary-sig-name">jsonify</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      docstring for jsonify</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.jsonify">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="d3_edges"></a><span class="summary-sig-name">d3_edges</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.d3_edges">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html">networkx.classes.multidigraph.MultiDiGraph</a></code></b>:
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#add_edge">add_edge</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#degree_iter">degree_iter</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#edges_iter">edges_iter</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#in_degree_iter">in_degree_iter</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#in_edges">in_edges</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#in_edges_iter">in_edges_iter</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#is_directed">is_directed</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#is_multigraph">is_multigraph</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#out_degree_iter">out_degree_iter</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#out_edges">out_edges</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#out_edges_iter">out_edges_iter</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#remove_edge">remove_edge</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#reverse">reverse</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#subgraph">subgraph</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#to_directed">to_directed</a></code>,
+      <code><a href="networkx.classes.multidigraph.MultiDiGraph-class.html#to_undirected">to_undirected</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="networkx.classes.multigraph.MultiGraph-class.html">networkx.classes.multigraph.MultiGraph</a></code></b>:
+      <code><a href="networkx.classes.multigraph.MultiGraph-class.html#add_edges_from">add_edges_from</a></code>,
+      <code><a href="networkx.classes.multigraph.MultiGraph-class.html#edges">edges</a></code>,
+      <code><a href="networkx.classes.multigraph.MultiGraph-class.html#get_edge_data">get_edge_data</a></code>,
+      <code><a href="networkx.classes.multigraph.MultiGraph-class.html#has_edge">has_edge</a></code>,
+      <code><a href="networkx.classes.multigraph.MultiGraph-class.html#number_of_edges">number_of_edges</a></code>,
+      <code><a href="networkx.classes.multigraph.MultiGraph-class.html#remove_edges_from">remove_edges_from</a></code>,
+      <code><a href="networkx.classes.multigraph.MultiGraph-class.html#selfloop_edges">selfloop_edges</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="networkx.classes.digraph.DiGraph-class.html">networkx.classes.digraph.DiGraph</a></code></b>:
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#add_node">add_node</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#add_nodes_from">add_nodes_from</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#clear">clear</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#has_predecessor">has_predecessor</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#has_successor">has_successor</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#in_degree">in_degree</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#neighbors">neighbors</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#neighbors_iter">neighbors_iter</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#out_degree">out_degree</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#predecessors">predecessors</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#predecessors_iter">predecessors_iter</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#remove_node">remove_node</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#remove_nodes_from">remove_nodes_from</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#successors">successors</a></code>,
+      <code><a href="networkx.classes.digraph.DiGraph-class.html#successors_iter">successors_iter</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="networkx.classes.graph.Graph-class.html">networkx.classes.graph.Graph</a></code></b>:
+      <code><a href="networkx.classes.graph.Graph-class.html#__contains__">__contains__</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#__getitem__">__getitem__</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#__iter__">__iter__</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#__len__">__len__</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#__str__">__str__</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#add_cycle">add_cycle</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#add_path">add_path</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#add_star">add_star</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#add_weighted_edges_from">add_weighted_edges_from</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#adjacency_iter">adjacency_iter</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#adjacency_list">adjacency_list</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#copy">copy</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#degree">degree</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#has_node">has_node</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#nbunch_iter">nbunch_iter</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#nodes">nodes</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#nodes_iter">nodes_iter</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#nodes_with_selfloops">nodes_with_selfloops</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#number_of_nodes">number_of_nodes</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#number_of_selfloops">number_of_selfloops</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#order">order</a></code>,
+      <code><a href="networkx.classes.graph.Graph-class.html#size">size</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.cr_utils.Dumpable.Dumpable-class.html">cr_utils.Dumpable.Dumpable</a></code></b>:
+      <code><a href="commroute.cr_utils.Dumpable.Dumpable-class.html#dump">dump</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS METHODS ==================== -->
+<a name="section-ClassMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">`cls`</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="commroute.cr_network.CRNetwork-class.html#load_with_json_data" class="summary-sig-name">load_with_json_data</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">data</span>)</span><br />
+      The method that should be overridden for deserialization, needs to be
+      overridden</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.load_with_json_data">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.cr_utils.Dumpable.Dumpable-class.html">cr_utils.Dumpable.Dumpable</a></code></b>:
+      <code><a href="commroute.cr_utils.Dumpable.Dumpable-class.html#load">load</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="networkx.classes.graph.Graph-class.html">networkx.classes.graph.Graph</a></code></b>:
+      <code><a href="networkx.classes.graph.Graph-class.html#name">name</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Initialize a graph with edges, name, graph attributes.
+
+Parameters
+----------
+data : input graph
+    Data to initialize graph.  If data=None (default) an empty
+    graph is created.  The data can be an edge list, or any
+    NetworkX graph object.  If the corresponding optional Python
+    packages are installed the data can also be a NumPy matrix
+    or 2d ndarray, a SciPy sparse matrix, or a PyGraphviz graph.
+name : string, optional (default='')
+    An optional name for the graph.
+attr : keyword arguments, optional (default= no attributes)
+    Attributes to add to graph as key=value pairs.
+
+See Also
+--------
+convert
+
+Examples
+--------
+&gt;&gt;&gt; G = nx.Graph()   # or DiGraph, MultiGraph, MultiDiGraph, etc
+&gt;&gt;&gt; G = nx.Graph(name='my graph')
+&gt;&gt;&gt; e = [(1,2),(2,3),(3,4)] # list of edges
+&gt;&gt;&gt; G = nx.Graph(e)
+
+Arbitrary graph attribute pairs (key=value) may be assigned
+
+&gt;&gt;&gt; G=nx.Graph(e, day=&quot;Friday&quot;)
+&gt;&gt;&gt; G.graph
+{'day': 'Friday'}
+
+</pre>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="jsonify"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">jsonify</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.jsonify">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>docstring for jsonify</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>object that can be serialized</dd>
+    <dt>Overrides:
+        <a href="commroute.cr_utils.Dumpable.Dumpable-class.html#jsonify">cr_utils.Dumpable.Dumpable.jsonify</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="load_with_json_data"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">load_with_json_data</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">data</span>)</span>
+    <br /><em class="fname">Class Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="commroute.cr_network-pysrc.html#CRNetwork.load_with_json_data">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The method that should be overridden for deserialization, needs to be 
+  overridden</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>cls</code></strong> - the class that will be created</li>
+        <li><strong class="pname"><code>data</code></strong> - deserialized json type (map, list, string...)</li>
+        <li><strong class="pname"><code>kwargs</code></strong> - extra arguments to help with loading (to handle unforeseen 
+          deserialization needs)</li>
+    </ul></dd>
+    <dt>Returns: `cls`</dt>
+        <dd>the new object</dd>
+    <dt>Overrides:
+        <a href="commroute.cr_utils.Dumpable.Dumpable-class.html#load_with_json_data">cr_utils.Dumpable.Dumpable.load_with_json_data</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:48 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

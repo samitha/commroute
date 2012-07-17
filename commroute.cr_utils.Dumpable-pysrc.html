@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>commroute.cr_utils.Dumpable</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="commroute-module.html">Package&nbsp;commroute</a> ::
+        <a href="commroute.cr_utils-module.html">Package&nbsp;cr_utils</a> ::
+        Module&nbsp;Dumpable
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="commroute.cr_utils.Dumpable-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="commroute.cr_utils.Dumpable-module.html">Module commroute.cr_utils.Dumpable</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">exceptions</tt> <tt class="py-keyword">import</tt> <tt class="py-name">NotImplementedError</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">simplejson</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Method commroute.cr_utils.Dumpable.Dumpable.dump()=commroute.cr_utils.Dumpable.Dumpable-class.html#dump,Method networkx.readwrite.graphml.GraphMLWriter.dump()=networkx.readwrite.graphml.GraphMLWriter-class.html#dump"><a title="commroute.cr_utils.Dumpable.Dumpable.dump
+networkx.readwrite.graphml.GraphMLWriter.dump" class="py-name" href="#" onclick="return doclink('link-0', 'dump', 'link-0');">dump</a></tt><tt class="py-op">,</tt> <tt id="link-1" class="py-name" targets="Class Method commroute.cr_utils.Dumpable.Dumpable.load()=commroute.cr_utils.Dumpable.Dumpable-class.html#load,Module networkx.algorithms.centrality.load=networkx.algorithms.centrality.load-module.html"><a title="commroute.cr_utils.Dumpable.Dumpable.load
+networkx.algorithms.centrality.load" class="py-name" href="#" onclick="return doclink('link-1', 'load', 'link-1');">load</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">'jdr'</tt> </tt>
+<a name="Dumpable"></a><div id="Dumpable-def"><a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt> <a class="py-toggle" href="#" id="Dumpable-toggle" onclick="return toggle('Dumpable');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.cr_utils.Dumpable.Dumpable-class.html">Dumpable</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Dumpable-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Dumpable-expanded"><a name="Dumpable.dump"></a><div id="Dumpable.dump-def"><a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="Dumpable.dump-toggle" onclick="return toggle('Dumpable.dump');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.cr_utils.Dumpable.Dumpable-class.html#dump">dump</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">fn</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Dumpable.dump-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="Dumpable.dump-expanded"><a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">    Serialize your data from `self.jsonify()` and store in the file `fn`</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">    @param fn: file name to be dumped to</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">    @type fn: str</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt class="py-keyword">with</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">fn</tt><tt class="py-op">,</tt> <tt class="py-string">'w'</tt><tt class="py-op">)</tt> <tt class="py-keyword">as</tt> <tt class="py-name">fn</tt><tt class="py-op">:</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">      <tt id="link-2" class="py-name"><a title="commroute.cr_utils.Dumpable.Dumpable.dump
+networkx.readwrite.graphml.GraphMLWriter.dump" class="py-name" href="#" onclick="return doclink('link-2', 'dump', 'link-0');">dump</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Method commroute.compliance.CompliantRouteDemand.jsonify()=commroute.compliance.CompliantRouteDemand-class.html#jsonify,Method commroute.cr_network.CRNetwork.jsonify()=commroute.cr_network.CRNetwork-class.html#jsonify,Method commroute.cr_network.Junction.jsonify()=commroute.cr_network.Junction-class.html#jsonify,Method commroute.cr_network.Link.jsonify()=commroute.cr_network.Link-class.html#jsonify,Method commroute.cr_network.Route.jsonify()=commroute.cr_network.Route-class.html#jsonify,Method commroute.cr_utils.Dumpable.Dumpable.jsonify()=commroute.cr_utils.Dumpable.Dumpable-class.html#jsonify,Method commroute.ctm.CTMLink.jsonify()=commroute.ctm.CTMLink-class.html#jsonify,Method commroute.ctm.FundamentalDiagram.jsonify()=commroute.ctm.FundamentalDiagram-class.html#jsonify,Method commroute.demand.Demand.jsonify()=commroute.demand.Demand-class.html#jsonify,Method commroute.demand.FlowNetwork.jsonify()=commroute.demand.FlowNetwork-class.html#jsonify,Method commroute.demand.LinkDemand.jsonify()=commroute.demand.LinkDemand-class.html#jsonify,Method commroute.demand.ODDemand.jsonify()=commroute.demand.ODDemand-class.html#jsonify,Method commroute.demand.RouteDemand.jsonify()=commroute.demand.RouteDemand-class.html#jsonify,Method commroute.dynamic.DynamicDemand.jsonify()=commroute.dynamic.DynamicDemand-class.html#jsonify,Method commroute.dynamic.SourceDemand.jsonify()=commroute.dynamic.SourceDemand-class.html#jsonify,Method commroute.point_queue.AffineLatency.jsonify()=commroute.point_queue.AffineLatency-class.html#jsonify,Method commroute.point_queue.FlowLatency.jsonify()=commroute.point_queue.FlowLatency-class.html#jsonify,Method commroute.point_queue.FlowLink.jsonify()=commroute.point_queue.FlowLink-class.html#jsonify,Method commroute.point_queue.MM1Latency.jsonify()=commroute.point_queue.MM1Latency-class.html#jsonify,Method commroute.state_constrained.StateConstrainedLink.jsonify()=commroute.state_constrained.StateConstrainedLink-class.html#jsonify"><a title="commroute.compliance.CompliantRouteDemand.jsonify
+commroute.cr_network.CRNetwork.jsonify
+commroute.cr_network.Junction.jsonify
+commroute.cr_network.Link.jsonify
+commroute.cr_network.Route.jsonify
+commroute.cr_utils.Dumpable.Dumpable.jsonify
+commroute.ctm.CTMLink.jsonify
+commroute.ctm.FundamentalDiagram.jsonify
+commroute.demand.Demand.jsonify
+commroute.demand.FlowNetwork.jsonify
+commroute.demand.LinkDemand.jsonify
+commroute.demand.ODDemand.jsonify
+commroute.demand.RouteDemand.jsonify
+commroute.dynamic.DynamicDemand.jsonify
+commroute.dynamic.SourceDemand.jsonify
+commroute.point_queue.AffineLatency.jsonify
+commroute.point_queue.FlowLatency.jsonify
+commroute.point_queue.FlowLink.jsonify
+commroute.point_queue.MM1Latency.jsonify
+commroute.state_constrained.StateConstrainedLink.jsonify" class="py-name" href="#" onclick="return doclink('link-3', 'jsonify', 'link-3');">jsonify</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">fn</tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Method networkx.readwrite.gexf.GEXFWriter.indent()=networkx.readwrite.gexf.GEXFWriter-class.html#indent,Method networkx.readwrite.graphml.GraphMLWriter.indent()=networkx.readwrite.graphml.GraphMLWriter-class.html#indent"><a title="networkx.readwrite.gexf.GEXFWriter.indent
+networkx.readwrite.graphml.GraphMLWriter.indent" class="py-name" href="#" onclick="return doclink('link-4', 'indent', 'link-4');">indent</a></tt><tt class="py-op">=</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="Dumpable.jsonify"></a><div id="Dumpable.jsonify-def"><a name="L16"></a><tt class="py-lineno">16</tt> <a class="py-toggle" href="#" id="Dumpable.jsonify-toggle" onclick="return toggle('Dumpable.jsonify');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.cr_utils.Dumpable.Dumpable-class.html#jsonify">jsonify</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Dumpable.jsonify-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="Dumpable.jsonify-expanded"><a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">    the method that turns the object into an object that can be serialized via `simplejson.dump` method</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">    @return: object that can be serialized</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt><tt class="py-op">(</tt><tt class="py-string">'need to jsonify!'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="Dumpable.load"></a><div id="Dumpable.load-def"><a name="L24"></a><tt class="py-lineno">24</tt> <a class="py-toggle" href="#" id="Dumpable.load-toggle" onclick="return toggle('Dumpable.load');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.cr_utils.Dumpable.Dumpable-class.html#load">load</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">fn</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Dumpable.load-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="Dumpable.load-expanded"><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">    Load an object deserialized in the file `fn` of the same type as `cls`</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">    @param cls: the class that will be created</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">    @param fn: file name to load from</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">    @type fn: str</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">    @param kwargs: extra arguments to help with loading (to handle unforeseen deserialization needs)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">    @return: the new object</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt class="py-name">do_cloud</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-string">'cloud'</tt><tt class="py-op">,</tt> <tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">do_cloud</tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">      <tt class="py-keyword">import</tt> <tt class="py-name">cloud</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">      <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="commroute.cr_utils.Dumpable.Dumpable.load
+networkx.algorithms.centrality.load" class="py-name" href="#" onclick="return doclink('link-5', 'load', 'link-1');">load</a></tt><tt class="py-op">(</tt><tt class="py-name">cloud</tt><tt class="py-op">.</tt><tt class="py-name">files</tt><tt class="py-op">.</tt><tt class="py-name">getf</tt><tt class="py-op">(</tt><tt class="py-name">fn</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">      <tt class="py-keyword">with</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">fn</tt><tt class="py-op">,</tt> <tt class="py-string">'r'</tt><tt class="py-op">)</tt> <tt class="py-keyword">as</tt> <tt class="py-name">fn</tt><tt class="py-op">:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="commroute.cr_utils.Dumpable.Dumpable.load
+networkx.algorithms.centrality.load" class="py-name" href="#" onclick="return doclink('link-6', 'load', 'link-1');">load</a></tt><tt class="py-op">(</tt><tt class="py-name">fn</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Class Method commroute.cr_network.CRNetwork.load_with_json_data()=commroute.cr_network.CRNetwork-class.html#load_with_json_data,Class Method commroute.cr_network.Link.load_with_json_data()=commroute.cr_network.Link-class.html#load_with_json_data,Class Method commroute.cr_utils.Dumpable.Dumpable.load_with_json_data()=commroute.cr_utils.Dumpable.Dumpable-class.html#load_with_json_data,Class Method commroute.ctm.FundamentalDiagram.load_with_json_data()=commroute.ctm.FundamentalDiagram-class.html#load_with_json_data,Class Method commroute.demand.Demand.load_with_json_data()=commroute.demand.Demand-class.html#load_with_json_data,Class Method commroute.demand.FlowNetwork.load_with_json_data()=commroute.demand.FlowNetwork-class.html#load_with_json_data,Class Method commroute.point_queue.FlowLatency.load_with_json_data()=commroute.point_queue.FlowLatency-class.html#load_with_json_data"><a title="commroute.cr_network.CRNetwork.load_with_json_data
+commroute.cr_network.Link.load_with_json_data
+commroute.cr_utils.Dumpable.Dumpable.load_with_json_data
+commroute.ctm.FundamentalDiagram.load_with_json_data
+commroute.demand.Demand.load_with_json_data
+commroute.demand.FlowNetwork.load_with_json_data
+commroute.point_queue.FlowLatency.load_with_json_data" class="py-name" href="#" onclick="return doclink('link-7', 'load_with_json_data', 'link-7');">load_with_json_data</a></tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="Dumpable.load_with_json_data"></a><div id="Dumpable.load_with_json_data-def"><a name="L43"></a><tt class="py-lineno">43</tt> <a class="py-toggle" href="#" id="Dumpable.load_with_json_data-toggle" onclick="return toggle('Dumpable.load_with_json_data');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.cr_utils.Dumpable.Dumpable-class.html#load_with_json_data">load_with_json_data</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Dumpable.load_with_json_data-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="Dumpable.load_with_json_data-expanded"><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-docstring">    The method that should be overridden for deserialization, needs to be overridden</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"><tt class="py-docstring">    @param cls: the class that will be created</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"><tt class="py-docstring">    @param data: deserialized json type (map, list, string...)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"><tt class="py-docstring">    @param kwargs: extra arguments to help with loading (to handle unforeseen deserialization needs)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"><tt class="py-docstring">    @return: the new object</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: `cls`</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt><tt class="py-op">(</tt><tt class="py-string">'need to load object!'</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:00 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

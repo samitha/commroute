@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.algorithms.shortest_paths.generic</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.algorithms-module.html">Package&nbsp;algorithms</a> ::
+        <a href="networkx.algorithms.shortest_paths-module.html">Package&nbsp;shortest_paths</a> ::
+        Module&nbsp;generic
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.algorithms.shortest_paths.generic-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module generic</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.algorithms.shortest_paths.generic-pysrc.html">source&nbsp;code</a></span></p>
+<p>Compute the shortest paths and path lengths between nodes in the 
+  graph.</p>
+  <p>These algorithms work with undirected and directed graphs.</p>
+  <p>For directed graphs the paths can be computed in the reverse order by 
+  first flipping the edge orientation using R=G.reverse(copy=False).</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Aric Hagberg (hagberg@lanl.gov)
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.shortest_paths.generic-module.html#shortest_path" class="summary-sig-name">shortest_path</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">source</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">target</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Compute shortest paths in the graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.shortest_paths.generic-pysrc.html#shortest_path">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.shortest_paths.generic-module.html#shortest_path_length" class="summary-sig-name">shortest_path_length</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">source</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">target</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Compute shortest path lengths in the graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.shortest_paths.generic-pysrc.html#shortest_path_length">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.shortest_paths.generic-module.html#average_shortest_path_length" class="summary-sig-name">average_shortest_path_length</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return the average shortest path length.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.shortest_paths.generic-pysrc.html#average_shortest_path_length">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx.algorithms.shortest_paths'"><code class="variable-quote">'</code><code class="variable-string">networkx.algorithms.shortest_paths</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="shortest_path"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">shortest_path</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">source</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">target</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.shortest_paths.generic-pysrc.html#shortest_path">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Compute shortest paths in the graph.
+
+Parameters
+----------
+G : NetworkX graph
+
+source : node, optional
+   Starting node for path.  
+   If not specified compute shortest paths for all connected node pairs.
+
+target : node, optional 
+   Ending node for path.  
+   If not specified compute shortest paths for every node reachable 
+   from the source.
+
+weight : None or string, optional (default = None)
+   If None, every edge has weight/distance/cost 1.
+   If a string, use this edge attribute as the edge weight.
+   Any edge attribute not present defaults to 1.
+
+Returns
+-------
+path: list or dictionary
+    If the source and target are both specified return a single list
+    of nodes in a shortest path.
+    If only the source is specified return a dictionary keyed by
+    targets with a list of nodes in a shortest path.
+    If neither the source or target is specified return a dictionary 
+    of dictionaries with path[source][target]=[list of nodes in path].
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.path_graph(5)
+&gt;&gt;&gt; print(nx.shortest_path(G,source=0,target=4))
+[0, 1, 2, 3, 4]
+&gt;&gt;&gt; p=nx.shortest_path(G,source=0) # target not specified
+&gt;&gt;&gt; p[4]
+[0, 1, 2, 3, 4]
+&gt;&gt;&gt; p=nx.shortest_path(G) # source,target not specified
+&gt;&gt;&gt; p[0][4]
+[0, 1, 2, 3, 4]
+
+Notes
+-----
+There may be more than one shortest path between a source and target.
+This returns only one of them.
+
+For digraphs this returns a shortest directed path.  
+To find paths in the reverse direction use G.reverse(copy=False)
+first to flip the edge orientation.
+
+See Also
+--------
+all_pairs_shortest_path()
+all_pairs_dijkstra_path()
+single_source_shortest_path()
+single_source_dijkstra_path()
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="shortest_path_length"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">shortest_path_length</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">source</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">target</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.shortest_paths.generic-pysrc.html#shortest_path_length">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Compute shortest path lengths in the graph.
+
+This function can compute the single source shortest path
+lengths by specifying only the source or all pairs shortest
+path lengths by specifying neither the source or target.
+
+Parameters
+----------
+G : NetworkX graph
+
+source : node, optional
+   Starting node for path.  
+   If not specified compute shortest path lengths for all 
+   connected node pairs.
+
+target : node, optional 
+   Ending node for path.  
+   If not specified compute shortest path lengths for every 
+   node reachable from the source.
+
+weight : None or string, optional (default = None)
+   If None, every edge has weight/distance/cost 1.
+   If a string, use this edge attribute as the edge weight.
+   Any edge attribute not present defaults to 1.
+
+Returns
+-------
+length : number, or container of numbers
+    If the source and target are both specified return a
+    single number for the shortest path.
+    If only the source is specified return a dictionary keyed by
+    targets with a the shortest path as keys.
+    If neither the source or target is specified return a dictionary 
+    of dictionaries with length[source][target]=value.
+
+Raises
+------
+NetworkXNoPath
+    If no path exists between source and target.
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.path_graph(5)
+&gt;&gt;&gt; print(nx.shortest_path_length(G,source=0,target=4))
+4
+&gt;&gt;&gt; p=nx.shortest_path_length(G,source=0) # target not specified
+&gt;&gt;&gt; p[4]
+4
+&gt;&gt;&gt; p=nx.shortest_path_length(G) # source,target not specified
+&gt;&gt;&gt; p[0][4]
+4
+
+Notes
+-----
+For digraphs this returns the shortest directed path.
+To find path lengths in the reverse direction use G.reverse(copy=False)
+first to flip the edge orientation.
+
+See Also
+--------
+all_pairs_shortest_path_length()
+all_pairs_dijkstra_path_length()
+single_source_shortest_path_length()
+single_source_dijkstra_path_length()
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="average_shortest_path_length"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">average_shortest_path_length</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.shortest_paths.generic-pysrc.html#average_shortest_path_length">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the average shortest path length.
+
+The average shortest path length is
+
+.. math::
+
+   a =\sum_{s,t \in V} \frac{d(s, t)}{n(n-1)}
+
+where `V` is the set of nodes in `G`,
+`d(s, t)` is the shortest path from `s` to `t`,
+and `n` is the number of nodes in `G`.
+
+Parameters
+----------
+G : NetworkX graph
+
+weight : None or string, optional (default = None)
+   If None, every edge has weight/distance/cost 1.
+   If a string, use this edge attribute as the edge weight.
+   Any edge attribute not present defaults to 1.
+
+Raises
+------
+NetworkXError:
+   if the graph is not connected.
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.path_graph(5)
+&gt;&gt;&gt; print(nx.average_shortest_path_length(G))
+2.0
+
+For disconnected graphs you can compute the average shortest path
+length for each component:
+&gt;&gt;&gt; G=nx.Graph([(1,2),(3,4)])
+&gt;&gt;&gt; for g in nx.connected_component_subgraphs(G): 
+...     print(nx.average_shortest_path_length(g))
+1.0
+1.0
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

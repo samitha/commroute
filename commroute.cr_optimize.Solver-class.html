@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>commroute.cr_optimize.Solver</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="commroute-module.html">Package&nbsp;commroute</a> ::
+        <a href="commroute.cr_optimize-module.html">Module&nbsp;cr_optimize</a> ::
+        Class&nbsp;Solver
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="commroute.cr_optimize.Solver-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Solver</h1><p class="nomargin-top"><span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_commrout_18" name="uml_class_diagram_for_commrout_18">
+<area shape="rect" id="node1_15" href="commroute.cr_optimize.Solver.Goal-class.html" title="commroute.cr_optimize.Solver.Goal" alt="" coords="17,31,447,49"/>
+<area shape="rect" id="node1_16" href="commroute.cr_optimize.Solver-class.html#reset_solver" title="commroute.cr_optimize.Solver.reset_solver" alt="" coords="17,52,447,71"/>
+<area shape="rect" id="node1_17" href="commroute.cr_optimize.Solver-class.html#attr_realizer" title="commroute.cr_optimize.Solver.attr_realizer" alt="" coords="17,71,447,89"/>
+<area shape="rect" id="node1_18" href="commroute.cr_optimize.Solver-class.html#create_var" title="commroute.cr_optimize.Solver.create_var" alt="" coords="17,89,447,108"/>
+<area shape="rect" id="node1_19" href="commroute.cr_optimize.Solver-class.html#add_var" title="commroute.cr_optimize.Solver.add_var" alt="" coords="17,108,447,127"/>
+<area shape="rect" id="node1_20" href="commroute.cr_optimize.Solver-class.html#all_vars" title="commroute.cr_optimize.Solver.all_vars" alt="" coords="17,127,447,145"/>
+<area shape="rect" id="node1_21" href="commroute.cr_optimize.Solver-class.html#cr_program" title="the program to be solved" alt="" coords="17,145,447,164"/>
+<area shape="rect" id="node1_22" href="commroute.cr_optimize.Solver-class.html#cr_value" title="commroute.cr_optimize.Solver.cr_value" alt="" coords="17,164,447,183"/>
+<area shape="rect" id="node1_23" href="commroute.cr_optimize.Solver-class.html#cr_var" title="commroute.cr_optimize.Solver.cr_var" alt="" coords="17,183,447,201"/>
+<area shape="rect" id="node1_24" href="commroute.cr_optimize.Solver-class.html#realize" title="commroute.cr_optimize.Solver.realize" alt="" coords="17,201,447,220"/>
+<area shape="rect" id="node1_25" href="commroute.cr_optimize.Solver-class.html#realize_all" title="commroute.cr_optimize.Solver.realize_all" alt="" coords="17,220,447,239"/>
+<area shape="rect" id="node1_26" href="commroute.cr_optimize.Solver-class.html#cr_leq" title="commroute.cr_optimize.Solver.cr_leq" alt="" coords="17,239,447,257"/>
+<area shape="rect" id="node1_27" href="commroute.cr_optimize.Solver-class.html#cr_geq" title="commroute.cr_optimize.Solver.cr_geq" alt="" coords="17,257,447,276"/>
+<area shape="rect" id="node1_28" href="commroute.cr_optimize.Solver-class.html#cr_eq" title="commroute.cr_optimize.Solver.cr_eq" alt="" coords="17,276,447,295"/>
+<area shape="rect" id="node1_29" href="commroute.cr_optimize.Solver-class.html#cr_constraint" title="unified constraint method" alt="" coords="17,295,447,313"/>
+<area shape="rect" id="node1" href="commroute.cr_optimize.Solver-class.html" title="commroute.cr_optimize.Solver" alt="" coords="5,6,459,319"/>
+<area shape="rect" id="node2" href="commroute.cr_optimize.OptimizeMixIn-class.html" title="commroute.cr_optimize.OptimizeMixIn" alt="" coords="172,339,292,378"/>
+<area shape="rect" id="node3" href="commroute.cvxpy_solver.CVXPySolver-class.html" title="commroute.cvxpy_solver.CVXPySolver" alt="" coords="134,398,330,437"/>
+<area shape="rect" id="node4" href="commroute.cvxpy_solver.SimpleOptimizeMixIn-class.html" title="commroute.cvxpy_solver.SimpleOptimizeMixIn" alt="" coords="112,457,352,495"/>
+</map>
+  <img src="uml_class_diagram_for_commrout_18.gif" alt='' usemap="#uml_class_diagram_for_commrout_18" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="commroute.cr_optimize.Solver.Goal-class.html" class="summary-name">Goal</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="reset_solver"></a><span class="summary-sig-name">reset_solver</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.reset_solver">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="create_var"></a><span class="summary-sig-name">create_var</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">realizer</span>=<span class="summary-sig-default">&lt;function do_nothing at 0x102abced8&gt;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.create_var">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="add_var"></a><span class="summary-sig-name">add_var</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">var</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.add_var">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="all_vars"></a><span class="summary-sig-name">all_vars</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.all_vars">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Program</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="commroute.cr_optimize.Solver-class.html#cr_program" class="summary-sig-name">cr_program</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">goal</span>,
+        <span class="summary-sig-arg">cost</span>,
+        <span class="summary-sig-arg">constraints</span>)</span><br />
+      the program to be solved</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.cr_program">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cr_value"></a><span class="summary-sig-name">cr_value</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">var</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.cr_value">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cr_var"></a><span class="summary-sig-name">cr_var</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.cr_var">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="realize"></a><span class="summary-sig-name">realize</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">var</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.realize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="realize_all"></a><span class="summary-sig-name">realize_all</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.realize_all">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cr_leq"></a><span class="summary-sig-name">cr_leq</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">b</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.cr_leq">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cr_geq"></a><span class="summary-sig-name">cr_geq</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">b</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.cr_geq">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cr_eq"></a><span class="summary-sig-name">cr_eq</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">b</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.cr_eq">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Constraint</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cr_constraint"></a><span class="summary-sig-name">cr_constraint</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">type</span>,
+        <span class="summary-sig-arg">a</span>,
+        <span class="summary-sig-arg">b</span>)</span><br />
+      unified constraint method</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.cr_constraint">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__init__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="attr_realizer"></a><span class="summary-sig-name">attr_realizer</span>(<span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">attr</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.attr_realizer">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="cr_program"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">cr_program</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">goal</span>,
+        <span class="sig-arg">cost</span>,
+        <span class="sig-arg">constraints</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="commroute.cr_optimize-pysrc.html#Solver.cr_program">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>the program to be solved</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>goal</code></strong></li>
+        <li><strong class="pname"><code>cost</code></strong></li>
+        <li><strong class="pname"><code>constraints</code></strong></li>
+    </ul></dd>
+    <dt>Returns: Program</dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:48 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

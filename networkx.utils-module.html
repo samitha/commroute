@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.utils</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        Module&nbsp;utils
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.utils-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module utils</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.utils-pysrc.html">source&nbsp;code</a></span></p>
+<p>********* Utilities *********</p>
+  <p>Helpers for NetworkX.</p>
+  <p>These are not imported into the base networkx namespace but can be 
+  accessed, for example, as</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> networkx
+<span class="py-prompt">&gt;&gt;&gt; </span>networkx.utils.is_string_like(<span class="py-string">'spam'</span>)
+<span class="py-output">True</span></pre>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Aric Hagberg (hagberg@lanl.gov)
+        Dan Schult(dschult@colgate.edu)
+        Ben Edwards(bedwards@cs.unm.edu)
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.utils.UnionFind-class.html" class="summary-name">UnionFind</a><br />
+      Union-find data structure.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="is_singleton"></a><span class="summary-sig-name">is_singleton</span>(<span class="summary-sig-arg">obj</span>)</span><br />
+      Is string_like or not iterable.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#is_singleton">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="is_string_like"></a><span class="summary-sig-name">is_string_like</span>(<span class="summary-sig-arg">obj</span>)</span><br />
+      Check if obj is string.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#is_string_like">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="iterable"></a><span class="summary-sig-name">iterable</span>(<span class="summary-sig-arg">obj</span>)</span><br />
+      Return True if obj is iterable with a well-defined len().</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#iterable">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="flatten"></a><span class="summary-sig-name">flatten</span>(<span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">result</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return flattened version of (possibly nested) iterable object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#flatten">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="is_list_of_ints"></a><span class="summary-sig-name">is_list_of_ints</span>(<span class="summary-sig-arg">intlist</span>)</span><br />
+      Return True if list is a list of ints.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#is_list_of_ints">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.utils-module.html#_get_fh" class="summary-sig-name" onclick="show_private();">_get_fh</a>(<span class="summary-sig-arg">path</span>,
+        <span class="summary-sig-arg">mode</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">r</code><code class="variable-quote">'</code></span>)</span><br />
+      Return a file handle for given path.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#_get_fh">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="make_str"></a><span class="summary-sig-name">make_str</span>(<span class="summary-sig-arg">t</span>)</span><br />
+      Return the string representation of t.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#make_str">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.utils-module.html#cumulative_sum" class="summary-sig-name">cumulative_sum</a>(<span class="summary-sig-arg">numbers</span>)</span><br />
+      Yield cumulative sum of numbers.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#cumulative_sum">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="scipy_pareto_sequence"></a><span class="summary-sig-name">scipy_pareto_sequence</span>(<span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">exponent</span>=<span class="summary-sig-default">1.0</span>)</span><br />
+      Return sample sequence of length n from a Pareto distribution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#scipy_pareto_sequence">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="scipy_powerlaw_sequence"></a><span class="summary-sig-name">scipy_powerlaw_sequence</span>(<span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">exponent</span>=<span class="summary-sig-default">2.0</span>)</span><br />
+      Return sample sequence of length n from a power law distribution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#scipy_powerlaw_sequence">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="scipy_poisson_sequence"></a><span class="summary-sig-name">scipy_poisson_sequence</span>(<span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">mu</span>=<span class="summary-sig-default">1.0</span>)</span><br />
+      Return sample sequence of length n from a Poisson distribution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#scipy_poisson_sequence">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="scipy_uniform_sequence"></a><span class="summary-sig-name">scipy_uniform_sequence</span>(<span class="summary-sig-arg">n</span>)</span><br />
+      Return sample sequence of length n from a uniform distribution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#scipy_uniform_sequence">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.utils-module.html#scipy_discrete_sequence" class="summary-sig-name">scipy_discrete_sequence</a>(<span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">distribution</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Return sample sequence of length n from a given discrete 
+      distribution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#scipy_discrete_sequence">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="pareto_sequence"></a><span class="summary-sig-name">pareto_sequence</span>(<span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">exponent</span>=<span class="summary-sig-default">1.0</span>)</span><br />
+      Return sample sequence of length n from a Pareto distribution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#pareto_sequence">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="powerlaw_sequence"></a><span class="summary-sig-name">powerlaw_sequence</span>(<span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">exponent</span>=<span class="summary-sig-default">2.0</span>)</span><br />
+      Return sample sequence of length n from a power law distribution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#powerlaw_sequence">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.utils-module.html#zipf_rv" class="summary-sig-name">zipf_rv</a>(<span class="summary-sig-arg">alpha</span>,
+        <span class="summary-sig-arg">xmin</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">seed</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return a random value chosen from the Zipf distribution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#zipf_rv">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.utils-module.html#zipf_sequence" class="summary-sig-name">zipf_sequence</a>(<span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">alpha</span>=<span class="summary-sig-default">2.0</span>,
+        <span class="summary-sig-arg">xmin</span>=<span class="summary-sig-default">1</span>)</span><br />
+      Return a sample sequence of length n from a Zipf distribution with
+exponent parameter alpha and minimum value xmin.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#zipf_sequence">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="uniform_sequence"></a><span class="summary-sig-name">uniform_sequence</span>(<span class="summary-sig-arg">n</span>)</span><br />
+      Return sample sequence of length n from a uniform distribution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#uniform_sequence">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cumulative_distribution"></a><span class="summary-sig-name">cumulative_distribution</span>(<span class="summary-sig-arg">distribution</span>)</span><br />
+      Return normalized cumulative distribution from discrete distribution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#cumulative_distribution">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.utils-module.html#discrete_sequence" class="summary-sig-name">discrete_sequence</a>(<span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">distribution</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">cdistribution</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return sample sequence of length n from a given discrete distribution
+      or discrete cumulative distribution.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#discrete_sequence">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="generate_unique_node"></a><span class="summary-sig-name">generate_unique_node</span>()</span><br />
+      Generate a unique node label.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.utils-pysrc.html#generate_unique_node">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx'"><code class="variable-quote">'</code><code class="variable-string">networkx</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_get_fh"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_get_fh</span>(<span class="sig-arg">path</span>,
+        <span class="sig-arg">mode</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">r</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.utils-pysrc.html#_get_fh">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return a file handle for given path.</p>
+  <p>Path can be a string or a file handle.</p>
+  <p>Attempt to uncompress/compress files ending in '.gz' and '.bz2'.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="cumulative_sum"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">cumulative_sum</span>(<span class="sig-arg">numbers</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.utils-pysrc.html#cumulative_sum">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Yield cumulative sum of numbers.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> networkx.utils <span class="py-keyword">as</span> utils
+<span class="py-prompt">&gt;&gt;&gt; </span>list(utils.cumulative_sum([1,2,3,4]))
+<span class="py-output">[1, 3, 6, 10]</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="scipy_discrete_sequence"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">scipy_discrete_sequence</span>(<span class="sig-arg">n</span>,
+        <span class="sig-arg">distribution</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.utils-pysrc.html#scipy_discrete_sequence">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return sample sequence of length n from a given discrete 
+  distribution.</p>
+  <p>distribution=histogram of values, will be normalized</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="zipf_rv"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">zipf_rv</span>(<span class="sig-arg">alpha</span>,
+        <span class="sig-arg">xmin</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">seed</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.utils-pysrc.html#zipf_rv">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return a random value chosen from the Zipf distribution.
+
+The return value is an integer drawn from the probability distribution
+::math::
+
+    p(x)=\frac{x^{-\alpha}}{\zeta(\alpha,x_{min})},
+
+where `\zeta(\alpha,x_{min})` is the Hurwitz zeta function.        
+
+Parameters
+----------
+alpha : float 
+  Exponent value of the distribution
+xmin : int
+  Minimum value
+seed : int
+  Seed value for random number generator
+
+Returns
+-------
+x : int
+  Random value from Zipf distribution
+
+Raises
+------
+ValueError:
+  If xmin &lt; 1 or
+  If alpha &lt;= 1
+
+Notes
+-----
+The rejection algorithm generates random values for a the power-law
+distribution in uniformly bounded expected time dependent on
+parameters.  See [1] for details on its operation.
+
+Examples
+--------
+&gt;&gt;&gt; nx.zipf_rv(alpha=2, xmin=3, seed=42) # doctest: +SKIP
+
+References
+----------
+..[1] Luc Devroye, Non-Uniform Random Variate Generation, 
+   Springer-Verlag, New York, 1986.
+   http://cg.scs.carleton.ca/~luc/rnbookindex.html
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="zipf_sequence"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">zipf_sequence</span>(<span class="sig-arg">n</span>,
+        <span class="sig-arg">alpha</span>=<span class="sig-default">2.0</span>,
+        <span class="sig-arg">xmin</span>=<span class="sig-default">1</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.utils-pysrc.html#zipf_sequence">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return a sample sequence of length n from a Zipf distribution with
+exponent parameter alpha and minimum value xmin.
+
+See Also
+--------
+zipf_rv
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="discrete_sequence"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">discrete_sequence</span>(<span class="sig-arg">n</span>,
+        <span class="sig-arg">distribution</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">cdistribution</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.utils-pysrc.html#discrete_sequence">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return sample sequence of length n from a given discrete distribution 
+  or discrete cumulative distribution.</p>
+  <p>One of the following must be specified.</p>
+  <p>distribution = histogram of values, will be normalized</p>
+  <p>cdistribution = normalized discrete cumulative distribution</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>commroute.static_pq.MinTTT</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="commroute-module.html">Package&nbsp;commroute</a> ::
+        <a href="commroute.static_pq-module.html">Module&nbsp;static_pq</a> ::
+        Class&nbsp;MinTTT
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="commroute.static_pq.MinTTT-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class MinTTT</h1><p class="nomargin-top"><span class="codelink"><a href="commroute.static_pq-pysrc.html#MinTTT">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_commrout_58" name="uml_class_diagram_for_commrout_58">
+<area shape="rect" id="node1_24" href="commroute.static_pq.MinTTT-class.html#objective" title="commroute.static_pq.MinTTT.objective" alt="" coords="227,820,315,839"/>
+<area shape="rect" id="node1" href="commroute.static_pq.MinTTT-class.html" title="commroute.static_pq.MinTTT" alt="" coords="215,787,327,845"/>
+<area shape="rect" id="node2_25" href="commroute.static_op.LagrangianConstrained-class.html#con_junc" title="commroute.static_op.LagrangianConstrained.con_junc" alt="" coords="172,705,368,724"/>
+<area shape="rect" id="node2_26" href="commroute.static_op.LagrangianConstrained-class.html#con_od_flows" title="commroute.static_op.LagrangianConstrained.con_od_flows" alt="" coords="172,724,368,743"/>
+<area shape="rect" id="node2_27" href="commroute.static_op.LagrangianConstrained-class.html#constraints" title="commroute.static_op.LagrangianConstrained.constraints" alt="" coords="172,743,368,761"/>
+<area shape="rect" id="node2" href="commroute.static_op.LagrangianConstrained-class.html" title="commroute.static_op.LagrangianConstrained" alt="" coords="159,673,379,767"/>
+<area shape="rect" id="node3" href="javascript:void(0);" title="??&#45;58" alt="" coords="155,531,213,575"/>
+<area shape="rect" id="node10_28" href="commroute.static_op.LagrangianStaticProblem-class.html#variablize" title="docstring for cvxify" alt="" coords="167,628,375,647"/>
+<area shape="rect" id="node10" href="commroute.static_op.LagrangianStaticProblem-class.html" title="docstring for StaticProblem" alt="" coords="155,595,387,653"/>
+<area shape="rect" id="node4" href="commroute.cvxpy_solver.Unconstrained-class.html" title="commroute.cvxpy_solver.Unconstrained" alt="" coords="5,414,195,458"/>
+<area shape="rect" id="node6" href="commroute.cvxpy_solver.SimpleOptimizeMixIn-class.html" title="commroute.cvxpy_solver.SimpleOptimizeMixIn" alt="" coords="243,531,472,575"/>
+<area shape="rect" id="node5_29" href="commroute.cvxpy_solver.CVXPySolver-class.html#cr_constraint" title="unified constraint method" alt="" coords="237,393,477,412"/>
+<area shape="rect" id="node5_30" href="commroute.cvxpy_solver.CVXPySolver-class.html#cr_value" title="commroute.cvxpy_solver.CVXPySolver.cr_value" alt="" coords="237,412,477,431"/>
+<area shape="rect" id="node5_31" href="commroute.cvxpy_solver.CVXPySolver-class.html#hack_constraints" title="commroute.cvxpy_solver.CVXPySolver.hack_constraints" alt="" coords="237,431,477,449"/>
+<area shape="rect" id="node5_32" href="commroute.cvxpy_solver.CVXPySolver-class.html#cr_program" title="the program to be solved" alt="" coords="237,449,477,468"/>
+<area shape="rect" id="node5_33" href="commroute.cvxpy_solver.CVXPySolver-class.html#cr_var" title="commroute.cvxpy_solver.CVXPySolver.cr_var" alt="" coords="237,468,477,487"/>
+<area shape="rect" id="node5_34" href="commroute.cvxpy_solver.CVXPySolver-class.html#is_feasible" title="commroute.cvxpy_solver.CVXPySolver.is_feasible" alt="" coords="237,487,477,505"/>
+<area shape="rect" id="node5" href="commroute.cvxpy_solver.CVXPySolver-class.html" title="commroute.cvxpy_solver.CVXPySolver" alt="" coords="225,361,489,511"/>
+<area shape="rect" id="node7_35" href="commroute.cr_optimize.OptimizeMixIn-class.html#get_program" title="helper function for getting programs" alt="" coords="279,297,436,316"/>
+<area shape="rect" id="node7_36" href="commroute.cr_optimize.OptimizeMixIn-class.html#goal" title="commroute.cr_optimize.OptimizeMixIn.goal" alt="" coords="279,316,436,335"/>
+<area shape="rect" id="node7" href="commroute.cr_optimize.OptimizeMixIn-class.html" title="commroute.cr_optimize.OptimizeMixIn" alt="" coords="267,265,448,341"/>
+<area shape="rect" id="node8_37" href="commroute.cr_optimize.Solver.Goal-class.html" title="commroute.cr_optimize.Solver.Goal" alt="" coords="143,31,572,49"/>
+<area shape="rect" id="node8_38" href="commroute.cr_optimize.Solver-class.html#reset_solver" title="commroute.cr_optimize.Solver.reset_solver" alt="" coords="143,52,572,71"/>
+<area shape="rect" id="node8_39" href="commroute.cr_optimize.Solver-class.html#attr_realizer" title="commroute.cr_optimize.Solver.attr_realizer" alt="" coords="143,71,572,89"/>
+<area shape="rect" id="node8_40" href="commroute.cr_optimize.Solver-class.html#create_var" title="commroute.cr_optimize.Solver.create_var" alt="" coords="143,89,572,108"/>
+<area shape="rect" id="node8_41" href="commroute.cr_optimize.Solver-class.html#add_var" title="commroute.cr_optimize.Solver.add_var" alt="" coords="143,108,572,127"/>
+<area shape="rect" id="node8_42" href="commroute.cr_optimize.Solver-class.html#all_vars" title="commroute.cr_optimize.Solver.all_vars" alt="" coords="143,127,572,145"/>
+<area shape="rect" id="node8_43" href="commroute.cr_optimize.Solver-class.html#realize" title="commroute.cr_optimize.Solver.realize" alt="" coords="143,145,572,164"/>
+<area shape="rect" id="node8_44" href="commroute.cr_optimize.Solver-class.html#realize_all" title="commroute.cr_optimize.Solver.realize_all" alt="" coords="143,164,572,183"/>
+<area shape="rect" id="node8_45" href="commroute.cr_optimize.Solver-class.html#cr_leq" title="commroute.cr_optimize.Solver.cr_leq" alt="" coords="143,183,572,201"/>
+<area shape="rect" id="node8_46" href="commroute.cr_optimize.Solver-class.html#cr_geq" title="commroute.cr_optimize.Solver.cr_geq" alt="" coords="143,201,572,220"/>
+<area shape="rect" id="node8_47" href="commroute.cr_optimize.Solver-class.html#cr_eq" title="commroute.cr_optimize.Solver.cr_eq" alt="" coords="143,220,572,239"/>
+<area shape="rect" id="node8" href="commroute.cr_optimize.Solver-class.html" title="commroute.cr_optimize.Solver" alt="" coords="131,6,584,245"/>
+<area shape="rect" id="node9" href="commroute.cvxpy_solver.Feasible-class.html" title="commroute.cvxpy_solver.Feasible" alt="" coords="519,414,673,458"/>
+</map>
+  <img src="uml_class_diagram_for_commrout_58.gif" alt='' usemap="#uml_class_diagram_for_commrout_58" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.cr_optimize.Solver-class.html">cr_optimize.Solver</a></code></b>:
+      <code><a href="commroute.cr_optimize.Solver.Goal-class.html">Goal</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="commroute.static_pq.MinTTT-class.html#objective" class="summary-sig-name">objective</a>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.static_pq-pysrc.html#MinTTT.objective">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.static_op.LagrangianConstrained-class.html">static_op.LagrangianConstrained</a></code></b>:
+      <code><a href="commroute.static_op.LagrangianConstrained-class.html#con_junc">con_junc</a></code>,
+      <code><a href="commroute.static_op.LagrangianConstrained-class.html#con_od_flows">con_od_flows</a></code>,
+      <code><a href="commroute.static_op.LagrangianConstrained-class.html#constraints">constraints</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.static_op.LagrangianStaticProblem-class.html">static_op.LagrangianStaticProblem</a></code></b>:
+      <code><a href="commroute.static_op.LagrangianStaticProblem-class.html#variablize">variablize</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.cvxpy_solver.CVXPySolver-class.html">cvxpy_solver.CVXPySolver</a></code></b>:
+      <code><a href="commroute.cvxpy_solver.CVXPySolver-class.html#cr_constraint">cr_constraint</a></code>,
+      <code><a href="commroute.cvxpy_solver.CVXPySolver-class.html#cr_program">cr_program</a></code>,
+      <code><a href="commroute.cvxpy_solver.CVXPySolver-class.html#cr_value">cr_value</a></code>,
+      <code><a href="commroute.cvxpy_solver.CVXPySolver-class.html#cr_var">cr_var</a></code>,
+      <code><a href="commroute.cvxpy_solver.CVXPySolver-class.html#hack_constraints">hack_constraints</a></code>,
+      <code><a href="commroute.cvxpy_solver.CVXPySolver-class.html#is_feasible">is_feasible</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.cr_optimize.OptimizeMixIn-class.html">cr_optimize.OptimizeMixIn</a></code></b>:
+      <code><a href="commroute.cr_optimize.OptimizeMixIn-class.html#get_program">get_program</a></code>,
+      <code><a href="commroute.cr_optimize.OptimizeMixIn-class.html#goal">goal</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.cr_optimize.Solver-class.html">cr_optimize.Solver</a></code></b>:
+      <code><a href="commroute.cr_optimize.Solver-class.html#add_var">add_var</a></code>,
+      <code><a href="commroute.cr_optimize.Solver-class.html#all_vars">all_vars</a></code>,
+      <code><a href="commroute.cr_optimize.Solver-class.html#cr_eq">cr_eq</a></code>,
+      <code><a href="commroute.cr_optimize.Solver-class.html#cr_geq">cr_geq</a></code>,
+      <code><a href="commroute.cr_optimize.Solver-class.html#cr_leq">cr_leq</a></code>,
+      <code><a href="commroute.cr_optimize.Solver-class.html#create_var">create_var</a></code>,
+      <code><a href="commroute.cr_optimize.Solver-class.html#realize">realize</a></code>,
+      <code><a href="commroute.cr_optimize.Solver-class.html#realize_all">realize_all</a></code>,
+      <code><a href="commroute.cr_optimize.Solver-class.html#reset_solver">reset_solver</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__init__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.cr_optimize.Solver-class.html">cr_optimize.Solver</a></code></b>:
+      <code><a href="commroute.cr_optimize.Solver-class.html#attr_realizer">attr_realizer</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="objective"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">objective</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="commroute.static_pq-pysrc.html#MinTTT.objective">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="commroute.cr_optimize.OptimizeMixIn-class.html#objective">cr_optimize.OptimizeMixIn.objective</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:53 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

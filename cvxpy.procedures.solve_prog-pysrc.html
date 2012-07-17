@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cvxpy.procedures.solve_prog</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cvxpy-module.html">Package&nbsp;cvxpy</a> ::
+        <a href="cvxpy.procedures-module.html">Package&nbsp;procedures</a> ::
+        Module&nbsp;solve_prog
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cvxpy.procedures.solve_prog-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="cvxpy.procedures.solve_prog-module.html">Module cvxpy.procedures.solve_prog</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">#***********************************************************************#</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2010-2012 Tomas Tinoco De Rubira                        #</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment">#                                                                       #</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># This file is part of CVXPY                                            #     </tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#                                                                       #</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># CVXPY is free software: you can redistribute it and/or modify         #</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># it under the terms of the GNU General Public License as published by  #</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation, either version 3 of the License, or     #   </tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment"># (at your option) any later version.                                   # </tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment">#                                                                       #</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment"># CVXPY is distributed in the hope that it will be useful,              #</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment"># but WITHOUT ANY WARRANTY; without even the implied warranty of        #</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-comment"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment"># GNU General Public License for more details.                          #</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-comment">#                                                                       #</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-comment"># You should have received a copy of the GNU General Public License     #</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-comment"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;. #</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-comment">#***********************************************************************#</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">as</tt> <tt class="py-name">np</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package cvxpy=cvxpy-module.html"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-0', 'cvxpy', 'link-0');">cvxpy</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module cvxpy.defs=cvxpy.defs-module.html"><a title="cvxpy.defs" class="py-name" href="#" onclick="return doclink('link-1', 'defs', 'link-1');">defs</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-2', 'cvxpy', 'link-0');">cvxpy</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Package cvxpy.procedures=cvxpy.procedures-module.html"><a title="cvxpy.procedures" class="py-name" href="#" onclick="return doclink('link-3', 'procedures', 'link-3');">procedures</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module cvxpy.procedures.call_solver=cvxpy.procedures.call_solver-module.html,Function cvxpy.procedures.call_solver.call_solver()=cvxpy.procedures.call_solver-module.html#call_solver"><a title="cvxpy.procedures.call_solver
+cvxpy.procedures.call_solver.call_solver" class="py-name" href="#" onclick="return doclink('link-4', 'call_solver', 'link-4');">call_solver</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name"><a title="cvxpy.procedures.call_solver
+cvxpy.procedures.call_solver.call_solver" class="py-name" href="#" onclick="return doclink('link-5', 'call_solver', 'link-4');">call_solver</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-comment"># Function</tt> </tt>
+<a name="solve_prog"></a><div id="solve_prog-def"><a name="L25"></a><tt class="py-lineno">25</tt> <a class="py-toggle" href="#" id="solve_prog-toggle" onclick="return toggle('solve_prog');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cvxpy.procedures.solve_prog-module.html#solve_prog">solve_prog</a><tt class="py-op">(</tt><tt class="py-param">p</tt><tt class="py-op">,</tt><tt class="py-param">quiet</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="solve_prog-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="solve_prog-expanded"><a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">    Solves optimization program.</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">    :param p: cvxpy_program</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-comment"># Expand</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt class="py-name">p_expanded</tt> <tt class="py-op">=</tt> <tt class="py-name">p</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method cvxpy.programs.cvxpy_program._get_expanded_program()=cvxpy.programs.cvxpy_program-class.html#_get_expanded_program"><a title="cvxpy.programs.cvxpy_program._get_expanded_program" class="py-name" href="#" onclick="return doclink('link-6', '_get_expanded_program', 'link-6');">_get_expanded_program</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">    <tt class="py-comment"># Compute signs</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">p</tt><tt class="py-op">.</tt><tt class="py-name">action</tt> <tt class="py-op">==</tt> <tt id="link-7" class="py-name" targets="Variable cvxpy.defs.MINIMIZE=cvxpy.defs-module.html#MINIMIZE,Variable cvxpy.functions.abs'.MINIMIZE=cvxpy.functions.abs%27-module.html#MINIMIZE,Variable cvxpy.functions.det_rootn'.MINIMIZE=cvxpy.functions.det_rootn%27-module.html#MINIMIZE,Variable cvxpy.functions.exp'.MINIMIZE=cvxpy.functions.exp%27-module.html#MINIMIZE,Variable cvxpy.functions.geo_mean'.MINIMIZE=cvxpy.functions.geo_mean%27-module.html#MINIMIZE,Variable cvxpy.functions.huber'.MINIMIZE=cvxpy.functions.huber%27-module.html#MINIMIZE,Variable cvxpy.functions.kl_div'.MINIMIZE=cvxpy.functions.kl_div%27-module.html#MINIMIZE,Variable cvxpy.functions.lambda_max'.MINIMIZE=cvxpy.functions.lambda_max%27-module.html#MINIMIZE,Variable cvxpy.functions.lambda_min'.MINIMIZE=cvxpy.functions.lambda_min%27-module.html#MINIMIZE,Variable cvxpy.functions.log'.MINIMIZE=cvxpy.functions.log%27-module.html#MINIMIZE,Variable cvxpy.functions.log_norm_cdf'.MINIMIZE=cvxpy.functions.log_norm_cdf%27-module.html#MINIMIZE,Variable cvxpy.functions.log_sum_exp'.MINIMIZE=cvxpy.functions.log_sum_exp%27-module.html#MINIMIZE,Variable cvxpy.functions.max'.MINIMIZE=cvxpy.functions.max%27-module.html#MINIMIZE,Variable cvxpy.functions.min'.MINIMIZE=cvxpy.functions.min%27-module.html#MINIMIZE,Variable cvxpy.functions.norm1'.MINIMIZE=cvxpy.functions.norm1%27-module.html#MINIMIZE,Variable cvxpy.functions.norm2'.MINIMIZE=cvxpy.functions.norm2%27-module.html#MINIMIZE,Variable cvxpy.functions.norm_inf'.MINIMIZE=cvxpy.functions.norm_inf%27-module.html#MINIMIZE,Variable cvxpy.functions.nuclear_norm'.MINIMIZE=cvxpy.functions.nuclear_norm%27-module.html#MINIMIZE,Variable cvxpy.functions.quad_form'.MINIMIZE=cvxpy.functions.quad_form%27-module.html#MINIMIZE,Variable cvxpy.functions.quad_over_lin'.MINIMIZE=cvxpy.functions.quad_over_lin%27-module.html#MINIMIZE,Variable cvxpy.functions.sqrt'.MINIMIZE=cvxpy.functions.sqrt%27-module.html#MINIMIZE,Variable cvxpy.functions.square'.MINIMIZE=cvxpy.functions.square%27-module.html#MINIMIZE,Variable cvxpy.sets.exp_cone'.MINIMIZE=cvxpy.sets.exp_cone%27-module.html#MINIMIZE,Variable cvxpy.sets.geo_mean_cone'.MINIMIZE=cvxpy.sets.geo_mean_cone%27-module.html#MINIMIZE,Variable cvxpy.sets.kl_div_epi'.MINIMIZE=cvxpy.sets.kl_div_epi%27-module.html#MINIMIZE,Variable cvxpy.sets.log_norm_cdf_hypo'.MINIMIZE=cvxpy.sets.log_norm_cdf_hypo%27-module.html#MINIMIZE,Variable cvxpy.sets.second_order_cone'.MINIMIZE=cvxpy.sets.second_order_cone%27-module.html#MINIMIZE,Variable cvxpy.sets.semidefinite_cone'.MINIMIZE=cvxpy.sets.semidefinite_cone%27-module.html#MINIMIZE"><a title="cvxpy.defs.MINIMIZE
+cvxpy.functions.abs'.MINIMIZE
+cvxpy.functions.det_rootn'.MINIMIZE
+cvxpy.functions.exp'.MINIMIZE
+cvxpy.functions.geo_mean'.MINIMIZE
+cvxpy.functions.huber'.MINIMIZE
+cvxpy.functions.kl_div'.MINIMIZE
+cvxpy.functions.lambda_max'.MINIMIZE
+cvxpy.functions.lambda_min'.MINIMIZE
+cvxpy.functions.log'.MINIMIZE
+cvxpy.functions.log_norm_cdf'.MINIMIZE
+cvxpy.functions.log_sum_exp'.MINIMIZE
+cvxpy.functions.max'.MINIMIZE
+cvxpy.functions.min'.MINIMIZE
+cvxpy.functions.norm1'.MINIMIZE
+cvxpy.functions.norm2'.MINIMIZE
+cvxpy.functions.norm_inf'.MINIMIZE
+cvxpy.functions.nuclear_norm'.MINIMIZE
+cvxpy.functions.quad_form'.MINIMIZE
+cvxpy.functions.quad_over_lin'.MINIMIZE
+cvxpy.functions.sqrt'.MINIMIZE
+cvxpy.functions.square'.MINIMIZE
+cvxpy.sets.exp_cone'.MINIMIZE
+cvxpy.sets.geo_mean_cone'.MINIMIZE
+cvxpy.sets.kl_div_epi'.MINIMIZE
+cvxpy.sets.log_norm_cdf_hypo'.MINIMIZE
+cvxpy.sets.second_order_cone'.MINIMIZE
+cvxpy.sets.semidefinite_cone'.MINIMIZE" class="py-name" href="#" onclick="return doclink('link-7', 'MINIMIZE', 'link-7');">MINIMIZE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-name">sign</tt> <tt class="py-op">=</tt> <tt class="py-number">1.</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-name">sign</tt> <tt class="py-op">=</tt> <tt class="py-op">-</tt><tt class="py-number">1.</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">         </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">    <tt class="py-comment"># Solve convex relaxation</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">quiet</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt><tt class="py-op">(</tt><tt class="py-string">'\nCalling CVXOPT ...'</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">    <tt class="py-name">sol</tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="cvxpy.procedures.call_solver
+cvxpy.procedures.call_solver.call_solver" class="py-name" href="#" onclick="return doclink('link-8', 'call_solver', 'link-4');">call_solver</a></tt><tt class="py-op">(</tt><tt class="py-name">p_expanded</tt><tt class="py-op">,</tt><tt class="py-name">quiet</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">     </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">    <tt class="py-comment"># Primal infeasible</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">sol</tt><tt class="py-op">[</tt><tt class="py-string">'status'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt id="link-9" class="py-name" targets="Variable cvxpy.defs.PRIMAL_INFEASIBLE=cvxpy.defs-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.abs'.PRIMAL_INFEASIBLE=cvxpy.functions.abs%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.det_rootn'.PRIMAL_INFEASIBLE=cvxpy.functions.det_rootn%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.exp'.PRIMAL_INFEASIBLE=cvxpy.functions.exp%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.geo_mean'.PRIMAL_INFEASIBLE=cvxpy.functions.geo_mean%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.huber'.PRIMAL_INFEASIBLE=cvxpy.functions.huber%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.kl_div'.PRIMAL_INFEASIBLE=cvxpy.functions.kl_div%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.lambda_max'.PRIMAL_INFEASIBLE=cvxpy.functions.lambda_max%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.lambda_min'.PRIMAL_INFEASIBLE=cvxpy.functions.lambda_min%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.log'.PRIMAL_INFEASIBLE=cvxpy.functions.log%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.log_norm_cdf'.PRIMAL_INFEASIBLE=cvxpy.functions.log_norm_cdf%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.log_sum_exp'.PRIMAL_INFEASIBLE=cvxpy.functions.log_sum_exp%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.max'.PRIMAL_INFEASIBLE=cvxpy.functions.max%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.min'.PRIMAL_INFEASIBLE=cvxpy.functions.min%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.norm1'.PRIMAL_INFEASIBLE=cvxpy.functions.norm1%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.norm2'.PRIMAL_INFEASIBLE=cvxpy.functions.norm2%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.norm_inf'.PRIMAL_INFEASIBLE=cvxpy.functions.norm_inf%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.nuclear_norm'.PRIMAL_INFEASIBLE=cvxpy.functions.nuclear_norm%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.quad_form'.PRIMAL_INFEASIBLE=cvxpy.functions.quad_form%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.quad_over_lin'.PRIMAL_INFEASIBLE=cvxpy.functions.quad_over_lin%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.sqrt'.PRIMAL_INFEASIBLE=cvxpy.functions.sqrt%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.functions.square'.PRIMAL_INFEASIBLE=cvxpy.functions.square%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.sets.exp_cone'.PRIMAL_INFEASIBLE=cvxpy.sets.exp_cone%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.sets.geo_mean_cone'.PRIMAL_INFEASIBLE=cvxpy.sets.geo_mean_cone%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.sets.kl_div_epi'.PRIMAL_INFEASIBLE=cvxpy.sets.kl_div_epi%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.sets.log_norm_cdf_hypo'.PRIMAL_INFEASIBLE=cvxpy.sets.log_norm_cdf_hypo%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.sets.second_order_cone'.PRIMAL_INFEASIBLE=cvxpy.sets.second_order_cone%27-module.html#PRIMAL_INFEASIBLE,Variable cvxpy.sets.semidefinite_cone'.PRIMAL_INFEASIBLE=cvxpy.sets.semidefinite_cone%27-module.html#PRIMAL_INFEASIBLE"><a title="cvxpy.defs.PRIMAL_INFEASIBLE
+cvxpy.functions.abs'.PRIMAL_INFEASIBLE
+cvxpy.functions.det_rootn'.PRIMAL_INFEASIBLE
+cvxpy.functions.exp'.PRIMAL_INFEASIBLE
+cvxpy.functions.geo_mean'.PRIMAL_INFEASIBLE
+cvxpy.functions.huber'.PRIMAL_INFEASIBLE
+cvxpy.functions.kl_div'.PRIMAL_INFEASIBLE
+cvxpy.functions.lambda_max'.PRIMAL_INFEASIBLE
+cvxpy.functions.lambda_min'.PRIMAL_INFEASIBLE
+cvxpy.functions.log'.PRIMAL_INFEASIBLE
+cvxpy.functions.log_norm_cdf'.PRIMAL_INFEASIBLE
+cvxpy.functions.log_sum_exp'.PRIMAL_INFEASIBLE
+cvxpy.functions.max'.PRIMAL_INFEASIBLE
+cvxpy.functions.min'.PRIMAL_INFEASIBLE
+cvxpy.functions.norm1'.PRIMAL_INFEASIBLE
+cvxpy.functions.norm2'.PRIMAL_INFEASIBLE
+cvxpy.functions.norm_inf'.PRIMAL_INFEASIBLE
+cvxpy.functions.nuclear_norm'.PRIMAL_INFEASIBLE
+cvxpy.functions.quad_form'.PRIMAL_INFEASIBLE
+cvxpy.functions.quad_over_lin'.PRIMAL_INFEASIBLE
+cvxpy.functions.sqrt'.PRIMAL_INFEASIBLE
+cvxpy.functions.square'.PRIMAL_INFEASIBLE
+cvxpy.sets.exp_cone'.PRIMAL_INFEASIBLE
+cvxpy.sets.geo_mean_cone'.PRIMAL_INFEASIBLE
+cvxpy.sets.kl_div_epi'.PRIMAL_INFEASIBLE
+cvxpy.sets.log_norm_cdf_hypo'.PRIMAL_INFEASIBLE
+cvxpy.sets.second_order_cone'.PRIMAL_INFEASIBLE
+cvxpy.sets.semidefinite_cone'.PRIMAL_INFEASIBLE" class="py-name" href="#" onclick="return doclink('link-9', 'PRIMAL_INFEASIBLE', 'link-9');">PRIMAL_INFEASIBLE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">        <tt class="py-name">obj</tt> <tt class="py-op">=</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">inf</tt><tt class="py-op">*</tt><tt class="py-name">sign</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">    <tt class="py-comment"># Uknown</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">sol</tt><tt class="py-op">[</tt><tt class="py-string">'status'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt id="link-10" class="py-name" targets="Variable cvxpy.defs.UNKNOWN=cvxpy.defs-module.html#UNKNOWN,Variable cvxpy.functions.abs'.UNKNOWN=cvxpy.functions.abs%27-module.html#UNKNOWN,Variable cvxpy.functions.det_rootn'.UNKNOWN=cvxpy.functions.det_rootn%27-module.html#UNKNOWN,Variable cvxpy.functions.exp'.UNKNOWN=cvxpy.functions.exp%27-module.html#UNKNOWN,Variable cvxpy.functions.geo_mean'.UNKNOWN=cvxpy.functions.geo_mean%27-module.html#UNKNOWN,Variable cvxpy.functions.huber'.UNKNOWN=cvxpy.functions.huber%27-module.html#UNKNOWN,Variable cvxpy.functions.kl_div'.UNKNOWN=cvxpy.functions.kl_div%27-module.html#UNKNOWN,Variable cvxpy.functions.lambda_max'.UNKNOWN=cvxpy.functions.lambda_max%27-module.html#UNKNOWN,Variable cvxpy.functions.lambda_min'.UNKNOWN=cvxpy.functions.lambda_min%27-module.html#UNKNOWN,Variable cvxpy.functions.log'.UNKNOWN=cvxpy.functions.log%27-module.html#UNKNOWN,Variable cvxpy.functions.log_norm_cdf'.UNKNOWN=cvxpy.functions.log_norm_cdf%27-module.html#UNKNOWN,Variable cvxpy.functions.log_sum_exp'.UNKNOWN=cvxpy.functions.log_sum_exp%27-module.html#UNKNOWN,Variable cvxpy.functions.max'.UNKNOWN=cvxpy.functions.max%27-module.html#UNKNOWN,Variable cvxpy.functions.min'.UNKNOWN=cvxpy.functions.min%27-module.html#UNKNOWN,Variable cvxpy.functions.norm1'.UNKNOWN=cvxpy.functions.norm1%27-module.html#UNKNOWN,Variable cvxpy.functions.norm2'.UNKNOWN=cvxpy.functions.norm2%27-module.html#UNKNOWN,Variable cvxpy.functions.norm_inf'.UNKNOWN=cvxpy.functions.norm_inf%27-module.html#UNKNOWN,Variable cvxpy.functions.nuclear_norm'.UNKNOWN=cvxpy.functions.nuclear_norm%27-module.html#UNKNOWN,Variable cvxpy.functions.quad_form'.UNKNOWN=cvxpy.functions.quad_form%27-module.html#UNKNOWN,Variable cvxpy.functions.quad_over_lin'.UNKNOWN=cvxpy.functions.quad_over_lin%27-module.html#UNKNOWN,Variable cvxpy.functions.sqrt'.UNKNOWN=cvxpy.functions.sqrt%27-module.html#UNKNOWN,Variable cvxpy.functions.square'.UNKNOWN=cvxpy.functions.square%27-module.html#UNKNOWN,Variable cvxpy.sets.exp_cone'.UNKNOWN=cvxpy.sets.exp_cone%27-module.html#UNKNOWN,Variable cvxpy.sets.geo_mean_cone'.UNKNOWN=cvxpy.sets.geo_mean_cone%27-module.html#UNKNOWN,Variable cvxpy.sets.kl_div_epi'.UNKNOWN=cvxpy.sets.kl_div_epi%27-module.html#UNKNOWN,Variable cvxpy.sets.log_norm_cdf_hypo'.UNKNOWN=cvxpy.sets.log_norm_cdf_hypo%27-module.html#UNKNOWN,Variable cvxpy.sets.second_order_cone'.UNKNOWN=cvxpy.sets.second_order_cone%27-module.html#UNKNOWN,Variable cvxpy.sets.semidefinite_cone'.UNKNOWN=cvxpy.sets.semidefinite_cone%27-module.html#UNKNOWN"><a title="cvxpy.defs.UNKNOWN
+cvxpy.functions.abs'.UNKNOWN
+cvxpy.functions.det_rootn'.UNKNOWN
+cvxpy.functions.exp'.UNKNOWN
+cvxpy.functions.geo_mean'.UNKNOWN
+cvxpy.functions.huber'.UNKNOWN
+cvxpy.functions.kl_div'.UNKNOWN
+cvxpy.functions.lambda_max'.UNKNOWN
+cvxpy.functions.lambda_min'.UNKNOWN
+cvxpy.functions.log'.UNKNOWN
+cvxpy.functions.log_norm_cdf'.UNKNOWN
+cvxpy.functions.log_sum_exp'.UNKNOWN
+cvxpy.functions.max'.UNKNOWN
+cvxpy.functions.min'.UNKNOWN
+cvxpy.functions.norm1'.UNKNOWN
+cvxpy.functions.norm2'.UNKNOWN
+cvxpy.functions.norm_inf'.UNKNOWN
+cvxpy.functions.nuclear_norm'.UNKNOWN
+cvxpy.functions.quad_form'.UNKNOWN
+cvxpy.functions.quad_over_lin'.UNKNOWN
+cvxpy.functions.sqrt'.UNKNOWN
+cvxpy.functions.square'.UNKNOWN
+cvxpy.sets.exp_cone'.UNKNOWN
+cvxpy.sets.geo_mean_cone'.UNKNOWN
+cvxpy.sets.kl_div_epi'.UNKNOWN
+cvxpy.sets.log_norm_cdf_hypo'.UNKNOWN
+cvxpy.sets.second_order_cone'.UNKNOWN
+cvxpy.sets.semidefinite_cone'.UNKNOWN" class="py-name" href="#" onclick="return doclink('link-10', 'UNKNOWN', 'link-10');">UNKNOWN</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">        <tt class="py-name">obj</tt> <tt class="py-op">=</tt> <tt class="py-name">sol</tt><tt class="py-op">[</tt><tt id="link-11" class="py-name" targets="Variable cvxpy.defs.PRIMAL_OBJECTIVE=cvxpy.defs-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.abs'.PRIMAL_OBJECTIVE=cvxpy.functions.abs%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.det_rootn'.PRIMAL_OBJECTIVE=cvxpy.functions.det_rootn%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.exp'.PRIMAL_OBJECTIVE=cvxpy.functions.exp%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.geo_mean'.PRIMAL_OBJECTIVE=cvxpy.functions.geo_mean%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.huber'.PRIMAL_OBJECTIVE=cvxpy.functions.huber%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.kl_div'.PRIMAL_OBJECTIVE=cvxpy.functions.kl_div%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.lambda_max'.PRIMAL_OBJECTIVE=cvxpy.functions.lambda_max%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.lambda_min'.PRIMAL_OBJECTIVE=cvxpy.functions.lambda_min%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.log'.PRIMAL_OBJECTIVE=cvxpy.functions.log%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.log_norm_cdf'.PRIMAL_OBJECTIVE=cvxpy.functions.log_norm_cdf%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.log_sum_exp'.PRIMAL_OBJECTIVE=cvxpy.functions.log_sum_exp%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.max'.PRIMAL_OBJECTIVE=cvxpy.functions.max%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.min'.PRIMAL_OBJECTIVE=cvxpy.functions.min%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.norm1'.PRIMAL_OBJECTIVE=cvxpy.functions.norm1%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.norm2'.PRIMAL_OBJECTIVE=cvxpy.functions.norm2%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.norm_inf'.PRIMAL_OBJECTIVE=cvxpy.functions.norm_inf%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.nuclear_norm'.PRIMAL_OBJECTIVE=cvxpy.functions.nuclear_norm%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.quad_form'.PRIMAL_OBJECTIVE=cvxpy.functions.quad_form%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.quad_over_lin'.PRIMAL_OBJECTIVE=cvxpy.functions.quad_over_lin%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.sqrt'.PRIMAL_OBJECTIVE=cvxpy.functions.sqrt%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.functions.square'.PRIMAL_OBJECTIVE=cvxpy.functions.square%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.sets.exp_cone'.PRIMAL_OBJECTIVE=cvxpy.sets.exp_cone%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.sets.geo_mean_cone'.PRIMAL_OBJECTIVE=cvxpy.sets.geo_mean_cone%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.sets.kl_div_epi'.PRIMAL_OBJECTIVE=cvxpy.sets.kl_div_epi%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.sets.log_norm_cdf_hypo'.PRIMAL_OBJECTIVE=cvxpy.sets.log_norm_cdf_hypo%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.sets.second_order_cone'.PRIMAL_OBJECTIVE=cvxpy.sets.second_order_cone%27-module.html#PRIMAL_OBJECTIVE,Variable cvxpy.sets.semidefinite_cone'.PRIMAL_OBJECTIVE=cvxpy.sets.semidefinite_cone%27-module.html#PRIMAL_OBJECTIVE"><a title="cvxpy.defs.PRIMAL_OBJECTIVE
+cvxpy.functions.abs'.PRIMAL_OBJECTIVE
+cvxpy.functions.det_rootn'.PRIMAL_OBJECTIVE
+cvxpy.functions.exp'.PRIMAL_OBJECTIVE
+cvxpy.functions.geo_mean'.PRIMAL_OBJECTIVE
+cvxpy.functions.huber'.PRIMAL_OBJECTIVE
+cvxpy.functions.kl_div'.PRIMAL_OBJECTIVE
+cvxpy.functions.lambda_max'.PRIMAL_OBJECTIVE
+cvxpy.functions.lambda_min'.PRIMAL_OBJECTIVE
+cvxpy.functions.log'.PRIMAL_OBJECTIVE
+cvxpy.functions.log_norm_cdf'.PRIMAL_OBJECTIVE
+cvxpy.functions.log_sum_exp'.PRIMAL_OBJECTIVE
+cvxpy.functions.max'.PRIMAL_OBJECTIVE
+cvxpy.functions.min'.PRIMAL_OBJECTIVE
+cvxpy.functions.norm1'.PRIMAL_OBJECTIVE
+cvxpy.functions.norm2'.PRIMAL_OBJECTIVE
+cvxpy.functions.norm_inf'.PRIMAL_OBJECTIVE
+cvxpy.functions.nuclear_norm'.PRIMAL_OBJECTIVE
+cvxpy.functions.quad_form'.PRIMAL_OBJECTIVE
+cvxpy.functions.quad_over_lin'.PRIMAL_OBJECTIVE
+cvxpy.functions.sqrt'.PRIMAL_OBJECTIVE
+cvxpy.functions.square'.PRIMAL_OBJECTIVE
+cvxpy.sets.exp_cone'.PRIMAL_OBJECTIVE
+cvxpy.sets.geo_mean_cone'.PRIMAL_OBJECTIVE
+cvxpy.sets.kl_div_epi'.PRIMAL_OBJECTIVE
+cvxpy.sets.log_norm_cdf_hypo'.PRIMAL_OBJECTIVE
+cvxpy.sets.second_order_cone'.PRIMAL_OBJECTIVE
+cvxpy.sets.semidefinite_cone'.PRIMAL_OBJECTIVE" class="py-name" href="#" onclick="return doclink('link-11', 'PRIMAL_OBJECTIVE', 'link-11');">PRIMAL_OBJECTIVE</a></tt><tt class="py-op">]</tt><tt class="py-op">*</tt><tt class="py-name">sign</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">    <tt class="py-comment"># Dual infeasible</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">sol</tt><tt class="py-op">[</tt><tt class="py-string">'status'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt id="link-12" class="py-name" targets="Variable cvxpy.defs.DUAL_INFEASIBLE=cvxpy.defs-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.abs'.DUAL_INFEASIBLE=cvxpy.functions.abs%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.det_rootn'.DUAL_INFEASIBLE=cvxpy.functions.det_rootn%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.exp'.DUAL_INFEASIBLE=cvxpy.functions.exp%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.geo_mean'.DUAL_INFEASIBLE=cvxpy.functions.geo_mean%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.huber'.DUAL_INFEASIBLE=cvxpy.functions.huber%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.kl_div'.DUAL_INFEASIBLE=cvxpy.functions.kl_div%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.lambda_max'.DUAL_INFEASIBLE=cvxpy.functions.lambda_max%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.lambda_min'.DUAL_INFEASIBLE=cvxpy.functions.lambda_min%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.log'.DUAL_INFEASIBLE=cvxpy.functions.log%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.log_norm_cdf'.DUAL_INFEASIBLE=cvxpy.functions.log_norm_cdf%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.log_sum_exp'.DUAL_INFEASIBLE=cvxpy.functions.log_sum_exp%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.max'.DUAL_INFEASIBLE=cvxpy.functions.max%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.min'.DUAL_INFEASIBLE=cvxpy.functions.min%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.norm1'.DUAL_INFEASIBLE=cvxpy.functions.norm1%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.norm2'.DUAL_INFEASIBLE=cvxpy.functions.norm2%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.norm_inf'.DUAL_INFEASIBLE=cvxpy.functions.norm_inf%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.nuclear_norm'.DUAL_INFEASIBLE=cvxpy.functions.nuclear_norm%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.quad_form'.DUAL_INFEASIBLE=cvxpy.functions.quad_form%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.quad_over_lin'.DUAL_INFEASIBLE=cvxpy.functions.quad_over_lin%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.sqrt'.DUAL_INFEASIBLE=cvxpy.functions.sqrt%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.functions.square'.DUAL_INFEASIBLE=cvxpy.functions.square%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.sets.exp_cone'.DUAL_INFEASIBLE=cvxpy.sets.exp_cone%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.sets.geo_mean_cone'.DUAL_INFEASIBLE=cvxpy.sets.geo_mean_cone%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.sets.kl_div_epi'.DUAL_INFEASIBLE=cvxpy.sets.kl_div_epi%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.sets.log_norm_cdf_hypo'.DUAL_INFEASIBLE=cvxpy.sets.log_norm_cdf_hypo%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.sets.second_order_cone'.DUAL_INFEASIBLE=cvxpy.sets.second_order_cone%27-module.html#DUAL_INFEASIBLE,Variable cvxpy.sets.semidefinite_cone'.DUAL_INFEASIBLE=cvxpy.sets.semidefinite_cone%27-module.html#DUAL_INFEASIBLE"><a title="cvxpy.defs.DUAL_INFEASIBLE
+cvxpy.functions.abs'.DUAL_INFEASIBLE
+cvxpy.functions.det_rootn'.DUAL_INFEASIBLE
+cvxpy.functions.exp'.DUAL_INFEASIBLE
+cvxpy.functions.geo_mean'.DUAL_INFEASIBLE
+cvxpy.functions.huber'.DUAL_INFEASIBLE
+cvxpy.functions.kl_div'.DUAL_INFEASIBLE
+cvxpy.functions.lambda_max'.DUAL_INFEASIBLE
+cvxpy.functions.lambda_min'.DUAL_INFEASIBLE
+cvxpy.functions.log'.DUAL_INFEASIBLE
+cvxpy.functions.log_norm_cdf'.DUAL_INFEASIBLE
+cvxpy.functions.log_sum_exp'.DUAL_INFEASIBLE
+cvxpy.functions.max'.DUAL_INFEASIBLE
+cvxpy.functions.min'.DUAL_INFEASIBLE
+cvxpy.functions.norm1'.DUAL_INFEASIBLE
+cvxpy.functions.norm2'.DUAL_INFEASIBLE
+cvxpy.functions.norm_inf'.DUAL_INFEASIBLE
+cvxpy.functions.nuclear_norm'.DUAL_INFEASIBLE
+cvxpy.functions.quad_form'.DUAL_INFEASIBLE
+cvxpy.functions.quad_over_lin'.DUAL_INFEASIBLE
+cvxpy.functions.sqrt'.DUAL_INFEASIBLE
+cvxpy.functions.square'.DUAL_INFEASIBLE
+cvxpy.sets.exp_cone'.DUAL_INFEASIBLE
+cvxpy.sets.geo_mean_cone'.DUAL_INFEASIBLE
+cvxpy.sets.kl_div_epi'.DUAL_INFEASIBLE
+cvxpy.sets.log_norm_cdf_hypo'.DUAL_INFEASIBLE
+cvxpy.sets.second_order_cone'.DUAL_INFEASIBLE
+cvxpy.sets.semidefinite_cone'.DUAL_INFEASIBLE" class="py-name" href="#" onclick="return doclink('link-12', 'DUAL_INFEASIBLE', 'link-12');">DUAL_INFEASIBLE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt class="py-name">obj</tt> <tt class="py-op">=</tt> <tt class="py-name">np</tt><tt class="py-op">.</tt><tt class="py-name">inf</tt><tt class="py-op">*</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-name">sign</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">    <tt class="py-comment"># Optimal</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">        <tt class="py-name">obj</tt> <tt class="py-op">=</tt><tt class="py-name">sol</tt><tt class="py-op">[</tt><tt id="link-13" class="py-name"><a title="cvxpy.defs.PRIMAL_OBJECTIVE
+cvxpy.functions.abs'.PRIMAL_OBJECTIVE
+cvxpy.functions.det_rootn'.PRIMAL_OBJECTIVE
+cvxpy.functions.exp'.PRIMAL_OBJECTIVE
+cvxpy.functions.geo_mean'.PRIMAL_OBJECTIVE
+cvxpy.functions.huber'.PRIMAL_OBJECTIVE
+cvxpy.functions.kl_div'.PRIMAL_OBJECTIVE
+cvxpy.functions.lambda_max'.PRIMAL_OBJECTIVE
+cvxpy.functions.lambda_min'.PRIMAL_OBJECTIVE
+cvxpy.functions.log'.PRIMAL_OBJECTIVE
+cvxpy.functions.log_norm_cdf'.PRIMAL_OBJECTIVE
+cvxpy.functions.log_sum_exp'.PRIMAL_OBJECTIVE
+cvxpy.functions.max'.PRIMAL_OBJECTIVE
+cvxpy.functions.min'.PRIMAL_OBJECTIVE
+cvxpy.functions.norm1'.PRIMAL_OBJECTIVE
+cvxpy.functions.norm2'.PRIMAL_OBJECTIVE
+cvxpy.functions.norm_inf'.PRIMAL_OBJECTIVE
+cvxpy.functions.nuclear_norm'.PRIMAL_OBJECTIVE
+cvxpy.functions.quad_form'.PRIMAL_OBJECTIVE
+cvxpy.functions.quad_over_lin'.PRIMAL_OBJECTIVE
+cvxpy.functions.sqrt'.PRIMAL_OBJECTIVE
+cvxpy.functions.square'.PRIMAL_OBJECTIVE
+cvxpy.sets.exp_cone'.PRIMAL_OBJECTIVE
+cvxpy.sets.geo_mean_cone'.PRIMAL_OBJECTIVE
+cvxpy.sets.kl_div_epi'.PRIMAL_OBJECTIVE
+cvxpy.sets.log_norm_cdf_hypo'.PRIMAL_OBJECTIVE
+cvxpy.sets.second_order_cone'.PRIMAL_OBJECTIVE
+cvxpy.sets.semidefinite_cone'.PRIMAL_OBJECTIVE" class="py-name" href="#" onclick="return doclink('link-13', 'PRIMAL_OBJECTIVE', 'link-11');">PRIMAL_OBJECTIVE</a></tt><tt class="py-op">]</tt><tt class="py-op">*</tt><tt class="py-name">sign</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">    <tt class="py-comment"># Return optimal value</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">obj</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:00 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

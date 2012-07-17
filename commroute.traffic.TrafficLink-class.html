@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>commroute.traffic.TrafficLink</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="commroute-module.html">Package&nbsp;commroute</a> ::
+        <a href="commroute.traffic-module.html">Module&nbsp;traffic</a> ::
+        Class&nbsp;TrafficLink
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="commroute.traffic.TrafficLink-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class TrafficLink</h1><p class="nomargin-top"><span class="codelink"><a href="commroute.traffic-pysrc.html#TrafficLink">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_commrout_60" name="uml_class_diagram_for_commrout_60">
+<area shape="rect" id="node1_20" href="commroute.traffic.TrafficLink-class.html#get_state" title="commroute.traffic.TrafficLink.get_state" alt="" coords="76,487,285,505"/>
+<area shape="rect" id="node1_21" href="commroute.traffic.TrafficLink-class.html#travel_time" title="commroute.traffic.TrafficLink.travel_time" alt="" coords="76,505,285,524"/>
+<area shape="rect" id="node1_22" href="commroute.traffic.TrafficLink-class.html#total_travel_time" title="commroute.traffic.TrafficLink.total_travel_time" alt="" coords="76,524,285,543"/>
+<area shape="rect" id="node1" href="commroute.traffic.TrafficLink-class.html" title="Base class for constructing networks." alt="" coords="63,454,297,549"/>
+<area shape="rect" id="node2_23" href="commroute.cr_network.Link-class.html#current_name" title="commroute.cr_network.Link.current_name" alt="" coords="57,127,304,145"/>
+<area shape="rect" id="node2_24" href="commroute.cr_network.Link-class.html#__init__" title="x.__init__(...) initializes x; see help(type(x)) for signature" alt="" coords="57,148,304,167"/>
+<area shape="rect" id="node2_25" href="commroute.cr_network.Link-class.html#next_name" title="commroute.cr_network.Link.next_name" alt="" coords="57,167,304,185"/>
+<area shape="rect" id="node2_26" href="commroute.cr_network.Link-class.html#neighbors" title="commroute.cr_network.Link.neighbors" alt="" coords="57,185,304,204"/>
+<area shape="rect" id="node2_27" href="commroute.cr_network.Link-class.html#set_up_junc" title="Set the up junction, and check to make sure it&#39;s not already set" alt="" coords="57,204,304,223"/>
+<area shape="rect" id="node2_28" href="commroute.cr_network.Link-class.html#set_down_junc" title="Set the down junction, and check to make sure it&#39;s not already set" alt="" coords="57,223,304,241"/>
+<area shape="rect" id="node2_29" href="commroute.cr_network.Link-class.html#jsonify" title="the method that turns the object into an object that can be serialized via &#160;`simplejson.dump` method" alt="" coords="57,241,304,260"/>
+<area shape="rect" id="node2_30" href="commroute.cr_network.Link-class.html#load_with_json_data" title="Simplified approach to deserializing new links" alt="" coords="57,260,304,279"/>
+<area shape="rect" id="node2_31" href="commroute.cr_network.Link-class.html#additional_kwargs" title="Specify which new arguments to pass into Link creating" alt="" coords="57,279,304,297"/>
+<area shape="rect" id="node2_32" href="commroute.cr_network.Link-class.html#upstream_links" title="commroute.cr_network.Link.upstream_links" alt="" coords="57,297,304,316"/>
+<area shape="rect" id="node2_33" href="commroute.cr_network.Link-class.html#downstream_links" title="commroute.cr_network.Link.downstream_links" alt="" coords="57,316,304,335"/>
+<area shape="rect" id="node2_34" href="commroute.cr_network.Link-class.html#is_sink" title="commroute.cr_network.Link.is_sink" alt="" coords="57,335,304,353"/>
+<area shape="rect" id="node2_35" href="commroute.cr_network.Link-class.html#is_source" title="commroute.cr_network.Link.is_source" alt="" coords="57,353,304,372"/>
+<area shape="rect" id="node2_36" href="commroute.cr_network.Link-class.html#__repr__" title="repr(x)" alt="" coords="57,372,304,391"/>
+<area shape="rect" id="node2_37" href="commroute.cr_network.Link-class.html#d3_value" title="commroute.cr_network.Link.d3_value" alt="" coords="57,409,304,428"/>
+<area shape="rect" id="node2" href="commroute.cr_network.Link-class.html" title="Base class for constructing networks." alt="" coords="45,102,315,434"/>
+<area shape="rect" id="node3_38" href="commroute.cr_utils.Dumpable.Dumpable-class.html#dump" title="Serialize your data from `self.jsonify()` and store in the file `fn`" alt="" coords="17,39,189,57"/>
+<area shape="rect" id="node3_39" href="commroute.cr_utils.Dumpable.Dumpable-class.html#load" title="Load an object deserialized in the file `fn` of the same type as `cls`" alt="" coords="17,57,189,76"/>
+<area shape="rect" id="node3" href="commroute.cr_utils.Dumpable.Dumpable-class.html" title="commroute.cr_utils.Dumpable.Dumpable" alt="" coords="5,6,201,82"/>
+<area shape="rect" id="node4" href="javascript:void(0);" title="??&#45;49" alt="" coords="231,22,289,66"/>
+</map>
+  <img src="uml_class_diagram_for_commrout_60.gif" alt='' usemap="#uml_class_diagram_for_commrout_60" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Base class for constructing networks.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_state"></a><span class="summary-sig-name">get_state</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.traffic-pysrc.html#TrafficLink.get_state">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="travel_time"></a><span class="summary-sig-name">travel_time</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">state</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.traffic-pysrc.html#TrafficLink.travel_time">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="total_travel_time"></a><span class="summary-sig-name">total_travel_time</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">state</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="commroute.traffic-pysrc.html#TrafficLink.total_travel_time">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.cr_network.Link-class.html">cr_network.Link</a></code></b>:
+      <code><a href="commroute.cr_network.Link-class.html#__init__">__init__</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#__repr__">__repr__</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#__str__">__str__</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#d3_attrs">d3_attrs</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#d3_source">d3_source</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#d3_target">d3_target</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#d3_value">d3_value</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#downstream_links">downstream_links</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#is_sink">is_sink</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#is_source">is_source</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#jsonify">jsonify</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#neighbors">neighbors</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#routes">routes</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#set_down_junc">set_down_junc</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#set_up_junc">set_up_junc</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#upstream_links">upstream_links</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.cr_utils.Dumpable.Dumpable-class.html">cr_utils.Dumpable.Dumpable</a></code></b>:
+      <code><a href="commroute.cr_utils.Dumpable.Dumpable-class.html#dump">dump</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS METHODS ==================== -->
+<a name="section-ClassMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.cr_network.Link-class.html">cr_network.Link</a></code></b>:
+      <code><a href="commroute.cr_network.Link-class.html#additional_kwargs">additional_kwargs</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#load_with_json_data">load_with_json_data</a></code>,
+      <code><a href="commroute.cr_network.Link-class.html#next_name">next_name</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.cr_utils.Dumpable.Dumpable-class.html">cr_utils.Dumpable.Dumpable</a></code></b>:
+      <code><a href="commroute.cr_utils.Dumpable.Dumpable-class.html#load">load</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="commroute.cr_network.Link-class.html">cr_network.Link</a></code></b>:
+      <code><a href="commroute.cr_network.Link-class.html#current_name">current_name</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:53 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

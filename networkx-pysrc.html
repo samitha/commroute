@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;networkx
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="networkx-module.html">Package networkx</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">NetworkX</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">========</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">    NetworkX (NX) is a Python package for the creation, manipulation, and</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">    study of the structure, dynamics, and functions of complex networks.</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">    https://networkx.lanl.gov/</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">Using</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">-----</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">    Just write in Python</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; import networkx as nx</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; G=nx.Graph()</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; G.add_edge(1,2)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; G.add_node("spam")</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; print(G.nodes())</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">    [1, 2, 'spam']</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; print(G.edges())</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">    [(1, 2)]</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-comment">#    Copyright (C) 2004-2010 by</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-comment">#    Aric Hagberg &lt;hagberg@lanl.gov&gt;</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-comment">#    Dan Schult &lt;dschult@colgate.edu&gt;</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-comment">#    Pieter Swart &lt;swart@lanl.gov&gt;</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-comment">#    All rights reserved.</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-comment">#    BSD license.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-comment"># Add platform dependent shared library path to sys.path</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">__future__</tt> <tt class="py-keyword">import</tt> <tt class="py-name">absolute_import</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Variable networkx.release.version_info=networkx.release-module.html#version_info,Variable networkx.version.version_info=networkx.version-module.html#version_info"><a title="networkx.release.version_info
+networkx.version.version_info" class="py-name" href="#" onclick="return doclink('link-0', 'version_info', 'link-0');">version_info</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> <tt class="py-op">&lt;</tt> <tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-number">6</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">    <tt id="link-1" class="py-name" targets="Variable networkx.m=networkx-module.html#m"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-1', 'm', 'link-1');">m</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"Python version 2.6 or later is required for NetworkX (%d.%d detected)."</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">ImportError</tt><tt class="py-op">(</tt><tt id="link-2" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-2', 'm', 'link-1');">m</a></tt> <tt class="py-op">%</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="networkx.release.version_info
+networkx.version.version_info" class="py-name" href="#" onclick="return doclink('link-3', 'version_info', 'link-0');">version_info</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"><tt class="py-keyword">del</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-comment"># Release data</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Package networkx=networkx-module.html"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-4', 'networkx', 'link-4');">networkx</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Module networkx.release=networkx.release-module.html"><a title="networkx.release" class="py-name" href="#" onclick="return doclink('link-5', 'release', 'link-5');">release</a></tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-name">__author__</tt>   <tt class="py-op">=</tt> <tt class="py-string">'%s &lt;%s&gt;\n%s &lt;%s&gt;\n%s &lt;%s&gt;'</tt> <tt class="py-op">%</tt> \ </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">              <tt class="py-op">(</tt> <tt id="link-6" class="py-name"><a title="networkx.release" class="py-name" href="#" onclick="return doclink('link-6', 'release', 'link-5');">release</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Variable networkx.release.authors=networkx.release-module.html#authors"><a title="networkx.release.authors" class="py-name" href="#" onclick="return doclink('link-7', 'authors', 'link-7');">authors</a></tt><tt class="py-op">[</tt><tt class="py-string">'Hagberg'</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt id="link-8" class="py-name"><a title="networkx.release" class="py-name" href="#" onclick="return doclink('link-8', 'release', 'link-5');">release</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="networkx.release.authors" class="py-name" href="#" onclick="return doclink('link-9', 'authors', 'link-7');">authors</a></tt><tt class="py-op">[</tt><tt class="py-string">'Schult'</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> \ </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">                <tt id="link-10" class="py-name"><a title="networkx.release" class="py-name" href="#" onclick="return doclink('link-10', 'release', 'link-5');">release</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="networkx.release.authors" class="py-name" href="#" onclick="return doclink('link-11', 'authors', 'link-7');">authors</a></tt><tt class="py-op">[</tt><tt class="py-string">'Swart'</tt><tt class="py-op">]</tt> <tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"><tt class="py-name">__license__</tt>  <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="networkx.release" class="py-name" href="#" onclick="return doclink('link-12', 'release', 'link-5');">release</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Variable networkx.release.license=networkx.release-module.html#license"><a title="networkx.release.license" class="py-name" href="#" onclick="return doclink('link-13', 'license', 'link-13');">license</a></tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"><tt class="py-name">__date__</tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="networkx.release" class="py-name" href="#" onclick="return doclink('link-14', 'release', 'link-5');">release</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Variable networkx.release.date=networkx.release-module.html#date,Variable networkx.version.date=networkx.version-module.html#date"><a title="networkx.release.date
+networkx.version.date" class="py-name" href="#" onclick="return doclink('link-15', 'date', 'link-15');">date</a></tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"><tt class="py-name">__version__</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="networkx.release" class="py-name" href="#" onclick="return doclink('link-16', 'release', 'link-5');">release</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Variable networkx.release.version=networkx.release-module.html#version,Module networkx.version=networkx.version-module.html,Variable networkx.version.version=networkx.version-module.html#version"><a title="networkx.release.version
+networkx.version
+networkx.version.version" class="py-name" href="#" onclick="return doclink('link-17', 'version', 'link-17');">version</a></tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"><tt class="py-comment"># these packages work with Python &gt;= 2.6</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-18" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-18', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Module networkx.exception=networkx.exception-module.html"><a title="networkx.exception" class="py-name" href="#" onclick="return doclink('link-19', 'exception', 'link-19');">exception</a></tt> <tt class="py-keyword">import</tt>  <tt class="py-op">*</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-20" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-20', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Package networkx.classes=networkx.classes-module.html"><a title="networkx.classes" class="py-name" href="#" onclick="return doclink('link-21', 'classes', 'link-21');">classes</a></tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-22" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-22', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="networkx.classes" class="py-name" href="#" onclick="return doclink('link-23', 'classes', 'link-21');">classes</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-24" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-24', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Module networkx.convert=networkx.convert-module.html"><a title="networkx.convert" class="py-name" href="#" onclick="return doclink('link-25', 'convert', 'link-25');">convert</a></tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-26" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-26', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="networkx.convert" class="py-name" href="#" onclick="return doclink('link-27', 'convert', 'link-25');">convert</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-28" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-28', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Module networkx.relabel=networkx.relabel-module.html"><a title="networkx.relabel" class="py-name" href="#" onclick="return doclink('link-29', 'relabel', 'link-29');">relabel</a></tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-30" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-30', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="networkx.relabel" class="py-name" href="#" onclick="return doclink('link-31', 'relabel', 'link-29');">relabel</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-32" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-32', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Package networkx.generators=networkx.generators-module.html"><a title="networkx.generators" class="py-name" href="#" onclick="return doclink('link-33', 'generators', 'link-33');">generators</a></tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-34" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-34', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="networkx.generators" class="py-name" href="#" onclick="return doclink('link-35', 'generators', 'link-33');">generators</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-36" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-36', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Package networkx.readwrite=networkx.readwrite-module.html"><a title="networkx.readwrite" class="py-name" href="#" onclick="return doclink('link-37', 'readwrite', 'link-37');">readwrite</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-38" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-38', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="networkx.readwrite" class="py-name" href="#" onclick="return doclink('link-39', 'readwrite', 'link-37');">readwrite</a></tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line"><tt class="py-comment">#Need to test with SciPy, when available</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-40" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-40', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-41" class="py-name" targets="Package networkx.algorithms=networkx.algorithms-module.html"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-41', 'algorithms', 'link-41');">algorithms</a></tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-42" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-42', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-43', 'algorithms', 'link-41');">algorithms</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-44" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-44', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name" targets="Package networkx.linalg=networkx.linalg-module.html"><a title="networkx.linalg" class="py-name" href="#" onclick="return doclink('link-45', 'linalg', 'link-45');">linalg</a></tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-46" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-46', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="networkx.linalg" class="py-name" href="#" onclick="return doclink('link-47', 'linalg', 'link-45');">linalg</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-48" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-48', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-49" class="py-name" targets="Package networkx.tests=networkx.tests-module.html"><a title="networkx.tests" class="py-name" href="#" onclick="return doclink('link-49', 'tests', 'link-49');">tests</a></tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Module networkx.tests.test=networkx.tests.test-module.html"><a title="networkx.tests.test" class="py-name" href="#" onclick="return doclink('link-50', 'test', 'link-50');">test</a></tt> <tt class="py-keyword">import</tt> <tt id="link-51" class="py-name" targets="Method commroute.complacency.ComplacencyCompliance.run()=commroute.complacency.ComplacencyCompliance-class.html#run,Method networkx.tests.benchmark.Benchmark.run()=networkx.tests.benchmark.Benchmark-class.html#run,Function networkx.tests.test.run()=networkx.tests.test-module.html#run"><a title="commroute.complacency.ComplacencyCompliance.run
+networkx.tests.benchmark.Benchmark.run
+networkx.tests.test.run" class="py-name" href="#" onclick="return doclink('link-51', 'run', 'link-51');">run</a></tt> <tt class="py-keyword">as</tt> <tt id="link-52" class="py-name"><a title="networkx.tests.test" class="py-name" href="#" onclick="return doclink('link-52', 'test', 'link-50');">test</a></tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-53" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-53', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-54" class="py-name" targets="Module cvxpy.utils=cvxpy.utils-module.html,Module networkx.utils=networkx.utils-module.html"><a title="cvxpy.utils
+networkx.utils" class="py-name" href="#" onclick="return doclink('link-54', 'utils', 'link-54');">utils</a></tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line"> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-55" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-55', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-56" class="py-name" targets="Package networkx.drawing=networkx.drawing-module.html"><a title="networkx.drawing" class="py-name" href="#" onclick="return doclink('link-56', 'drawing', 'link-56');">drawing</a></tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-57" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-57', 'networkx', 'link-4');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="networkx.drawing" class="py-name" href="#" onclick="return doclink('link-58', 'drawing', 'link-56');">drawing</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:00 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.generators.intersection</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.generators-module.html">Package&nbsp;generators</a> ::
+        Module&nbsp;intersection
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.generators.intersection-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="networkx.generators.intersection-module.html">Module networkx.generators.intersection</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">Generators for random intersection graphs.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#    Copyright (C) 2011 by </tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment">#    Aric Hagberg &lt;hagberg@lanl.gov&gt;</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">#    Dan Schult &lt;dschult@colgate.edu&gt;</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment">#    Pieter Swart &lt;swart@lanl.gov&gt;</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">#    All rights reserved.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment">#    BSD license.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">random</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package networkx=networkx-module.html"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-0', 'networkx', 'link-0');">networkx</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">nx</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">"\n"</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">'Aric Hagberg (hagberg@lanl.gov)'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-name">__all__</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'uniform_random_intersection_graph'</tt><tt class="py-op">,</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">           <tt class="py-string">'k_random_intersection_graph'</tt><tt class="py-op">,</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">           <tt class="py-string">'general_random_intersection_graph'</tt><tt class="py-op">,</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">           <tt class="py-op">]</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="uniform_random_intersection_graph"></a><div id="uniform_random_intersection_graph-def"><a name="L20"></a><tt class="py-lineno"> 20</tt> <a class="py-toggle" href="#" id="uniform_random_intersection_graph-toggle" onclick="return toggle('uniform_random_intersection_graph');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.generators.intersection-module.html#uniform_random_intersection_graph">uniform_random_intersection_graph</a><tt class="py-op">(</tt><tt class="py-param">n</tt><tt class="py-op">,</tt> <tt class="py-param">m</tt><tt class="py-op">,</tt> <tt class="py-param">p</tt><tt class="py-op">,</tt> <tt class="py-param">seed</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="uniform_random_intersection_graph-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="uniform_random_intersection_graph-expanded"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return a uniform random intersection graph.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">    Parameters</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">    ----------</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">    n : int</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">        The number of nodes in the first bipartite set (nodes)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">    m : int</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">        The number of nodes in the second bipartite set (attributes)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">    p : float</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">        Probability of connecting nodes between bipartite sets  </tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">    seed : int, optional</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">        Seed for random number generator (default=None). </tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">    See Also</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">    --------</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">    gnp_random_graph</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">    References</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">    ----------</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">    .. [1] K.B. Singer-Cohen, Random Intersection Graphs, 1995,</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">       PhD thesis, Johns Hopkins University</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">    .. [2] Fill, J. A., Scheinerman, E. R., and Singer-Cohen, K. B., </tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">       Random intersection graphs when m = !(n): </tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">       An equivalence theorem relating the evolution of the g(n, m, p)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">       and g(n, p) models. Random Struct. Algorithms 16, 2 (2000), 156&#8211;176.</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt class="py-name">G</tt><tt class="py-op">=</tt><tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Function networkx.generators.bipartite.bipartite_random_graph()=networkx.generators.bipartite-module.html#bipartite_random_graph"><a title="networkx.generators.bipartite.bipartite_random_graph" class="py-name" href="#" onclick="return doclink('link-1', 'bipartite_random_graph', 'link-1');">bipartite_random_graph</a></tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name" targets="Variable networkx.m=networkx-module.html#m"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-2', 'm', 'link-2');">m</a></tt><tt class="py-op">,</tt> <tt class="py-name">p</tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Function cvxpy.utils.seed()=cvxpy.utils-module.html#seed"><a title="cvxpy.utils.seed" class="py-name" href="#" onclick="return doclink('link-3', 'seed', 'link-3');">seed</a></tt><tt class="py-op">=</tt><tt id="link-4" class="py-name"><a title="cvxpy.utils.seed" class="py-name" href="#" onclick="return doclink('link-4', 'seed', 'link-3');">seed</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Function networkx.algorithms.bipartite.projection.projected_graph()=networkx.algorithms.bipartite.projection-module.html#projected_graph"><a title="networkx.algorithms.bipartite.projection.projected_graph" class="py-name" href="#" onclick="return doclink('link-5', 'projected_graph', 'link-5');">projected_graph</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>  </tt>
+</div><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"> </tt>
+<a name="k_random_intersection_graph"></a><div id="k_random_intersection_graph-def"><a name="L50"></a><tt class="py-lineno"> 50</tt> <a class="py-toggle" href="#" id="k_random_intersection_graph-toggle" onclick="return toggle('k_random_intersection_graph');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.generators.intersection-module.html#k_random_intersection_graph">k_random_intersection_graph</a><tt class="py-op">(</tt><tt class="py-param">n</tt><tt class="py-op">,</tt><tt class="py-param">m</tt><tt class="py-op">,</tt><tt class="py-param">k</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="k_random_intersection_graph-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="k_random_intersection_graph-expanded"><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return a intersection graph with randomly chosen attribute sets for</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">    each node that are of equal size (k). </tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">    Parameters</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">    ----------</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">    n : int</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">        The number of nodes in the first bipartite set (nodes)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">    m : int</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">        The number of nodes in the second bipartite set (attributes)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">    k : float</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">        Size of attribute set to assign to each node.</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">    seed : int, optional</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">        Seed for random number generator (default=None). </tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">    See Also</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">    --------</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">    gnp_random_graph, uniform_random_intersection_graph</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">    References</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">    ----------</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">    .. [1] Godehardt, E., and Jaworski, J.</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">       Two models of random intersection graphs and their applications.</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">       Electronic Notes in Discrete Mathematics 10 (2001), 129--132.</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">    <tt class="py-name">G</tt> <tt class="py-op">=</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Function networkx.generators.classic.empty_graph()=networkx.generators.classic-module.html#empty_graph"><a title="networkx.generators.classic.empty_graph" class="py-name" href="#" onclick="return doclink('link-6', 'empty_graph', 'link-6');">empty_graph</a></tt><tt class="py-op">(</tt><tt class="py-name">n</tt> <tt class="py-op">+</tt> <tt id="link-7" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-7', 'm', 'link-2');">m</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">    <tt class="py-name">mset</tt> <tt class="py-op">=</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">+</tt><tt id="link-8" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-8', 'm', 'link-2');">m</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-name">targets</tt> <tt class="py-op">=</tt> <tt class="py-name">random</tt><tt class="py-op">.</tt><tt class="py-name">sample</tt><tt class="py-op">(</tt><tt class="py-name">mset</tt><tt class="py-op">,</tt> <tt class="py-name">k</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method networkx.classes.digraph.DiGraph.add_edges_from()=networkx.classes.digraph.DiGraph-class.html#add_edges_from,Method networkx.classes.graph.Graph.add_edges_from()=networkx.classes.graph.Graph-class.html#add_edges_from,Method networkx.classes.multigraph.MultiGraph.add_edges_from()=networkx.classes.multigraph.MultiGraph-class.html#add_edges_from"><a title="networkx.classes.digraph.DiGraph.add_edges_from
+networkx.classes.graph.Graph.add_edges_from
+networkx.classes.multigraph.MultiGraph.add_edges_from" class="py-name" href="#" onclick="return doclink('link-9', 'add_edges_from', 'link-9');">add_edges_from</a></tt><tt class="py-op">(</tt><tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">v</tt><tt class="py-op">]</tt><tt class="py-op">*</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">targets</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">targets</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="networkx.algorithms.bipartite.projection.projected_graph" class="py-name" href="#" onclick="return doclink('link-10', 'projected_graph', 'link-5');">projected_graph</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"> </tt>
+<a name="general_random_intersection_graph"></a><div id="general_random_intersection_graph-def"><a name="L82"></a><tt class="py-lineno"> 82</tt> <a class="py-toggle" href="#" id="general_random_intersection_graph-toggle" onclick="return toggle('general_random_intersection_graph');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.generators.intersection-module.html#general_random_intersection_graph">general_random_intersection_graph</a><tt class="py-op">(</tt><tt class="py-param">n</tt><tt class="py-op">,</tt><tt class="py-param">m</tt><tt class="py-op">,</tt><tt class="py-param">p</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="general_random_intersection_graph-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="general_random_intersection_graph-expanded"><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return a random intersection graph with independent probabilities</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">    for connections between node and attribute sets.</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">    Parameters</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">    ----------</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">    n : int</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">        The number of nodes in the first bipartite set (nodes)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">    m : int</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">        The number of nodes in the second bipartite set (attributes)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">    p : list of floats of length m</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">        Probabilities for connecting nodes to each attribute</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">    seed : int, optional</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">        Seed for random number generator (default=None). </tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">    See Also</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring">    --------</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">    gnp_random_graph, uniform_random_intersection_graph</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">    References</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">    ----------</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">    .. [1] Nikoletseas, S. E., Raptopoulos, C., and Spirakis, P. G. </tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">       The existence and efficient construction of large independent sets </tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">       in general random intersection graphs. In ICALP (2004), J. D&#180;&#305;az, </tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">       J. Karhum&#168;aki, A. Lepist&#168;o, and D. Sannella, Eds., vol. 3142</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">       of Lecture Notes in Computer Science, Springer, pp. 1029&#8211;1040.</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">)</tt><tt class="py-op">!=</tt><tt id="link-11" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-11', 'm', 'link-2');">m</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">"Probability list p must have m elements."</tt><tt class="py-op">)</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt class="py-name">G</tt> <tt class="py-op">=</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="networkx.generators.classic.empty_graph" class="py-name" href="#" onclick="return doclink('link-12', 'empty_graph', 'link-6');">empty_graph</a></tt><tt class="py-op">(</tt><tt class="py-name">n</tt> <tt class="py-op">+</tt> <tt id="link-13" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-13', 'm', 'link-2');">m</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">    <tt class="py-name">mset</tt> <tt class="py-op">=</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-name">n</tt><tt class="py-op">+</tt><tt id="link-14" class="py-name"><a title="networkx.m" class="py-name" href="#" onclick="return doclink('link-14', 'm', 'link-2');">m</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">u</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">v</tt><tt class="py-op">,</tt><tt class="py-name">q</tt> <tt class="py-keyword">in</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-name">mset</tt><tt class="py-op">,</tt><tt class="py-name">p</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">random</tt><tt class="py-op">.</tt><tt class="py-name">random</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">&lt;</tt><tt class="py-name">q</tt><tt class="py-op">:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method networkx.classes.digraph.DiGraph.add_edge()=networkx.classes.digraph.DiGraph-class.html#add_edge,Method networkx.classes.graph.Graph.add_edge()=networkx.classes.graph.Graph-class.html#add_edge,Method networkx.classes.multidigraph.MultiDiGraph.add_edge()=networkx.classes.multidigraph.MultiDiGraph-class.html#add_edge,Method networkx.classes.multigraph.MultiGraph.add_edge()=networkx.classes.multigraph.MultiGraph-class.html#add_edge,Method networkx.readwrite.gexf.GEXFReader.add_edge()=networkx.readwrite.gexf.GEXFReader-class.html#add_edge,Method networkx.readwrite.graphml.GraphMLReader.add_edge()=networkx.readwrite.graphml.GraphMLReader-class.html#add_edge"><a title="networkx.classes.digraph.DiGraph.add_edge
+networkx.classes.graph.Graph.add_edge
+networkx.classes.multidigraph.MultiDiGraph.add_edge
+networkx.classes.multigraph.MultiGraph.add_edge
+networkx.readwrite.gexf.GEXFReader.add_edge
+networkx.readwrite.graphml.GraphMLReader.add_edge" class="py-name" href="#" onclick="return doclink('link-15', 'add_edge', 'link-15');">add_edge</a></tt><tt class="py-op">(</tt><tt class="py-name">u</tt><tt class="py-op">,</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">nx</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="networkx.algorithms.bipartite.projection.projected_graph" class="py-name" href="#" onclick="return doclink('link-16', 'projected_graph', 'link-5');">projected_graph</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:02 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

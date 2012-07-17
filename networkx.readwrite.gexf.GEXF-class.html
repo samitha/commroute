@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.readwrite.gexf.GEXF</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.readwrite-module.html">Package&nbsp;readwrite</a> ::
+        <a href="networkx.readwrite.gexf-module.html">Module&nbsp;gexf</a> ::
+        Class&nbsp;GEXF
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.readwrite.gexf.GEXF-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class GEXF</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXF">source&nbsp;code</a></span></p>
+<center>
+  <div class="private"><center>  <map id="uml_class_diagram_for_networkx_21" name="uml_class_diagram_for_networkx_21">
+<area shape="rect" id="node1_8" href="networkx.readwrite.gexf.GEXF-class.html#versions" title="networkx.readwrite.gexf.GEXF.versions" alt="" coords="56,31,211,49"/>
+<area shape="rect" id="node1_9" href="networkx.readwrite.gexf.GEXF-class.html#d" title="networkx.readwrite.gexf.GEXF.d" alt="" coords="56,49,211,68"/>
+<area shape="rect" id="node1_10" href="networkx.readwrite.gexf.GEXF-class.html#types" title="networkx.readwrite.gexf.GEXF.types" alt="" coords="56,68,211,87"/>
+<area shape="rect" id="node1_11" href="networkx.readwrite.gexf.GEXF-class.html#blurb" title="networkx.readwrite.gexf.GEXF.blurb" alt="" coords="56,87,211,105"/>
+<area shape="rect" id="node1_12" href="networkx.readwrite.gexf.GEXF-class.html#xml_type" title="networkx.readwrite.gexf.GEXF.xml_type" alt="" coords="56,105,211,124"/>
+<area shape="rect" id="node1_13" href="networkx.readwrite.gexf.GEXF-class.html#python_type" title="networkx.readwrite.gexf.GEXF.python_type" alt="" coords="56,124,211,143"/>
+<area shape="rect" id="node1_14" href="networkx.readwrite.gexf.GEXF-class.html#convert_bool" title="networkx.readwrite.gexf.GEXF.convert_bool" alt="" coords="56,143,211,161"/>
+<area shape="rect" id="node1_15" href="networkx.readwrite.gexf.GEXF-class.html#set_version" title="networkx.readwrite.gexf.GEXF.set_version" alt="" coords="56,164,211,183"/>
+<area shape="rect" id="node1" href="networkx.readwrite.gexf.GEXF-class.html" title="networkx.readwrite.gexf.GEXF" alt="" coords="44,6,223,189"/>
+<area shape="rect" id="node2" href="networkx.readwrite.gexf.GEXFReader-class.html" title="networkx.readwrite.gexf.GEXFReader" alt="" coords="5,209,121,247"/>
+<area shape="rect" id="node3" href="networkx.readwrite.gexf.GEXFWriter-class.html" title="networkx.readwrite.gexf.GEXFWriter" alt="" coords="151,209,257,247"/>
+</map>
+  <img src="uml_class_diagram_for_networkx_21.gif" alt='' usemap="#uml_class_diagram_for_networkx_21" ismap="ismap" class="graph-without-title" />
+</center></div>
+  <div class="public" style="display:none"><center>  <map id="uml_class_diagram_for_networkx_22" name="uml_class_diagram_for_networkx_22">
+<area shape="rect" id="node1_8" href="networkx.readwrite.gexf.GEXF-class.html#versions" title="networkx.readwrite.gexf.GEXF.versions" alt="" coords="17,31,172,49"/>
+<area shape="rect" id="node1_9" href="networkx.readwrite.gexf.GEXF-class.html#d" title="networkx.readwrite.gexf.GEXF.d" alt="" coords="17,49,172,68"/>
+<area shape="rect" id="node1_10" href="networkx.readwrite.gexf.GEXF-class.html#types" title="networkx.readwrite.gexf.GEXF.types" alt="" coords="17,68,172,87"/>
+<area shape="rect" id="node1_11" href="networkx.readwrite.gexf.GEXF-class.html#blurb" title="networkx.readwrite.gexf.GEXF.blurb" alt="" coords="17,87,172,105"/>
+<area shape="rect" id="node1_12" href="networkx.readwrite.gexf.GEXF-class.html#xml_type" title="networkx.readwrite.gexf.GEXF.xml_type" alt="" coords="17,105,172,124"/>
+<area shape="rect" id="node1_13" href="networkx.readwrite.gexf.GEXF-class.html#python_type" title="networkx.readwrite.gexf.GEXF.python_type" alt="" coords="17,124,172,143"/>
+<area shape="rect" id="node1_14" href="networkx.readwrite.gexf.GEXF-class.html#convert_bool" title="networkx.readwrite.gexf.GEXF.convert_bool" alt="" coords="17,143,172,161"/>
+<area shape="rect" id="node1_15" href="networkx.readwrite.gexf.GEXF-class.html#set_version" title="networkx.readwrite.gexf.GEXF.set_version" alt="" coords="17,164,172,183"/>
+<area shape="rect" id="node1" href="networkx.readwrite.gexf.GEXF-class.html" title="networkx.readwrite.gexf.GEXF" alt="" coords="5,6,184,189"/>
+</map>
+  <img src="uml_class_diagram_for_networkx_22.gif" alt='' usemap="#uml_class_diagram_for_networkx_22" ismap="ismap" class="graph-without-title" />
+</center></div>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_version"></a><span class="summary-sig-name">set_version</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">version</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gexf-pysrc.html#GEXF.set_version">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__init__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.readwrite.gexf.GEXF-class.html#versions" class="summary-name">versions</a> = <code title="{'1.1draft': {'NS_GEXF': 'http://www.gexf.net/1.1draft',
+              'NS_VIZ': 'http://www.gexf.net/1.1draft/viz',
+              'NS_XSI': 'http://www.w3.org/2001/XMLSchema-instance',
+              'SCHEMALOCATION': 'http://www.gexf.net/1.1draft http://w\
+ww.gexf.net/1.1draft/gexf.xsd',
+              'VERSION': '1.1'},
+ '1.2draft': {'NS_GEXF': 'http://www.gexf.net/1.2draft',
+              'NS_VIZ': 'http://www.gexf.net/1.2draft/viz',
+..."><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">1.1draft</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">NS_GEXF</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://www.gexf.net/1.1dr</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.readwrite.gexf.GEXF-class.html#d" class="summary-name">d</a> = <code title="{'NS_GEXF': 'http://www.gexf.net/1.2draft',
+ 'NS_VIZ': 'http://www.gexf.net/1.2draft/viz',
+ 'NS_XSI': 'http://www.w3.org/2001/XMLSchema-instance',
+ 'SCHEMALOCATION': 'http://www.gexf.net/1.2draft http://www.gexf.net/1\
+.2draft/gexf.xsd',
+ 'VERSION': '1.2'}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">NS_GEXF</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://www.gexf.net/1.2draft</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">NS_VIZ</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">htt</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.readwrite.gexf.GEXF-class.html#types" class="summary-name">types</a> = <code title="[(&lt;type 'int'&gt;, 'integer'),
+ (&lt;type 'float'&gt;, 'float'),
+ (&lt;type 'float'&gt;, 'double'),
+ (&lt;type 'bool'&gt;, 'boolean'),
+ (&lt;type 'list'&gt;, 'string'),
+ (&lt;type 'dict'&gt;, 'string'),
+ (&lt;type 'str'&gt;, 'liststring'),
+ (&lt;type 'str'&gt;, 'anyURI'),
+..."><code class="variable-group">[</code><code class="variable-group">(</code>&lt;type 'int'&gt;<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">integer</code><code class="variable-quote">'</code><code class="variable-group">)</code><code class="variable-op">, </code><code class="variable-group">(</code>&lt;type 'float'&gt;<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">float</code><code class="variable-quote">'</code><code class="variable-group">)</code><code class="variable-op">,</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="blurb"></a><span class="summary-name">blurb</span> = <code title="chr(1245)">chr(1245)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.readwrite.gexf.GEXF-class.html#xml_type" class="summary-name">xml_type</a> = <code title="{&lt;type 'bool'&gt;: 'boolean',
+ &lt;type 'float'&gt;: 'double',
+ &lt;type 'int'&gt;: 'integer',
+ &lt;type 'list'&gt;: 'string',
+ &lt;type 'dict'&gt;: 'string',
+ &lt;type 'str'&gt;: 'string',
+ &lt;type 'unicode'&gt;: 'string'}"><code class="variable-group">{</code>&lt;type 'bool'&gt;<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">boolean</code><code class="variable-quote">'</code><code class="variable-op">, </code>&lt;type 'float'&gt;<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">double</code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="networkx.readwrite.gexf.GEXF-class.html#python_type" class="summary-name">python_type</a> = <code title="{'anyURI': &lt;type 'unicode'&gt;,
+ 'boolean': &lt;type 'bool'&gt;,
+ 'double': &lt;type 'float'&gt;,
+ 'float': &lt;type 'float'&gt;,
+ 'integer': &lt;type 'int'&gt;,
+ 'liststring': &lt;type 'unicode'&gt;,
+ 'string': &lt;type 'unicode'&gt;}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">anyURI</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;type 'unicode'&gt;<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">boolean</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;type 'b<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="convert_bool"></a><span class="summary-name">convert_bool</span> = <code title="{'false': False, 'true': True}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">false</code><code class="variable-quote">'</code><code class="variable-op">: </code>False<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">true</code><code class="variable-quote">'</code><code class="variable-op">: </code>True<code class="variable-group">}</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="versions"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">versions</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">1.1draft</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">NS_GEXF</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://www.gexf.net/1.1draft</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+              <code class="variable-quote">'</code><code class="variable-string">NS_VIZ</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://www.gexf.net/1.1draft/viz</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+              <code class="variable-quote">'</code><code class="variable-string">NS_XSI</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://www.w3.org/2001/XMLSchema-instance</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+              <code class="variable-quote">'</code><code class="variable-string">SCHEMALOCATION</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://www.gexf.net/1.1draft http://w</code><span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-string">ww.gexf.net/1.1draft/gexf.xsd</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+              <code class="variable-quote">'</code><code class="variable-string">VERSION</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">1.1</code><code class="variable-quote">'</code><code class="variable-group">}</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">1.2draft</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">NS_GEXF</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://www.gexf.net/1.2draft</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+              <code class="variable-quote">'</code><code class="variable-string">NS_VIZ</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://www.gexf.net/1.2draft/viz</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="d"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">d</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">NS_GEXF</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://www.gexf.net/1.2draft</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">NS_VIZ</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://www.gexf.net/1.2draft/viz</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">NS_XSI</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://www.w3.org/2001/XMLSchema-instance</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">SCHEMALOCATION</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://www.gexf.net/1.2draft http://www.gexf.net/1</code><span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-string">.2draft/gexf.xsd</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">VERSION</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">1.2</code><code class="variable-quote">'</code><code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="types"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">types</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code><code class="variable-group">(</code>&lt;type 'int'&gt;<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">integer</code><code class="variable-quote">'</code><code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-group">(</code>&lt;type 'float'&gt;<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">float</code><code class="variable-quote">'</code><code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-group">(</code>&lt;type 'float'&gt;<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">double</code><code class="variable-quote">'</code><code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-group">(</code>&lt;type 'bool'&gt;<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">boolean</code><code class="variable-quote">'</code><code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-group">(</code>&lt;type 'list'&gt;<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">string</code><code class="variable-quote">'</code><code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-group">(</code>&lt;type 'dict'&gt;<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">string</code><code class="variable-quote">'</code><code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-group">(</code>&lt;type 'str'&gt;<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">liststring</code><code class="variable-quote">'</code><code class="variable-group">)</code><code class="variable-op">,</code>
+ <code class="variable-group">(</code>&lt;type 'str'&gt;<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">anyURI</code><code class="variable-quote">'</code><code class="variable-group">)</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="xml_type"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">xml_type</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code>&lt;type 'bool'&gt;<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">boolean</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ &lt;type 'float'&gt;<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">double</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ &lt;type 'int'&gt;<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">integer</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ &lt;type 'list'&gt;<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">string</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ &lt;type 'dict'&gt;<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">string</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ &lt;type 'str'&gt;<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">string</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ &lt;type 'unicode'&gt;<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">string</code><code class="variable-quote">'</code><code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="python_type"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">python_type</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">anyURI</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;type 'unicode'&gt;<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">boolean</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;type 'bool'&gt;<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">double</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;type 'float'&gt;<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">float</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;type 'float'&gt;<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">integer</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;type 'int'&gt;<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">liststring</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;type 'unicode'&gt;<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">string</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;type 'unicode'&gt;<code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:55 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

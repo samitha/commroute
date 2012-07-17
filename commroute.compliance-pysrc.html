@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>commroute.compliance</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="commroute-module.html">Package&nbsp;commroute</a> ::
+        Module&nbsp;compliance
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="commroute.compliance-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="commroute.compliance-module.html">Module commroute.compliance</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module commroute.demand=commroute.demand-module.html"><a title="commroute.demand" class="py-name" href="#" onclick="return doclink('link-0', 'demand', 'link-0');">demand</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Class commroute.demand.ODDemand=commroute.demand.ODDemand-class.html"><a title="commroute.demand.ODDemand" class="py-name" href="#" onclick="return doclink('link-1', 'ODDemand', 'link-1');">ODDemand</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="commroute.demand" class="py-name" href="#" onclick="return doclink('link-2', 'demand', 'link-0');">demand</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class commroute.demand.FlowNetwork=commroute.demand.FlowNetwork-class.html"><a title="commroute.demand.FlowNetwork" class="py-name" href="#" onclick="return doclink('link-3', 'FlowNetwork', 'link-3');">FlowNetwork</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">'jdr'</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name"><a title="commroute.demand" class="py-name" href="#" onclick="return doclink('link-4', 'demand', 'link-0');">demand</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Class commroute.demand.RouteDemand=commroute.demand.RouteDemand-class.html"><a title="commroute.demand.RouteDemand" class="py-name" href="#" onclick="return doclink('link-5', 'RouteDemand', 'link-5');">RouteDemand</a></tt> </tt>
+<a name="valid_compliance"></a><div id="valid_compliance-def"><a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt> <a class="py-toggle" href="#" id="valid_compliance-toggle" onclick="return toggle('valid_compliance');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance-module.html#valid_compliance">valid_compliance</a><tt class="py-op">(</tt><tt class="py-param">comp</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="valid_compliance-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="valid_compliance-expanded"><a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">  <tt class="py-keyword">return</tt> <tt class="py-number">0.0</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">comp</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">1.0</tt> </tt>
+</div><a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="CompliantRouteDemand"></a><div id="CompliantRouteDemand-def"><a name="L11"></a><tt class="py-lineno">11</tt> <a class="py-toggle" href="#" id="CompliantRouteDemand-toggle" onclick="return toggle('CompliantRouteDemand');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.compliance.CompliantRouteDemand-class.html">CompliantRouteDemand</a><tt class="py-op">(</tt><tt class="py-base-class">RouteDemand</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CompliantRouteDemand-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="CompliantRouteDemand-expanded"><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="CompliantRouteDemand.__init__"></a><div id="CompliantRouteDemand.__init__-def"><a name="L13"></a><tt class="py-lineno">13</tt> <a class="py-toggle" href="#" id="CompliantRouteDemand.__init__-toggle" onclick="return toggle('CompliantRouteDemand.__init__');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.CompliantRouteDemand-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">route</tt><tt class="py-op">,</tt> <tt class="py-param">flow</tt><tt class="py-op">,</tt> <tt class="py-param">compliance</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CompliantRouteDemand.__init__-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="CompliantRouteDemand.__init__-expanded"><a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">    <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-6" class="py-name" targets="Class commroute.compliance.CompliantRouteDemand=commroute.compliance.CompliantRouteDemand-class.html"><a title="commroute.compliance.CompliantRouteDemand" class="py-name" href="#" onclick="return doclink('link-6', 'CompliantRouteDemand', 'link-6');">CompliantRouteDemand</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method commroute.bfs.Queue.__init__()=commroute.bfs.Queue-class.html#__init__,Method commroute.compliance.CompliantRouteDemand.__init__()=commroute.compliance.CompliantRouteDemand-class.html#__init__,Method commroute.cr_network.CRNetwork.__init__()=commroute.cr_network.CRNetwork-class.html#__init__,Method commroute.cr_network.Junction.__init__()=commroute.cr_network.Junction-class.html#__init__,Method commroute.cr_network.Link.__init__()=commroute.cr_network.Link-class.html#__init__,Method commroute.cr_network.Route.__init__()=commroute.cr_network.Route-class.html#__init__,Method commroute.cr_network.Sink.__init__()=commroute.cr_network.Sink-class.html#__init__,Method commroute.cr_network.Source.__init__()=commroute.cr_network.Source-class.html#__init__,Method commroute.cr_optimize.Constraint.__init__()=commroute.cr_optimize.Constraint-class.html#__init__,Method commroute.ctm.CTMLink.__init__()=commroute.ctm.CTMLink-class.html#__init__,Method commroute.ctm.CTMState.__init__()=commroute.ctm.CTMState-class.html#__init__,Method commroute.ctm.FundamentalDiagram.__init__()=commroute.ctm.FundamentalDiagram-class.html#__init__,Method commroute.cvxpy_solver.CVXPyProgram.__init__()=commroute.cvxpy_solver.CVXPyProgram-class.html#__init__,Method commroute.demand.Demand.__init__()=commroute.demand.Demand-class.html#__init__,Method commroute.demand.DemandMixin.__init__()=commroute.demand.DemandMixin-class.html#__init__,Method commroute.demand.LinkDemand.__init__()=commroute.demand.LinkDemand-class.html#__init__,Method commroute.demand.ODDemand.__init__()=commroute.demand.ODDemand-class.html#__init__,Method commroute.demand.RouteDemand.__init__()=commroute.demand.RouteDemand-class.html#__init__,Method commroute.dynamic.DynamicDemand.__init__()=commroute.dynamic.DynamicDemand-class.html#__init__,Method commroute.dynamic.DynamicLagrangianProblem.__init__()=commroute.dynamic.DynamicLagrangianProblem-class.html#__init__,Method commroute.dynamic.SourceDemand.__init__()=commroute.dynamic.SourceDemand-class.html#__init__,Method commroute.point_queue.AffineLatency.__init__()=commroute.point_queue.AffineLatency-class.html#__init__,Method commroute.point_queue.FlowLink.__init__()=commroute.point_queue.FlowLink-class.html#__init__,Method commroute.point_queue.MM1Latency.__init__()=commroute.point_queue.MM1Latency-class.html#__init__,Method commroute.point_queue.PQState.__init__()=commroute.point_queue.PQState-class.html#__init__,Method commroute.state_constrained.StateConstrainedLink.__init__()=commroute.state_constrained.StateConstrainedLink-class.html#__init__,Method cvxpy.arrays.cvxpy_array.__init__()=cvxpy.arrays.cvxpy_array-class.html#__init__,Method cvxpy.arrays.cvxpy_matrix.__init__()=cvxpy.arrays.cvxpy_matrix-class.html#__init__,Method cvxpy.arrays.cvxpy_param.__init__()=cvxpy.arrays.cvxpy_param-class.html#__init__,Method cvxpy.arrays.cvxpy_var.__init__()=cvxpy.arrays.cvxpy_var-class.html#__init__,Method cvxpy.constraints.cvxpy_constr.__init__()=cvxpy.constraints.cvxpy_constr-class.html#__init__,Method cvxpy.programs.cvxpy_program.__init__()=cvxpy.programs.cvxpy_program-class.html#__init__,Method cvxpy.scalars.cvxpy_obj.__init__()=cvxpy.scalars.cvxpy_obj-class.html#__init__,Method cvxpy.scalars.cvxpy_scalar_param.__init__()=cvxpy.scalars.cvxpy_scalar_param-class.html#__init__,Method cvxpy.scalars.cvxpy_scalar_var.__init__()=cvxpy.scalars.cvxpy_scalar_var-class.html#__init__,Method cvxpy.scalars.cvxpy_tree.__init__()=cvxpy.scalars.cvxpy_tree-class.html#__init__,Method cvxpy.sets.exp_cone'.cvxpy_exp_cone.__init__()=cvxpy.sets.exp_cone%27.cvxpy_exp_cone-class.html#__init__,Method cvxpy.sets.geo_mean_cone'.cvxpy_geo_mean_cone.__init__()=cvxpy.sets.geo_mean_cone%27.cvxpy_geo_mean_cone-class.html#__init__,Method cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi.__init__()=cvxpy.sets.kl_div_epi%27.cvxpy_kl_div_epi-class.html#__init__,Method cvxpy.sets.log_norm_cdf_hypo'.cvxpy_log_norm_cdf_hypo.__init__()=cvxpy.sets.log_norm_cdf_hypo%27.cvxpy_log_norm_cdf_hypo-class.html#__init__,Method cvxpy.sets.second_order_cone'.cvxpy_second_order_cone.__init__()=cvxpy.sets.second_order_cone%27.cvxpy_second_order_cone-class.html#__init__,Method cvxpy.sets.semidefinite_cone'.cvxpy_semidefinite_cone.__init__()=cvxpy.sets.semidefinite_cone%27.cvxpy_semidefinite_cone-class.html#__init__,Method networkx.algorithms.isomorphism.isomorphvf2.DiGMState.__init__()=networkx.algorithms.isomorphism.isomorphvf2.DiGMState-class.html#__init__,Method networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.__init__()=networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher-class.html#__init__,Method networkx.algorithms.isomorphism.isomorphvf2.GMState.__init__()=networkx.algorithms.isomorphism.isomorphvf2.GMState-class.html#__init__,Method networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher.__init__()=networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#__init__,Method networkx.algorithms.isomorphism.vf2userfunc.DiGraphMatcher.__init__()=networkx.algorithms.isomorphism.vf2userfunc.DiGraphMatcher-class.html#__init__,Method networkx.algorithms.isomorphism.vf2userfunc.GraphMatcher.__init__()=networkx.algorithms.isomorphism.vf2userfunc.GraphMatcher-class.html#__init__,Method networkx.classes.digraph.DiGraph.__init__()=networkx.classes.digraph.DiGraph-class.html#__init__,Method networkx.classes.graph.Graph.__init__()=networkx.classes.graph.Graph-class.html#__init__,Method networkx.readwrite.gexf.GEXFReader.__init__()=networkx.readwrite.gexf.GEXFReader-class.html#__init__,Method networkx.readwrite.gexf.GEXFWriter.__init__()=networkx.readwrite.gexf.GEXFWriter-class.html#__init__,Method networkx.readwrite.graphml.GraphMLReader.__init__()=networkx.readwrite.graphml.GraphMLReader-class.html#__init__,Method networkx.readwrite.graphml.GraphMLWriter.__init__()=networkx.readwrite.graphml.GraphMLWriter-class.html#__init__,Method networkx.tests.benchmark.Benchmark.__init__()=networkx.tests.benchmark.Benchmark-class.html#__init__,Method networkx.tests.test_convert_numpy.TestConvertNumpy.__init__()=networkx.tests.test_convert_numpy.TestConvertNumpy-class.html#__init__,Method networkx.tests.test_convert_scipy.TestConvertNumpy.__init__()=networkx.tests.test_convert_scipy.TestConvertNumpy-class.html#__init__,Method networkx.utils.UnionFind.__init__()=networkx.utils.UnionFind-class.html#__init__"><a title="commroute.bfs.Queue.__init__
+commroute.compliance.CompliantRouteDemand.__init__
+commroute.cr_network.CRNetwork.__init__
+commroute.cr_network.Junction.__init__
+commroute.cr_network.Link.__init__
+commroute.cr_network.Route.__init__
+commroute.cr_network.Sink.__init__
+commroute.cr_network.Source.__init__
+commroute.cr_optimize.Constraint.__init__
+commroute.ctm.CTMLink.__init__
+commroute.ctm.CTMState.__init__
+commroute.ctm.FundamentalDiagram.__init__
+commroute.cvxpy_solver.CVXPyProgram.__init__
+commroute.demand.Demand.__init__
+commroute.demand.DemandMixin.__init__
+commroute.demand.LinkDemand.__init__
+commroute.demand.ODDemand.__init__
+commroute.demand.RouteDemand.__init__
+commroute.dynamic.DynamicDemand.__init__
+commroute.dynamic.DynamicLagrangianProblem.__init__
+commroute.dynamic.SourceDemand.__init__
+commroute.point_queue.AffineLatency.__init__
+commroute.point_queue.FlowLink.__init__
+commroute.point_queue.MM1Latency.__init__
+commroute.point_queue.PQState.__init__
+commroute.state_constrained.StateConstrainedLink.__init__
+cvxpy.arrays.cvxpy_array.__init__
+cvxpy.arrays.cvxpy_matrix.__init__
+cvxpy.arrays.cvxpy_param.__init__
+cvxpy.arrays.cvxpy_var.__init__
+cvxpy.constraints.cvxpy_constr.__init__
+cvxpy.programs.cvxpy_program.__init__
+cvxpy.scalars.cvxpy_obj.__init__
+cvxpy.scalars.cvxpy_scalar_param.__init__
+cvxpy.scalars.cvxpy_scalar_var.__init__
+cvxpy.scalars.cvxpy_tree.__init__
+cvxpy.sets.exp_cone'.cvxpy_exp_cone.__init__
+cvxpy.sets.geo_mean_cone'.cvxpy_geo_mean_cone.__init__
+cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi.__init__
+cvxpy.sets.log_norm_cdf_hypo'.cvxpy_log_norm_cdf_hypo.__init__
+cvxpy.sets.second_order_cone'.cvxpy_second_order_cone.__init__
+cvxpy.sets.semidefinite_cone'.cvxpy_semidefinite_cone.__init__
+networkx.algorithms.isomorphism.isomorphvf2.DiGMState.__init__
+networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.__init__
+networkx.algorithms.isomorphism.isomorphvf2.GMState.__init__
+networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher.__init__
+networkx.algorithms.isomorphism.vf2userfunc.DiGraphMatcher.__init__
+networkx.algorithms.isomorphism.vf2userfunc.GraphMatcher.__init__
+networkx.classes.digraph.DiGraph.__init__
+networkx.classes.graph.Graph.__init__
+networkx.readwrite.gexf.GEXFReader.__init__
+networkx.readwrite.gexf.GEXFWriter.__init__
+networkx.readwrite.graphml.GraphMLReader.__init__
+networkx.readwrite.graphml.GraphMLWriter.__init__
+networkx.tests.benchmark.Benchmark.__init__
+networkx.tests.test_convert_numpy.TestConvertNumpy.__init__
+networkx.tests.test_convert_scipy.TestConvertNumpy.__init__
+networkx.utils.UnionFind.__init__" class="py-name" href="#" onclick="return doclink('link-7', '__init__', 'link-7');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">route</tt><tt class="py-op">,</tt> <tt id="link-8" class="py-name" targets="Method commroute.ctm.FundamentalDiagram.flow()=commroute.ctm.FundamentalDiagram-class.html#flow,Package networkx.algorithms.flow=networkx.algorithms.flow-module.html"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-8', 'flow', 'link-8');">flow</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-9" class="py-name" targets="Function commroute.compliance.valid_compliance()=commroute.compliance-module.html#valid_compliance"><a title="commroute.compliance.valid_compliance" class="py-name" href="#" onclick="return doclink('link-9', 'valid_compliance', 'link-9');">valid_compliance</a></tt><tt class="py-op">(</tt><tt id="link-10" class="py-name" targets="Module commroute.compliance=commroute.compliance-module.html"><a title="commroute.compliance" class="py-name" href="#" onclick="return doclink('link-10', 'compliance', 'link-10');">compliance</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">      <tt class="py-keyword">raise</tt> <tt class="py-name">Exception</tt><tt class="py-op">(</tt><tt class="py-string">'invalid compliance level'</tt><tt class="py-op">)</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="commroute.compliance" class="py-name" href="#" onclick="return doclink('link-11', 'compliance', 'link-10');">compliance</a></tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="commroute.compliance" class="py-name" href="#" onclick="return doclink('link-12', 'compliance', 'link-10');">compliance</a></tt> </tt>
+</div><a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="CompliantRouteDemand.jsonify"></a><div id="CompliantRouteDemand.jsonify-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="CompliantRouteDemand.jsonify-toggle" onclick="return toggle('CompliantRouteDemand.jsonify');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.CompliantRouteDemand-class.html#jsonify">jsonify</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CompliantRouteDemand.jsonify-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="CompliantRouteDemand.jsonify-expanded"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt class="py-name">json</tt> <tt class="py-op">=</tt> <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="commroute.compliance.CompliantRouteDemand" class="py-name" href="#" onclick="return doclink('link-13', 'CompliantRouteDemand', 'link-6');">CompliantRouteDemand</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method commroute.compliance.CompliantRouteDemand.jsonify()=commroute.compliance.CompliantRouteDemand-class.html#jsonify,Method commroute.cr_network.CRNetwork.jsonify()=commroute.cr_network.CRNetwork-class.html#jsonify,Method commroute.cr_network.Junction.jsonify()=commroute.cr_network.Junction-class.html#jsonify,Method commroute.cr_network.Link.jsonify()=commroute.cr_network.Link-class.html#jsonify,Method commroute.cr_network.Route.jsonify()=commroute.cr_network.Route-class.html#jsonify,Method commroute.cr_utils.Dumpable.Dumpable.jsonify()=commroute.cr_utils.Dumpable.Dumpable-class.html#jsonify,Method commroute.ctm.CTMLink.jsonify()=commroute.ctm.CTMLink-class.html#jsonify,Method commroute.ctm.FundamentalDiagram.jsonify()=commroute.ctm.FundamentalDiagram-class.html#jsonify,Method commroute.demand.Demand.jsonify()=commroute.demand.Demand-class.html#jsonify,Method commroute.demand.FlowNetwork.jsonify()=commroute.demand.FlowNetwork-class.html#jsonify,Method commroute.demand.LinkDemand.jsonify()=commroute.demand.LinkDemand-class.html#jsonify,Method commroute.demand.ODDemand.jsonify()=commroute.demand.ODDemand-class.html#jsonify,Method commroute.demand.RouteDemand.jsonify()=commroute.demand.RouteDemand-class.html#jsonify,Method commroute.dynamic.DynamicDemand.jsonify()=commroute.dynamic.DynamicDemand-class.html#jsonify,Method commroute.dynamic.SourceDemand.jsonify()=commroute.dynamic.SourceDemand-class.html#jsonify,Method commroute.point_queue.AffineLatency.jsonify()=commroute.point_queue.AffineLatency-class.html#jsonify,Method commroute.point_queue.FlowLatency.jsonify()=commroute.point_queue.FlowLatency-class.html#jsonify,Method commroute.point_queue.FlowLink.jsonify()=commroute.point_queue.FlowLink-class.html#jsonify,Method commroute.point_queue.MM1Latency.jsonify()=commroute.point_queue.MM1Latency-class.html#jsonify,Method commroute.state_constrained.StateConstrainedLink.jsonify()=commroute.state_constrained.StateConstrainedLink-class.html#jsonify"><a title="commroute.compliance.CompliantRouteDemand.jsonify
+commroute.cr_network.CRNetwork.jsonify
+commroute.cr_network.Junction.jsonify
+commroute.cr_network.Link.jsonify
+commroute.cr_network.Route.jsonify
+commroute.cr_utils.Dumpable.Dumpable.jsonify
+commroute.ctm.CTMLink.jsonify
+commroute.ctm.FundamentalDiagram.jsonify
+commroute.demand.Demand.jsonify
+commroute.demand.FlowNetwork.jsonify
+commroute.demand.LinkDemand.jsonify
+commroute.demand.ODDemand.jsonify
+commroute.demand.RouteDemand.jsonify
+commroute.dynamic.DynamicDemand.jsonify
+commroute.dynamic.SourceDemand.jsonify
+commroute.point_queue.AffineLatency.jsonify
+commroute.point_queue.FlowLatency.jsonify
+commroute.point_queue.FlowLink.jsonify
+commroute.point_queue.MM1Latency.jsonify
+commroute.state_constrained.StateConstrainedLink.jsonify" class="py-name" href="#" onclick="return doclink('link-14', 'jsonify', 'link-14');">jsonify</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-name">json</tt><tt class="py-op">[</tt><tt class="py-string">'compliance'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="commroute.compliance" class="py-name" href="#" onclick="return doclink('link-15', 'compliance', 'link-10');">compliance</a></tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">json</tt> </tt>
+</div><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="CompliantRouteDemand.load_demand"></a><div id="CompliantRouteDemand.load_demand-def"><a name="L25"></a><tt class="py-lineno">25</tt> <a class="py-toggle" href="#" id="CompliantRouteDemand.load_demand-toggle" onclick="return toggle('CompliantRouteDemand.load_demand');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.CompliantRouteDemand-class.html#load_demand">load_demand</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">,</tt> <tt class="py-param">net</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CompliantRouteDemand.load_demand-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="CompliantRouteDemand.load_demand-expanded"><a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">cls</tt><tt class="py-op">(</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">      <tt class="py-name">route</tt><tt class="py-op">=</tt><tt class="py-name">net</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method commroute.cr_network.CRNetwork.route_by_names()=commroute.cr_network.CRNetwork-class.html#route_by_names"><a title="commroute.cr_network.CRNetwork.route_by_names" class="py-name" href="#" onclick="return doclink('link-16', 'route_by_names', 'link-16');">route_by_names</a></tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'route'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">      <tt id="link-17" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-17', 'flow', 'link-8');">flow</a></tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'flow'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">      <tt id="link-18" class="py-name"><a title="commroute.compliance" class="py-name" href="#" onclick="return doclink('link-18', 'compliance', 'link-10');">compliance</a></tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'compliance'</tt><tt class="py-op">]</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+</div><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="CompliantRouteDemand.non_compliant_flow"></a><div id="CompliantRouteDemand.non_compliant_flow-def"><a name="L32"></a><tt class="py-lineno">32</tt> <a class="py-toggle" href="#" id="CompliantRouteDemand.non_compliant_flow-toggle" onclick="return toggle('CompliantRouteDemand.non_compliant_flow');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.CompliantRouteDemand-class.html#non_compliant_flow">non_compliant_flow</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CompliantRouteDemand.non_compliant_flow-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="CompliantRouteDemand.non_compliant_flow-expanded"><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-19', 'flow', 'link-8');">flow</a></tt> <tt class="py-op">-</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method commroute.compliance.CompliantRouteDemand.compliant_flow()=commroute.compliance.CompliantRouteDemand-class.html#compliant_flow"><a title="commroute.compliance.CompliantRouteDemand.compliant_flow" class="py-name" href="#" onclick="return doclink('link-20', 'compliant_flow', 'link-20');">compliant_flow</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt>
+<a name="CompliantRouteDemand.compliant_flow"></a><div id="CompliantRouteDemand.compliant_flow-def"><a name="L35"></a><tt class="py-lineno">35</tt> <a class="py-toggle" href="#" id="CompliantRouteDemand.compliant_flow-toggle" onclick="return toggle('CompliantRouteDemand.compliant_flow');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.CompliantRouteDemand-class.html#compliant_flow">compliant_flow</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CompliantRouteDemand.compliant_flow-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="CompliantRouteDemand.compliant_flow-expanded"><a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-21', 'flow', 'link-8');">flow</a></tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="commroute.compliance" class="py-name" href="#" onclick="return doclink('link-22', 'compliance', 'link-10');">compliance</a></tt> </tt>
+</div><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"> </tt>
+<a name="CompliantRouteDemand.baseline_demands"></a><div id="CompliantRouteDemand.baseline_demands-def"><a name="L38"></a><tt class="py-lineno">38</tt> <a class="py-toggle" href="#" id="CompliantRouteDemand.baseline_demands-toggle" onclick="return toggle('CompliantRouteDemand.baseline_demands');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.CompliantRouteDemand-class.html#baseline_demands">baseline_demands</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CompliantRouteDemand.baseline_demands-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="CompliantRouteDemand.baseline_demands-expanded"><a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt id="link-23" class="py-name"><a title="commroute.demand.RouteDemand" class="py-name" href="#" onclick="return doclink('link-23', 'RouteDemand', 'link-5');">RouteDemand</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">,</tt> <tt id="link-24" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-24', 'flow', 'link-8');">flow</a></tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-25', 'flow', 'link-8');">flow</a></tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="CompliantRouteDemand.compliance_demands"></a><div id="CompliantRouteDemand.compliance_demands-def"><a name="L41"></a><tt class="py-lineno">41</tt> <a class="py-toggle" href="#" id="CompliantRouteDemand.compliance_demands-toggle" onclick="return toggle('CompliantRouteDemand.compliance_demands');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.CompliantRouteDemand-class.html#compliance_demands">compliance_demands</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CompliantRouteDemand.compliance_demands-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="CompliantRouteDemand.compliance_demands-expanded"><a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">[</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">      <tt id="link-26" class="py-name"><a title="commroute.demand.RouteDemand" class="py-name" href="#" onclick="return doclink('link-26', 'RouteDemand', 'link-5');">RouteDemand</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">,</tt> <tt id="link-27" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-27', 'flow', 'link-8');">flow</a></tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method commroute.compliance.CompliantRouteDemand.non_compliant_flow()=commroute.compliance.CompliantRouteDemand-class.html#non_compliant_flow"><a title="commroute.compliance.CompliantRouteDemand.non_compliant_flow" class="py-name" href="#" onclick="return doclink('link-28', 'non_compliant_flow', 'link-28');">non_compliant_flow</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">      <tt id="link-29" class="py-name"><a title="commroute.demand.ODDemand" class="py-name" href="#" onclick="return doclink('link-29', 'ODDemand', 'link-1');">ODDemand</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt id="link-30" class="py-name" targets="Method commroute.cr_network.Route.source()=commroute.cr_network.Route-class.html#source"><a title="commroute.cr_network.Route.source" class="py-name" href="#" onclick="return doclink('link-30', 'source', 'link-30');">source</a></tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="commroute.cr_network.Route.source" class="py-name" href="#" onclick="return doclink('link-31', 'source', 'link-30');">source</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt id="link-32" class="py-name" targets="Method commroute.cr_network.Route.sink()=commroute.cr_network.Route-class.html#sink"><a title="commroute.cr_network.Route.sink" class="py-name" href="#" onclick="return doclink('link-32', 'sink', 'link-32');">sink</a></tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">route</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="commroute.cr_network.Route.sink" class="py-name" href="#" onclick="return doclink('link-33', 'sink', 'link-32');">sink</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt id="link-34" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-34', 'flow', 'link-8');">flow</a></tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="commroute.compliance.CompliantRouteDemand.compliant_flow" class="py-name" href="#" onclick="return doclink('link-35', 'compliant_flow', 'link-20');">compliant_flow</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">      <tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+</div><a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="CompliantRouteDemand.tag"></a><div id="CompliantRouteDemand.tag-def"><a name="L52"></a><tt class="py-lineno">52</tt> <a class="py-toggle" href="#" id="CompliantRouteDemand.tag-toggle" onclick="return toggle('CompliantRouteDemand.tag');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.CompliantRouteDemand-class.html#tag">tag</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CompliantRouteDemand.tag-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="CompliantRouteDemand.tag-expanded"><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">'compliant route'</tt> </tt>
+</div></div><a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"><tt id="link-36" class="py-name"><a title="commroute.compliance.CompliantRouteDemand" class="py-name" href="#" onclick="return doclink('link-36', 'CompliantRouteDemand', 'link-6');">CompliantRouteDemand</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Class Method commroute.demand.Demand.add_type()=commroute.demand.Demand-class.html#add_type"><a title="commroute.demand.Demand.add_type" class="py-name" href="#" onclick="return doclink('link-37', 'add_type', 'link-37');">add_type</a></tt><tt class="py-op">(</tt><tt id="link-38" class="py-name"><a title="commroute.compliance.CompliantRouteDemand" class="py-name" href="#" onclick="return doclink('link-38', 'CompliantRouteDemand', 'link-6');">CompliantRouteDemand</a></tt><tt class="py-op">)</tt> </tt>
+<a name="ComplianceMixin"></a><div id="ComplianceMixin-def"><a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt> <a class="py-toggle" href="#" id="ComplianceMixin-toggle" onclick="return toggle('ComplianceMixin');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.compliance.ComplianceMixin-class.html">ComplianceMixin</a><tt class="py-op">(</tt><tt class="py-base-class">FlowNetwork</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ComplianceMixin-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="ComplianceMixin-expanded"><a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"> </tt>
+<a name="ComplianceMixin.add_compliant_demand"></a><div id="ComplianceMixin.add_compliant_demand-def"><a name="L59"></a><tt class="py-lineno">59</tt> <a class="py-toggle" href="#" id="ComplianceMixin.add_compliant_demand-toggle" onclick="return toggle('ComplianceMixin.add_compliant_demand');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.ComplianceMixin-class.html#add_compliant_demand">add_compliant_demand</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">route</tt><tt class="py-op">,</tt> <tt class="py-param">flow</tt><tt class="py-op">,</tt> <tt class="py-param">compliance</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ComplianceMixin.add_compliant_demand-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="ComplianceMixin.add_compliant_demand-expanded"><a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">demands</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt id="link-39" class="py-name"><a title="commroute.compliance.CompliantRouteDemand" class="py-name" href="#" onclick="return doclink('link-39', 'CompliantRouteDemand', 'link-6');">CompliantRouteDemand</a></tt><tt class="py-op">(</tt><tt class="py-name">route</tt><tt class="py-op">,</tt> <tt id="link-40" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-40', 'flow', 'link-8');">flow</a></tt><tt class="py-op">,</tt> <tt id="link-41" class="py-name"><a title="commroute.compliance" class="py-name" href="#" onclick="return doclink('link-41', 'compliance', 'link-10');">compliance</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"> </tt>
+<a name="ComplianceMixin.compliant_demands"></a><div id="ComplianceMixin.compliant_demands-def"><a name="L62"></a><tt class="py-lineno">62</tt> <a class="py-toggle" href="#" id="ComplianceMixin.compliant_demands-toggle" onclick="return toggle('ComplianceMixin.compliant_demands');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.ComplianceMixin-class.html#compliant_demands">compliant_demands</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ComplianceMixin.compliant_demands-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="ComplianceMixin.compliant_demands-expanded"><a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt id="link-42" class="py-name"><a title="commroute.demand" class="py-name" href="#" onclick="return doclink('link-42', 'demand', 'link-0');">demand</a></tt> <tt class="py-keyword">for</tt> <tt id="link-43" class="py-name"><a title="commroute.demand" class="py-name" href="#" onclick="return doclink('link-43', 'demand', 'link-0');">demand</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">demands</tt> <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-44" class="py-name"><a title="commroute.demand" class="py-name" href="#" onclick="return doclink('link-44', 'demand', 'link-0');">demand</a></tt><tt class="py-op">,</tt> <tt id="link-45" class="py-name"><a title="commroute.compliance.CompliantRouteDemand" class="py-name" href="#" onclick="return doclink('link-45', 'CompliantRouteDemand', 'link-6');">CompliantRouteDemand</a></tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"> </tt>
+<a name="ComplianceMixin.get_demands"></a><div id="ComplianceMixin.get_demands-def"><a name="L65"></a><tt class="py-lineno">65</tt> <a class="py-toggle" href="#" id="ComplianceMixin.get_demands-toggle" onclick="return toggle('ComplianceMixin.get_demands');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.ComplianceMixin-class.html#get_demands">get_demands</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ComplianceMixin.get_demands-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="ComplianceMixin.get_demands-expanded"><a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name" targets="Method commroute.compliance.ComplianceMixin.compliance_mode()=commroute.compliance.ComplianceMixin-class.html#compliance_mode"><a title="commroute.compliance.ComplianceMixin.compliance_mode" class="py-name" href="#" onclick="return doclink('link-46', 'compliance_mode', 'link-46');">compliance_mode</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">      <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Method commroute.compliance.ComplianceMixin.demands_with_compliance()=commroute.compliance.ComplianceMixin-class.html#demands_with_compliance"><a title="commroute.compliance.ComplianceMixin.demands_with_compliance" class="py-name" href="#" onclick="return doclink('link-47', 'demands_with_compliance', 'link-47');">demands_with_compliance</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">      <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name" targets="Method commroute.compliance.ComplianceMixin.demands_without_compliance()=commroute.compliance.ComplianceMixin-class.html#demands_without_compliance"><a title="commroute.compliance.ComplianceMixin.demands_without_compliance" class="py-name" href="#" onclick="return doclink('link-48', 'demands_without_compliance', 'link-48');">demands_without_compliance</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line"> </tt>
+<a name="ComplianceMixin.compliance_mode"></a><div id="ComplianceMixin.compliance_mode-def"><a name="L71"></a><tt class="py-lineno">71</tt> <a class="py-toggle" href="#" id="ComplianceMixin.compliance_mode-toggle" onclick="return toggle('ComplianceMixin.compliance_mode');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.ComplianceMixin-class.html#compliance_mode">compliance_mode</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ComplianceMixin.compliance_mode-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="ComplianceMixin.compliance_mode-expanded"><a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">      <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">COMPLIANCE</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">      <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">COMPLIANCE</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">      <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">COMPLIANCE</tt> </tt>
+</div><a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line"> </tt>
+<a name="ComplianceMixin.set_compliance"></a><div id="ComplianceMixin.set_compliance-def"><a name="L78"></a><tt class="py-lineno">78</tt> <a class="py-toggle" href="#" id="ComplianceMixin.set_compliance-toggle" onclick="return toggle('ComplianceMixin.set_compliance');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.ComplianceMixin-class.html#set_compliance">set_compliance</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">on</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ComplianceMixin.set_compliance-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="ComplianceMixin.set_compliance-expanded"><a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">COMPLIANCE</tt> <tt class="py-op">=</tt> <tt class="py-name">on</tt> </tt>
+</div><a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line"> </tt>
+<a name="ComplianceMixin.demands_with_compliance"></a><div id="ComplianceMixin.demands_with_compliance-def"><a name="L81"></a><tt class="py-lineno">81</tt> <a class="py-toggle" href="#" id="ComplianceMixin.demands_with_compliance-toggle" onclick="return toggle('ComplianceMixin.demands_with_compliance');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.ComplianceMixin-class.html#demands_with_compliance">demands_with_compliance</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ComplianceMixin.demands_with_compliance-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="ComplianceMixin.demands_with_compliance-expanded"><a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">    <tt class="py-name">comp_demands</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name" targets="Method commroute.compliance.ComplianceMixin.compliant_demands()=commroute.compliance.ComplianceMixin-class.html#compliant_demands"><a title="commroute.compliance.ComplianceMixin.compliant_demands" class="py-name" href="#" onclick="return doclink('link-49', 'compliant_demands', 'link-49');">compliant_demands</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">    <tt class="py-name">basic_demands</tt> <tt class="py-op">=</tt> <tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">demands</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Function networkx.algorithms.operators.difference()=networkx.algorithms.operators-module.html#difference"><a title="networkx.algorithms.operators.difference" class="py-name" href="#" onclick="return doclink('link-50', 'difference', 'link-50');">difference</a></tt><tt class="py-op">(</tt><tt class="py-name">comp_demands</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line">    <tt class="py-name">extra_demands</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">dem</tt> <tt class="py-keyword">in</tt> <tt class="py-name">comp_demands</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line">      <tt class="py-name">extra_demands</tt><tt class="py-op">.</tt><tt class="py-name">extend</tt><tt class="py-op">(</tt><tt class="py-name">dem</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name" targets="Method commroute.compliance.CompliantRouteDemand.compliance_demands()=commroute.compliance.CompliantRouteDemand-class.html#compliance_demands"><a title="commroute.compliance.CompliantRouteDemand.compliance_demands" class="py-name" href="#" onclick="return doclink('link-51', 'compliance_demands', 'link-51');">compliance_demands</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">basic_demands</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">extra_demands</tt> </tt>
+</div><a name="L88"></a><tt class="py-lineno">88</tt>  <tt class="py-line"> </tt>
+<a name="ComplianceMixin.demands_without_compliance"></a><div id="ComplianceMixin.demands_without_compliance-def"><a name="L89"></a><tt class="py-lineno">89</tt> <a class="py-toggle" href="#" id="ComplianceMixin.demands_without_compliance-toggle" onclick="return toggle('ComplianceMixin.demands_without_compliance');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.compliance.ComplianceMixin-class.html#demands_without_compliance">demands_without_compliance</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ComplianceMixin.demands_without_compliance-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="ComplianceMixin.demands_without_compliance-expanded"><a name="L90"></a><tt class="py-lineno">90</tt>  <tt class="py-line">    <tt class="py-name">comp_demands</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="commroute.compliance.ComplianceMixin.compliant_demands" class="py-name" href="#" onclick="return doclink('link-52', 'compliant_demands', 'link-49');">compliant_demands</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno">91</tt>  <tt class="py-line">    <tt class="py-name">basic_demands</tt> <tt class="py-op">=</tt> <tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">demands</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="networkx.algorithms.operators.difference" class="py-name" href="#" onclick="return doclink('link-53', 'difference', 'link-50');">difference</a></tt><tt class="py-op">(</tt><tt class="py-name">comp_demands</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno">92</tt>  <tt class="py-line">    <tt class="py-name">extra_demands</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L93"></a><tt class="py-lineno">93</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">dem</tt> <tt class="py-keyword">in</tt> <tt class="py-name">comp_demands</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno">94</tt>  <tt class="py-line">      <tt class="py-name">extra_demands</tt><tt class="py-op">.</tt><tt class="py-name">extend</tt><tt class="py-op">(</tt><tt class="py-name">dem</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name" targets="Method commroute.compliance.CompliantRouteDemand.baseline_demands()=commroute.compliance.CompliantRouteDemand-class.html#baseline_demands"><a title="commroute.compliance.CompliantRouteDemand.baseline_demands" class="py-name" href="#" onclick="return doclink('link-54', 'baseline_demands', 'link-54');">baseline_demands</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno">95</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">basic_demands</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">extra_demands</tt> </tt>
+</div></div><a name="L96"></a><tt class="py-lineno">96</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:05 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

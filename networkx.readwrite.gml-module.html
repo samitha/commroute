@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.readwrite.gml</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.readwrite-module.html">Package&nbsp;readwrite</a> ::
+        Module&nbsp;gml
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.readwrite.gml-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module gml</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.readwrite.gml-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+Read graphs in GML format.
+
+&quot;GML, the G&gt;raph Modelling Language, is our proposal for a portable
+file format for graphs. GML's key features are portability, simple
+syntax, extensibility and flexibility. A GML file consists of a
+hierarchical key-value lists. Graphs can be annotated with arbitrary
+data structures. The idea for a common file format was born at the
+GD'95; this proposal is the outcome of many discussions. GML is the
+standard file format in the Graphlet graph editor system. It has been
+overtaken and adapted by several other systems for drawing graphs.&quot;
+
+See http://www.infosun.fim.uni-passau.de/Graphlet/GML/gml-tr.html
+
+Requires pyparsing: http://pyparsing.wikispaces.com/
+
+Format
+------
+See http://www.infosun.fim.uni-passau.de/Graphlet/GML/gml-tr.html
+for format specification.
+
+Example graphs in GML format:
+http://www-personal.umich.edu/~mejn/netdata/
+
+</pre>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Aric Hagberg (hagberg@lanl.gov)
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.gml-module.html#read_gml" class="summary-sig-name">read_gml</a>(<span class="summary-sig-arg">path</span>,
+        <span class="summary-sig-arg">encoding</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">UTF-8</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">relabel</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Read graph in GML format from path.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gml-pysrc.html#read_gml">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.gml-module.html#parse_gml" class="summary-sig-name">parse_gml</a>(<span class="summary-sig-arg">lines</span>,
+        <span class="summary-sig-arg">relabel</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Parse GML graph from a string or iterable.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gml-pysrc.html#parse_gml">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.gml-module.html#pyparse_gml" class="summary-sig-name" onclick="show_private();">pyparse_gml</a>()</span><br />
+      A pyparsing tokenizer for GML graph format.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gml-pysrc.html#pyparse_gml">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.gml-module.html#generate_gml" class="summary-sig-name">generate_gml</a>(<span class="summary-sig-arg">G</span>)</span><br />
+      Generate a single entry of the graph G in GML format.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gml-pysrc.html#generate_gml">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.gml-module.html#write_gml" class="summary-sig-name">write_gml</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">path</span>)</span><br />
+      Write the graph G in GML format to the file or file handle path.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gml-pysrc.html#write_gml">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setup_module"></a><span class="summary-sig-name">setup_module</span>(<span class="summary-sig-arg">module</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gml-pysrc.html#setup_module">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="teardown_module"></a><span class="summary-sig-name">teardown_module</span>(<span class="summary-sig-arg">module</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.gml-pysrc.html#teardown_module">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx.readwrite'"><code class="variable-quote">'</code><code class="variable-string">networkx.readwrite</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="read_gml"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read_gml</span>(<span class="sig-arg">path</span>,
+        <span class="sig-arg">encoding</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">UTF-8</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">relabel</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.gml-pysrc.html#read_gml">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Read graph in GML format from path.
+
+Parameters
+----------
+path : filename or filehandle
+   The filename or filehandle to read from.
+
+encoding : string, optional
+   Text encoding. 
+
+relabel : bool, optional       
+   If True use the GML node label attribute for node names otherwise use
+   the node id.  
+
+Returns
+-------
+G : MultiGraph or MultiDiGraph
+
+Raises
+------
+ImportError
+    If the pyparsing module is not available.
+
+See Also
+--------
+write_gml, parse_gml
+
+Notes
+-----
+Requires pyparsing: http://pyparsing.wikispaces.com/
+
+References
+----------
+GML specification:
+http://www.infosun.fim.uni-passau.de/Graphlet/GML/gml-tr.html
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.path_graph(4)
+&gt;&gt;&gt; nx.write_gml(G,'test.gml')
+&gt;&gt;&gt; H=nx.read_gml('test.gml')
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="parse_gml"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">parse_gml</span>(<span class="sig-arg">lines</span>,
+        <span class="sig-arg">relabel</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.gml-pysrc.html#parse_gml">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Parse GML graph from a string or iterable.
+
+Parameters
+----------
+lines : string or iterable
+   Data in GML format.
+
+relabel : bool, optional       
+   If True use the GML node label attribute for node names otherwise use
+   the node id.
+
+Returns
+-------
+G : MultiGraph or MultiDiGraph
+
+Raises
+------
+ImportError
+    If the pyparsing module is not available.
+
+See Also
+--------
+write_gml, read_gml
+
+Notes
+-----
+This stores nested GML attributes as dictionaries in the 
+NetworkX graph, node, and edge attribute structures.
+
+Requires pyparsing: http://pyparsing.wikispaces.com/
+
+References
+----------
+GML specification:
+http://www.infosun.fim.uni-passau.de/Graphlet/GML/gml-tr.html
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="pyparse_gml"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">pyparse_gml</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.gml-pysrc.html#pyparse_gml">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+A pyparsing tokenizer for GML graph format.
+
+This is not intended to be called directly.
+
+See Also
+--------
+write_gml, read_gml, parse_gml
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="generate_gml"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">generate_gml</span>(<span class="sig-arg">G</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.gml-pysrc.html#generate_gml">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Generate a single entry of the graph G in GML format.
+
+Parameters
+----------
+G : NetworkX graph
+
+Returns
+-------
+lines: string
+   Lines in GML format.
+
+Notes
+-----
+This implementation does not support all Python data types as GML
+data.  Nodes, node attributes, edge attributes, and graph
+attributes must be either dictionaries or single stings or
+numbers.  If they are not an attempt is made to represent them as
+strings.  For example, a list as edge data
+G[1][2]['somedata']=[1,2,3], will be represented in the GML file
+as::
+
+   edge [
+     source 1
+     target 2
+     somedata &quot;[1, 2, 3]&quot;
+   ]
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="write_gml"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write_gml</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">path</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.gml-pysrc.html#write_gml">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Write the graph G in GML format to the file or file handle path.
+
+Parameters
+----------
+path : filename or filehandle
+   The filename or filehandle to write.  Filenames ending in
+   .gz or .gz2 will be compressed.
+
+See Also
+--------
+read_gml, parse_gml
+
+Notes
+-----
+GML specifications indicate that the file should only use
+7bit ASCII text encoding.iso8859-1 (latin-1). 
+
+This implementation does not support all Python data types as GML
+data.  Nodes, node attributes, edge attributes, and graph
+attributes must be either dictionaries or single stings or
+numbers.  If they are not an attempt is made to represent them as
+strings.  For example, a list as edge data
+G[1][2]['somedata']=[1,2,3], will be represented in the GML file
+as::
+
+   edge [
+     source 1
+     target 2
+     somedata &quot;[1, 2, 3]&quot;
+   ]
+
+
+Examples
+---------
+&gt;&gt;&gt; G=nx.path_graph(4)
+&gt;&gt;&gt; nx.write_gml(G,&quot;test.gml&quot;)
+
+Filenames ending in .gz or .bz2 will be compressed.
+
+&gt;&gt;&gt; nx.write_gml(G,&quot;test.gml.gz&quot;)
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

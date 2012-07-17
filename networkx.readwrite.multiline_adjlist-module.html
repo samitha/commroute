@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.readwrite.multiline_adjlist</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.readwrite-module.html">Package&nbsp;readwrite</a> ::
+        Module&nbsp;multiline_adjlist
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.readwrite.multiline_adjlist-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module multiline_adjlist</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.readwrite.multiline_adjlist-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+*************************
+Multi-line Adjacency List
+*************************
+Read and write NetworkX graphs as multi-line adjacency lists.
+
+The multi-line adjacency list format is useful for graphs with 
+nodes that can be meaningfully represented as strings.  With this format 
+simple edge data can be stored but node or graph data is not. 
+
+Format
+------
+The first label in a line is the source node label followed by the node degree
+d.  The next d lines are target node labels and optional edge data.
+That pattern repeats for all nodes in the graph.
+
+The graph with edges a-b, a-c, d-e can be represented as the following 
+adjacency list (anything following the # in a line is a comment):: 
+
+     # example.multiline-adjlist
+     a 2
+     b
+     c
+     d 1
+     e
+
+</pre>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Aric Hagberg &lt;hagberg@lanl.gov&gt;
+        Dan Schult &lt;dschult@colgate.edu&gt;
+        Lo\xc3\xafc S\xc3\xa9guin-C. &lt;loicseguin@gmail.com&gt;
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.multiline_adjlist-module.html#generate_multiline_adjlist" class="summary-sig-name">generate_multiline_adjlist</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">delimiter</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"> </code><code class="variable-quote">'</code></span>)</span><br />
+      Generate a single line of the graph G in multiline adjacency list format.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.multiline_adjlist-pysrc.html#generate_multiline_adjlist">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.multiline_adjlist-module.html#write_multiline_adjlist" class="summary-sig-name">write_multiline_adjlist</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">path</span>,
+        <span class="summary-sig-arg">delimiter</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"> </code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">comments</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">#</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">encoding</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>)</span><br />
+      Write the graph G in multiline adjacency list format to path</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.multiline_adjlist-pysrc.html#write_multiline_adjlist">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.multiline_adjlist-module.html#parse_multiline_adjlist" class="summary-sig-name">parse_multiline_adjlist</a>(<span class="summary-sig-arg">lines</span>,
+        <span class="summary-sig-arg">comments</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">#</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">delimiter</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">create_using</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">nodetype</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">edgetype</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Parse lines of a multiline adjacency list representation of a graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.multiline_adjlist-pysrc.html#parse_multiline_adjlist">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.readwrite.multiline_adjlist-module.html#read_multiline_adjlist" class="summary-sig-name">read_multiline_adjlist</a>(<span class="summary-sig-arg">path</span>,
+        <span class="summary-sig-arg">comments</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">#</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">delimiter</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">create_using</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">nodetype</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">edgetype</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">encoding</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>)</span><br />
+      Read graph in multi-line adjacency list format from path.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.multiline_adjlist-pysrc.html#read_multiline_adjlist">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="teardown_module"></a><span class="summary-sig-name">teardown_module</span>(<span class="summary-sig-arg">module</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.readwrite.multiline_adjlist-pysrc.html#teardown_module">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx.readwrite'"><code class="variable-quote">'</code><code class="variable-string">networkx.readwrite</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="generate_multiline_adjlist"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">generate_multiline_adjlist</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">delimiter</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"> </code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.multiline_adjlist-pysrc.html#generate_multiline_adjlist">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Generate a single line of the graph G in multiline adjacency list format.
+
+Parameters
+----------
+G : NetworkX graph
+
+delimiter : string, optional
+   Separator for node labels 
+
+Returns
+-------
+lines : string
+    Lines of data in multiline adjlist format.
+
+Examples
+--------
+&gt;&gt;&gt; G = nx.lollipop_graph(4, 3)
+&gt;&gt;&gt; for line in nx.generate_multiline_adjlist(G):
+...     print(line)    
+0 3
+1 {}
+2 {}
+3 {}
+1 2
+2 {}
+3 {}
+2 1
+3 {}
+3 1
+4 {}
+4 1
+5 {}
+5 1
+6 {}
+6 0
+
+See Also
+--------
+write_multiline_adjlist, read_multiline_adjlist
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="write_multiline_adjlist"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write_multiline_adjlist</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">path</span>,
+        <span class="sig-arg">delimiter</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"> </code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">comments</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">#</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">encoding</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.multiline_adjlist-pysrc.html#write_multiline_adjlist">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Write the graph G in multiline adjacency list format to path
+
+Parameters
+----------
+G : NetworkX graph
+
+comments : string, optional
+   Marker for comment lines
+
+delimiter : string, optional
+   Separator for node labels 
+
+encoding : string, optional
+   Text encoding. 
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.path_graph(4)
+&gt;&gt;&gt; nx.write_multiline_adjlist(G,&quot;test.adjlist&quot;)
+
+The path can be a file handle or a string with the name of the file. If a
+file handle is provided, it has to be opened in 'wb' mode.
+
+&gt;&gt;&gt; fh=open(&quot;test.adjlist&quot;,'wb')
+&gt;&gt;&gt; nx.write_multiline_adjlist(G,fh)
+
+Filenames ending in .gz or .bz2 will be compressed.
+
+&gt;&gt;&gt; nx.write_multiline_adjlist(G,&quot;test.adjlist.gz&quot;)
+
+See Also
+--------
+read_multiline_adjlist
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="parse_multiline_adjlist"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">parse_multiline_adjlist</span>(<span class="sig-arg">lines</span>,
+        <span class="sig-arg">comments</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">#</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">delimiter</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">create_using</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">nodetype</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">edgetype</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.multiline_adjlist-pysrc.html#parse_multiline_adjlist">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Parse lines of a multiline adjacency list representation of a graph.
+
+Parameters
+----------
+lines : list or iterator of strings
+    Input data in multiline adjlist format
+
+create_using: NetworkX graph container       
+   Use given NetworkX graph for holding nodes or edges.
+
+nodetype : Python type, optional
+   Convert nodes to this type.  
+   
+comments : string, optional
+   Marker for comment lines
+
+delimiter : string, optional
+   Separator for node labels.  The default is whitespace. 
+
+create_using: NetworkX graph container       
+   Use given NetworkX graph for holding nodes or edges.
+
+
+Returns
+-------
+G: NetworkX graph
+    The graph corresponding to the lines in multiline adjacency list format.
+
+Examples
+--------
+&gt;&gt;&gt; lines = ['1 2',
+...          &quot;2 {'weight':3, 'name': 'Frodo'}&quot;,
+...          &quot;3 {}&quot;,
+...          &quot;2 1&quot;,
+...          &quot;5 {'weight':6, 'name': 'Saruman'}&quot;]
+&gt;&gt;&gt; G = nx.parse_multiline_adjlist(iter(lines), nodetype = int)
+&gt;&gt;&gt; G.nodes()
+[1, 2, 3, 5]
+&gt;&gt;&gt; G.edges(data = True)
+[(1, 2, {'name': 'Frodo', 'weight': 3}), (1, 3, {}), (2, 5, {'name': 'Saruman', 'weight': 6})]
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="read_multiline_adjlist"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read_multiline_adjlist</span>(<span class="sig-arg">path</span>,
+        <span class="sig-arg">comments</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">#</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">delimiter</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">create_using</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">nodetype</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">edgetype</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">encoding</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">utf-8</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.readwrite.multiline_adjlist-pysrc.html#read_multiline_adjlist">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Read graph in multi-line adjacency list format from path.
+
+Parameters
+----------
+path : string or file
+   Filename or file handle to read.
+   Filenames ending in .gz or .bz2 will be uncompressed.
+
+create_using: NetworkX graph container       
+   Use given NetworkX graph for holding nodes or edges.
+
+nodetype : Python type, optional
+   Convert nodes to this type.  
+   
+edgetype : Python type, optional
+   Convert edge data to this type.
+
+comments : string, optional
+   Marker for comment lines
+
+delimiter : string, optional
+   Separator for node labels.  The default is whitespace. 
+
+create_using: NetworkX graph container       
+   Use given NetworkX graph for holding nodes or edges.
+
+
+Returns
+-------
+G: NetworkX graph
+
+Examples
+--------
+&gt;&gt;&gt; G=nx.path_graph(4)
+&gt;&gt;&gt; nx.write_multiline_adjlist(G,&quot;test.adjlist&quot;)
+&gt;&gt;&gt; G=nx.read_multiline_adjlist(&quot;test.adjlist&quot;)
+
+The path can be a file or a string with the name of the file. If a
+file s provided, it has to be opened in 'rb' mode.
+
+&gt;&gt;&gt; fh=open(&quot;test.adjlist&quot;, 'rb')
+&gt;&gt;&gt; G=nx.read_multiline_adjlist(fh)
+
+Filenames ending in .gz or .bz2 will be compressed.
+
+&gt;&gt;&gt; nx.write_multiline_adjlist(G,&quot;test.adjlist.gz&quot;)
+&gt;&gt;&gt; G=nx.read_multiline_adjlist(&quot;test.adjlist.gz&quot;)
+
+The optional nodetype is a function to convert node strings to nodetype.
+
+For example
+
+&gt;&gt;&gt; G=nx.read_multiline_adjlist(&quot;test.adjlist&quot;, nodetype=int)
+
+will attempt to convert all nodes to integer type.
+
+The optional edgetype is a function to convert edge data strings to 
+edgetype.  
+
+&gt;&gt;&gt; G=nx.read_multiline_adjlist(&quot;test.adjlist&quot;)
+
+The optional create_using parameter is a NetworkX graph container.
+The default is Graph(), an undirected graph.  To read the data as 
+a directed graph use
+
+&gt;&gt;&gt; G=nx.read_multiline_adjlist(&quot;test.adjlist&quot;, create_using=nx.DiGraph())
+
+Notes
+-----
+This format does not store graph, node, or edge data.
+
+See Also
+--------
+write_multiline_adjlist
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

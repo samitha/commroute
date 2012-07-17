@@ -1,0 +1,1151 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.convert</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        Module&nbsp;convert
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.convert-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module convert</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.convert-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+This module provides functions to convert 
+NetworkX graphs to and from other formats.
+
+The preferred way of converting data to a NetworkX graph 
+is through the graph constuctor.  The constructor calls
+the to_networkx_graph() function which attempts to guess the
+input type and convert it automatically.
+
+Examples
+--------
+
+Create a 10 node random graph from a numpy matrix
+
+&gt;&gt;&gt; import numpy
+&gt;&gt;&gt; a=numpy.reshape(numpy.random.random_integers(0,1,size=100),(10,10))
+&gt;&gt;&gt; D=nx.DiGraph(a) 
+
+or equivalently
+
+&gt;&gt;&gt; D=nx.to_networkx_graph(a,create_using=nx.DiGraph()) 
+
+Create a graph with a single edge from a dictionary of dictionaries
+
+&gt;&gt;&gt; d={0: {1: 1}} # dict-of-dicts single edge (0,1)
+&gt;&gt;&gt; G=nx.Graph(d)
+
+
+See Also
+--------
+nx_pygraphviz, nx_pydot
+
+</pre>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Aric Hagberg (hagberg@lanl.gov)
+        Pieter Swart (swart@lanl.gov)
+        Dan Schult(dschult@colgate.edu)
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#_prep_create_using" class="summary-sig-name" onclick="show_private();">_prep_create_using</a>(<span class="summary-sig-arg">create_using</span>)</span><br />
+      Return a graph object ready to be populated.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#_prep_create_using">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#to_networkx_graph" class="summary-sig-name">to_networkx_graph</a>(<span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">create_using</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">multigraph_input</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Make a NetworkX graph from a known data structure.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#to_networkx_graph">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="convert_to_undirected"></a><span class="summary-sig-name">convert_to_undirected</span>(<span class="summary-sig-arg">G</span>)</span><br />
+      Return a new undirected representation of the graph G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#convert_to_undirected">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="convert_to_directed"></a><span class="summary-sig-name">convert_to_directed</span>(<span class="summary-sig-arg">G</span>)</span><br />
+      Return a new directed representation of the graph G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#convert_to_directed">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#to_dict_of_lists" class="summary-sig-name">to_dict_of_lists</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodelist</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return adjacency representation of graph as a dictionary of lists.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#to_dict_of_lists">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#from_dict_of_lists" class="summary-sig-name">from_dict_of_lists</a>(<span class="summary-sig-arg">d</span>,
+        <span class="summary-sig-arg">create_using</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return a graph from a dictionary of lists.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#from_dict_of_lists">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#to_dict_of_dicts" class="summary-sig-name">to_dict_of_dicts</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodelist</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">edge_data</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return adjacency representation of graph as a dictionary of dictionaries.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#to_dict_of_dicts">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#from_dict_of_dicts" class="summary-sig-name">from_dict_of_dicts</a>(<span class="summary-sig-arg">d</span>,
+        <span class="summary-sig-arg">create_using</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">multigraph_input</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Return a graph from a dictionary of dictionaries.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#from_dict_of_dicts">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#to_edgelist" class="summary-sig-name">to_edgelist</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodelist</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return a list of edges in the graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#to_edgelist">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#from_edgelist" class="summary-sig-name">from_edgelist</a>(<span class="summary-sig-arg">edgelist</span>,
+        <span class="summary-sig-arg">create_using</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return a graph from a list of edges.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#from_edgelist">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#to_numpy_matrix" class="summary-sig-name">to_numpy_matrix</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodelist</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">order</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">multigraph_weight</span>=<span class="summary-sig-default">&lt;built-in function sum&gt;</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span><br />
+      Return the graph adjacency matrix as a NumPy matrix.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#to_numpy_matrix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#from_numpy_matrix" class="summary-sig-name">from_numpy_matrix</a>(<span class="summary-sig-arg">A</span>,
+        <span class="summary-sig-arg">create_using</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return a graph from numpy matrix.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#from_numpy_matrix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#to_numpy_recarray" class="summary-sig-name">to_numpy_recarray</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodelist</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default"><code class="variable-group">[</code><code class="variable-group">(</code><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code><code class="variable-op">, </code>&lt;type 'float'&gt;<code class="variable-group">)</code><code class="variable-group">]</code></span>,
+        <span class="summary-sig-arg">order</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return the graph adjacency matrix as a NumPy recarray.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#to_numpy_recarray">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#to_scipy_sparse_matrix" class="summary-sig-name">to_scipy_sparse_matrix</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodelist</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dtype</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">weight</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">format</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">csr</code><code class="variable-quote">'</code></span>)</span><br />
+      Return the graph adjacency matrix as a SciPy sparse matrix.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#to_scipy_sparse_matrix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.convert-module.html#from_scipy_sparse_matrix" class="summary-sig-name">from_scipy_sparse_matrix</a>(<span class="summary-sig-arg">A</span>,
+        <span class="summary-sig-arg">create_using</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return a graph from scipy sparse matrix adjacency list.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#from_scipy_sparse_matrix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setup_module"></a><span class="summary-sig-name">setup_module</span>(<span class="summary-sig-arg">module</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.convert-pysrc.html#setup_module">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx'"><code class="variable-quote">'</code><code class="variable-string">networkx</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_prep_create_using"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_prep_create_using</span>(<span class="sig-arg">create_using</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#_prep_create_using">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return a graph object ready to be populated.</p>
+  <p>If create_using is None return the default (just networkx.Graph()) If 
+  create_using.clear() works, assume it returns a graph object. Otherwise 
+  raise an exception because create_using is not a networkx graph.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="to_networkx_graph"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">to_networkx_graph</span>(<span class="sig-arg">data</span>,
+        <span class="sig-arg">create_using</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">multigraph_input</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#to_networkx_graph">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Make a NetworkX graph from a known data structure.
+
+The preferred way to call this is automatically
+from the class constructor
+
+&gt;&gt;&gt; d={0: {1: {'weight':1}}} # dict-of-dicts single edge (0,1)
+&gt;&gt;&gt; G=nx.Graph(d)
+
+instead of the equivalent
+
+&gt;&gt;&gt; G=nx.from_dict_of_dicts(d)
+
+Parameters
+----------
+data : a object to be converted
+   Current known types are:
+     any NetworkX graph
+     dict-of-dicts
+     dist-of-lists
+     list of edges
+     numpy matrix
+     numpy ndarray
+     scipy sparse matrix
+     pygraphviz agraph
+
+create_using : NetworkX graph
+   Use specified graph for result.  Otherwise a new graph is created.
+
+multigraph_input : bool (default False)
+  If True and  data is a dict_of_dicts,
+  try to create a multigraph assuming dict_of_dict_of_lists.
+  If data and create_using are both multigraphs then create
+  a multigraph from a multigraph.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="to_dict_of_lists"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">to_dict_of_lists</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodelist</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#to_dict_of_lists">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return adjacency representation of graph as a dictionary of lists.
+
+Parameters
+----------
+G : graph
+   A NetworkX graph 
+
+nodelist : list       
+   Use only nodes specified in nodelist
+
+Notes
+-----
+Completely ignores edge data for MultiGraph and MultiDiGraph.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="from_dict_of_lists"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">from_dict_of_lists</span>(<span class="sig-arg">d</span>,
+        <span class="sig-arg">create_using</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#from_dict_of_lists">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return a graph from a dictionary of lists.
+
+Parameters
+----------
+d : dictionary of lists
+  A dictionary of lists adjacency representation.
+
+create_using : NetworkX graph
+   Use specified graph for result.  Otherwise a new graph is created.
+
+Examples
+--------
+&gt;&gt;&gt; dol= {0:[1]} # single edge (0,1)
+&gt;&gt;&gt; G=nx.from_dict_of_lists(dol)
+
+or
+&gt;&gt;&gt; G=nx.Graph(dol) # use Graph constructor
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="to_dict_of_dicts"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">to_dict_of_dicts</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodelist</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">edge_data</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#to_dict_of_dicts">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return adjacency representation of graph as a dictionary of dictionaries.
+
+Parameters
+----------
+G : graph
+   A NetworkX graph 
+
+nodelist : list       
+   Use only nodes specified in nodelist
+
+edge_data : list, optional       
+   If provided,  the value of the dictionary will be
+   set to edge_data for all edges.  This is useful to make
+   an adjacency matrix type representation with 1 as the edge data.
+   If edgedata is None, the edgedata in G is used to fill the values.
+   If G is a multigraph, the edgedata is a dict for each pair (u,v).
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="from_dict_of_dicts"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">from_dict_of_dicts</span>(<span class="sig-arg">d</span>,
+        <span class="sig-arg">create_using</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">multigraph_input</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#from_dict_of_dicts">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return a graph from a dictionary of dictionaries.
+
+Parameters
+----------
+d : dictionary of dictionaries
+  A dictionary of dictionaries adjacency representation.
+
+create_using : NetworkX graph
+   Use specified graph for result.  Otherwise a new graph is created.
+
+multigraph_input : bool (default False)
+   When True, the values of the inner dict are assumed 
+   to be containers of edge data for multiple edges.
+   Otherwise this routine assumes the edge data are singletons.
+
+Examples
+--------
+&gt;&gt;&gt; dod= {0: {1:{'weight':1}}} # single edge (0,1)
+&gt;&gt;&gt; G=nx.from_dict_of_dicts(dod)
+
+or
+&gt;&gt;&gt; G=nx.Graph(dod) # use Graph constructor
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="to_edgelist"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">to_edgelist</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodelist</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#to_edgelist">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return a list of edges in the graph.
+
+Parameters
+----------
+G : graph
+   A NetworkX graph 
+
+nodelist : list       
+   Use only nodes specified in nodelist
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="from_edgelist"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">from_edgelist</span>(<span class="sig-arg">edgelist</span>,
+        <span class="sig-arg">create_using</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#from_edgelist">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return a graph from a list of edges.
+
+Parameters
+----------
+edgelist : list or iterator
+  Edge tuples 
+
+create_using : NetworkX graph
+   Use specified graph for result.  Otherwise a new graph is created.
+
+Examples
+--------
+&gt;&gt;&gt; edgelist= [(0,1)] # single edge (0,1)
+&gt;&gt;&gt; G=nx.from_edgelist(edgelist)
+
+or
+&gt;&gt;&gt; G=nx.Graph(edgelist) # use Graph constructor
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="to_numpy_matrix"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">to_numpy_matrix</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodelist</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">dtype</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">order</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">multigraph_weight</span>=<span class="sig-default">&lt;built-in function sum&gt;</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#to_numpy_matrix">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the graph adjacency matrix as a NumPy matrix.
+
+Parameters
+----------
+G : graph
+    The NetworkX graph used to construct the NumPy matrix.
+
+nodelist : list, optional       
+   The rows and columns are ordered according to the nodes in `nodelist`.
+   If `nodelist` is None, then the ordering is produced by G.nodes().
+
+dtype : NumPy data type, optional
+    A valid single NumPy data type used to initialize the array. 
+    This must be a simple type such as int or numpy.float64 and
+    not a compound data type (see to_numpy_recarray)
+    If None, then the NumPy default is used.
+
+order : {'C', 'F'}, optional
+    Whether to store multidimensional data in C- or Fortran-contiguous
+    (row- or column-wise) order in memory. If None, then the NumPy default 
+    is used.
+
+multigraph_weight : {sum, min, max}, optional        
+    An operator that determines how weights in multigraphs are handled.
+    The default is to sum the weights of the multiple edges.
+
+weight : string or None   optional (default='weight')
+    The edge attribute that holds the numerical value used for 
+    the edge weight.  If None then all edge weights are 1.
+
+
+Returns
+-------
+M : NumPy matrix
+   Graph adjacency matrix.
+
+See Also
+--------
+to_numpy_recarray, from_numpy_matrix
+
+Notes
+-----
+The matrix entries are assigned with weight edge attribute. When
+an edge does not have the weight attribute, the value of the entry is 1.
+For multiple edges, the values of the entries are the sums of the edge
+attributes for each edge.
+
+When `nodelist` does not contain every node in `G`, the matrix is built 
+from the subgraph of `G` that is induced by the nodes in `nodelist`.
+
+Examples
+--------
+&gt;&gt;&gt; G = nx.MultiDiGraph()
+&gt;&gt;&gt; G.add_edge(0,1,weight=2)
+&gt;&gt;&gt; G.add_edge(1,0)
+&gt;&gt;&gt; G.add_edge(2,2,weight=3)
+&gt;&gt;&gt; G.add_edge(2,2)
+&gt;&gt;&gt; nx.to_numpy_matrix(G, nodelist=[0,1,2])
+matrix([[ 0.,  2.,  0.],
+        [ 1.,  0.,  0.],
+        [ 0.,  0.,  4.]])
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="from_numpy_matrix"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">from_numpy_matrix</span>(<span class="sig-arg">A</span>,
+        <span class="sig-arg">create_using</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#from_numpy_matrix">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return a graph from numpy matrix.
+
+The numpy matrix is interpreted as an adjacency matrix for the graph.
+
+Parameters
+----------
+A : numpy matrix
+  An adjacency matrix representation of a graph
+
+create_using : NetworkX graph
+   Use specified graph for result.  The default is Graph()
+
+Notes
+-----
+If the numpy matrix has a single data type for each matrix entry it 
+will be converted to an appropriate Python data type.  
+
+If the numpy matrix has a user-specified compound data type the names
+of the data fields will be used as attribute keys in the resulting 
+NetworkX graph.
+
+See Also
+--------
+to_numpy_matrix, to_numpy_recarray
+
+Examples
+--------
+Simple integer weights on edges:
+
+&gt;&gt;&gt; import numpy
+&gt;&gt;&gt; A=numpy.matrix([[1,1],[2,1]])
+&gt;&gt;&gt; G=nx.from_numpy_matrix(A)
+
+User defined compound data type on edges:
+
+&gt;&gt;&gt; import numpy
+&gt;&gt;&gt; dt=[('weight',float),('cost',int)]
+&gt;&gt;&gt; A=numpy.matrix([[(1.0,2)]],dtype=dt)                      
+&gt;&gt;&gt; G=nx.from_numpy_matrix(A)
+&gt;&gt;&gt; G.edges(data=True)
+[(0, 0, {'cost': 2, 'weight': 1.0})]
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="to_numpy_recarray"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">to_numpy_recarray</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodelist</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">dtype</span>=<span class="sig-default"><code class="variable-group">[</code><code class="variable-group">(</code><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code><code class="variable-op">, </code>&lt;type 'float'&gt;<code class="variable-group">)</code><code class="variable-group">]</code></span>,
+        <span class="sig-arg">order</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#to_numpy_recarray">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the graph adjacency matrix as a NumPy recarray.
+
+Parameters
+----------
+G : graph
+    The NetworkX graph used to construct the NumPy matrix.
+
+nodelist : list, optional       
+   The rows and columns are ordered according to the nodes in `nodelist`.
+   If `nodelist` is None, then the ordering is produced by G.nodes().
+
+dtype : NumPy data-type, optional
+    A valid NumPy named dtype used to initialize the NumPy recarray. 
+    The data type names are assumed to be keys in the graph edge attribute 
+    dictionary.
+
+order : {'C', 'F'}, optional
+    Whether to store multidimensional data in C- or Fortran-contiguous
+    (row- or column-wise) order in memory. If None, then the NumPy default 
+    is used.
+
+Returns
+-------
+M : NumPy recarray
+   The graph with specified edge data as a Numpy recarray 
+
+Notes
+-----
+When `nodelist` does not contain every node in `G`, the matrix is built 
+from the subgraph of `G` that is induced by the nodes in `nodelist`.
+
+Examples
+--------
+&gt;&gt;&gt; G = nx.Graph()
+&gt;&gt;&gt; G.add_edge(1,2,weight=7.0,cost=5)
+&gt;&gt;&gt; A=nx.to_numpy_recarray(G,dtype=[('weight',float),('cost',int)])
+&gt;&gt;&gt; print(A.weight)
+[[ 0.  7.]
+ [ 7.  0.]]
+&gt;&gt;&gt; print(A.cost)
+[[0 5]
+ [5 0]]
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="to_scipy_sparse_matrix"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">to_scipy_sparse_matrix</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodelist</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">dtype</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">weight</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">weight</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">format</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">csr</code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#to_scipy_sparse_matrix">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return the graph adjacency matrix as a SciPy sparse matrix.
+
+Parameters
+----------
+G : graph
+    The NetworkX graph used to construct the NumPy matrix.
+
+nodelist : list, optional       
+   The rows and columns are ordered according to the nodes in `nodelist`.
+   If `nodelist` is None, then the ordering is produced by G.nodes().
+
+dtype : NumPy data-type, optional
+    A valid NumPy dtype used to initialize the array. If None, then the
+    NumPy default is used.
+
+weight : string or None   optional (default='weight')
+    The edge attribute that holds the numerical value used for 
+    the edge weight.  If None then all edge weights are 1.
+
+format : str in {'bsr', 'csr', 'csc', 'coo', 'lil', 'dia', 'dok'} 
+    The type of the matrix to be returned (default 'csr').  For
+    some algorithms different implementations of sparse matrices
+    can perform better.  See [1]_ for details.
+
+Returns
+-------
+M : SciPy sparse matrix
+   Graph adjacency matrix.
+
+Notes
+-----
+The matrix entries are populated using the edge attribute held in 
+parameter weight. When an edge does not have that attribute, the 
+value of the entry is 1.
+
+For multiple edges the matrix values are the sums of the edge weights.
+
+When `nodelist` does not contain every node in `G`, the matrix is built 
+from the subgraph of `G` that is induced by the nodes in `nodelist`.
+
+Uses lil_matrix format. To convert to other formats specify the 
+format= keyword.
+
+Examples
+--------
+&gt;&gt;&gt; G = nx.MultiDiGraph()
+&gt;&gt;&gt; G.add_edge(0,1,weight=2)
+&gt;&gt;&gt; G.add_edge(1,0)
+&gt;&gt;&gt; G.add_edge(2,2,weight=3)
+&gt;&gt;&gt; G.add_edge(2,2)
+&gt;&gt;&gt; S = nx.to_scipy_sparse_matrix(G, nodelist=[0,1,2])
+&gt;&gt;&gt; S.todense()
+matrix([[ 0.,  2.,  0.],
+        [ 1.,  0.,  0.],
+        [ 0.,  0.,  4.]])
+
+References
+----------
+.. [1] Scipy Dev. References, 
+   &quot;Sparse Matrices&quot;  
+   http://docs.scipy.org/doc/scipy/reference/sparse.html
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="from_scipy_sparse_matrix"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">from_scipy_sparse_matrix</span>(<span class="sig-arg">A</span>,
+        <span class="sig-arg">create_using</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.convert-pysrc.html#from_scipy_sparse_matrix">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return a graph from scipy sparse matrix adjacency list. 
+
+Parameters
+----------
+A : scipy sparse matrix
+  An adjacency matrix representation of a graph
+
+create_using : NetworkX graph
+   Use specified graph for result.  The default is Graph()
+
+Examples
+--------
+&gt;&gt;&gt; import scipy.sparse
+&gt;&gt;&gt; A=scipy.sparse.eye(2,2,1)
+&gt;&gt;&gt; G=nx.from_scipy_sparse_matrix(A)
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

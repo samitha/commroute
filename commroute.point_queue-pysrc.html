@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>commroute.point_queue</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="commroute-module.html">Package&nbsp;commroute</a> ::
+        Module&nbsp;point_queue
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="commroute.point_queue-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="commroute.point_queue-module.html">Module commroute.point_queue</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package cvxpy=cvxpy-module.html"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-0', 'cvxpy', 'link-0');">cvxpy</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-1', 'cvxpy', 'link-0');">cvxpy</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package cvxpy.functions=cvxpy.functions-module.html"><a title="cvxpy.functions" class="py-name" href="#" onclick="return doclink('link-2', 'functions', 'link-2');">functions</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Function cvxpy.functions.quad_over_lin'.quad_over_lin()=cvxpy.functions.quad_over_lin%27-module.html#quad_over_lin"><a title="cvxpy.functions.quad_over_lin'.quad_over_lin" class="py-name" href="#" onclick="return doclink('link-3', 'quad_over_lin', 'link-3');">quad_over_lin</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name"><a title="cvxpy.functions.quad_over_lin'.quad_over_lin" class="py-name" href="#" onclick="return doclink('link-4', 'quad_over_lin', 'link-3');">quad_over_lin</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">math</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name" targets="Package commroute.cr_utils=commroute.cr_utils-module.html,Module commroute.cr_utils.cr_utils=commroute.cr_utils.cr_utils-module.html"><a title="commroute.cr_utils
+commroute.cr_utils.cr_utils" class="py-name" href="#" onclick="return doclink('link-5', 'cr_utils', 'link-5');">cr_utils</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Module commroute.cr_utils.Dumpable=commroute.cr_utils.Dumpable-module.html,Class commroute.cr_utils.Dumpable.Dumpable=commroute.cr_utils.Dumpable.Dumpable-class.html"><a title="commroute.cr_utils.Dumpable
+commroute.cr_utils.Dumpable.Dumpable" class="py-name" href="#" onclick="return doclink('link-6', 'Dumpable', 'link-6');">Dumpable</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name"><a title="commroute.cr_utils.Dumpable
+commroute.cr_utils.Dumpable.Dumpable" class="py-name" href="#" onclick="return doclink('link-7', 'Dumpable', 'link-6');">Dumpable</a></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-8" class="py-name" targets="Module commroute.traffic=commroute.traffic-module.html"><a title="commroute.traffic" class="py-name" href="#" onclick="return doclink('link-8', 'traffic', 'link-8');">traffic</a></tt> <tt class="py-keyword">import</tt> <tt id="link-9" class="py-name" targets="Class commroute.traffic.TrafficLink=commroute.traffic.TrafficLink-class.html"><a title="commroute.traffic.TrafficLink" class="py-name" href="#" onclick="return doclink('link-9', 'TrafficLink', 'link-9');">TrafficLink</a></tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name" targets="Class commroute.traffic.TrafficState=commroute.traffic.TrafficState-class.html"><a title="commroute.traffic.TrafficState" class="py-name" href="#" onclick="return doclink('link-10', 'TrafficState', 'link-10');">TrafficState</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-11" class="py-name" targets="Module commroute.demand=commroute.demand-module.html"><a title="commroute.demand" class="py-name" href="#" onclick="return doclink('link-11', 'demand', 'link-11');">demand</a></tt> <tt class="py-keyword">import</tt> <tt id="link-12" class="py-name" targets="Class commroute.demand.FlowNetwork=commroute.demand.FlowNetwork-class.html"><a title="commroute.demand.FlowNetwork" class="py-name" href="#" onclick="return doclink('link-12', 'FlowNetwork', 'link-12');">FlowNetwork</a></tt><tt class="py-op">,</tt> <tt id="link-13" class="py-name" targets="Class commroute.demand.RouteDemand=commroute.demand.RouteDemand-class.html"><a title="commroute.demand.RouteDemand" class="py-name" href="#" onclick="return doclink('link-13', 'RouteDemand', 'link-13');">RouteDemand</a></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-14" class="py-name"><a title="cvxpy" class="py-name" href="#" onclick="return doclink('link-14', 'cvxpy', 'link-0');">cvxpy</a></tt> <tt class="py-keyword">import</tt> <tt id="link-15" class="py-name" targets="Function cvxpy.functions.square'.square()=cvxpy.functions.square%27-module.html#square"><a title="cvxpy.functions.square'.square" class="py-name" href="#" onclick="return doclink('link-15', 'square', 'link-15');">square</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">'jdr'</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-16" class="py-name" targets="Module commroute.cr_network=commroute.cr_network-module.html"><a title="commroute.cr_network" class="py-name" href="#" onclick="return doclink('link-16', 'cr_network', 'link-16');">cr_network</a></tt> <tt class="py-keyword">import</tt> <tt id="link-17" class="py-name" targets="Class commroute.cr_network.Link=commroute.cr_network.Link-class.html"><a title="commroute.cr_network.Link" class="py-name" href="#" onclick="return doclink('link-17', 'Link', 'link-17');">Link</a></tt><tt class="py-op">,</tt> <tt id="link-18" class="py-name" targets="Class commroute.cr_network.Junction=commroute.cr_network.Junction-class.html"><a title="commroute.cr_network.Junction" class="py-name" href="#" onclick="return doclink('link-18', 'Junction', 'link-18');">Junction</a></tt> </tt>
+<a name="FlowLatency"></a><div id="FlowLatency-def"><a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt> <a class="py-toggle" href="#" id="FlowLatency-toggle" onclick="return toggle('FlowLatency');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.point_queue.FlowLatency-class.html">FlowLatency</a><tt class="py-op">(</tt><tt class="py-base-class">Dumpable</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLatency-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="FlowLatency-expanded"><a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">  <tt class="py-docstring">"""docstring for Demand"""</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">  <tt id="link-19" class="py-name" targets="Variable commroute.demand.Demand.types=commroute.demand.Demand-class.html#types,Variable commroute.point_queue.FlowLatency.types=commroute.point_queue.FlowLatency-class.html#types,Variable networkx.readwrite.gexf.GEXF.types=networkx.readwrite.gexf.GEXF-class.html#types,Variable networkx.readwrite.graphml.GraphML.types=networkx.readwrite.graphml.GraphML-class.html#types"><a title="commroute.demand.Demand.types
+commroute.point_queue.FlowLatency.types
+networkx.readwrite.gexf.GEXF.types
+networkx.readwrite.graphml.GraphML.types" class="py-name" href="#" onclick="return doclink('link-19', 'types', 'link-19');">types</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="FlowLatency.jsonify"></a><div id="FlowLatency.jsonify-def"><a name="L17"></a><tt class="py-lineno"> 17</tt> <a class="py-toggle" href="#" id="FlowLatency.jsonify-toggle" onclick="return toggle('FlowLatency.jsonify');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLatency-class.html#jsonify">jsonify</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLatency.jsonify-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLatency.jsonify-expanded"><a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">{</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">      <tt class="py-string">'type'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Class Method commroute.compliance.CompliantRouteDemand.tag()=commroute.compliance.CompliantRouteDemand-class.html#tag,Class Method commroute.demand.Demand.tag()=commroute.demand.Demand-class.html#tag,Class Method commroute.demand.LinkDemand.tag()=commroute.demand.LinkDemand-class.html#tag,Class Method commroute.demand.ODDemand.tag()=commroute.demand.ODDemand-class.html#tag,Class Method commroute.demand.RouteDemand.tag()=commroute.demand.RouteDemand-class.html#tag,Class Method commroute.dynamic.SourceDemand.tag()=commroute.dynamic.SourceDemand-class.html#tag,Class Method commroute.point_queue.AffineLatency.tag()=commroute.point_queue.AffineLatency-class.html#tag,Class Method commroute.point_queue.FlowLatency.tag()=commroute.point_queue.FlowLatency-class.html#tag,Class Method commroute.point_queue.MM1Latency.tag()=commroute.point_queue.MM1Latency-class.html#tag"><a title="commroute.compliance.CompliantRouteDemand.tag
+commroute.demand.Demand.tag
+commroute.demand.LinkDemand.tag
+commroute.demand.ODDemand.tag
+commroute.demand.RouteDemand.tag
+commroute.dynamic.SourceDemand.tag
+commroute.point_queue.AffineLatency.tag
+commroute.point_queue.FlowLatency.tag
+commroute.point_queue.MM1Latency.tag" class="py-name" href="#" onclick="return doclink('link-20', 'tag', 'link-20');">tag</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">    <tt class="py-op">}</tt> </tt>
+</div><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="FlowLatency.travel_time"></a><div id="FlowLatency.travel_time-def"><a name="L22"></a><tt class="py-lineno"> 22</tt> <a class="py-toggle" href="#" id="FlowLatency.travel_time-toggle" onclick="return toggle('FlowLatency.travel_time');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLatency-class.html#travel_time">travel_time</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">link</tt><tt class="py-op">,</tt> <tt class="py-param">flow</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLatency.travel_time-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLatency.travel_time-expanded"><a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt class="py-comment"># this should be a convex function to work within cvxpy !!!!</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt><tt class="py-op">(</tt><tt class="py-string">"abstract"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="FlowLatency.tag"></a><div id="FlowLatency.tag-def"><a name="L27"></a><tt class="py-lineno"> 27</tt> <a class="py-toggle" href="#" id="FlowLatency.tag-toggle" onclick="return toggle('FlowLatency.tag');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLatency-class.html#tag">tag</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLatency.tag-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLatency.tag-expanded"><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">'abstract'</tt> </tt>
+</div><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="FlowLatency.load_with_json_data"></a><div id="FlowLatency.load_with_json_data-def"><a name="L31"></a><tt class="py-lineno"> 31</tt> <a class="py-toggle" href="#" id="FlowLatency.load_with_json_data-toggle" onclick="return toggle('FlowLatency.load_with_json_data');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLatency-class.html#load_with_json_data">load_with_json_data</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLatency.load_with_json_data-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLatency.load_with_json_data-expanded"><a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="commroute.demand.Demand.types
+commroute.point_queue.FlowLatency.types
+networkx.readwrite.gexf.GEXF.types
+networkx.readwrite.graphml.GraphML.types" class="py-name" href="#" onclick="return doclink('link-21', 'types', 'link-19');">types</a></tt><tt class="py-op">[</tt><tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'type'</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Class Method commroute.point_queue.AffineLatency.load_latency()=commroute.point_queue.AffineLatency-class.html#load_latency,Class Method commroute.point_queue.FlowLatency.load_latency()=commroute.point_queue.FlowLatency-class.html#load_latency,Class Method commroute.point_queue.MM1Latency.load_latency()=commroute.point_queue.MM1Latency-class.html#load_latency"><a title="commroute.point_queue.AffineLatency.load_latency
+commroute.point_queue.FlowLatency.load_latency
+commroute.point_queue.MM1Latency.load_latency" class="py-name" href="#" onclick="return doclink('link-22', 'load_latency', 'link-22');">load_latency</a></tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="FlowLatency.load_latency"></a><div id="FlowLatency.load_latency-def"><a name="L35"></a><tt class="py-lineno"> 35</tt> <a class="py-toggle" href="#" id="FlowLatency.load_latency-toggle" onclick="return toggle('FlowLatency.load_latency');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLatency-class.html#load_latency">load_latency</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLatency.load_latency-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLatency.load_latency-expanded"><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt><tt class="py-op">(</tt><tt class="py-string">"abstract"</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="AffineLatency"></a><div id="AffineLatency-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="AffineLatency-toggle" onclick="return toggle('AffineLatency');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.point_queue.AffineLatency-class.html">AffineLatency</a><tt class="py-op">(</tt><tt class="py-base-class">FlowLatency</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AffineLatency-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AffineLatency-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="AffineLatency.__init__"></a><div id="AffineLatency.__init__-def"><a name="L40"></a><tt class="py-lineno"> 40</tt> <a class="py-toggle" href="#" id="AffineLatency.__init__-toggle" onclick="return toggle('AffineLatency.__init__');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.AffineLatency-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">a</tt><tt class="py-op">,</tt> <tt class="py-param">b</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AffineLatency.__init__-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="AffineLatency.__init__-expanded"><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">a</tt> <tt class="py-op">=</tt> <tt class="py-name">a</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">b</tt> <tt class="py-op">=</tt> <tt class="py-name">b</tt> </tt>
+</div><a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="AffineLatency.tag"></a><div id="AffineLatency.tag-def"><a name="L45"></a><tt class="py-lineno"> 45</tt> <a class="py-toggle" href="#" id="AffineLatency.tag-toggle" onclick="return toggle('AffineLatency.tag');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.AffineLatency-class.html#tag">tag</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AffineLatency.tag-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="AffineLatency.tag-expanded"><a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">'affine'</tt> </tt>
+</div><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
+<a name="AffineLatency.travel_time"></a><div id="AffineLatency.travel_time-def"><a name="L48"></a><tt class="py-lineno"> 48</tt> <a class="py-toggle" href="#" id="AffineLatency.travel_time-toggle" onclick="return toggle('AffineLatency.travel_time');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.AffineLatency-class.html#travel_time">travel_time</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">link</tt><tt class="py-op">,</tt> <tt class="py-param">flow</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AffineLatency.travel_time-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="AffineLatency.travel_time-expanded"><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-23" class="py-name" targets="Method commroute.ctm.FundamentalDiagram.flow()=commroute.ctm.FundamentalDiagram-class.html#flow,Package networkx.algorithms.flow=networkx.algorithms.flow-module.html"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-23', 'flow', 'link-23');">flow</a></tt><tt class="py-op">*</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">a</tt> <tt class="py-op">+</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">b</tt> </tt>
+</div><a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"> </tt>
+<a name="AffineLatency.flow_x_travel_time"></a><div id="AffineLatency.flow_x_travel_time-def"><a name="L51"></a><tt class="py-lineno"> 51</tt> <a class="py-toggle" href="#" id="AffineLatency.flow_x_travel_time-toggle" onclick="return toggle('AffineLatency.flow_x_travel_time');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.AffineLatency-class.html#flow_x_travel_time">flow_x_travel_time</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">link</tt><tt class="py-op">,</tt> <tt class="py-param">flow</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AffineLatency.flow_x_travel_time-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="AffineLatency.flow_x_travel_time-expanded"><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-24" class="py-name"><a title="cvxpy.functions.square'.square" class="py-name" href="#" onclick="return doclink('link-24', 'square', 'link-15');">square</a></tt><tt class="py-op">(</tt><tt id="link-25" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-25', 'flow', 'link-23');">flow</a></tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">a</tt> <tt class="py-op">+</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">b</tt><tt class="py-op">*</tt><tt id="link-26" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-26', 'flow', 'link-23');">flow</a></tt> </tt>
+</div><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="AffineLatency.load_latency"></a><div id="AffineLatency.load_latency-def"><a name="L55"></a><tt class="py-lineno"> 55</tt> <a class="py-toggle" href="#" id="AffineLatency.load_latency-toggle" onclick="return toggle('AffineLatency.load_latency');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.AffineLatency-class.html#load_latency">load_latency</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AffineLatency.load_latency-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="AffineLatency.load_latency-expanded"><a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">cls</tt><tt class="py-op">(</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">      <tt class="py-name">a</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'a'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">      <tt class="py-name">b</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'b'</tt><tt class="py-op">]</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+</div><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
+<a name="AffineLatency.jsonify"></a><div id="AffineLatency.jsonify-def"><a name="L61"></a><tt class="py-lineno"> 61</tt> <a class="py-toggle" href="#" id="AffineLatency.jsonify-toggle" onclick="return toggle('AffineLatency.jsonify');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.AffineLatency-class.html#jsonify">jsonify</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AffineLatency.jsonify-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="AffineLatency.jsonify-expanded"><a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">    <tt class="py-name">json</tt> <tt class="py-op">=</tt> <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-27" class="py-name" targets="Class commroute.point_queue.AffineLatency=commroute.point_queue.AffineLatency-class.html"><a title="commroute.point_queue.AffineLatency" class="py-name" href="#" onclick="return doclink('link-27', 'AffineLatency', 'link-27');">AffineLatency</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method commroute.compliance.CompliantRouteDemand.jsonify()=commroute.compliance.CompliantRouteDemand-class.html#jsonify,Method commroute.cr_network.CRNetwork.jsonify()=commroute.cr_network.CRNetwork-class.html#jsonify,Method commroute.cr_network.Junction.jsonify()=commroute.cr_network.Junction-class.html#jsonify,Method commroute.cr_network.Link.jsonify()=commroute.cr_network.Link-class.html#jsonify,Method commroute.cr_network.Route.jsonify()=commroute.cr_network.Route-class.html#jsonify,Method commroute.cr_utils.Dumpable.Dumpable.jsonify()=commroute.cr_utils.Dumpable.Dumpable-class.html#jsonify,Method commroute.ctm.CTMLink.jsonify()=commroute.ctm.CTMLink-class.html#jsonify,Method commroute.ctm.FundamentalDiagram.jsonify()=commroute.ctm.FundamentalDiagram-class.html#jsonify,Method commroute.demand.Demand.jsonify()=commroute.demand.Demand-class.html#jsonify,Method commroute.demand.FlowNetwork.jsonify()=commroute.demand.FlowNetwork-class.html#jsonify,Method commroute.demand.LinkDemand.jsonify()=commroute.demand.LinkDemand-class.html#jsonify,Method commroute.demand.ODDemand.jsonify()=commroute.demand.ODDemand-class.html#jsonify,Method commroute.demand.RouteDemand.jsonify()=commroute.demand.RouteDemand-class.html#jsonify,Method commroute.dynamic.DynamicDemand.jsonify()=commroute.dynamic.DynamicDemand-class.html#jsonify,Method commroute.dynamic.SourceDemand.jsonify()=commroute.dynamic.SourceDemand-class.html#jsonify,Method commroute.point_queue.AffineLatency.jsonify()=commroute.point_queue.AffineLatency-class.html#jsonify,Method commroute.point_queue.FlowLatency.jsonify()=commroute.point_queue.FlowLatency-class.html#jsonify,Method commroute.point_queue.FlowLink.jsonify()=commroute.point_queue.FlowLink-class.html#jsonify,Method commroute.point_queue.MM1Latency.jsonify()=commroute.point_queue.MM1Latency-class.html#jsonify,Method commroute.state_constrained.StateConstrainedLink.jsonify()=commroute.state_constrained.StateConstrainedLink-class.html#jsonify"><a title="commroute.compliance.CompliantRouteDemand.jsonify
+commroute.cr_network.CRNetwork.jsonify
+commroute.cr_network.Junction.jsonify
+commroute.cr_network.Link.jsonify
+commroute.cr_network.Route.jsonify
+commroute.cr_utils.Dumpable.Dumpable.jsonify
+commroute.ctm.CTMLink.jsonify
+commroute.ctm.FundamentalDiagram.jsonify
+commroute.demand.Demand.jsonify
+commroute.demand.FlowNetwork.jsonify
+commroute.demand.LinkDemand.jsonify
+commroute.demand.ODDemand.jsonify
+commroute.demand.RouteDemand.jsonify
+commroute.dynamic.DynamicDemand.jsonify
+commroute.dynamic.SourceDemand.jsonify
+commroute.point_queue.AffineLatency.jsonify
+commroute.point_queue.FlowLatency.jsonify
+commroute.point_queue.FlowLink.jsonify
+commroute.point_queue.MM1Latency.jsonify
+commroute.state_constrained.StateConstrainedLink.jsonify" class="py-name" href="#" onclick="return doclink('link-28', 'jsonify', 'link-28');">jsonify</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">    <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">update</tt><tt class="py-op">(</tt><tt class="py-op">{</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">      <tt class="py-string">'a'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">a</tt><tt class="py-op">,</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">      <tt class="py-string">'b'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">b</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">    <tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">json</tt> </tt>
+</div></div><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="MM1Latency"></a><div id="MM1Latency-def"><a name="L69"></a><tt class="py-lineno"> 69</tt> <a class="py-toggle" href="#" id="MM1Latency-toggle" onclick="return toggle('MM1Latency');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.point_queue.MM1Latency-class.html">MM1Latency</a><tt class="py-op">(</tt><tt class="py-base-class">FlowLatency</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MM1Latency-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="MM1Latency-expanded"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"> </tt>
+<a name="MM1Latency.__init__"></a><div id="MM1Latency.__init__-def"><a name="L71"></a><tt class="py-lineno"> 71</tt> <a class="py-toggle" href="#" id="MM1Latency.__init__-toggle" onclick="return toggle('MM1Latency.__init__');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.MM1Latency-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">rho</tt><tt class="py-op">,</tt> <tt class="py-param">mu</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MM1Latency.__init__-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="MM1Latency.__init__-expanded"><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">    <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-29" class="py-name" targets="Class commroute.point_queue.FlowLatency=commroute.point_queue.FlowLatency-class.html"><a title="commroute.point_queue.FlowLatency" class="py-name" href="#" onclick="return doclink('link-29', 'FlowLatency', 'link-29');">FlowLatency</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Method commroute.bfs.Queue.__init__()=commroute.bfs.Queue-class.html#__init__,Method commroute.compliance.CompliantRouteDemand.__init__()=commroute.compliance.CompliantRouteDemand-class.html#__init__,Method commroute.cr_network.CRNetwork.__init__()=commroute.cr_network.CRNetwork-class.html#__init__,Method commroute.cr_network.Junction.__init__()=commroute.cr_network.Junction-class.html#__init__,Method commroute.cr_network.Link.__init__()=commroute.cr_network.Link-class.html#__init__,Method commroute.cr_network.Route.__init__()=commroute.cr_network.Route-class.html#__init__,Method commroute.cr_network.Sink.__init__()=commroute.cr_network.Sink-class.html#__init__,Method commroute.cr_network.Source.__init__()=commroute.cr_network.Source-class.html#__init__,Method commroute.cr_optimize.Constraint.__init__()=commroute.cr_optimize.Constraint-class.html#__init__,Method commroute.ctm.CTMLink.__init__()=commroute.ctm.CTMLink-class.html#__init__,Method commroute.ctm.CTMState.__init__()=commroute.ctm.CTMState-class.html#__init__,Method commroute.ctm.FundamentalDiagram.__init__()=commroute.ctm.FundamentalDiagram-class.html#__init__,Method commroute.cvxpy_solver.CVXPyProgram.__init__()=commroute.cvxpy_solver.CVXPyProgram-class.html#__init__,Method commroute.demand.Demand.__init__()=commroute.demand.Demand-class.html#__init__,Method commroute.demand.DemandMixin.__init__()=commroute.demand.DemandMixin-class.html#__init__,Method commroute.demand.LinkDemand.__init__()=commroute.demand.LinkDemand-class.html#__init__,Method commroute.demand.ODDemand.__init__()=commroute.demand.ODDemand-class.html#__init__,Method commroute.demand.RouteDemand.__init__()=commroute.demand.RouteDemand-class.html#__init__,Method commroute.dynamic.DynamicDemand.__init__()=commroute.dynamic.DynamicDemand-class.html#__init__,Method commroute.dynamic.DynamicLagrangianProblem.__init__()=commroute.dynamic.DynamicLagrangianProblem-class.html#__init__,Method commroute.dynamic.SourceDemand.__init__()=commroute.dynamic.SourceDemand-class.html#__init__,Method commroute.point_queue.AffineLatency.__init__()=commroute.point_queue.AffineLatency-class.html#__init__,Method commroute.point_queue.FlowLink.__init__()=commroute.point_queue.FlowLink-class.html#__init__,Method commroute.point_queue.MM1Latency.__init__()=commroute.point_queue.MM1Latency-class.html#__init__,Method commroute.point_queue.PQState.__init__()=commroute.point_queue.PQState-class.html#__init__,Method commroute.state_constrained.StateConstrainedLink.__init__()=commroute.state_constrained.StateConstrainedLink-class.html#__init__,Method cvxpy.arrays.cvxpy_array.__init__()=cvxpy.arrays.cvxpy_array-class.html#__init__,Method cvxpy.arrays.cvxpy_matrix.__init__()=cvxpy.arrays.cvxpy_matrix-class.html#__init__,Method cvxpy.arrays.cvxpy_param.__init__()=cvxpy.arrays.cvxpy_param-class.html#__init__,Method cvxpy.arrays.cvxpy_var.__init__()=cvxpy.arrays.cvxpy_var-class.html#__init__,Method cvxpy.constraints.cvxpy_constr.__init__()=cvxpy.constraints.cvxpy_constr-class.html#__init__,Method cvxpy.programs.cvxpy_program.__init__()=cvxpy.programs.cvxpy_program-class.html#__init__,Method cvxpy.scalars.cvxpy_obj.__init__()=cvxpy.scalars.cvxpy_obj-class.html#__init__,Method cvxpy.scalars.cvxpy_scalar_param.__init__()=cvxpy.scalars.cvxpy_scalar_param-class.html#__init__,Method cvxpy.scalars.cvxpy_scalar_var.__init__()=cvxpy.scalars.cvxpy_scalar_var-class.html#__init__,Method cvxpy.scalars.cvxpy_tree.__init__()=cvxpy.scalars.cvxpy_tree-class.html#__init__,Method cvxpy.sets.exp_cone'.cvxpy_exp_cone.__init__()=cvxpy.sets.exp_cone%27.cvxpy_exp_cone-class.html#__init__,Method cvxpy.sets.geo_mean_cone'.cvxpy_geo_mean_cone.__init__()=cvxpy.sets.geo_mean_cone%27.cvxpy_geo_mean_cone-class.html#__init__,Method cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi.__init__()=cvxpy.sets.kl_div_epi%27.cvxpy_kl_div_epi-class.html#__init__,Method cvxpy.sets.log_norm_cdf_hypo'.cvxpy_log_norm_cdf_hypo.__init__()=cvxpy.sets.log_norm_cdf_hypo%27.cvxpy_log_norm_cdf_hypo-class.html#__init__,Method cvxpy.sets.second_order_cone'.cvxpy_second_order_cone.__init__()=cvxpy.sets.second_order_cone%27.cvxpy_second_order_cone-class.html#__init__,Method cvxpy.sets.semidefinite_cone'.cvxpy_semidefinite_cone.__init__()=cvxpy.sets.semidefinite_cone%27.cvxpy_semidefinite_cone-class.html#__init__,Method networkx.algorithms.isomorphism.isomorphvf2.DiGMState.__init__()=networkx.algorithms.isomorphism.isomorphvf2.DiGMState-class.html#__init__,Method networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.__init__()=networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher-class.html#__init__,Method networkx.algorithms.isomorphism.isomorphvf2.GMState.__init__()=networkx.algorithms.isomorphism.isomorphvf2.GMState-class.html#__init__,Method networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher.__init__()=networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher-class.html#__init__,Method networkx.algorithms.isomorphism.vf2userfunc.DiGraphMatcher.__init__()=networkx.algorithms.isomorphism.vf2userfunc.DiGraphMatcher-class.html#__init__,Method networkx.algorithms.isomorphism.vf2userfunc.GraphMatcher.__init__()=networkx.algorithms.isomorphism.vf2userfunc.GraphMatcher-class.html#__init__,Method networkx.classes.digraph.DiGraph.__init__()=networkx.classes.digraph.DiGraph-class.html#__init__,Method networkx.classes.graph.Graph.__init__()=networkx.classes.graph.Graph-class.html#__init__,Method networkx.readwrite.gexf.GEXFReader.__init__()=networkx.readwrite.gexf.GEXFReader-class.html#__init__,Method networkx.readwrite.gexf.GEXFWriter.__init__()=networkx.readwrite.gexf.GEXFWriter-class.html#__init__,Method networkx.readwrite.graphml.GraphMLReader.__init__()=networkx.readwrite.graphml.GraphMLReader-class.html#__init__,Method networkx.readwrite.graphml.GraphMLWriter.__init__()=networkx.readwrite.graphml.GraphMLWriter-class.html#__init__,Method networkx.tests.benchmark.Benchmark.__init__()=networkx.tests.benchmark.Benchmark-class.html#__init__,Method networkx.tests.test_convert_numpy.TestConvertNumpy.__init__()=networkx.tests.test_convert_numpy.TestConvertNumpy-class.html#__init__,Method networkx.tests.test_convert_scipy.TestConvertNumpy.__init__()=networkx.tests.test_convert_scipy.TestConvertNumpy-class.html#__init__,Method networkx.utils.UnionFind.__init__()=networkx.utils.UnionFind-class.html#__init__"><a title="commroute.bfs.Queue.__init__
+commroute.compliance.CompliantRouteDemand.__init__
+commroute.cr_network.CRNetwork.__init__
+commroute.cr_network.Junction.__init__
+commroute.cr_network.Link.__init__
+commroute.cr_network.Route.__init__
+commroute.cr_network.Sink.__init__
+commroute.cr_network.Source.__init__
+commroute.cr_optimize.Constraint.__init__
+commroute.ctm.CTMLink.__init__
+commroute.ctm.CTMState.__init__
+commroute.ctm.FundamentalDiagram.__init__
+commroute.cvxpy_solver.CVXPyProgram.__init__
+commroute.demand.Demand.__init__
+commroute.demand.DemandMixin.__init__
+commroute.demand.LinkDemand.__init__
+commroute.demand.ODDemand.__init__
+commroute.demand.RouteDemand.__init__
+commroute.dynamic.DynamicDemand.__init__
+commroute.dynamic.DynamicLagrangianProblem.__init__
+commroute.dynamic.SourceDemand.__init__
+commroute.point_queue.AffineLatency.__init__
+commroute.point_queue.FlowLink.__init__
+commroute.point_queue.MM1Latency.__init__
+commroute.point_queue.PQState.__init__
+commroute.state_constrained.StateConstrainedLink.__init__
+cvxpy.arrays.cvxpy_array.__init__
+cvxpy.arrays.cvxpy_matrix.__init__
+cvxpy.arrays.cvxpy_param.__init__
+cvxpy.arrays.cvxpy_var.__init__
+cvxpy.constraints.cvxpy_constr.__init__
+cvxpy.programs.cvxpy_program.__init__
+cvxpy.scalars.cvxpy_obj.__init__
+cvxpy.scalars.cvxpy_scalar_param.__init__
+cvxpy.scalars.cvxpy_scalar_var.__init__
+cvxpy.scalars.cvxpy_tree.__init__
+cvxpy.sets.exp_cone'.cvxpy_exp_cone.__init__
+cvxpy.sets.geo_mean_cone'.cvxpy_geo_mean_cone.__init__
+cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi.__init__
+cvxpy.sets.log_norm_cdf_hypo'.cvxpy_log_norm_cdf_hypo.__init__
+cvxpy.sets.second_order_cone'.cvxpy_second_order_cone.__init__
+cvxpy.sets.semidefinite_cone'.cvxpy_semidefinite_cone.__init__
+networkx.algorithms.isomorphism.isomorphvf2.DiGMState.__init__
+networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.__init__
+networkx.algorithms.isomorphism.isomorphvf2.GMState.__init__
+networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher.__init__
+networkx.algorithms.isomorphism.vf2userfunc.DiGraphMatcher.__init__
+networkx.algorithms.isomorphism.vf2userfunc.GraphMatcher.__init__
+networkx.classes.digraph.DiGraph.__init__
+networkx.classes.graph.Graph.__init__
+networkx.readwrite.gexf.GEXFReader.__init__
+networkx.readwrite.gexf.GEXFWriter.__init__
+networkx.readwrite.graphml.GraphMLReader.__init__
+networkx.readwrite.graphml.GraphMLWriter.__init__
+networkx.tests.benchmark.Benchmark.__init__
+networkx.tests.test_convert_numpy.TestConvertNumpy.__init__
+networkx.tests.test_convert_scipy.TestConvertNumpy.__init__
+networkx.utils.UnionFind.__init__" class="py-name" href="#" onclick="return doclink('link-30', '__init__', 'link-30');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">rho</tt> <tt class="py-op">=</tt> <tt class="py-name">rho</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mu</tt> <tt class="py-op">=</tt> <tt class="py-name">mu</tt> </tt>
+</div><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="MM1Latency.tag"></a><div id="MM1Latency.tag-def"><a name="L77"></a><tt class="py-lineno"> 77</tt> <a class="py-toggle" href="#" id="MM1Latency.tag-toggle" onclick="return toggle('MM1Latency.tag');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.MM1Latency-class.html#tag">tag</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MM1Latency.tag-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="MM1Latency.tag-expanded"><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">'mm1'</tt> </tt>
+</div><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"> </tt>
+<a name="MM1Latency.travel_time"></a><div id="MM1Latency.travel_time-def"><a name="L80"></a><tt class="py-lineno"> 80</tt> <a class="py-toggle" href="#" id="MM1Latency.travel_time-toggle" onclick="return toggle('MM1Latency.travel_time');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.MM1Latency-class.html#travel_time">travel_time</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">link</tt><tt class="py-op">,</tt> <tt class="py-param">flow</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MM1Latency.travel_time-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="MM1Latency.travel_time-expanded"><a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">rho</tt> <tt class="py-op">*</tt> <tt id="link-31" class="py-name"><a title="cvxpy.functions.quad_over_lin'.quad_over_lin" class="py-name" href="#" onclick="return doclink('link-31', 'quad_over_lin', 'link-3');">quad_over_lin</a></tt><tt class="py-op">(</tt><tt class="py-number">1.0</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mu</tt> <tt class="py-op">-</tt> <tt id="link-32" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-32', 'flow', 'link-23');">flow</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="MM1Latency.flow_x_travel_time"></a><div id="MM1Latency.flow_x_travel_time-def"><a name="L83"></a><tt class="py-lineno"> 83</tt> <a class="py-toggle" href="#" id="MM1Latency.flow_x_travel_time-toggle" onclick="return toggle('MM1Latency.flow_x_travel_time');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.MM1Latency-class.html#flow_x_travel_time">flow_x_travel_time</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">link</tt><tt class="py-op">,</tt> <tt class="py-param">flow</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MM1Latency.flow_x_travel_time-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="MM1Latency.flow_x_travel_time-expanded"><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">rho</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mu</tt> <tt class="py-op">*</tt> <tt id="link-33" class="py-name"><a title="cvxpy.functions.quad_over_lin'.quad_over_lin" class="py-name" href="#" onclick="return doclink('link-33', 'quad_over_lin', 'link-3');">quad_over_lin</a></tt><tt class="py-op">(</tt><tt class="py-number">1.0</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mu</tt> <tt class="py-op">-</tt> <tt id="link-34" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-34', 'flow', 'link-23');">flow</a></tt><tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt class="py-number">1.0</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="MM1Latency.load_latency"></a><div id="MM1Latency.load_latency-def"><a name="L87"></a><tt class="py-lineno"> 87</tt> <a class="py-toggle" href="#" id="MM1Latency.load_latency-toggle" onclick="return toggle('MM1Latency.load_latency');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.MM1Latency-class.html#load_latency">load_latency</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MM1Latency.load_latency-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="MM1Latency.load_latency-expanded"><a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">cls</tt><tt class="py-op">(</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">      <tt class="py-name">rho</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'rho'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">      <tt class="py-name">mu</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'mu'</tt><tt class="py-op">]</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+</div><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"> </tt>
+<a name="MM1Latency.jsonify"></a><div id="MM1Latency.jsonify-def"><a name="L93"></a><tt class="py-lineno"> 93</tt> <a class="py-toggle" href="#" id="MM1Latency.jsonify-toggle" onclick="return toggle('MM1Latency.jsonify');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.MM1Latency-class.html#jsonify">jsonify</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MM1Latency.jsonify-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="MM1Latency.jsonify-expanded"><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-name">json</tt> <tt class="py-op">=</tt> <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-35" class="py-name" targets="Class commroute.point_queue.MM1Latency=commroute.point_queue.MM1Latency-class.html"><a title="commroute.point_queue.MM1Latency" class="py-name" href="#" onclick="return doclink('link-35', 'MM1Latency', 'link-35');">MM1Latency</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="commroute.compliance.CompliantRouteDemand.jsonify
+commroute.cr_network.CRNetwork.jsonify
+commroute.cr_network.Junction.jsonify
+commroute.cr_network.Link.jsonify
+commroute.cr_network.Route.jsonify
+commroute.cr_utils.Dumpable.Dumpable.jsonify
+commroute.ctm.CTMLink.jsonify
+commroute.ctm.FundamentalDiagram.jsonify
+commroute.demand.Demand.jsonify
+commroute.demand.FlowNetwork.jsonify
+commroute.demand.LinkDemand.jsonify
+commroute.demand.ODDemand.jsonify
+commroute.demand.RouteDemand.jsonify
+commroute.dynamic.DynamicDemand.jsonify
+commroute.dynamic.SourceDemand.jsonify
+commroute.point_queue.AffineLatency.jsonify
+commroute.point_queue.FlowLatency.jsonify
+commroute.point_queue.FlowLink.jsonify
+commroute.point_queue.MM1Latency.jsonify
+commroute.state_constrained.StateConstrainedLink.jsonify" class="py-name" href="#" onclick="return doclink('link-36', 'jsonify', 'link-28');">jsonify</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">update</tt><tt class="py-op">(</tt><tt class="py-op">{</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">      <tt class="py-string">'rho'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">rho</tt><tt class="py-op">,</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">      <tt class="py-string">'mu'</tt><tt class="py-op">:</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">mu</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">json</tt> </tt>
+</div></div><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt id="link-37" class="py-name"><a title="commroute.point_queue.FlowLatency" class="py-name" href="#" onclick="return doclink('link-37', 'FlowLatency', 'link-29');">FlowLatency</a></tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="commroute.demand.Demand.types
+commroute.point_queue.FlowLatency.types
+networkx.readwrite.gexf.GEXF.types
+networkx.readwrite.graphml.GraphML.types" class="py-name" href="#" onclick="return doclink('link-38', 'types', 'link-19');">types</a></tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">  <tt class="py-op">(</tt><tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="commroute.compliance.CompliantRouteDemand.tag
+commroute.demand.Demand.tag
+commroute.demand.LinkDemand.tag
+commroute.demand.ODDemand.tag
+commroute.demand.RouteDemand.tag
+commroute.dynamic.SourceDemand.tag
+commroute.point_queue.AffineLatency.tag
+commroute.point_queue.FlowLatency.tag
+commroute.point_queue.MM1Latency.tag" class="py-name" href="#" onclick="return doclink('link-39', 'tag', 'link-20');">tag</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">cls</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">  <tt class="py-keyword">for</tt> <tt class="py-name">cls</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt id="link-40" class="py-name"><a title="commroute.point_queue.AffineLatency" class="py-name" href="#" onclick="return doclink('link-40', 'AffineLatency', 'link-27');">AffineLatency</a></tt><tt class="py-op">,</tt> <tt id="link-41" class="py-name"><a title="commroute.point_queue.FlowLatency" class="py-name" href="#" onclick="return doclink('link-41', 'FlowLatency', 'link-29');">FlowLatency</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-op">)</tt> </tt>
+<a name="PQState"></a><div id="PQState-def"><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt> <a class="py-toggle" href="#" id="PQState-toggle" onclick="return toggle('PQState');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.point_queue.PQState-class.html">PQState</a><tt class="py-op">(</tt><tt class="py-base-class">TrafficState</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PQState-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="PQState-expanded"><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
+<a name="PQState.__init__"></a><div id="PQState.__init__-def"><a name="L108"></a><tt class="py-lineno">108</tt> <a class="py-toggle" href="#" id="PQState.__init__-toggle" onclick="return toggle('PQState.__init__');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.PQState-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">flow</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PQState.__init__-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="PQState.__init__-expanded"><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-42" class="py-name" targets="Class commroute.point_queue.PQState=commroute.point_queue.PQState-class.html"><a title="commroute.point_queue.PQState" class="py-name" href="#" onclick="return doclink('link-42', 'PQState', 'link-42');">PQState</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="commroute.bfs.Queue.__init__
+commroute.compliance.CompliantRouteDemand.__init__
+commroute.cr_network.CRNetwork.__init__
+commroute.cr_network.Junction.__init__
+commroute.cr_network.Link.__init__
+commroute.cr_network.Route.__init__
+commroute.cr_network.Sink.__init__
+commroute.cr_network.Source.__init__
+commroute.cr_optimize.Constraint.__init__
+commroute.ctm.CTMLink.__init__
+commroute.ctm.CTMState.__init__
+commroute.ctm.FundamentalDiagram.__init__
+commroute.cvxpy_solver.CVXPyProgram.__init__
+commroute.demand.Demand.__init__
+commroute.demand.DemandMixin.__init__
+commroute.demand.LinkDemand.__init__
+commroute.demand.ODDemand.__init__
+commroute.demand.RouteDemand.__init__
+commroute.dynamic.DynamicDemand.__init__
+commroute.dynamic.DynamicLagrangianProblem.__init__
+commroute.dynamic.SourceDemand.__init__
+commroute.point_queue.AffineLatency.__init__
+commroute.point_queue.FlowLink.__init__
+commroute.point_queue.MM1Latency.__init__
+commroute.point_queue.PQState.__init__
+commroute.state_constrained.StateConstrainedLink.__init__
+cvxpy.arrays.cvxpy_array.__init__
+cvxpy.arrays.cvxpy_matrix.__init__
+cvxpy.arrays.cvxpy_param.__init__
+cvxpy.arrays.cvxpy_var.__init__
+cvxpy.constraints.cvxpy_constr.__init__
+cvxpy.programs.cvxpy_program.__init__
+cvxpy.scalars.cvxpy_obj.__init__
+cvxpy.scalars.cvxpy_scalar_param.__init__
+cvxpy.scalars.cvxpy_scalar_var.__init__
+cvxpy.scalars.cvxpy_tree.__init__
+cvxpy.sets.exp_cone'.cvxpy_exp_cone.__init__
+cvxpy.sets.geo_mean_cone'.cvxpy_geo_mean_cone.__init__
+cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi.__init__
+cvxpy.sets.log_norm_cdf_hypo'.cvxpy_log_norm_cdf_hypo.__init__
+cvxpy.sets.second_order_cone'.cvxpy_second_order_cone.__init__
+cvxpy.sets.semidefinite_cone'.cvxpy_semidefinite_cone.__init__
+networkx.algorithms.isomorphism.isomorphvf2.DiGMState.__init__
+networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.__init__
+networkx.algorithms.isomorphism.isomorphvf2.GMState.__init__
+networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher.__init__
+networkx.algorithms.isomorphism.vf2userfunc.DiGraphMatcher.__init__
+networkx.algorithms.isomorphism.vf2userfunc.GraphMatcher.__init__
+networkx.classes.digraph.DiGraph.__init__
+networkx.classes.graph.Graph.__init__
+networkx.readwrite.gexf.GEXFReader.__init__
+networkx.readwrite.gexf.GEXFWriter.__init__
+networkx.readwrite.graphml.GraphMLReader.__init__
+networkx.readwrite.graphml.GraphMLWriter.__init__
+networkx.tests.benchmark.Benchmark.__init__
+networkx.tests.test_convert_numpy.TestConvertNumpy.__init__
+networkx.tests.test_convert_scipy.TestConvertNumpy.__init__
+networkx.utils.UnionFind.__init__" class="py-name" href="#" onclick="return doclink('link-43', '__init__', 'link-30');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-44', 'flow', 'link-23');">flow</a></tt> <tt class="py-op">=</tt> <tt id="link-45" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-45', 'flow', 'link-23');">flow</a></tt> </tt>
+</div></div><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"> </tt>
+<a name="FlowLink"></a><div id="FlowLink-def"><a name="L112"></a><tt class="py-lineno">112</tt> <a class="py-toggle" href="#" id="FlowLink-toggle" onclick="return toggle('FlowLink');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.point_queue.FlowLink-class.html">FlowLink</a><tt class="py-op">(</tt><tt class="py-base-class">TrafficLink</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLink-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="FlowLink-expanded"><a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt>
+<a name="FlowLink.__init__"></a><div id="FlowLink.__init__-def"><a name="L114"></a><tt class="py-lineno">114</tt> <a class="py-toggle" href="#" id="FlowLink.__init__-toggle" onclick="return toggle('FlowLink.__init__');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLink-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">latency</tt><tt class="py-op">,</tt> <tt class="py-param">q_max</tt><tt class="py-op">,</tt> <tt class="py-param">flow</tt> <tt class="py-op">=</tt> <tt class="py-number">0.0</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLink.__init__-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLink.__init__-expanded"><a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">    <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-46" class="py-name" targets="Class commroute.point_queue.FlowLink=commroute.point_queue.FlowLink-class.html"><a title="commroute.point_queue.FlowLink" class="py-name" href="#" onclick="return doclink('link-46', 'FlowLink', 'link-46');">FlowLink</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="commroute.bfs.Queue.__init__
+commroute.compliance.CompliantRouteDemand.__init__
+commroute.cr_network.CRNetwork.__init__
+commroute.cr_network.Junction.__init__
+commroute.cr_network.Link.__init__
+commroute.cr_network.Route.__init__
+commroute.cr_network.Sink.__init__
+commroute.cr_network.Source.__init__
+commroute.cr_optimize.Constraint.__init__
+commroute.ctm.CTMLink.__init__
+commroute.ctm.CTMState.__init__
+commroute.ctm.FundamentalDiagram.__init__
+commroute.cvxpy_solver.CVXPyProgram.__init__
+commroute.demand.Demand.__init__
+commroute.demand.DemandMixin.__init__
+commroute.demand.LinkDemand.__init__
+commroute.demand.ODDemand.__init__
+commroute.demand.RouteDemand.__init__
+commroute.dynamic.DynamicDemand.__init__
+commroute.dynamic.DynamicLagrangianProblem.__init__
+commroute.dynamic.SourceDemand.__init__
+commroute.point_queue.AffineLatency.__init__
+commroute.point_queue.FlowLink.__init__
+commroute.point_queue.MM1Latency.__init__
+commroute.point_queue.PQState.__init__
+commroute.state_constrained.StateConstrainedLink.__init__
+cvxpy.arrays.cvxpy_array.__init__
+cvxpy.arrays.cvxpy_matrix.__init__
+cvxpy.arrays.cvxpy_param.__init__
+cvxpy.arrays.cvxpy_var.__init__
+cvxpy.constraints.cvxpy_constr.__init__
+cvxpy.programs.cvxpy_program.__init__
+cvxpy.scalars.cvxpy_obj.__init__
+cvxpy.scalars.cvxpy_scalar_param.__init__
+cvxpy.scalars.cvxpy_scalar_var.__init__
+cvxpy.scalars.cvxpy_tree.__init__
+cvxpy.sets.exp_cone'.cvxpy_exp_cone.__init__
+cvxpy.sets.geo_mean_cone'.cvxpy_geo_mean_cone.__init__
+cvxpy.sets.kl_div_epi'.cvxpy_kl_div_epi.__init__
+cvxpy.sets.log_norm_cdf_hypo'.cvxpy_log_norm_cdf_hypo.__init__
+cvxpy.sets.second_order_cone'.cvxpy_second_order_cone.__init__
+cvxpy.sets.semidefinite_cone'.cvxpy_semidefinite_cone.__init__
+networkx.algorithms.isomorphism.isomorphvf2.DiGMState.__init__
+networkx.algorithms.isomorphism.isomorphvf2.DiGraphMatcher.__init__
+networkx.algorithms.isomorphism.isomorphvf2.GMState.__init__
+networkx.algorithms.isomorphism.isomorphvf2.GraphMatcher.__init__
+networkx.algorithms.isomorphism.vf2userfunc.DiGraphMatcher.__init__
+networkx.algorithms.isomorphism.vf2userfunc.GraphMatcher.__init__
+networkx.classes.digraph.DiGraph.__init__
+networkx.classes.graph.Graph.__init__
+networkx.readwrite.gexf.GEXFReader.__init__
+networkx.readwrite.gexf.GEXFWriter.__init__
+networkx.readwrite.graphml.GraphMLReader.__init__
+networkx.readwrite.graphml.GraphMLWriter.__init__
+networkx.tests.benchmark.Benchmark.__init__
+networkx.tests.test_convert_numpy.TestConvertNumpy.__init__
+networkx.tests.test_convert_scipy.TestConvertNumpy.__init__
+networkx.utils.UnionFind.__init__" class="py-name" href="#" onclick="return doclink('link-47', '__init__', 'link-30');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">q_max</tt> <tt class="py-op">=</tt> <tt class="py-name">q_max</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">latency</tt> <tt class="py-op">=</tt> <tt class="py-name">latency</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">state</tt> <tt class="py-op">=</tt> <tt id="link-48" class="py-name"><a title="commroute.point_queue.PQState" class="py-name" href="#" onclick="return doclink('link-48', 'PQState', 'link-42');">PQState</a></tt><tt class="py-op">(</tt><tt id="link-49" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-49', 'flow', 'link-23');">flow</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"> </tt>
+<a name="FlowLink.get_state"></a><div id="FlowLink.get_state-def"><a name="L120"></a><tt class="py-lineno">120</tt> <a class="py-toggle" href="#" id="FlowLink.get_state-toggle" onclick="return toggle('FlowLink.get_state');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLink-class.html#get_state">get_state</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLink.get_state-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLink.get_state-expanded"><a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">state</tt> </tt>
+</div><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"> </tt>
+<a name="FlowLink.flow_latency"></a><div id="FlowLink.flow_latency-def"><a name="L123"></a><tt class="py-lineno">123</tt> <a class="py-toggle" href="#" id="FlowLink.flow_latency-toggle" onclick="return toggle('FlowLink.flow_latency');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLink-class.html#flow_latency">flow_latency</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">flow</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLink.flow_latency-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLink.flow_latency-expanded"><a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">latency</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Method commroute.ctm.CTMLink.travel_time()=commroute.ctm.CTMLink-class.html#travel_time,Method commroute.point_queue.AffineLatency.travel_time()=commroute.point_queue.AffineLatency-class.html#travel_time,Method commroute.point_queue.FlowLatency.travel_time()=commroute.point_queue.FlowLatency-class.html#travel_time,Method commroute.point_queue.FlowLink.travel_time()=commroute.point_queue.FlowLink-class.html#travel_time,Method commroute.point_queue.MM1Latency.travel_time()=commroute.point_queue.MM1Latency-class.html#travel_time,Method commroute.traffic.TrafficLink.travel_time()=commroute.traffic.TrafficLink-class.html#travel_time"><a title="commroute.ctm.CTMLink.travel_time
+commroute.point_queue.AffineLatency.travel_time
+commroute.point_queue.FlowLatency.travel_time
+commroute.point_queue.FlowLink.travel_time
+commroute.point_queue.MM1Latency.travel_time
+commroute.traffic.TrafficLink.travel_time" class="py-name" href="#" onclick="return doclink('link-50', 'travel_time', 'link-50');">travel_time</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt id="link-51" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-51', 'flow', 'link-23');">flow</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"> </tt>
+<a name="FlowLink.flow_flow_latency"></a><div id="FlowLink.flow_flow_latency-def"><a name="L126"></a><tt class="py-lineno">126</tt> <a class="py-toggle" href="#" id="FlowLink.flow_flow_latency-toggle" onclick="return toggle('FlowLink.flow_flow_latency');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLink-class.html#flow_flow_latency">flow_flow_latency</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">flow</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLink.flow_flow_latency-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLink.flow_flow_latency-expanded"><a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">latency</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name" targets="Method commroute.point_queue.AffineLatency.flow_x_travel_time()=commroute.point_queue.AffineLatency-class.html#flow_x_travel_time,Method commroute.point_queue.MM1Latency.flow_x_travel_time()=commroute.point_queue.MM1Latency-class.html#flow_x_travel_time"><a title="commroute.point_queue.AffineLatency.flow_x_travel_time
+commroute.point_queue.MM1Latency.flow_x_travel_time" class="py-name" href="#" onclick="return doclink('link-52', 'flow_x_travel_time', 'link-52');">flow_x_travel_time</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt id="link-53" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-53', 'flow', 'link-23');">flow</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"> </tt>
+<a name="FlowLink.travel_time"></a><div id="FlowLink.travel_time-def"><a name="L129"></a><tt class="py-lineno">129</tt> <a class="py-toggle" href="#" id="FlowLink.travel_time-toggle" onclick="return toggle('FlowLink.travel_time');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLink-class.html#travel_time">travel_time</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">state</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLink.travel_time-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLink.travel_time-expanded"><a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">state</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">      <tt class="py-name">state</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name" targets="Method commroute.ctm.CTMLink.get_state()=commroute.ctm.CTMLink-class.html#get_state,Method commroute.point_queue.FlowLink.get_state()=commroute.point_queue.FlowLink-class.html#get_state,Method commroute.traffic.TrafficLink.get_state()=commroute.traffic.TrafficLink-class.html#get_state"><a title="commroute.ctm.CTMLink.get_state
+commroute.point_queue.FlowLink.get_state
+commroute.traffic.TrafficLink.get_state" class="py-name" href="#" onclick="return doclink('link-54', 'get_state', 'link-54');">get_state</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">latency</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="commroute.ctm.CTMLink.travel_time
+commroute.point_queue.AffineLatency.travel_time
+commroute.point_queue.FlowLatency.travel_time
+commroute.point_queue.FlowLink.travel_time
+commroute.point_queue.MM1Latency.travel_time
+commroute.traffic.TrafficLink.travel_time" class="py-name" href="#" onclick="return doclink('link-55', 'travel_time', 'link-50');">travel_time</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">state</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-56', 'flow', 'link-23');">flow</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"> </tt>
+<a name="FlowLink.total_travel_time"></a><div id="FlowLink.total_travel_time-def"><a name="L134"></a><tt class="py-lineno">134</tt> <a class="py-toggle" href="#" id="FlowLink.total_travel_time-toggle" onclick="return toggle('FlowLink.total_travel_time');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLink-class.html#total_travel_time">total_travel_time</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">state</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLink.total_travel_time-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLink.total_travel_time-expanded"><a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">state</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">      <tt class="py-name">state</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="commroute.ctm.CTMLink.get_state
+commroute.point_queue.FlowLink.get_state
+commroute.traffic.TrafficLink.get_state" class="py-name" href="#" onclick="return doclink('link-57', 'get_state', 'link-54');">get_state</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">state</tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-58', 'flow', 'link-23');">flow</a></tt> <tt class="py-op">*</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">latency</tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="commroute.ctm.CTMLink.travel_time
+commroute.point_queue.AffineLatency.travel_time
+commroute.point_queue.FlowLatency.travel_time
+commroute.point_queue.FlowLink.travel_time
+commroute.point_queue.MM1Latency.travel_time
+commroute.traffic.TrafficLink.travel_time" class="py-name" href="#" onclick="return doclink('link-59', 'travel_time', 'link-50');">travel_time</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">state</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-60', 'flow', 'link-23');">flow</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"> </tt>
+<a name="FlowLink.jsonify"></a><div id="FlowLink.jsonify-def"><a name="L139"></a><tt class="py-lineno">139</tt> <a class="py-toggle" href="#" id="FlowLink.jsonify-toggle" onclick="return toggle('FlowLink.jsonify');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLink-class.html#jsonify">jsonify</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLink.jsonify-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLink.jsonify-expanded"><a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">    <tt class="py-name">json</tt> <tt class="py-op">=</tt> <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-61" class="py-name"><a title="commroute.point_queue.FlowLink" class="py-name" href="#" onclick="return doclink('link-61', 'FlowLink', 'link-46');">FlowLink</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="commroute.compliance.CompliantRouteDemand.jsonify
+commroute.cr_network.CRNetwork.jsonify
+commroute.cr_network.Junction.jsonify
+commroute.cr_network.Link.jsonify
+commroute.cr_network.Route.jsonify
+commroute.cr_utils.Dumpable.Dumpable.jsonify
+commroute.ctm.CTMLink.jsonify
+commroute.ctm.FundamentalDiagram.jsonify
+commroute.demand.Demand.jsonify
+commroute.demand.FlowNetwork.jsonify
+commroute.demand.LinkDemand.jsonify
+commroute.demand.ODDemand.jsonify
+commroute.demand.RouteDemand.jsonify
+commroute.dynamic.DynamicDemand.jsonify
+commroute.dynamic.SourceDemand.jsonify
+commroute.point_queue.AffineLatency.jsonify
+commroute.point_queue.FlowLatency.jsonify
+commroute.point_queue.FlowLink.jsonify
+commroute.point_queue.MM1Latency.jsonify
+commroute.state_constrained.StateConstrainedLink.jsonify" class="py-name" href="#" onclick="return doclink('link-62', 'jsonify', 'link-28');">jsonify</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">    <tt class="py-name">json</tt><tt class="py-op">[</tt><tt class="py-string">'q_max'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">q_max</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">    <tt class="py-name">json</tt><tt class="py-op">[</tt><tt class="py-string">'latency'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">latency</tt><tt class="py-op">.</tt><tt id="link-63" class="py-name"><a title="commroute.compliance.CompliantRouteDemand.jsonify
+commroute.cr_network.CRNetwork.jsonify
+commroute.cr_network.Junction.jsonify
+commroute.cr_network.Link.jsonify
+commroute.cr_network.Route.jsonify
+commroute.cr_utils.Dumpable.Dumpable.jsonify
+commroute.ctm.CTMLink.jsonify
+commroute.ctm.FundamentalDiagram.jsonify
+commroute.demand.Demand.jsonify
+commroute.demand.FlowNetwork.jsonify
+commroute.demand.LinkDemand.jsonify
+commroute.demand.ODDemand.jsonify
+commroute.demand.RouteDemand.jsonify
+commroute.dynamic.DynamicDemand.jsonify
+commroute.dynamic.SourceDemand.jsonify
+commroute.point_queue.AffineLatency.jsonify
+commroute.point_queue.FlowLatency.jsonify
+commroute.point_queue.FlowLink.jsonify
+commroute.point_queue.MM1Latency.jsonify
+commroute.state_constrained.StateConstrainedLink.jsonify" class="py-name" href="#" onclick="return doclink('link-63', 'jsonify', 'link-28');">jsonify</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">    <tt class="py-name">json</tt><tt class="py-op">[</tt><tt class="py-string">'flow'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">state</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-64', 'flow', 'link-23');">flow</a></tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">json</tt> </tt>
+</div><a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">  <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="FlowLink.additional_kwargs"></a><div id="FlowLink.additional_kwargs-def"><a name="L147"></a><tt class="py-lineno">147</tt> <a class="py-toggle" href="#" id="FlowLink.additional_kwargs-toggle" onclick="return toggle('FlowLink.additional_kwargs');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue.FlowLink-class.html#additional_kwargs">additional_kwargs</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLink.additional_kwargs-collapsed" style="display:none;" pad="+++" indent="++++++"></div><div id="FlowLink.additional_kwargs-expanded"><a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">{</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">      <tt class="py-string">'q_max'</tt><tt class="py-op">:</tt> <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'q_max'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">      <tt class="py-string">'latency'</tt><tt class="py-op">:</tt> <tt id="link-65" class="py-name"><a title="commroute.point_queue.FlowLatency" class="py-name" href="#" onclick="return doclink('link-65', 'FlowLatency', 'link-29');">FlowLatency</a></tt><tt class="py-op">.</tt><tt id="link-66" class="py-name" targets="Class Method commroute.cr_network.CRNetwork.load_with_json_data()=commroute.cr_network.CRNetwork-class.html#load_with_json_data,Class Method commroute.cr_network.Link.load_with_json_data()=commroute.cr_network.Link-class.html#load_with_json_data,Class Method commroute.cr_utils.Dumpable.Dumpable.load_with_json_data()=commroute.cr_utils.Dumpable.Dumpable-class.html#load_with_json_data,Class Method commroute.ctm.FundamentalDiagram.load_with_json_data()=commroute.ctm.FundamentalDiagram-class.html#load_with_json_data,Class Method commroute.demand.Demand.load_with_json_data()=commroute.demand.Demand-class.html#load_with_json_data,Class Method commroute.demand.FlowNetwork.load_with_json_data()=commroute.demand.FlowNetwork-class.html#load_with_json_data,Class Method commroute.point_queue.FlowLatency.load_with_json_data()=commroute.point_queue.FlowLatency-class.html#load_with_json_data"><a title="commroute.cr_network.CRNetwork.load_with_json_data
+commroute.cr_network.Link.load_with_json_data
+commroute.cr_utils.Dumpable.Dumpable.load_with_json_data
+commroute.ctm.FundamentalDiagram.load_with_json_data
+commroute.demand.Demand.load_with_json_data
+commroute.demand.FlowNetwork.load_with_json_data
+commroute.point_queue.FlowLatency.load_with_json_data" class="py-name" href="#" onclick="return doclink('link-66', 'load_with_json_data', 'link-66');">load_with_json_data</a></tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'latency'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">      <tt class="py-string">'flow'</tt><tt class="py-op">:</tt> <tt class="py-name">data</tt><tt class="py-op">[</tt><tt class="py-string">'flow'</tt><tt class="py-op">]</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">    <tt class="py-op">}</tt> </tt>
+</div></div><a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"> </tt>
+<a name="FlowLinkNetwork"></a><div id="FlowLinkNetwork-def"><a name="L154"></a><tt class="py-lineno">154</tt> <a class="py-toggle" href="#" id="FlowLinkNetwork-toggle" onclick="return toggle('FlowLinkNetwork');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.point_queue.FlowLinkNetwork-class.html">FlowLinkNetwork</a><tt class="py-op">(</tt><tt class="py-base-class">FlowNetwork</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FlowLinkNetwork-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="FlowLinkNetwork-expanded"><a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">  <tt class="py-name">link_class</tt> <tt class="py-op">=</tt> <tt id="link-67" class="py-name"><a title="commroute.point_queue.FlowLink" class="py-name" href="#" onclick="return doclink('link-67', 'FlowLink', 'link-46');">FlowLink</a></tt> </tt>
+</div><a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"> </tt>
+<a name="main"></a><div id="main-def"><a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt> <a class="py-toggle" href="#" id="main-toggle" onclick="return toggle('main');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.point_queue-module.html#main">main</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="main-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="main-expanded"><a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">  <tt class="py-name">net</tt> <tt class="py-op">=</tt> <tt id="link-68" class="py-name" targets="Class commroute.point_queue.FlowLinkNetwork=commroute.point_queue.FlowLinkNetwork-class.html"><a title="commroute.point_queue.FlowLinkNetwork" class="py-name" href="#" onclick="return doclink('link-68', 'FlowLinkNetwork', 'link-68');">FlowLinkNetwork</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">  <tt id="link-69" class="py-name" targets="Method commroute.cr_network.Route.source()=commroute.cr_network.Route-class.html#source"><a title="commroute.cr_network.Route.source" class="py-name" href="#" onclick="return doclink('link-69', 'source', 'link-69');">source</a></tt> <tt class="py-op">=</tt> <tt id="link-70" class="py-name"><a title="commroute.point_queue.FlowLink" class="py-name" href="#" onclick="return doclink('link-70', 'FlowLink', 'link-46');">FlowLink</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">    <tt id="link-71" class="py-name" targets="Variable networkx.classes.graph.Graph.name=networkx.classes.graph.Graph-class.html#name,Variable networkx.release.name=networkx.release-module.html#name"><a title="networkx.classes.graph.Graph.name
+networkx.release.name" class="py-name" href="#" onclick="return doclink('link-71', 'name', 'link-71');">name</a></tt><tt class="py-op">=</tt><tt class="py-string">'source'</tt><tt class="py-op">,</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">    <tt class="py-name">q_max</tt><tt class="py-op">=</tt><tt class="py-number">5.0</tt><tt class="py-op">,</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">    <tt class="py-name">latency</tt><tt class="py-op">=</tt><tt id="link-72" class="py-name"><a title="commroute.point_queue.AffineLatency" class="py-name" href="#" onclick="return doclink('link-72', 'AffineLatency', 'link-27');">AffineLatency</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">      <tt class="py-name">a</tt><tt class="py-op">=</tt><tt class="py-number">2.0</tt><tt class="py-op">,</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">      <tt class="py-name">b</tt><tt class="py-op">=</tt><tt class="py-number">3.0</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">  <tt class="py-op">)</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">  <tt id="link-73" class="py-name" targets="Method commroute.cr_network.Route.sink()=commroute.cr_network.Route-class.html#sink"><a title="commroute.cr_network.Route.sink" class="py-name" href="#" onclick="return doclink('link-73', 'sink', 'link-73');">sink</a></tt> <tt class="py-op">=</tt> <tt id="link-74" class="py-name"><a title="commroute.point_queue.FlowLink" class="py-name" href="#" onclick="return doclink('link-74', 'FlowLink', 'link-46');">FlowLink</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">    <tt id="link-75" class="py-name"><a title="networkx.classes.graph.Graph.name
+networkx.release.name" class="py-name" href="#" onclick="return doclink('link-75', 'name', 'link-71');">name</a></tt><tt class="py-op">=</tt><tt class="py-string">'sink'</tt><tt class="py-op">,</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">    <tt class="py-name">q_max</tt><tt class="py-op">=</tt><tt class="py-number">4.0</tt><tt class="py-op">,</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">    <tt class="py-name">latency</tt><tt class="py-op">=</tt><tt id="link-76" class="py-name"><a title="commroute.point_queue.AffineLatency" class="py-name" href="#" onclick="return doclink('link-76', 'AffineLatency', 'link-27');">AffineLatency</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">      <tt class="py-name">a</tt><tt class="py-op">=</tt><tt class="py-number">4.0</tt><tt class="py-op">,</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">      <tt class="py-name">b</tt><tt class="py-op">=</tt><tt class="py-number">5.0</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">  <tt class="py-op">)</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">  <tt class="py-name">junction</tt> <tt class="py-op">=</tt> <tt id="link-77" class="py-name"><a title="commroute.cr_network.Junction" class="py-name" href="#" onclick="return doclink('link-77', 'Junction', 'link-18');">Junction</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt id="link-78" class="py-name"><a title="commroute.cr_network.Route.source" class="py-name" href="#" onclick="return doclink('link-78', 'source', 'link-69');">source</a></tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt id="link-79" class="py-name"><a title="commroute.cr_network.Route.sink" class="py-name" href="#" onclick="return doclink('link-79', 'sink', 'link-73');">sink</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">  <tt class="py-name">net</tt><tt class="py-op">.</tt><tt id="link-80" class="py-name" targets="Method commroute.cr_network.CRNetwork.add_junction()=commroute.cr_network.CRNetwork-class.html#add_junction"><a title="commroute.cr_network.CRNetwork.add_junction" class="py-name" href="#" onclick="return doclink('link-80', 'add_junction', 'link-80');">add_junction</a></tt><tt class="py-op">(</tt><tt class="py-name">junction</tt><tt class="py-op">)</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">  <tt class="py-name">net</tt><tt class="py-op">.</tt><tt class="py-name">demands</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt id="link-81" class="py-name"><a title="commroute.demand.RouteDemand" class="py-name" href="#" onclick="return doclink('link-81', 'RouteDemand', 'link-13');">RouteDemand</a></tt><tt class="py-op">(</tt><tt id="link-82" class="py-name"><a title="commroute.ctm.FundamentalDiagram.flow
+networkx.algorithms.flow" class="py-name" href="#" onclick="return doclink('link-82', 'flow', 'link-23');">flow</a></tt><tt class="py-op">=</tt><tt class="py-number">1.5</tt><tt class="py-op">,</tt> <tt class="py-name">route</tt><tt class="py-op">=</tt><tt class="py-name">net</tt><tt class="py-op">.</tt><tt id="link-83" class="py-name" targets="Method commroute.cr_network.CRNetwork.route_by_names()=commroute.cr_network.CRNetwork-class.html#route_by_names"><a title="commroute.cr_network.CRNetwork.route_by_names" class="py-name" href="#" onclick="return doclink('link-83', 'route_by_names', 'link-83');">route_by_names</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">'source'</tt><tt class="py-op">,</tt><tt class="py-string">'sink'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">  <tt class="py-name">net</tt><tt class="py-op">.</tt><tt id="link-84" class="py-name" targets="Method commroute.cr_utils.Dumpable.Dumpable.dump()=commroute.cr_utils.Dumpable.Dumpable-class.html#dump,Method networkx.readwrite.graphml.GraphMLWriter.dump()=networkx.readwrite.graphml.GraphMLWriter-class.html#dump"><a title="commroute.cr_utils.Dumpable.Dumpable.dump
+networkx.readwrite.graphml.GraphMLWriter.dump" class="py-name" href="#" onclick="return doclink('link-84', 'dump', 'link-84');">dump</a></tt><tt class="py-op">(</tt><tt class="py-string">'../networks/flownet.json'</tt><tt class="py-op">)</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line"> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">  <tt class="py-keyword">del</tt> <tt class="py-name">net</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">  <tt class="py-name">net</tt> <tt class="py-op">=</tt> <tt id="link-85" class="py-name"><a title="commroute.point_queue.FlowLinkNetwork" class="py-name" href="#" onclick="return doclink('link-85', 'FlowLinkNetwork', 'link-68');">FlowLinkNetwork</a></tt><tt class="py-op">.</tt><tt id="link-86" class="py-name" targets="Class Method commroute.cr_utils.Dumpable.Dumpable.load()=commroute.cr_utils.Dumpable.Dumpable-class.html#load,Module networkx.algorithms.centrality.load=networkx.algorithms.centrality.load-module.html"><a title="commroute.cr_utils.Dumpable.Dumpable.load
+networkx.algorithms.centrality.load" class="py-name" href="#" onclick="return doclink('link-86', 'load', 'link-86');">load</a></tt><tt class="py-op">(</tt><tt class="py-string">'../networks/flownet.json'</tt><tt class="py-op">)</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">  <tt class="py-keyword">print</tt> <tt class="py-name">net</tt><tt class="py-op">.</tt><tt class="py-name">demands</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">  <tt class="py-keyword">print</tt> <tt class="py-name">net</tt><tt class="py-op">.</tt><tt id="link-87" class="py-name" targets="Method commroute.cr_network.CRNetwork.get_links()=commroute.cr_network.CRNetwork-class.html#get_links"><a title="commroute.cr_network.CRNetwork.get_links" class="py-name" href="#" onclick="return doclink('link-87', 'get_links', 'link-87');">get_links</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">  <tt class="py-keyword">for</tt> <tt class="py-name">link</tt> <tt class="py-keyword">in</tt> <tt class="py-name">net</tt><tt class="py-op">.</tt><tt id="link-88" class="py-name"><a title="commroute.cr_network.CRNetwork.get_links" class="py-name" href="#" onclick="return doclink('link-88', 'get_links', 'link-87');">get_links</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-name">link</tt><tt class="py-op">.</tt><tt id="link-89" class="py-name" targets="Method commroute.point_queue.FlowLink.flow_latency()=commroute.point_queue.FlowLink-class.html#flow_latency"><a title="commroute.point_queue.FlowLink.flow_latency" class="py-name" href="#" onclick="return doclink('link-89', 'flow_latency', 'link-89');">flow_latency</a></tt><tt class="py-op">(</tt><tt class="py-number">3.4</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line"> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">'__main__'</tt><tt class="py-op">:</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">  <tt id="link-90" class="py-name" targets="Function commroute.point_queue.main()=commroute.point_queue-module.html#main"><a title="commroute.point_queue.main" class="py-name" href="#" onclick="return doclink('link-90', 'main', 'link-90');">main</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:04 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

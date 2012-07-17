@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.algorithms.centrality</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.algorithms-module.html">Package&nbsp;algorithms</a> ::
+        Package&nbsp;centrality
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.algorithms.centrality-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="networkx.algorithms.centrality-module.html">Package networkx.algorithms.centrality</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package networkx=networkx-module.html"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-0', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package networkx.algorithms=networkx.algorithms-module.html"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-1', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module networkx.algorithms.bipartite.centrality=networkx.algorithms.bipartite.centrality-module.html,Package networkx.algorithms.centrality=networkx.algorithms.centrality-module.html"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-2', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module networkx.algorithms.centrality.betweenness=networkx.algorithms.centrality.betweenness-module.html"><a title="networkx.algorithms.centrality.betweenness" class="py-name" href="#" onclick="return doclink('link-3', 'betweenness', 'link-3');">betweenness</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-4', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-5', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-6', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Module networkx.algorithms.centrality.betweenness_subset=networkx.algorithms.centrality.betweenness_subset-module.html"><a title="networkx.algorithms.centrality.betweenness_subset" class="py-name" href="#" onclick="return doclink('link-7', 'betweenness_subset', 'link-7');">betweenness_subset</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-8" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-8', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-9', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-10', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Module networkx.algorithms.centrality.closeness=networkx.algorithms.centrality.closeness-module.html"><a title="networkx.algorithms.centrality.closeness" class="py-name" href="#" onclick="return doclink('link-11', 'closeness', 'link-11');">closeness</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-12" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-12', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-13', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-14', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Module networkx.algorithms.centrality.current_flow_closeness=networkx.algorithms.centrality.current_flow_closeness-module.html"><a title="networkx.algorithms.centrality.current_flow_closeness" class="py-name" href="#" onclick="return doclink('link-15', 'current_flow_closeness', 'link-15');">current_flow_closeness</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-16" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-16', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-17', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-18', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Module networkx.algorithms.centrality.current_flow_betweenness=networkx.algorithms.centrality.current_flow_betweenness-module.html"><a title="networkx.algorithms.centrality.current_flow_betweenness" class="py-name" href="#" onclick="return doclink('link-19', 'current_flow_betweenness', 'link-19');">current_flow_betweenness</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-20" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-20', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-21', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-22', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Module networkx.algorithms.centrality.current_flow_betweenness_subset=networkx.algorithms.centrality.current_flow_betweenness_subset-module.html"><a title="networkx.algorithms.centrality.current_flow_betweenness_subset" class="py-name" href="#" onclick="return doclink('link-23', 'current_flow_betweenness_subset', 'link-23');">current_flow_betweenness_subset</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-24" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-24', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-25', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-26', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-27" class="py-name" targets="Module networkx.algorithms.centrality.degree_alg=networkx.algorithms.centrality.degree_alg-module.html"><a title="networkx.algorithms.centrality.degree_alg" class="py-name" href="#" onclick="return doclink('link-27', 'degree_alg', 'link-27');">degree_alg</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-28" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-28', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-29', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-30', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Module networkx.algorithms.centrality.eigenvector=networkx.algorithms.centrality.eigenvector-module.html"><a title="networkx.algorithms.centrality.eigenvector" class="py-name" href="#" onclick="return doclink('link-31', 'eigenvector', 'link-31');">eigenvector</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-32" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-32', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-33', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-34', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Class Method commroute.cr_utils.Dumpable.Dumpable.load()=commroute.cr_utils.Dumpable.Dumpable-class.html#load,Module networkx.algorithms.centrality.load=networkx.algorithms.centrality.load-module.html"><a title="commroute.cr_utils.Dumpable.Dumpable.load
+networkx.algorithms.centrality.load" class="py-name" href="#" onclick="return doclink('link-35', 'load', 'link-35');">load</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-36" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-36', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-37', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-38', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="networkx.algorithms.centrality.betweenness" class="py-name" href="#" onclick="return doclink('link-39', 'betweenness', 'link-3');">betweenness</a></tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-40" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-40', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-41', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-42', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="networkx.algorithms.centrality.closeness" class="py-name" href="#" onclick="return doclink('link-43', 'closeness', 'link-11');">closeness</a></tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-44" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-44', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-45', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-46', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="networkx.algorithms.centrality.current_flow_betweenness" class="py-name" href="#" onclick="return doclink('link-47', 'current_flow_betweenness', 'link-19');">current_flow_betweenness</a></tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-48" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-48', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-49', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-50', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="networkx.algorithms.centrality.current_flow_closeness" class="py-name" href="#" onclick="return doclink('link-51', 'current_flow_closeness', 'link-15');">current_flow_closeness</a></tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-52" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-52', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-53', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-54', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="networkx.algorithms.centrality.degree_alg" class="py-name" href="#" onclick="return doclink('link-55', 'degree_alg', 'link-27');">degree_alg</a></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-56" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-56', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-57', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-58', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="networkx.algorithms.centrality.eigenvector" class="py-name" href="#" onclick="return doclink('link-59', 'eigenvector', 'link-31');">eigenvector</a></tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-60" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-60', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="networkx.algorithms" class="py-name" href="#" onclick="return doclink('link-61', 'algorithms', 'link-1');">algorithms</a></tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="networkx.algorithms.bipartite.centrality
+networkx.algorithms.centrality" class="py-name" href="#" onclick="return doclink('link-62', 'centrality', 'link-2');">centrality</a></tt><tt class="py-op">.</tt><tt id="link-63" class="py-name"><a title="commroute.cr_utils.Dumpable.Dumpable.load
+networkx.algorithms.centrality.load" class="py-name" href="#" onclick="return doclink('link-63', 'load', 'link-35');">load</a></tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:01 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

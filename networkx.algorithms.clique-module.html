@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.algorithms.clique</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.algorithms-module.html">Package&nbsp;algorithms</a> ::
+        Module&nbsp;clique
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.algorithms.clique-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module clique</h1><p class="nomargin-top"><span class="codelink"><a href="networkx.algorithms.clique-pysrc.html">source&nbsp;code</a></span></p>
+<p>======= Cliques =======</p>
+  <p>Find and manipulate cliques of graphs.</p>
+  <p>Note that finding the largest clique of a graph has been shown to be 
+  an NP-complete problem; the algorithms here could take a long time to 
+  run.</p>
+  <p>http://en.wikipedia.org/wiki/Clique_problem</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Dan Schult (dschult@colgate.edu)
+      </p>
+</div><!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.clique-module.html#find_cliques" class="summary-sig-name">find_cliques</a>(<span class="summary-sig-arg">G</span>)</span><br />
+      Search for all maximal cliques in a graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#find_cliques">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.clique-module.html#find_cliques_recursive" class="summary-sig-name">find_cliques_recursive</a>(<span class="summary-sig-arg">G</span>)</span><br />
+      Recursive search for all maximal cliques in a graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#find_cliques_recursive">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_extend"></a><span class="summary-sig-name">_extend</span>(<span class="summary-sig-arg">nnbrs</span>,
+        <span class="summary-sig-arg">cand</span>,
+        <span class="summary-sig-arg">done</span>,
+        <span class="summary-sig-arg">so_far</span>,
+        <span class="summary-sig-arg">cliques</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#_extend">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.clique-module.html#make_max_clique_graph" class="summary-sig-name">make_max_clique_graph</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">create_using</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Create the maximal clique graph of a graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#make_max_clique_graph">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.clique-module.html#make_clique_bipartite" class="summary-sig-name">make_clique_bipartite</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">fpos</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">create_using</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Create a bipartite clique graph from a graph G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#make_clique_bipartite">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.clique-module.html#project_down" class="summary-sig-name">project_down</a>(<span class="summary-sig-arg">B</span>,
+        <span class="summary-sig-arg">create_using</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Project a bipartite graph B down onto its &quot;bottom nodes&quot;.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#project_down">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.clique-module.html#project_up" class="summary-sig-name">project_up</a>(<span class="summary-sig-arg">B</span>,
+        <span class="summary-sig-arg">create_using</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Project a bipartite graph B down onto its &quot;bottom nodes&quot;.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#project_up">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.clique-module.html#graph_clique_number" class="summary-sig-name">graph_clique_number</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">cliques</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return the clique number (size of the largest clique) for G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#graph_clique_number">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.clique-module.html#graph_number_of_cliques" class="summary-sig-name">graph_number_of_cliques</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">cliques</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns the number of maximal cliques in G.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#graph_number_of_cliques">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.clique-module.html#node_clique_number" class="summary-sig-name">node_clique_number</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodes</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">cliques</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns the size of the largest maximal clique containing each given 
+      node.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#node_clique_number">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.clique-module.html#number_of_cliques" class="summary-sig-name">number_of_cliques</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodes</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">cliques</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns the number of maximal cliques for each node.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#number_of_cliques">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="networkx.algorithms.clique-module.html#cliques_containing_node" class="summary-sig-name">cliques_containing_node</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">nodes</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">cliques</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns a list of cliques containing the given node.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#cliques_containing_node">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'networkx.algorithms'"><code class="variable-quote">'</code><code class="variable-string">networkx.algorithms</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="find_cliques"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">find_cliques</span>(<span class="sig-arg">G</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#find_cliques">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Search for all maximal cliques in a graph.
+
+This algorithm searches for maximal cliques in a graph.
+maximal cliques are the largest complete subgraph containing
+a given point.  The largest maximal clique is sometimes called
+the maximum clique.
+
+This implementation is a generator of lists each
+of which contains the members of a maximal clique.
+To obtain a list of cliques, use list(find_cliques(G)).
+The method essentially unrolls the recursion used in
+the references to avoid issues of recursion stack depth.
+
+See Also
+--------
+find_cliques_recursive : 
+A recursive version of the same algorithm
+
+Notes
+-----
+Based on the algorithm published by Bron &amp; Kerbosch (1973) [1]_
+as adapated by Tomita, Tanaka and Takahashi (2006) [2]_
+and discussed in Cazals and Karande (2008) [3]_.
+
+There are often many cliques in graphs.  This algorithm can
+run out of memory for large graphs.
+
+References
+----------
+.. [1] Bron, C. and Kerbosch, J. 1973. 
+   Algorithm 457: finding all cliques of an undirected graph. 
+   Commun. ACM 16, 9 (Sep. 1973), 575-577. 
+   http://portal.acm.org/citation.cfm?doid=362342.362367
+
+.. [2] Etsuji Tomita, Akira Tanaka, Haruhisa Takahashi, 
+   The worst-case time complexity for generating all maximal 
+   cliques and computational experiments, 
+   Theoretical Computer Science, Volume 363, Issue 1, 
+   Computing and Combinatorics, 
+   10th Annual International Conference on 
+   Computing and Combinatorics (COCOON 2004), 25 October 2006, Pages 28-42
+   http://dx.doi.org/10.1016/j.tcs.2006.06.015
+
+.. [3] F. Cazals, C. Karande, 
+   A note on the problem of reporting maximal cliques, 
+   Theoretical Computer Science,
+   Volume 407, Issues 1-3, 6 November 2008, Pages 564-568, 
+   http://dx.doi.org/10.1016/j.tcs.2008.05.010
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="find_cliques_recursive"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">find_cliques_recursive</span>(<span class="sig-arg">G</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#find_cliques_recursive">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Recursive search for all maximal cliques in a graph.
+
+This algorithm searches for maximal cliques in a graph.
+Maximal cliques are the largest complete subgraph containing
+a given point.  The largest maximal clique is sometimes called
+the maximum clique.
+
+This implementation returns a list of lists each of
+which contains the members of a maximal clique.
+
+See Also
+--------
+find_cliques : An nonrecursive version of the same algorithm
+
+Notes
+-----
+Based on the algorithm published by Bron &amp; Kerbosch (1973) [1]_
+as adapated by Tomita, Tanaka and Takahashi (2006) [2]_
+and discussed in Cazals and Karande (2008) [3]_.
+
+References
+----------
+.. [1] Bron, C. and Kerbosch, J. 1973. 
+   Algorithm 457: finding all cliques of an undirected graph. 
+   Commun. ACM 16, 9 (Sep. 1973), 575-577. 
+   http://portal.acm.org/citation.cfm?doid=362342.362367
+
+.. [2] Etsuji Tomita, Akira Tanaka, Haruhisa Takahashi, 
+   The worst-case time complexity for generating all maximal 
+   cliques and computational experiments, 
+   Theoretical Computer Science, Volume 363, Issue 1, 
+   Computing and Combinatorics, 
+   10th Annual International Conference on 
+   Computing and Combinatorics (COCOON 2004), 25 October 2006, Pages 28-42
+   http://dx.doi.org/10.1016/j.tcs.2006.06.015
+
+.. [3] F. Cazals, C. Karande, 
+   A note on the problem of reporting maximal cliques, 
+   Theoretical Computer Science,
+   Volume 407, Issues 1-3, 6 November 2008, Pages 564-568, 
+   http://dx.doi.org/10.1016/j.tcs.2008.05.010
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="make_max_clique_graph"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">make_max_clique_graph</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">create_using</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">name</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#make_max_clique_graph">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Create the maximal clique graph of a graph. 
+
+Finds the maximal cliques and treats these as nodes.
+The nodes are connected if they have common members in 
+the original graph.  Theory has done a lot with clique
+graphs, but I haven't seen much on maximal clique graphs.
+
+Notes
+-----
+This should be the same as make_clique_bipartite followed
+by project_up, but it saves all the intermediate steps.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="make_clique_bipartite"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">make_clique_bipartite</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">fpos</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">create_using</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">name</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#make_clique_bipartite">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create a bipartite clique graph from a graph G.</p>
+  <p>Nodes of G are retained as the &quot;bottom nodes&quot; of B and 
+  cliques of G become &quot;top nodes&quot; of B. Edges are present if a 
+  bottom node belongs to the clique represented by the top node.</p>
+  <p>Returns a Graph with additional attribute dict B.node_type which is 
+  keyed by nodes to &quot;Bottom&quot; or &quot;Top&quot; 
+  appropriately.</p>
+  <p>if fpos is not None, a second additional attribute dict B.pos is 
+  created to hold the position tuple of each node for viewing the bipartite
+  graph.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="project_down"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">project_down</span>(<span class="sig-arg">B</span>,
+        <span class="sig-arg">create_using</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">name</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#project_down">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Project a bipartite graph B down onto its &quot;bottom 
+  nodes&quot;.</p>
+  <p>The nodes retain their names and are connected if they share a common 
+  top node in the bipartite graph.</p>
+  <p>Returns a Graph.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="project_up"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">project_up</span>(<span class="sig-arg">B</span>,
+        <span class="sig-arg">create_using</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">name</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#project_up">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Project a bipartite graph B down onto its &quot;bottom 
+  nodes&quot;.</p>
+  <p>The nodes retain their names and are connected if they share a common 
+  Bottom Node in the Bipartite Graph.</p>
+  <p>Returns a Graph.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="graph_clique_number"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">graph_clique_number</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">cliques</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#graph_clique_number">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return the clique number (size of the largest clique) for G.</p>
+  <p>An optional list of cliques can be input if already computed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="graph_number_of_cliques"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">graph_number_of_cliques</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">cliques</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#graph_number_of_cliques">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the number of maximal cliques in G.</p>
+  <p>An optional list of cliques can be input if already computed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="node_clique_number"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">node_clique_number</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodes</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">cliques</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#node_clique_number">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the size of the largest maximal clique containing each given 
+  node.</p>
+  <p>Returns a single or list depending on input nodes. Optional list of 
+  cliques can be input if already computed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="number_of_cliques"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">number_of_cliques</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodes</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">cliques</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#number_of_cliques">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the number of maximal cliques for each node.</p>
+  <p>Returns a single or list depending on input nodes. Optional list of 
+  cliques can be input if already computed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="cliques_containing_node"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">cliques_containing_node</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">nodes</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">cliques</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="networkx.algorithms.clique-pysrc.html#cliques_containing_node">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a list of cliques containing the given node.</p>
+  <p>Returns a single list or list of lists depending on input nodes. 
+  Optional list of cliques can be input if already computed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:46 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

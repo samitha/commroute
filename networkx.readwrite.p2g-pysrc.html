@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>networkx.readwrite.p2g</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="networkx-module.html">Package&nbsp;networkx</a> ::
+        <a href="networkx.readwrite-module.html">Package&nbsp;readwrite</a> ::
+        Module&nbsp;p2g
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="networkx.readwrite.p2g-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="networkx.readwrite.p2g-module.html">Module networkx.readwrite.p2g</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">This module provides the following: read and write of p2g format </tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">used in metabolic pathway studies.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">See http://www.cs.purdue.edu/homes/koyuturk/pathway/ for a description.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">The summary is included here:</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">A file that describes a uniquely labeled graph (with extension ".gr")</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">format looks like the following:</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">name</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">3 4</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">a</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">1 2</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">b</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">c</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">0 2</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">"name" is simply a description of what the graph corresponds to. The</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">second line displays the number of nodes and number of edges,</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">respectively. This sample graph contains three nodes labeled "a", "b",</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">and "c". The rest of the graph contains two lines for each node. The</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">first line for a node contains the node label. After the declaration</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">of the node label, the out-edges of that node in the graph are</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">provided. For instance, "a" is linked to nodes 1 and 2, which are</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">labeled "b" and "c", while the node labeled "b" has no outgoing</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">edges. Observe that node labeled "c" has an outgoing edge to</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">itself. Indeed, self-loops are allowed. Node index starts from 0.</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">"""Willem Ligtenberg (w.p.a.ligtenberg@tue.nl)\n Aric Hagberg (hagberg@lanl.gov)"""</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-name">__date__</tt> <tt class="py-op">=</tt> <tt class="py-string">"""2008-05-27"""</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment">#    Copyright (C) 2008 by </tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment">#    Aric Hagberg &lt;hagberg@lanl.gov&gt;</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment">#    Dan Schult &lt;dschult@colgate.edu&gt;</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-comment">#    Pieter Swart &lt;swart@lanl.gov&gt;</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-comment">#    All rights reserved.</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-comment">#    BSD license.</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package networkx=networkx-module.html"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-0', 'networkx', 'link-0');">networkx</a></tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-1', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module cvxpy.utils=cvxpy.utils-module.html,Module networkx.utils=networkx.utils-module.html"><a title="cvxpy.utils
+networkx.utils" class="py-name" href="#" onclick="return doclink('link-2', 'utils', 'link-2');">utils</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Function networkx.utils.is_string_like()=networkx.utils-module.html#is_string_like"><a title="networkx.utils.is_string_like" class="py-name" href="#" onclick="return doclink('link-3', 'is_string_like', 'link-3');">is_string_like</a></tt><tt class="py-op">,</tt><tt id="link-4" class="py-name" targets="Function networkx.utils._get_fh()=networkx.utils-module.html#_get_fh"><a title="networkx.utils._get_fh" class="py-name" href="#" onclick="return doclink('link-4', '_get_fh', 'link-4');">_get_fh</a></tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
+<a name="write_p2g"></a><div id="write_p2g-def"><a name="L46"></a><tt class="py-lineno"> 46</tt> <a class="py-toggle" href="#" id="write_p2g-toggle" onclick="return toggle('write_p2g');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.readwrite.p2g-module.html#write_p2g">write_p2g</a><tt class="py-op">(</tt><tt class="py-param">G</tt><tt class="py-op">,</tt> <tt class="py-param">path</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="write_p2g-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="write_p2g-expanded"><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt class="py-docstring">"""Write NetworkX graph in p2g format.</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">    This format is meant to be used with directed graphs with</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">    possible self loops.</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">    <tt class="py-name">fh</tt><tt class="py-op">=</tt><tt id="link-5" class="py-name"><a title="networkx.utils._get_fh" class="py-name" href="#" onclick="return doclink('link-5', '_get_fh', 'link-4');">_get_fh</a></tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">,</tt><tt class="py-name">mode</tt><tt class="py-op">=</tt><tt class="py-string">'w'</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-name">fh</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method networkx.readwrite.gexf.GEXFWriter.write()=networkx.readwrite.gexf.GEXFWriter-class.html#write"><a title="networkx.readwrite.gexf.GEXFWriter.write" class="py-name" href="#" onclick="return doclink('link-6', 'write', 'link-6');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"%s\n"</tt><tt class="py-op">%</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Variable networkx.classes.graph.Graph.name=networkx.classes.graph.Graph-class.html#name,Variable networkx.release.name=networkx.release-module.html#name"><a title="networkx.classes.graph.Graph.name
+networkx.release.name" class="py-name" href="#" onclick="return doclink('link-7', 'name', 'link-7');">name</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-name">fh</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="networkx.readwrite.gexf.GEXFWriter.write" class="py-name" href="#" onclick="return doclink('link-8', 'write', 'link-6');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"%s %s\n"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method networkx.classes.graph.Graph.order()=networkx.classes.graph.Graph-class.html#order"><a title="networkx.classes.graph.Graph.order" class="py-name" href="#" onclick="return doclink('link-9', 'order', 'link-9');">order</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method networkx.classes.graph.Graph.size()=networkx.classes.graph.Graph-class.html#size"><a title="networkx.classes.graph.Graph.size" class="py-name" href="#" onclick="return doclink('link-10', 'size', 'link-10');">size</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt id="link-11" class="py-name" targets="Function networkx.classes.function.nodes()=networkx.classes.function-module.html#nodes,Method networkx.classes.graph.Graph.nodes()=networkx.classes.graph.Graph-class.html#nodes"><a title="networkx.classes.function.nodes
+networkx.classes.graph.Graph.nodes" class="py-name" href="#" onclick="return doclink('link-11', 'nodes', 'link-11');">nodes</a></tt> <tt class="py-op">=</tt> <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="networkx.classes.function.nodes
+networkx.classes.graph.Graph.nodes" class="py-name" href="#" onclick="return doclink('link-12', 'nodes', 'link-11');">nodes</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">    <tt class="py-comment"># make dictionary mapping nodes to integers</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">    <tt class="py-name">nodenumber</tt><tt class="py-op">=</tt><tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-name">zip</tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="networkx.classes.function.nodes
+networkx.classes.graph.Graph.nodes" class="py-name" href="#" onclick="return doclink('link-13', 'nodes', 'link-11');">nodes</a></tt><tt class="py-op">,</tt><tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-14" class="py-name"><a title="networkx.classes.function.nodes
+networkx.classes.graph.Graph.nodes" class="py-name" href="#" onclick="return doclink('link-14', 'nodes', 'link-11');">nodes</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>  </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">n</tt> <tt class="py-keyword">in</tt> <tt id="link-15" class="py-name"><a title="networkx.classes.function.nodes
+networkx.classes.graph.Graph.nodes" class="py-name" href="#" onclick="return doclink('link-15', 'nodes', 'link-11');">nodes</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-name">fh</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="networkx.readwrite.gexf.GEXFWriter.write" class="py-name" href="#" onclick="return doclink('link-16', 'write', 'link-6');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"%s\n"</tt><tt class="py-op">%</tt><tt class="py-name">n</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">nbr</tt> <tt class="py-keyword">in</tt> <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method commroute.cr_network.Junction.neighbors()=commroute.cr_network.Junction-class.html#neighbors,Method commroute.cr_network.Link.neighbors()=commroute.cr_network.Link-class.html#neighbors,Function networkx.classes.function.neighbors()=networkx.classes.function-module.html#neighbors,Method networkx.classes.graph.Graph.neighbors()=networkx.classes.graph.Graph-class.html#neighbors"><a title="commroute.cr_network.Junction.neighbors
+commroute.cr_network.Link.neighbors
+networkx.classes.function.neighbors
+networkx.classes.graph.Graph.neighbors" class="py-name" href="#" onclick="return doclink('link-17', 'neighbors', 'link-17');">neighbors</a></tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">            <tt class="py-name">fh</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="networkx.readwrite.gexf.GEXFWriter.write" class="py-name" href="#" onclick="return doclink('link-18', 'write', 'link-6');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"%s "</tt><tt class="py-op">%</tt><tt class="py-name">nodenumber</tt><tt class="py-op">[</tt><tt class="py-name">nbr</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-name">fh</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="networkx.readwrite.gexf.GEXFWriter.write" class="py-name" href="#" onclick="return doclink('link-19', 'write', 'link-6');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"\n"</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">    <tt class="py-name">fh</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Function networkx.algorithms.isomorphism.matchhelpers.close()=networkx.algorithms.isomorphism.matchhelpers-module.html#close"><a title="networkx.algorithms.isomorphism.matchhelpers.close" class="py-name" href="#" onclick="return doclink('link-20', 'close', 'link-20');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="read_p2g"></a><div id="read_p2g-def"><a name="L69"></a><tt class="py-lineno"> 69</tt> <a class="py-toggle" href="#" id="read_p2g-toggle" onclick="return toggle('read_p2g');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.readwrite.p2g-module.html#read_p2g">read_p2g</a><tt class="py-op">(</tt><tt class="py-param">path</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="read_p2g-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="read_p2g-expanded"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-docstring">"""Read graph in p2g format from path. </tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">    Returns an MultiDiGraph.</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">    If you want a DiGraph (with no self loops allowed and no edge data)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">    use D=networkx.DiGraph(read_p2g(path))</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">    <tt class="py-name">fh</tt><tt class="py-op">=</tt><tt id="link-21" class="py-name"><a title="networkx.utils._get_fh" class="py-name" href="#" onclick="return doclink('link-21', '_get_fh', 'link-4');">_get_fh</a></tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">,</tt><tt class="py-name">mode</tt><tt class="py-op">=</tt><tt class="py-string">'r'</tt><tt class="py-op">)</tt>         </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt class="py-name">G</tt><tt class="py-op">=</tt><tt id="link-22" class="py-name" targets="Function networkx.readwrite.p2g.parse_p2g()=networkx.readwrite.p2g-module.html#parse_p2g"><a title="networkx.readwrite.p2g.parse_p2g" class="py-name" href="#" onclick="return doclink('link-22', 'parse_p2g', 'link-22');">parse_p2g</a></tt><tt class="py-op">(</tt><tt class="py-name">fh</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">G</tt> </tt>
+</div><a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"> </tt>
+<a name="parse_p2g"></a><div id="parse_p2g-def"><a name="L81"></a><tt class="py-lineno"> 81</tt> <a class="py-toggle" href="#" id="parse_p2g-toggle" onclick="return toggle('parse_p2g');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="networkx.readwrite.p2g-module.html#parse_p2g">parse_p2g</a><tt class="py-op">(</tt><tt class="py-param">lines</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="parse_p2g-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="parse_p2g-expanded"><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">    <tt class="py-docstring">"""Parse p2g format graph from string or iterable. </tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">    Returns an MultiDiGraph.</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-23" class="py-name"><a title="networkx.utils.is_string_like" class="py-name" href="#" onclick="return doclink('link-23', 'is_string_like', 'link-3');">is_string_like</a></tt><tt class="py-op">(</tt><tt class="py-name">lines</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-name">lines</tt><tt class="py-op">=</tt><tt class="py-name">iter</tt><tt class="py-op">(</tt><tt class="py-name">lines</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'\n'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">    <tt class="py-name">lines</tt> <tt class="py-op">=</tt> <tt class="py-name">iter</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt id="link-24" class="py-name" targets="Module networkx.generators.line=networkx.generators.line-module.html"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-24', 'line', 'link-24');">line</a></tt><tt class="py-op">.</tt><tt class="py-name">rstrip</tt><tt class="py-op">(</tt><tt class="py-string">'\n'</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt id="link-25" class="py-name"><a title="networkx.generators.line" class="py-name" href="#" onclick="return doclink('link-25', 'line', 'link-24');">line</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">lines</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt id="link-26" class="py-name" targets="Variable networkx.release.description=networkx.release-module.html#description"><a title="networkx.release.description" class="py-name" href="#" onclick="return doclink('link-26', 'description', 'link-26');">description</a></tt> <tt class="py-op">=</tt> <tt class="py-name">lines</tt><tt class="py-op">.</tt><tt class="py-name">next</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt class="py-comment"># are multiedges (parallel edges) allowed?</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-name">G</tt><tt class="py-op">=</tt><tt id="link-27" class="py-name"><a title="networkx" class="py-name" href="#" onclick="return doclink('link-27', 'networkx', 'link-0');">networkx</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Class networkx.classes.multidigraph.MultiDiGraph=networkx.classes.multidigraph.MultiDiGraph-class.html"><a title="networkx.classes.multidigraph.MultiDiGraph" class="py-name" href="#" onclick="return doclink('link-28', 'MultiDiGraph', 'link-28');">MultiDiGraph</a></tt><tt class="py-op">(</tt><tt id="link-29" class="py-name"><a title="networkx.classes.graph.Graph.name
+networkx.release.name" class="py-name" href="#" onclick="return doclink('link-29', 'name', 'link-7');">name</a></tt><tt class="py-op">=</tt><tt id="link-30" class="py-name"><a title="networkx.release.description" class="py-name" href="#" onclick="return doclink('link-30', 'description', 'link-26');">description</a></tt><tt class="py-op">,</tt><tt class="py-name">selfloops</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">    <tt class="py-name">nnodes</tt><tt class="py-op">,</tt><tt class="py-name">nedges</tt><tt class="py-op">=</tt><tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">,</tt><tt class="py-name">lines</tt><tt class="py-op">.</tt><tt class="py-name">next</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-name">nodelabel</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-name">nbrs</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt class="py-comment"># loop over the nodes keeping track of node labels and out neighbors</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">    <tt class="py-comment"># defer adding edges until all node labels are known</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt id="link-31" class="py-name" targets="Variable cvxpy.scalars.cvxpy_scalar_param.i=cvxpy.scalars.cvxpy_scalar_param-class.html#i,Variable cvxpy.scalars.cvxpy_scalar_var.i=cvxpy.scalars.cvxpy_scalar_var-class.html#i"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-31', 'i', 'link-31');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">nnodes</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">n</tt><tt class="py-op">=</tt><tt class="py-name">lines</tt><tt class="py-op">.</tt><tt class="py-name">next</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-name">nodelabel</tt><tt class="py-op">[</tt><tt id="link-32" class="py-name"><a title="cvxpy.scalars.cvxpy_scalar_param.i
+cvxpy.scalars.cvxpy_scalar_var.i" class="py-name" href="#" onclick="return doclink('link-32', 'i', 'link-31');">i</a></tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-name">n</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Method networkx.classes.digraph.DiGraph.add_node()=networkx.classes.digraph.DiGraph-class.html#add_node,Method networkx.classes.graph.Graph.add_node()=networkx.classes.graph.Graph-class.html#add_node,Method networkx.readwrite.gexf.GEXFReader.add_node()=networkx.readwrite.gexf.GEXFReader-class.html#add_node,Method networkx.readwrite.graphml.GraphMLReader.add_node()=networkx.readwrite.graphml.GraphMLReader-class.html#add_node"><a title="networkx.classes.digraph.DiGraph.add_node
+networkx.classes.graph.Graph.add_node
+networkx.readwrite.gexf.GEXFReader.add_node
+networkx.readwrite.graphml.GraphMLReader.add_node" class="py-name" href="#" onclick="return doclink('link-33', 'add_node', 'link-33');">add_node</a></tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-name">nbrs</tt><tt class="py-op">[</tt><tt class="py-name">n</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">,</tt><tt class="py-name">lines</tt><tt class="py-op">.</tt><tt class="py-name">next</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-comment"># now we know all of the node labels so we can add the edges</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">    <tt class="py-comment"># with the correct labels        </tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">n</tt> <tt class="py-keyword">in</tt> <tt class="py-name">G</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">nbr</tt> <tt class="py-keyword">in</tt> <tt class="py-name">nbrs</tt><tt class="py-op">[</tt><tt class="py-name">n</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">            <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Method networkx.classes.digraph.DiGraph.add_edge()=networkx.classes.digraph.DiGraph-class.html#add_edge,Method networkx.classes.graph.Graph.add_edge()=networkx.classes.graph.Graph-class.html#add_edge,Method networkx.classes.multidigraph.MultiDiGraph.add_edge()=networkx.classes.multidigraph.MultiDiGraph-class.html#add_edge,Method networkx.classes.multigraph.MultiGraph.add_edge()=networkx.classes.multigraph.MultiGraph-class.html#add_edge,Method networkx.readwrite.gexf.GEXFReader.add_edge()=networkx.readwrite.gexf.GEXFReader-class.html#add_edge,Method networkx.readwrite.graphml.GraphMLReader.add_edge()=networkx.readwrite.graphml.GraphMLReader-class.html#add_edge"><a title="networkx.classes.digraph.DiGraph.add_edge
+networkx.classes.graph.Graph.add_edge
+networkx.classes.multidigraph.MultiDiGraph.add_edge
+networkx.classes.multigraph.MultiGraph.add_edge
+networkx.readwrite.gexf.GEXFReader.add_edge
+networkx.readwrite.graphml.GraphMLReader.add_edge" class="py-name" href="#" onclick="return doclink('link-34', 'add_edge', 'link-34');">add_edge</a></tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">,</tt><tt class="py-name">nodelabel</tt><tt class="py-op">[</tt><tt class="py-name">nbr</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">G</tt> </tt>
+</div><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:02 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

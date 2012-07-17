@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cvxpy.functions.log_norm_cdf'</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="cvxpy-module.html">Package&nbsp;cvxpy</a> ::
+        <a href="cvxpy.functions-module.html">Package&nbsp;functions</a> ::
+        Module&nbsp;log_norm_cdf'
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cvxpy.functions.log_norm_cdf%27-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module log_norm_cdf'</h1><p class="nomargin-top"><span class="codelink"><a href="cvxpy.functions.log_norm_cdf%27-pysrc.html">source&nbsp;code</a></span></p>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="cvxpy.functions.log_norm_cdf%27-module.html#log_norm_cdf" class="summary-sig-name">log_norm_cdf</a>(<span class="summary-sig-arg">x</span>)</span><br />
+      | :math:`\mbox{log\_norm\_cdf} :
+  \mathbb{R}^{m \times n} \to \mathbb{R}^{m \times n},
+  \ \mbox{log\_norm\_cdf}(X)_{ij} = 
+  \mbox{log} \big(
+  \int_{-\infty}^{X_{ij}} \frac{1}{\sqrt{2\pi}} 
+  e^{-\frac{1}{2}u^2} \mathrm{d}u \big)`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="cvxpy.functions.log_norm_cdf%27-pysrc.html#log_norm_cdf">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ARRAY"></a><span class="summary-name">ARRAY</span> = <code title="'array'"><code class="variable-quote">'</code><code class="variable-string">array</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ARRAY_OBJS"></a><span class="summary-name">ARRAY_OBJS</span> = <code title="['cvxpy_var', 'cvxpy_param', 'cvxpy_array']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">cvxpy_var</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxpy_param</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxpy_array</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BASE_PARAM"></a><span class="summary-name">BASE_PARAM</span> = <code title="'a'"><code class="variable-quote">'</code><code class="variable-string">a</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BASE_VAR"></a><span class="summary-name">BASE_VAR</span> = <code title="'v'"><code class="variable-quote">'</code><code class="variable-string">v</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BELONGS"></a><span class="summary-name">BELONGS</span> = <code title="'in'"><code class="variable-quote">'</code><code class="variable-string">in</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cvxpy.functions.log_norm_cdf%27-module.html#CONFIGURATION" class="summary-name">CONFIGURATION</a> = <code title="{'abstol': 1e-07, 'feastol': 1e-06, 'maxiters': 100, 'reltol': 1e-06}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">abstol</code><code class="variable-quote">'</code><code class="variable-op">: </code>1e-07<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">feastol</code><code class="variable-quote">'</code><code class="variable-op">: </code>1e-06<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">maxiters</code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CONSTANT"></a><span class="summary-name">CONSTANT</span> = <code title="'constant'"><code class="variable-quote">'</code><code class="variable-string">constant</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="DIF"></a><span class="summary-name">DIF</span> = <code title="'dif'"><code class="variable-quote">'</code><code class="variable-string">dif</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="DUAL_INFEASIBLE"></a><span class="summary-name">DUAL_INFEASIBLE</span> = <code title="'dual infeasible'"><code class="variable-quote">'</code><code class="variable-string">dual infeasible</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EPSILON"></a><span class="summary-name">EPSILON</span> = <code title="1e-12">1e-12</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EQUALS"></a><span class="summary-name">EQUALS</span> = <code title="'=='"><code class="variable-quote">'</code><code class="variable-string">==</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cvxpy.functions.log_norm_cdf%27-module.html#FORMAL_OBJS" class="summary-name">FORMAL_OBJS</a> = <code title="['cvxpy_scalar_var', 'cvxpy_var', 'cvxpy_scalar_param', 'cvxpy_param']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">cvxpy_scalar_var</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxpy_var</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxpy_scalar_</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="FUNCTION"></a><span class="summary-name">FUNCTION</span> = <code title="'function'"><code class="variable-quote">'</code><code class="variable-string">function</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="GREATER_EQUALS"></a><span class="summary-name">GREATER_EQUALS</span> = <code title="'&gt;='"><code class="variable-quote">'</code><code class="variable-string">&gt;=</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LEFT_ADD"></a><span class="summary-name">LEFT_ADD</span> = <code title="'la'"><code class="variable-quote">'</code><code class="variable-string">la</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LEFT_MULTIPLY"></a><span class="summary-name">LEFT_MULTIPLY</span> = <code title="'lm'"><code class="variable-quote">'</code><code class="variable-string">lm</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LEFT_SUBTRACT"></a><span class="summary-name">LEFT_SUBTRACT</span> = <code title="'ls'"><code class="variable-quote">'</code><code class="variable-string">ls</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LESS_EQUALS"></a><span class="summary-name">LESS_EQUALS</span> = <code title="'&lt;='"><code class="variable-quote">'</code><code class="variable-string">&lt;=</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LOWER_TRIANGULAR"></a><span class="summary-name">LOWER_TRIANGULAR</span> = <code title="'lower_triangular'"><code class="variable-quote">'</code><code class="variable-string">lower_triangular</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MAXIMIZE"></a><span class="summary-name">MAXIMIZE</span> = <code title="'maximize'"><code class="variable-quote">'</code><code class="variable-string">maximize</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MINIMIZE"></a><span class="summary-name">MINIMIZE</span> = <code title="'minimize'"><code class="variable-quote">'</code><code class="variable-string">minimize</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MULTIPLICATION"></a><span class="summary-name">MULTIPLICATION</span> = <code title="'*'"><code class="variable-quote">'</code><code class="variable-string">*</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NONNEGATIVE"></a><span class="summary-name">NONNEGATIVE</span> = <code title="'nonnegative'"><code class="variable-quote">'</code><code class="variable-string">nonnegative</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NONPOSITIVE"></a><span class="summary-name">NONPOSITIVE</span> = <code title="'nonpositive'"><code class="variable-quote">'</code><code class="variable-string">nonpositive</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="OPERATOR"></a><span class="summary-name">OPERATOR</span> = <code title="'operator'"><code class="variable-quote">'</code><code class="variable-string">operator</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="OPTIMAL"></a><span class="summary-name">OPTIMAL</span> = <code title="'optimal'"><code class="variable-quote">'</code><code class="variable-string">optimal</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PARAMETER"></a><span class="summary-name">PARAMETER</span> = <code title="'parameter'"><code class="variable-quote">'</code><code class="variable-string">parameter</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PARAMETER_OBJS"></a><span class="summary-name">PARAMETER_OBJS</span> = <code title="['cvxpy_scalar_param', 'cvxpy_param']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">cvxpy_scalar_param</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxpy_param</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PM"></a><span class="summary-name">PM</span> = <code title="'pm'"><code class="variable-quote">'</code><code class="variable-string">pm</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PRIMAL_INFEASIBLE"></a><span class="summary-name">PRIMAL_INFEASIBLE</span> = <code title="'primal infeasible'"><code class="variable-quote">'</code><code class="variable-string">primal infeasible</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PRIMAL_OBJECTIVE"></a><span class="summary-name">PRIMAL_OBJECTIVE</span> = <code title="'primal objective'"><code class="variable-quote">'</code><code class="variable-string">primal objective</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RIGHT_ADD"></a><span class="summary-name">RIGHT_ADD</span> = <code title="'ra'"><code class="variable-quote">'</code><code class="variable-string">ra</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RIGHT_MULTIPLY"></a><span class="summary-name">RIGHT_MULTIPLY</span> = <code title="'rm'"><code class="variable-quote">'</code><code class="variable-string">rm</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RIGHT_SUBTRACT"></a><span class="summary-name">RIGHT_SUBTRACT</span> = <code title="'rs'"><code class="variable-quote">'</code><code class="variable-string">rs</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cvxpy.functions.log_norm_cdf%27-module.html#SCALAR_OBJS" class="summary-name">SCALAR_OBJS</a> = <code title="['cvxpy_scalar_var', 'cvxpy_scalar_param', 'cvxpy_tree']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">cvxpy_scalar_var</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxpy_scalar_param</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxp</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SDC"></a><span class="summary-name">SDC</span> = <code title="'sdc'"><code class="variable-quote">'</code><code class="variable-string">sdc</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SET"></a><span class="summary-name">SET</span> = <code title="'set'"><code class="variable-quote">'</code><code class="variable-string">set</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SOC"></a><span class="summary-name">SOC</span> = <code title="'soc'"><code class="variable-quote">'</code><code class="variable-string">soc</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SUBTRACTION"></a><span class="summary-name">SUBTRACTION</span> = <code title="'-'"><code class="variable-quote">'</code><code class="variable-string">-</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SUMMATION"></a><span class="summary-name">SUMMATION</span> = <code title="'+'"><code class="variable-quote">'</code><code class="variable-string">+</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SYMMETRIC"></a><span class="summary-name">SYMMETRIC</span> = <code title="'symmetric'"><code class="variable-quote">'</code><code class="variable-string">symmetric</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE"></a><span class="summary-name">TREE</span> = <code title="'tree'"><code class="variable-quote">'</code><code class="variable-string">tree</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="UNKNOWN"></a><span class="summary-name">UNKNOWN</span> = <code title="'unknown'"><code class="variable-quote">'</code><code class="variable-string">unknown</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="UPPER_TRIANGULAR"></a><span class="summary-name">UPPER_TRIANGULAR</span> = <code title="'upper_triangular'"><code class="variable-quote">'</code><code class="variable-string">upper_triangular</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="VARIABLE"></a><span class="summary-name">VARIABLE</span> = <code title="'variable'"><code class="variable-quote">'</code><code class="variable-string">variable</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="VARIABLE_OBJS"></a><span class="summary-name">VARIABLE_OBJS</span> = <code title="['cvxpy_scalar_var', 'cvxpy_var']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">cvxpy_scalar_var</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxpy_var</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'cvxpy.functions'"><code class="variable-quote">'</code><code class="variable-string">cvxpy.functions</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cvxpy.functions.log_norm_cdf%27-module.html#exp_cone" class="summary-name">exp_cone</a> = <code title="&lt;cvxpy.sets.exp_cone.cvxpy_exp_cone object at 0x101796110&gt;">&lt;cvxpy.sets.exp_cone.cvxpy_exp_cone object at 0x101<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cvxpy.functions.log_norm_cdf%27-module.html#geo_mean_cone" class="summary-name">geo_mean_cone</a> = <code title="&lt;cvxpy.sets.geo_mean_cone.cvxpy_geo_mean_cone object at 0x101d47e90&gt;">&lt;cvxpy.sets.geo_mean_cone.cvxpy_geo_mean_cone <code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cvxpy.functions.log_norm_cdf%27-module.html#kl_div_epi" class="summary-name">kl_div_epi</a> = <code title="&lt;cvxpy.sets.kl_div_epi.cvxpy_kl_div_epi object at 0x10199e850&gt;">&lt;cvxpy.sets.kl_div_epi.cvxpy_kl_div_epi object at<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cvxpy.functions.log_norm_cdf%27-module.html#log_norm_cdf_hypo" class="summary-name">log_norm_cdf_hypo</a> = <code title="&lt;cvxpy.sets.log_norm_cdf_hypo.cvxpy_log_norm_cdf_hypo object at 0x101d\
+5a250&gt;">&lt;cvxpy.sets.log_norm_cdf_hypo.cvxpy_log_no<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cvxpy.functions.log_norm_cdf%27-module.html#second_order_cone" class="summary-name">second_order_cone</a> = <code title="&lt;cvxpy.sets.second_order_cone.cvxpy_second_order_cone object at 0x101d\
+47d50&gt;">&lt;cvxpy.sets.second_order_cone.cvxpy_second<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="cvxpy.functions.log_norm_cdf%27-module.html#semidefinite_cone" class="summary-name">semidefinite_cone</a> = <code title="&lt;cvxpy.sets.semidefinite_cone.cvxpy_semidefinite_cone object at 0x101d\
+47e10&gt;">&lt;cvxpy.sets.semidefinite_cone.cvxpy_semide<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="log_norm_cdf"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">log_norm_cdf</span>(<span class="sig-arg">x</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="cvxpy.functions.log_norm_cdf%27-pysrc.html#log_norm_cdf">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+| :math:`\mbox{log\_norm\_cdf} :
+  \mathbb{R}^{m \times n} \to \mathbb{R}^{m \times n},
+  \ \mbox{log\_norm\_cdf}(X)_{ij} = 
+  \mbox{log} \big(
+  \int_{-\infty}^{X_{ij}} \frac{1}{\sqrt{2\pi}} 
+  e^{-\frac{1}{2}u^2} \mathrm{d}u \big)`.
+| Concave and increasing.
+
+:param x: number, 
+          :ref:`scalar object&lt;scalar_ref&gt;` or
+          :ref:`multidimensional object&lt;multi_ref&gt;`.
+:return: number, 
+         :ref:`tree&lt;tree_obj&gt;`, 
+         :ref:`matrix&lt;matrix_obj&gt;` or
+         :ref:`array&lt;array_obj&gt;`.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="CONFIGURATION"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">CONFIGURATION</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">abstol</code><code class="variable-quote">'</code><code class="variable-op">: </code>1e-07<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">feastol</code><code class="variable-quote">'</code><code class="variable-op">: </code>1e-06<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">maxiters</code><code class="variable-quote">'</code><code class="variable-op">: </code>100<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">reltol</code><code class="variable-quote">'</code><code class="variable-op">: </code>1e-06<code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="FORMAL_OBJS"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">FORMAL_OBJS</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">cvxpy_scalar_var</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxpy_var</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxpy_scalar_param</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxpy_param</code><code class="variable-quote">'</code><code class="variable-group">]</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SCALAR_OBJS"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">SCALAR_OBJS</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">cvxpy_scalar_var</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxpy_scalar_param</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">cvxpy_tree</code><code class="variable-quote">'</code><code class="variable-group">]</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="exp_cone"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">exp_cone</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;cvxpy.sets.exp_cone.cvxpy_exp_cone object at 0x101796110&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="geo_mean_cone"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">geo_mean_cone</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;cvxpy.sets.geo_mean_cone.cvxpy_geo_mean_cone object at 0x101d47e90&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="kl_div_epi"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">kl_div_epi</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;cvxpy.sets.kl_div_epi.cvxpy_kl_div_epi object at 0x10199e850&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="log_norm_cdf_hypo"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">log_norm_cdf_hypo</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;cvxpy.sets.log_norm_cdf_hypo.cvxpy_log_norm_cdf_hypo object at 0x101d<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+5a250&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="second_order_cone"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">second_order_cone</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;cvxpy.sets.second_order_cone.cvxpy_second_order_cone object at 0x101d<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+47d50&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="semidefinite_cone"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">semidefinite_cone</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;cvxpy.sets.semidefinite_cone.cvxpy_semidefinite_cone object at 0x101d<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+47e10&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:18:45 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

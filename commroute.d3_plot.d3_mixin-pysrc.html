@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>commroute.d3_plot.d3_mixin</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="commroute-module.html">Package&nbsp;commroute</a> ::
+        <a href="commroute.d3_plot-module.html">Package&nbsp;d3_plot</a> ::
+        Module&nbsp;d3_mixin
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="commroute.d3_plot.d3_mixin-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="commroute.d3_plot.d3_mixin-module.html">Module commroute.d3_plot.d3_mixin</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package commroute.cr_utils=commroute.cr_utils-module.html,Module commroute.cr_utils.cr_utils=commroute.cr_utils.cr_utils-module.html"><a title="commroute.cr_utils
+commroute.cr_utils.cr_utils" class="py-name" href="#" onclick="return doclink('link-0', 'cr_utils', 'link-0');">cr_utils</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name"><a title="commroute.cr_utils
+commroute.cr_utils.cr_utils" class="py-name" href="#" onclick="return doclink('link-1', 'cr_utils', 'link-0');">cr_utils</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Function commroute.cr_utils.cr_utils.flatten()=commroute.cr_utils.cr_utils-module.html#flatten,Function networkx.utils.flatten()=networkx.utils-module.html#flatten"><a title="commroute.cr_utils.cr_utils.flatten
+networkx.utils.flatten" class="py-name" href="#" onclick="return doclink('link-2', 'flatten', 'link-2');">flatten</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">'jdr'</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable commroute.d3_plot.d3_mixin.root_dir=commroute.d3_plot.d3_mixin-module.html#root_dir"><a title="commroute.d3_plot.d3_mixin.root_dir" class="py-name" href="#" onclick="return doclink('link-3', 'root_dir', 'link-3');">root_dir</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'d3_plot'</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="D3Mixin"></a><div id="D3Mixin-def"><a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="D3Mixin-toggle" onclick="return toggle('D3Mixin');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.d3_plot.d3_mixin.D3Mixin-class.html">D3Mixin</a><tt class="py-op">:</tt> </tt>
+</div><div id="D3Mixin-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="D3Mixin-expanded"><a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
+<a name="D3Mixin.d3ize"></a><div id="D3Mixin.d3ize-def"><a name="L9"></a><tt class="py-lineno"> 9</tt> <a class="py-toggle" href="#" id="D3Mixin.d3ize-toggle" onclick="return toggle('D3Mixin.d3ize');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.d3_plot.d3_mixin.D3Mixin-class.html#d3ize">d3ize</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="D3Mixin.d3ize-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="D3Mixin.d3ize-expanded"><a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">simplejson</tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Method commroute.cr_utils.Dumpable.Dumpable.dump()=commroute.cr_utils.Dumpable.Dumpable-class.html#dump,Method networkx.readwrite.graphml.GraphMLWriter.dump()=networkx.readwrite.graphml.GraphMLWriter-class.html#dump"><a title="commroute.cr_utils.Dumpable.Dumpable.dump
+networkx.readwrite.graphml.GraphMLWriter.dump" class="py-name" href="#" onclick="return doclink('link-4', 'dump', 'link-4');">dump</a></tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Function networkx.classes.function.edges()=networkx.classes.function-module.html#edges,Method networkx.classes.graph.Graph.edges()=networkx.classes.graph.Graph-class.html#edges,Method networkx.classes.multigraph.MultiGraph.edges()=networkx.classes.multigraph.MultiGraph-class.html#edges"><a title="networkx.classes.function.edges
+networkx.classes.graph.Graph.edges
+networkx.classes.multigraph.MultiGraph.edges" class="py-name" href="#" onclick="return doclink('link-5', 'edges', 'link-5');">edges</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method commroute.cr_network.CRNetwork.d3_edges()=commroute.cr_network.CRNetwork-class.html#d3_edges,Method commroute.d3_plot.d3_mixin.D3Mixin.d3_edges()=commroute.d3_plot.d3_mixin.D3Mixin-class.html#d3_edges"><a title="commroute.cr_network.CRNetwork.d3_edges
+commroute.d3_plot.d3_mixin.D3Mixin.d3_edges" class="py-name" href="#" onclick="return doclink('link-6', 'd3_edges', 'link-6');">d3_edges</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt class="py-name">lkup</tt> <tt class="py-op">=</tt> <tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt id="link-7" class="py-name"><a title="commroute.cr_utils.cr_utils.flatten
+networkx.utils.flatten" class="py-name" href="#" onclick="return doclink('link-7', 'flatten', 'link-2');">flatten</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">edge</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method commroute.cr_network.Link.d3_source()=commroute.cr_network.Link-class.html#d3_source,Method commroute.d3_plot.d3_mixin.D3Edge.d3_source()=commroute.d3_plot.d3_mixin.D3Edge-class.html#d3_source"><a title="commroute.cr_network.Link.d3_source
+commroute.d3_plot.d3_mixin.D3Edge.d3_source" class="py-name" href="#" onclick="return doclink('link-8', 'd3_source', 'link-8');">d3_source</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">edge</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method commroute.cr_network.Link.d3_target()=commroute.cr_network.Link-class.html#d3_target,Method commroute.d3_plot.d3_mixin.D3Edge.d3_target()=commroute.d3_plot.d3_mixin.D3Edge-class.html#d3_target"><a title="commroute.cr_network.Link.d3_target
+commroute.d3_plot.d3_mixin.D3Edge.d3_target" class="py-name" href="#" onclick="return doclink('link-9', 'd3_target', 'link-9');">d3_target</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> <tt class="py-keyword">for</tt> <tt class="py-name">edge</tt> <tt class="py-keyword">in</tt> <tt id="link-10" class="py-name"><a title="networkx.classes.function.edges
+networkx.classes.graph.Graph.edges
+networkx.classes.multigraph.MultiGraph.edges" class="py-name" href="#" onclick="return doclink('link-10', 'edges', 'link-5');">edges</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">    <tt id="link-11" class="py-name" targets="Function networkx.classes.function.nodes()=networkx.classes.function-module.html#nodes,Method networkx.classes.graph.Graph.nodes()=networkx.classes.graph.Graph-class.html#nodes"><a title="networkx.classes.function.nodes
+networkx.classes.graph.Graph.nodes" class="py-name" href="#" onclick="return doclink('link-11', 'nodes', 'link-11');">nodes</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">      <tt class="py-op">{</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">        <tt class="py-string">'name'</tt><tt class="py-op">:</tt> <tt class="py-name">node</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method commroute.cr_network.Junction.d3_node_name()=commroute.cr_network.Junction-class.html#d3_node_name,Method commroute.d3_plot.d3_mixin.D3Node.d3_node_name()=commroute.d3_plot.d3_mixin.D3Node-class.html#d3_node_name"><a title="commroute.cr_network.Junction.d3_node_name
+commroute.d3_plot.d3_mixin.D3Node.d3_node_name" class="py-name" href="#" onclick="return doclink('link-12', 'd3_node_name', 'link-12');">d3_node_name</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">      <tt class="py-op">}</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">      <tt class="py-keyword">for</tt> <tt class="py-name">node</tt> <tt class="py-keyword">in</tt> <tt class="py-name">lkup</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt id="link-13" class="py-name"><a title="networkx.classes.function.edges
+networkx.classes.graph.Graph.edges
+networkx.classes.multigraph.MultiGraph.edges" class="py-name" href="#" onclick="return doclink('link-13', 'edges', 'link-5');">edges</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">      <tt class="py-op">{</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">      <tt class="py-string">'source'</tt><tt class="py-op">:</tt> <tt class="py-name">lkup</tt><tt class="py-op">.</tt><tt class="py-name">index</tt><tt class="py-op">(</tt><tt class="py-name">edge</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="commroute.cr_network.Link.d3_source
+commroute.d3_plot.d3_mixin.D3Edge.d3_source" class="py-name" href="#" onclick="return doclink('link-14', 'd3_source', 'link-8');">d3_source</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">      <tt class="py-string">'target'</tt><tt class="py-op">:</tt> <tt class="py-name">lkup</tt><tt class="py-op">.</tt><tt class="py-name">index</tt><tt class="py-op">(</tt><tt class="py-name">edge</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="commroute.cr_network.Link.d3_target
+commroute.d3_plot.d3_mixin.D3Edge.d3_target" class="py-name" href="#" onclick="return doclink('link-15', 'd3_target', 'link-9');">d3_target</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">      <tt class="py-string">'attrs'</tt><tt class="py-op">:</tt> <tt class="py-name">edge</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method commroute.cr_network.Link.d3_attrs()=commroute.cr_network.Link-class.html#d3_attrs,Method commroute.d3_plot.d3_mixin.D3Edge.d3_attrs()=commroute.d3_plot.d3_mixin.D3Edge-class.html#d3_attrs"><a title="commroute.cr_network.Link.d3_attrs
+commroute.d3_plot.d3_mixin.D3Edge.d3_attrs" class="py-name" href="#" onclick="return doclink('link-16', 'd3_attrs', 'link-16');">d3_attrs</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">      <tt class="py-string">'value'</tt><tt class="py-op">:</tt> <tt class="py-name">edge</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method commroute.cr_network.Link.d3_value()=commroute.cr_network.Link-class.html#d3_value,Method commroute.ctm.CTMLink.d3_value()=commroute.ctm.CTMLink-class.html#d3_value,Method commroute.d3_plot.d3_mixin.D3Edge.d3_value()=commroute.d3_plot.d3_mixin.D3Edge-class.html#d3_value"><a title="commroute.cr_network.Link.d3_value
+commroute.ctm.CTMLink.d3_value
+commroute.d3_plot.d3_mixin.D3Edge.d3_value" class="py-name" href="#" onclick="return doclink('link-17', 'd3_value', 'link-17');">d3_value</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">      <tt class="py-op">}</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">edge</tt> <tt class="py-keyword">in</tt> <tt id="link-18" class="py-name"><a title="networkx.classes.function.edges
+networkx.classes.graph.Graph.edges
+networkx.classes.multigraph.MultiGraph.edges" class="py-name" href="#" onclick="return doclink('link-18', 'edges', 'link-5');">edges</a></tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">    <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">      <tt class="py-string">'nodes'</tt><tt class="py-op">:</tt> <tt id="link-19" class="py-name"><a title="networkx.classes.function.nodes
+networkx.classes.graph.Graph.nodes" class="py-name" href="#" onclick="return doclink('link-19', 'nodes', 'link-11');">nodes</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">      <tt class="py-string">'links'</tt><tt class="py-op">:</tt> <tt id="link-20" class="py-name"><a title="networkx.classes.function.edges
+networkx.classes.graph.Graph.edges
+networkx.classes.multigraph.MultiGraph.edges" class="py-name" href="#" onclick="return doclink('link-20', 'edges', 'link-5');">edges</a></tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-op">}</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt class="py-keyword">with</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-string">'{0}/html/graph.json'</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt id="link-21" class="py-name"><a title="commroute.d3_plot.d3_mixin.root_dir" class="py-name" href="#" onclick="return doclink('link-21', 'root_dir', 'link-3');">root_dir</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">'w'</tt><tt class="py-op">)</tt> <tt class="py-keyword">as</tt> <tt class="py-name">fn</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">      <tt id="link-22" class="py-name"><a title="commroute.cr_utils.Dumpable.Dumpable.dump
+networkx.readwrite.graphml.GraphMLWriter.dump" class="py-name" href="#" onclick="return doclink('link-22', 'dump', 'link-4');">dump</a></tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">,</tt> <tt class="py-name">fn</tt><tt class="py-op">,</tt> <tt id="link-23" class="py-name" targets="Method networkx.readwrite.gexf.GEXFWriter.indent()=networkx.readwrite.gexf.GEXFWriter-class.html#indent,Method networkx.readwrite.graphml.GraphMLWriter.indent()=networkx.readwrite.graphml.GraphMLWriter-class.html#indent"><a title="networkx.readwrite.gexf.GEXFWriter.indent
+networkx.readwrite.graphml.GraphMLWriter.indent" class="py-name" href="#" onclick="return doclink('link-23', 'indent', 'link-23');">indent</a></tt><tt class="py-op">=</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
+<a name="D3Mixin.d3_edges"></a><div id="D3Mixin.d3_edges-def"><a name="L36"></a><tt class="py-lineno">36</tt> <a class="py-toggle" href="#" id="D3Mixin.d3_edges-toggle" onclick="return toggle('D3Mixin.d3_edges');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.d3_plot.d3_mixin.D3Mixin-class.html#d3_edges">d3_edges</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="D3Mixin.d3_edges-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="D3Mixin.d3_edges-expanded"><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt><tt class="py-op">(</tt><tt class="py-string">'abstract'</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"> </tt>
+<a name="D3Edge"></a><div id="D3Edge-def"><a name="L40"></a><tt class="py-lineno">40</tt> <a class="py-toggle" href="#" id="D3Edge-toggle" onclick="return toggle('D3Edge');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.d3_plot.d3_mixin.D3Edge-class.html">D3Edge</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="D3Edge-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="D3Edge-expanded"><a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="D3Edge.d3_source"></a><div id="D3Edge.d3_source-def"><a name="L42"></a><tt class="py-lineno">42</tt> <a class="py-toggle" href="#" id="D3Edge.d3_source-toggle" onclick="return toggle('D3Edge.d3_source');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.d3_plot.d3_mixin.D3Edge-class.html#d3_source">d3_source</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="D3Edge.d3_source-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="D3Edge.d3_source-expanded"><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt><tt class="py-op">(</tt><tt class="py-string">'abstract'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="D3Edge.d3_target"></a><div id="D3Edge.d3_target-def"><a name="L45"></a><tt class="py-lineno">45</tt> <a class="py-toggle" href="#" id="D3Edge.d3_target-toggle" onclick="return toggle('D3Edge.d3_target');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.d3_plot.d3_mixin.D3Edge-class.html#d3_target">d3_target</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="D3Edge.d3_target-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="D3Edge.d3_target-expanded"><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt><tt class="py-op">(</tt><tt class="py-string">'abstract'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"> </tt>
+<a name="D3Edge.d3_attrs"></a><div id="D3Edge.d3_attrs-def"><a name="L48"></a><tt class="py-lineno">48</tt> <a class="py-toggle" href="#" id="D3Edge.d3_attrs-toggle" onclick="return toggle('D3Edge.d3_attrs');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.d3_plot.d3_mixin.D3Edge-class.html#d3_attrs">d3_attrs</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="D3Edge.d3_attrs-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="D3Edge.d3_attrs-expanded"><a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt><tt class="py-op">(</tt><tt class="py-string">'abstract'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="D3Edge.d3_value"></a><div id="D3Edge.d3_value-def"><a name="L51"></a><tt class="py-lineno">51</tt> <a class="py-toggle" href="#" id="D3Edge.d3_value-toggle" onclick="return toggle('D3Edge.d3_value');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.d3_plot.d3_mixin.D3Edge-class.html#d3_value">d3_value</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="D3Edge.d3_value-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="D3Edge.d3_value-expanded"><a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt><tt class="py-op">(</tt><tt class="py-string">'abstract'</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"> </tt>
+<a name="D3Node"></a><div id="D3Node-def"><a name="L54"></a><tt class="py-lineno">54</tt> <a class="py-toggle" href="#" id="D3Node-toggle" onclick="return toggle('D3Node');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="commroute.d3_plot.d3_mixin.D3Node-class.html">D3Node</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="D3Node-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="D3Node-expanded"><a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"> </tt>
+<a name="D3Node.d3_node_name"></a><div id="D3Node.d3_node_name-def"><a name="L56"></a><tt class="py-lineno">56</tt> <a class="py-toggle" href="#" id="D3Node.d3_node_name-toggle" onclick="return toggle('D3Node.d3_node_name');">-</a><tt class="py-line">  <tt class="py-keyword">def</tt> <a class="py-def-name" href="commroute.d3_plot.d3_mixin.D3Node-class.html#d3_node_name">d3_node_name</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="D3Node.d3_node_name-collapsed" style="display:none;" pad="++" indent="++++++"></div><div id="D3Node.d3_node_name-expanded"><a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">'hi'</tt> </tt>
+</div></div><a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://github.com/jackdreilly/commroute">CommRoute</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jul 17 15:19:01 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
