@@ -5,13 +5,13 @@ from cr_optimize import OptimizeMixIn, Program, Constraint
 __author__ = 'jdr'
 
 
-class Feasible:
+class Feasible(object):
 
   def objective(self):
     return 0.0
 
 
-class Unconstrained:
+class Unconstrained(object):
 
   def constraints(self):
     return []

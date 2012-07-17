@@ -71,8 +71,8 @@ class MinTTTComplacencyProblem(ComplacencyConstrained, MinTTTMixin):
 
     return sum(map(link_tt_heuristic, route.links))
 
-class CTMCC(MinTTTComplacencyProblem, ComplacencyCompliance):
-  pass
+# class CTMCC(MinTTTComplacencyProblem, ComplacencyCompliance):
+#   pass
 
 class MinTTTFlowLinkComplacencyProblem(MinTTTFlowLinkProblem, ComplacencyConstrained):
 

@@ -10,6 +10,7 @@ class StateConstrainedLink(CTMLink):
     FF = 0
     CONG = 1
     ANY = 2
+    BOUND = 3
 
   def __init__(self, cong_state=None, *args, **kwargs):
     if cong_state is None:
@@ -29,6 +30,13 @@ class StateConstrainedLink(CTMLink):
 
   def set_any(self):
     self.cong_state = self.CongState.ANY
+    
+  def set_bound(self, lower, upper):
+    self.cong_state = self.CongState.BOUND
+    self.cong_bounds = dict(
+      upper=upper,
+      lower=lower
+    )
 
   def init_state(self):
     self.set_cong_state(self.CongState.ANY)
@@ -45,21 +53,26 @@ class StateConstrainedLink(CTMLink):
     @rtype: cvxpy_solver.CVXPyConstraint
     """
     if self.cong_state is self.CongState.FF:
-      return [solver.cr_eq(self.v_flow, self.fd.flow_ff(self.v_dens))]
+      return [solver.cr_leq(self.v_dens, self.fd.rho_crit())]
     if self.cong_state is self.CongState.CONG:
-      return [solver.cr_eq(self.v_flow, self.fd.flow_cong(self.v_dens))]
+      return [solver.cr_geq(self.v_dens, self.fd.rho_crit())]
+    if self.cong_state is self.CongState.BOUND:
+      return [solver.cr_geq(self.v_dens, self.cong_bounds['lower']), solver.cr_leq(self.v_dens, self.cong_bounds['upper'])]
     if self.cong_state is self.CongState.ANY:
       return []
 
   def jsonify(self):
     json = super(StateConstrainedLink, self).jsonify()
     json['cong_state'] = self.cong_state
+    if self.cong_state is self.CongState.BOUND:
+      json['cong_bounds'] = self.cong_bounds
     return json
 
   @classmethod
   def additional_kwargs(cls, data):
     kwargs = super(StateConstrainedLink, cls).additional_kwargs(data)
     kwargs['cong_state'] = data.get('cong_state', cls.CongState.ANY)
+    kwargs['cong_bounds'] = data.get('cong_bounds', None)
     return kwargs
 
 class StateConstrainedNetwork(MinTTTLagrangianCTMProblem):

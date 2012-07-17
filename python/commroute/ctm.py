@@ -56,7 +56,7 @@ class FundamentalDiagram(Dumpable):
     v=data['v']
     w=data['w']
     rho_max=data['rho_max']
-    q_max=data.get('q_max', w*rho_max / (v + w))
+    q_max=data.get('q_max', v*w*rho_max / (v + w))
     return cls(
       v=v,w=w,rho_max=rho_max,q_max=q_max
       )
@@ -97,6 +97,12 @@ class CTMLink(TrafficLink):
 
   def d3_value(self):
     return self.l
+    
+  def congestion_level(self):
+    rho_l = self.state.flow / self.fd.v
+    rho_h = self.fd.rho_max - self.state.flow / self.fd.w
+    rho = self.state.density
+    return (rho - rho_l) / (rho_h - rho_l)
 
   @classmethod
   def additional_kwargs(cls, data):
@@ -125,3 +131,13 @@ class CTMLink(TrafficLink):
 
 class CTMNetwork(FlowNetwork):
   link_class = CTMLink
+  
+  def max_flow(self, route):
+    return min(link.fd.q_max for link in route.links)
+    
+  def ff_travel_time(self, route):
+    return sum(link.l/link.fd.v for link in route.links)
+    
+  def route_travel_time(self, route):
+    return sum(link.travel_time() for link in route.links)
+  

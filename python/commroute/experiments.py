@@ -9,6 +9,7 @@ from static_ctm import *
 from ctm import FundamentalDiagram
 from ctm import CTMLink
 from cr_network import Junction
+from data_fixer import DataFixer
 
 __author__ = 'jdr'
 
@@ -432,3 +433,82 @@ def exp_8_scala():
   net.dump("../networks/exps/exp8/netd.json")
   print 'n links', len(net.get_links())
   net.get_program().cr_solve(quiet=False)
+  
+
+def exp_9():  
+  net = DataFixer.load("/Users/jdr/Documents/github/commroute/python/networks/exps/exp9/net.json")
+  fn = '/Users/jdr/Documents/github/commroute/python/networks/exps/exp9/flowdata.csv'
+  net.solve_with_data(fn)
+  for link in net.get_links():
+    print link, link.v_flow.value, link.v_dens.value
+  net.realize()
+  net.dump('/Users/jdr/Documents/github/commroute/python/networks/exps/exp9/bignetstate.json')
+  
+def exp_9_next():
+  net = DataFixer.load('/Users/jdr/Documents/github/commroute/python/networks/exps/exp9/bignetstate.json')
+  net.cache_props()
+  for source in net.sources:
+    for sink in net.sinks:
+      routes = net.od_routes[source,sink]
+      print '\n\n'
+      print 'o', source, 'd', sink
+      for route in routes:
+        print net.route_travel_time(route) / net.ff_travel_time(route)
+        
+def exp_9_hist():
+  import pylab
+  net = DataFixer.load('/Users/jdr/Documents/github/commroute/python/networks/exps/exp9/bignetstate.json')
+  net.cache_props()
+  for link in net.get_links():
+    if link.congestion_level() < -1.0:
+      print 'bad 1'
+      print link.state.flow / link.fd.q_max
+  pylab.hist([
+    link.congestion_level()
+    for link in net.get_links()
+  ], bins = 100)
+  raw_input('')
+
+  
+def exp_10():
+  net = MinTTTLagrangianCTMProblem.load("/Users/jdr/Desktop/out.json")
+  net.cache_props()
+  print len(net.sources)
+  print len(net.sinks)
+  print len(net.all_routes())
+  print len(net.get_links())
+  # for route in net.all_routes():
+  #   print net.max_flow(route), net.ff_travel_time(route)
+  import networkx
+  print networkx.is_weakly_connected(net)
+  with open('/Users/jdr/Desktop/flowdata.csv','r') as fn:
+    flows = {}
+    for row in fn:
+      splits = row[:-1].split(';')
+      print splits
+      name = splits[2]
+      flow = float(splits[1])
+      density = float(splits[0])
+      flows[name] = {
+        'flow': flow,
+        'density': density
+      }
+  def get_flows(link):
+    try:
+      return flows[link.name]['flow']
+    except:
+      return 0.0
+  for junction in net.junctions:
+    lsum = sum(get_flows(link) for link in junction.in_links)
+    rsum = sum(get_flows(link) for link in junction.out_links)
+    print lsum, rsum
+  for link in net.get_links():
+    print bool(link.fd.q_max < get_flows(link)), link.fd.q_max, get_flows(link)
+  # for source in net.sources:
+  #   for sink in net.sinks:
+  #     routes = net.od_routes[source,sink]
+  #     print '\n\n###\n\n'
+  #     print 'source', source, 'sink', sink
+  #     for route in routes:
+  #       print net.ff_travel_time(route)
+exp_9_hist()
