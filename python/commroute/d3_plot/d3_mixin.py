@@ -1,4 +1,4 @@
-from cr_utils.cr_utils import flatten
+from commroute.cr_utils.cr_utils import flatten
 
 __author__ = 'jdr'
 

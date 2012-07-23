@@ -1,4 +1,4 @@
-from networkx import MultiDiGraph
+import networkx
 from bfs import bfs, all_paths
 from collections import defaultdict
 from cr_utils.Dumpable import Dumpable
@@ -153,6 +153,9 @@ class Junction(D3Node):
   def links(self):
     return set(self.in_links + self.out_links)
 
+  def __str__(self):
+      return str((self.in_links, self.out_links))
+
 class Source(Junction):
 
   def __init__(self, link):
@@ -196,7 +199,7 @@ class Route(object):
     return [link.name for link in self.links]
 
 
-class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
+class CRNetwork(networkx.MultiDiGraph, Dumpable, D3Mixin):
   """Base class for creating networks, doesn't support flow out of the box, need to have that"""
 
   link_class = Link
@@ -289,9 +292,9 @@ class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
     def make_junction(junc):
       in_links = junc[0]
       out_links = junc[1]
-      if len(in_links) == 1 and len(out_links) == 0:
+      if len(out_links) == 0:
         return Sink(links[in_links[0]])
-      elif len(out_links) == 1 and len(in_links) == 0:
+      elif len(in_links) == 0:
         return Source(links[out_links[0]])
       else:
         return Junction(
@@ -315,3 +318,9 @@ class CRNetwork(MultiDiGraph, Dumpable, D3Mixin):
 
   def d3_edges(self):
     return self.get_links()
+
+  def is_connected(self):
+      return networkx.is_weakly_connected(self)
+
+  def n_components(self):
+      return networkx.number_weakly_connected_components(self)

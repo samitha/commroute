@@ -1,5 +1,5 @@
 from exceptions import NotImplementedError
-from simplejson import dump, load
+from json import dump, load
 
 __author__ = 'jdr'
 

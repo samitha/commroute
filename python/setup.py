@@ -12,7 +12,6 @@ setup(
   requires=[
     'cvxopt(==1.1.5)',
     'cvxpy(==0.0.1)',
-    'simplejson(==2.5.2)',
     'networkx'
   ]
 )

@@ -467,7 +467,7 @@ def exp_9_hist():
     link.congestion_level()
     for link in net.get_links()
   ], bins = 100)
-  raw_input('')
+  pylab.show()
 
   
 def exp_10():
@@ -511,4 +511,5 @@ def exp_10():
   #     print 'source', source, 'sink', sink
   #     for route in routes:
   #       print net.ff_travel_time(route)
+
 exp_9_hist()

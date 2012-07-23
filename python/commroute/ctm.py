@@ -63,10 +63,14 @@ class FundamentalDiagram(Dumpable):
 
 class CTMState(TrafficState):
 
-  def __init__(self, flow, density):
-    super(CTMState, self).__init__()
-    self.flow = flow
-    self.density = density
+    def __init__(self, flow, density):
+        super(CTMState, self).__init__()
+        self.flow = flow
+        self.density = density
+
+    def __str__(self):
+        return 'flow: {0}, dens: {1}'.format(self.flow, self.density)
+
 
 class CTMLink(TrafficLink):
   """docstring for CTMLink"""
