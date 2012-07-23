@@ -34,7 +34,7 @@ class Record(object):
         
 
 records = []
-for line in open('highway_data.csv','r'):
+for line in open('data/highway_data.csv','r'):
     try:
         records.append(Record.from_line(line))
     except Exception as e:
@@ -43,8 +43,6 @@ for line in open('highway_data.csv','r'):
 def stdev(lst):
     m = mean(lst)
     val = float(1)/(len(lst) - 1) * sum((x - m)**2 for x in lst)
-    if val > 5:
-        print len(lst)
     return math.sqrt(val)
 
 def mean(lst):
@@ -100,7 +98,7 @@ def check_out_stats():
         pylab.show()
 
 def dump_avg(hour):
-    with open('asdf{0}'.format(hour), 'w') as fn:
+    with open('data/asdf{0}'.format(hour), 'w') as fn:
         json.dump(
             dict(
                 (
@@ -131,7 +129,7 @@ def dump_avg(hour):
         )
 
 def plots():
-    with open('asdf16','r') as fn:
+    with open('data/asdf16','r') as fn:
         data = json.load(fn)
     pylab.hist(
         [
@@ -151,9 +149,9 @@ def plots():
     pylab.show()
 
 def combine_data():
-    with open('asdf16','r') as fn:
+    with open('data/asdf16','r') as fn:
         data = json.load(fn)
-    net = CTMStaticProblem.load('jdr_peninsula_fixed.json')
+    net = CTMStaticProblem.load('data/jdr_peninsula_fixed.json')
     lids_data = set(map(int,data.keys()))
     lids_net = set([int(link.name) for link in net.get_links()])
     print len(lids_data.intersection(lids_net))
@@ -161,20 +159,21 @@ def combine_data():
         link = net.link_by_name(lid)
         link.state.flow = rec['flow']
         link.state.density = rec['density']
-    net.dump('jdr_with_state.json')
+    net.dump('data/jdr_with_state.json')
 
 
 def checker():
-    net = CTMStaticProblem.load("jdr_with_state.json")
+    net = CTMStaticProblem.load("data/jdr_with_state.json")
     for link in net.get_links():
         print link.state
 
 def fixer():
-    net = DataFixer.load('jdr_with_state.json')
+    net = DataFixer.load('data/jdr_with_state.json')
     net.solve_with_state()
+    net.dump('data/data_fixed_again.json')
 
 def source_sink_checker():
-    net = DataFixer.load('jdr_with_state.json')
+    net = DataFixer.load('data/jdr_with_state.json')
     net.cache_props()
     print 'sources'
     for source in net.sources:
@@ -184,6 +183,87 @@ def source_sink_checker():
         print sink.state.flow
 
 
-combine_data()
-checker()
-fixer()
+def difference_stuff():
+    prev = CTMStaticProblem.load("data/jdr_with_state.json")
+    final = CTMStaticProblem.load("data/data_fixed.json")
+    pylab.figure()
+    pylab.hist(
+        [
+            abs(p.state.flow - f.state.flow) / (p.state.flow)
+            for p,f in
+            [
+                (prev.link_by_name(lid),final.link_by_name(lid))
+                for lid in set(
+                [
+                    link.name for link in prev.get_links()
+                ]
+            )
+            ]
+        ],
+        bins=20,
+        log=True
+    )
+    pylab.title("Relative change in link flow input")
+    pylab.xlabel("Relative change (-)")
+    pylab.ylabel("Count (-)")
+    pylab.savefig('figures/data_fixer_difference.pdf')
+
+def n_routes():
+    net = CTMStaticProblem.load("data/data_fixed.json")
+    net.cache_props()
+    pylab.figure()
+    pylab.hist(
+        [
+            len(routes)
+            for routes in net.od_routes.itervalues()
+        ],
+        bins=7,
+        align='mid',
+        range=(-.5, 6.5)
+    )
+    pylab.title("Number of available routes between o-d pairs")
+    pylab.xlabel("# routes (-)")
+    pylab.ylabel("Count (-)")
+    pylab.savefig("figures/available_routes.pdf")
+
+def nash_comparison():
+    net = CTMStaticProblem.load("data/data_fixed.json")
+    net.cache_props()
+    for routes in net.od_routes.itervalues():
+        if len(routes) > 1:
+            print ''
+            tts = sorted(
+                net.route_travel_time(route)
+                for route in routes
+            )
+            print tts[1] - tts[0], tts[:2]
+
+
+def congestion_level():
+    net = CTMStaticProblem.load('data/data_fixed_again.json')
+    net.cache_props()
+    pylab.figure()
+    pylab.hist(
+        [
+            link.congestion_level()
+            for link in net.get_links()
+        ],
+        bins=50,
+        range=(0,1)
+    )
+    pylab.show()
+
+def figure_out_units():
+    # density cars / meter
+    # speed meters / second
+    # flow cars / second
+    # length meters
+    pass
+
+# combine_data()
+# checker()
+# fixer()
+# difference_stuff()
+# n_routes()
+# nash_comparison()
+congestion_level()

@@ -18,7 +18,7 @@ class DataFixer(CTMStaticProblem, SimpleOptimizeMixIn):
         self.get_program().cr_print()
         self.get_program().cr_solve()
         self.realize()
-        self.dump('data_fixed.json')
+
 
 
     def objective(self):
@@ -31,7 +31,7 @@ class DataFixer(CTMStaticProblem, SimpleOptimizeMixIn):
     def objective_state(self):
         return sum(
             cvxpy.abs(link.state.flow - link.v_flow) +
-            cvxpy.abs(link.state.flow - link.v_dens)
+            cvxpy.abs(link.state.density - link.v_dens)
                 for link in self.get_links()
         )
 

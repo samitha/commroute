@@ -106,6 +106,7 @@ class CTMLink(TrafficLink):
     rho_l = self.state.flow / self.fd.v
     rho_h = self.fd.rho_max - self.state.flow / self.fd.w
     rho = self.state.density
+    print rho, rho_l, rho_h
     return (rho - rho_l) / (rho_h - rho_l)
 
   @classmethod
