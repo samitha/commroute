@@ -150,7 +150,7 @@ class SourceDemand(DynamicDemand):
         )
 
     def jsonify(self):
-        json = super(DynamicDemand, self).jsonify()
+        json = super(SourceDemand, self).jsonify()
         json['source'] = self.source.name
         return json
 
@@ -173,7 +173,7 @@ class DRouteDemand(DynamicDemand):
         )
 
     def jsonify(self):
-        json = super(DynamicDemand, self).jsonify()
+        json = super(DRouteDemand, self).jsonify()
         json['route'] = self.route.name()
         return json
 

@@ -48,7 +48,7 @@
         "v": 1.0
       }, 
       "flow": 0.0, 
-      "name": "bottom2", 
+      "name": "source", 
       "rho": 0.0, 
       "l": 1
     }, 
@@ -60,7 +60,7 @@
         "v": 1.0
       }, 
       "flow": 0.0, 
-      "name": "source", 
+      "name": "bottom2", 
       "rho": 0.0, 
       "l": 1
     }, 
@@ -97,7 +97,8 @@
         "top", 
         "sink"
       ], 
-      "flow": 1.0
+      "flow": 1.0, 
+      "t": 0
     }, 
     {
       "type": "dynamic route", 
@@ -106,7 +107,8 @@
         "top", 
         "sink"
       ], 
-      "flow": 1.0
+      "flow": 1.0, 
+      "t": 1
     }, 
     {
       "type": "dynamic route", 
@@ -115,7 +117,8 @@
         "top", 
         "sink"
       ], 
-      "flow": 1.0
+      "flow": 1.0, 
+      "t": 2
     }, 
     {
       "type": "dynamic route", 
@@ -125,7 +128,8 @@
         "bottom2", 
         "sink"
       ], 
-      "flow": 1.0
+      "flow": 1.0, 
+      "t": 1
     }, 
     {
       "type": "dynamic route", 
@@ -135,11 +139,13 @@
         "bottom2", 
         "sink"
       ], 
-      "flow": 1.0
+      "flow": 1.0, 
+      "t": 2
     }, 
     {
       "type": "dynamic source", 
       "flow": 1.0, 
+      "t": 0, 
       "source": "source"
     }
   ]
