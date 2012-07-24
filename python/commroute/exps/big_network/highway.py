@@ -185,28 +185,66 @@ def source_sink_checker():
 
 def difference_stuff():
     prev = CTMStaticProblem.load("data/jdr_with_state.json")
-    final = CTMStaticProblem.load("data/data_fixed.json")
+    final = CTMStaticProblem.load("data/data_fixed_again.json")
     pylab.figure()
     pylab.hist(
         [
-            abs(p.state.flow - f.state.flow) / (p.state.flow)
-            for p,f in
+        abs(p.state.flow - f.state.flow) / (p.state.flow)
+        for p,f in
+        [
+        (prev.link_by_name(lid),final.link_by_name(lid))
+        for lid in set(
             [
-                (prev.link_by_name(lid),final.link_by_name(lid))
-                for lid in set(
-                [
-                    link.name for link in prev.get_links()
-                ]
-            )
+            link.name for link in prev.get_links()
             ]
+        )
+        ]
         ],
-        bins=20,
-        log=True
+        bins=20
     )
     pylab.title("Relative change in link flow input")
     pylab.xlabel("Relative change (-)")
     pylab.ylabel("Count (-)")
-    pylab.savefig('figures/data_fixer_difference.pdf')
+    pylab.savefig('figures/data_fixer_difference_flow.pdf')
+    pylab.figure()
+    pylab.hist(
+        [
+        abs(p.state.density - f.state.density) / (p.state.density)
+        for p,f in
+        [
+        (prev.link_by_name(lid),final.link_by_name(lid))
+        for lid in set(
+            [
+            link.name for link in prev.get_links()
+            ]
+        )
+        ]
+        ],
+        bins=20
+    )
+    pylab.title("Relative change in link density input")
+    pylab.xlabel("Relative change (-)")
+    pylab.ylabel("Count (-)")
+    pylab.savefig('figures/data_fixer_difference_density.pdf')
+
+    routes = [
+        route.name() for route in prev.all_routes()
+    ]
+    pylab.figure()
+    pylab.hist(
+        [
+        abs(prev.route_travel_time(route) - final.route_travel_time(route)) / prev.route_travel_time(route)
+        for route in routes
+        ],
+        bins=20,
+        range=(0,.3)
+    )
+    pylab.title("Relative change in route travel times after data preparation")
+    pylab.xlabel("Relative change (-)")
+    pylab.ylabel("Count (-)")
+    pylab.savefig('figures/data_fixer_difference_route.pdf')
+
+
 
 def n_routes():
     net = CTMStaticProblem.load("data/data_fixed.json")
@@ -222,7 +260,7 @@ def n_routes():
         range=(-.5, 6.5)
     )
     pylab.title("Number of available routes between o-d pairs")
-    pylab.xlabel("# routes (-)")
+    pylab.xlabel("Number of routes between o-d pair (-)")
     pylab.ylabel("Count (-)")
     pylab.savefig("figures/available_routes.pdf")
 
@@ -249,9 +287,23 @@ def congestion_level():
             for link in net.get_links()
         ],
         bins=50,
-        range=(0,1)
+        range=(0,1),
+        normed=True
     )
-    pylab.show()
+    pylab.title('Congestion levels of input data')
+    pylab.xlabel('Congestion level (-)')
+    pylab.ylabel('Normalized counts (-)')
+    pylab.savefig('figures/congestion_level.pdf')
+
+def network_stats():
+    net = CTMStaticProblem.load("data/data_fixed_again.json")
+    net.cache_props()
+    print 'n_links', len(net.get_links())
+    print 'sources', len(net.sources)
+    print 'sinks', len(net.sinks)
+    print 'routes', len(net.all_routes())
+    print 'length', sum(link.l for link in net.get_links()), 'meters'
+
 
 def figure_out_units():
     # density cars / meter
@@ -263,7 +315,9 @@ def figure_out_units():
 # combine_data()
 # checker()
 # fixer()
-# difference_stuff()
+difference_stuff()
 # n_routes()
 # nash_comparison()
-congestion_level()
+# difference_stuff()
+# congestion_level()
+# network_stats()

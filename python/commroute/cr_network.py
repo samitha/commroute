@@ -198,6 +198,8 @@ class Route(object):
   def jsonify(self):
     return [link.name for link in self.links]
 
+  def name(self):
+      return map(str, self.links)
 
 class CRNetwork(networkx.MultiDiGraph, Dumpable, D3Mixin):
   """Base class for creating networks, doesn't support flow out of the box, need to have that"""
