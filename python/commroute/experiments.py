@@ -1,3 +1,4 @@
+from commroute.demand import DRouteDemand, SourceDemand
 from complacency import PQCC, MinTTTFlowLinkComplacencyProblem
 from compliance import CompliantRouteDemand
 from point_queue import MM1Latency
@@ -512,4 +513,57 @@ def exp_10():
   #     for route in routes:
   #       print net.ff_travel_time(route)
 
-exp_9_hist()
+def exp_dynamic():
+    net = CTMStaticProblem()
+    fd = FundamentalDiagram(
+        v=1,w=1,rho_max=2,q_max=1
+    )
+    l = 1
+    source = CTMLink(
+        fd=fd,l=1, name='source'
+    )
+    sink = CTMLink(
+        fd=fd,l=1, name='sink'
+    )
+    top = CTMLink(
+        fd=fd,l=1, name='top'
+    )
+    bottom1 = CTMLink(
+        fd=fd,l=1, name='bottom1'
+    )
+    bottom2 = CTMLink(
+        fd=fd,l=1, name='bottom2'
+    )
+    junctions = [
+        Junction(
+            [source],
+            [top, bottom1]
+        ),
+        Junction(
+            [top, bottom2],
+            [sink]
+        ),
+        Junction(
+            [bottom1],
+            [bottom2]
+        )
+    ]
+    [net.add_junction(junction) for junction in junctions]
+    net.cache_props()
+    top_route = net.route_by_names(['source', 'top', 'sink'])
+    bottom_route = net.route_by_names(['source', 'bottom1', 'bottom2', 'sink'])
+    top_demands = [
+    DRouteDemand(flow=1.0, t=t, route=top_route)
+    for t in [0,1,2]
+    ]
+    bottom_demands = [
+    DRouteDemand(flow=1.0, t=t, route=bottom_route)
+    for t in [1,2]
+    ]
+    net.demands.extend(top_demands+bottom_demands)
+    source_demand = SourceDemand(flow=1.0, t=0, source=source)
+    net.demands.append(source_demand)
+    net.dump('dynamic_example_network.json')
+
+
+exp_dynamic()

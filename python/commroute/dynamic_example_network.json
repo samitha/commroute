@@ -1,0 +1,146 @@
+{
+  "junctions": [
+    [
+      [
+        "top", 
+        "bottom2"
+      ], 
+      [
+        "sink"
+      ]
+    ], 
+    [
+      [
+        "source"
+      ], 
+      [
+        "top", 
+        "bottom1"
+      ]
+    ], 
+    [
+      [
+        "bottom1"
+      ], 
+      [
+        "bottom2"
+      ]
+    ]
+  ], 
+  "links": [
+    {
+      "fd": {
+        "q_max": 1.0, 
+        "rho_max": 2.0, 
+        "w": 1.0, 
+        "v": 1.0
+      }, 
+      "flow": 0.0, 
+      "name": "sink", 
+      "rho": 0.0, 
+      "l": 1
+    }, 
+    {
+      "fd": {
+        "q_max": 1.0, 
+        "rho_max": 2.0, 
+        "w": 1.0, 
+        "v": 1.0
+      }, 
+      "flow": 0.0, 
+      "name": "bottom2", 
+      "rho": 0.0, 
+      "l": 1
+    }, 
+    {
+      "fd": {
+        "q_max": 1.0, 
+        "rho_max": 2.0, 
+        "w": 1.0, 
+        "v": 1.0
+      }, 
+      "flow": 0.0, 
+      "name": "source", 
+      "rho": 0.0, 
+      "l": 1
+    }, 
+    {
+      "fd": {
+        "q_max": 1.0, 
+        "rho_max": 2.0, 
+        "w": 1.0, 
+        "v": 1.0
+      }, 
+      "flow": 0.0, 
+      "name": "top", 
+      "rho": 0.0, 
+      "l": 1
+    }, 
+    {
+      "fd": {
+        "q_max": 1.0, 
+        "rho_max": 2.0, 
+        "w": 1.0, 
+        "v": 1.0
+      }, 
+      "flow": 0.0, 
+      "name": "bottom1", 
+      "rho": 0.0, 
+      "l": 1
+    }
+  ], 
+  "demands": [
+    {
+      "type": "dynamic route", 
+      "route": [
+        "source", 
+        "top", 
+        "sink"
+      ], 
+      "flow": 1.0
+    }, 
+    {
+      "type": "dynamic route", 
+      "route": [
+        "source", 
+        "top", 
+        "sink"
+      ], 
+      "flow": 1.0
+    }, 
+    {
+      "type": "dynamic route", 
+      "route": [
+        "source", 
+        "top", 
+        "sink"
+      ], 
+      "flow": 1.0
+    }, 
+    {
+      "type": "dynamic route", 
+      "route": [
+        "source", 
+        "bottom1", 
+        "bottom2", 
+        "sink"
+      ], 
+      "flow": 1.0
+    }, 
+    {
+      "type": "dynamic route", 
+      "route": [
+        "source", 
+        "bottom1", 
+        "bottom2", 
+        "sink"
+      ], 
+      "flow": 1.0
+    }, 
+    {
+      "type": "dynamic source", 
+      "flow": 1.0, 
+      "source": "source"
+    }
+  ]
+}
