@@ -2,6 +2,7 @@ import json
 import math
 import pylab
 from commroute.data_fixer import DataFixer
+from commroute.latex_plotter import latex_figure
 from commroute.static_ctm import CTMStaticProblem
 
 
@@ -186,7 +187,7 @@ def source_sink_checker():
 def difference_stuff():
     prev = CTMStaticProblem.load("data/jdr_with_state.json")
     final = CTMStaticProblem.load("data/data_fixed_again.json")
-    pylab.figure()
+    latex_figure()
     pylab.hist(
         [
         abs(p.state.flow - f.state.flow) / (p.state.flow)
@@ -206,7 +207,7 @@ def difference_stuff():
     pylab.xlabel("Relative change (-)")
     pylab.ylabel("Count (-)")
     pylab.savefig('figures/data_fixer_difference_flow.pdf')
-    pylab.figure()
+    latex_figure()
     pylab.hist(
         [
         abs(p.state.density - f.state.density) / (p.state.density)
@@ -230,7 +231,7 @@ def difference_stuff():
     routes = [
         route.name() for route in prev.all_routes()
     ]
-    pylab.figure()
+    latex_figure()
     pylab.hist(
         [
         abs(prev.route_travel_time(route) - final.route_travel_time(route)) / prev.route_travel_time(route)
@@ -249,7 +250,7 @@ def difference_stuff():
 def n_routes():
     net = CTMStaticProblem.load("data/data_fixed.json")
     net.cache_props()
-    pylab.figure()
+    latex_figure()
     pylab.hist(
         [
             len(routes)
@@ -280,7 +281,7 @@ def nash_comparison():
 def congestion_level():
     net = CTMStaticProblem.load('data/data_fixed_again.json')
     net.cache_props()
-    pylab.figure()
+    latex_figure()
     pylab.hist(
         [
             link.congestion_level()
@@ -304,6 +305,14 @@ def network_stats():
     print 'routes', len(net.all_routes())
     print 'length', sum(link.l for link in net.get_links()), 'meters'
 
+def congested_region():
+    net = CTMStaticProblem.load("data/data_fixed_again.json")
+    print float(
+        len(
+            [link for link in net.get_links()
+            if link.state.density > link.fd.rho_crit()]
+        )
+    )/len(net.get_links())
 
 def figure_out_units():
     # density cars / meter
@@ -315,9 +324,10 @@ def figure_out_units():
 # combine_data()
 # checker()
 # fixer()
-difference_stuff()
+# difference_stuff()
 # n_routes()
 # nash_comparison()
-# difference_stuff()
+difference_stuff()
 # congestion_level()
 # network_stats()
+# congested_region()

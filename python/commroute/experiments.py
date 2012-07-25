@@ -1,4 +1,7 @@
+from collections import defaultdict
+from commroute.complacency import MinTTTComplacencyProblem, MinTTTFlowLinkComparativeComplacencyProblem
 from commroute.demand import DRouteDemand, SourceDemand
+from commroute.latex_plotter import latex_figure
 from complacency import PQCC, MinTTTFlowLinkComplacencyProblem
 from compliance import CompliantRouteDemand
 from point_queue import MM1Latency
@@ -11,6 +14,11 @@ from ctm import FundamentalDiagram
 from ctm import CTMLink
 from cr_network import Junction
 from data_fixer import DataFixer
+import pylab as lab
+
+from itertools import cycle
+lines = ["-","--","-.",":"]
+line_cycler = cycle(lines)
 
 __author__ = 'jdr'
 
@@ -359,6 +367,42 @@ def exp_5_test():
     print route
     print net.route_travel_time(route)
 
+def exp_5_profile():
+    """
+
+    """
+    scales = lab.linspace(0.0, 0.1, 10)
+    route_tts = defaultdict(lambda: list())
+    for scale in scales:
+        net = MinTTTFlowLinkComplacencyProblem.load('../networks/exps/exp5/net_nash.json')
+        net.scale = scale
+        net.get_program().cr_solve()
+        net.realize()
+        for route in net.all_routes():
+            route_tts[tuple(route.name())].append(net.route_travel_time(route))
+    latex_figure()
+    # lab.xscale("log")
+    lab.hold(True)
+    for route, values in route_tts.iteritems():
+        lab.plot(scales, values,next(line_cycler), label='rte {0}'.format(route[1]), linewidth=3.0)
+    route_tts = defaultdict(lambda: list())
+    for scale in scales:
+        net = MinTTTFlowLinkComparativeComplacencyProblem.load('../networks/exps/exp5/net_nash.json')
+        net.scale = scale
+        net.get_program().cr_print()
+        net.get_program().cr_solve()
+        net.realize()
+        for route in net.all_routes():
+            route_tts[tuple(route.name())].append(net.route_travel_time(route))
+    for route, values in route_tts.iteritems():
+        lab.plot(scales, values,next(line_cycler), label='rte {0}: comp.'.format(route[1]))
+    lab.ylabel('Route latency $\\ell_r$ (s)')
+    lab.xlabel('Complacency scale factor $\\alpha$ (-)')
+    lab.title('Comparison of route latencies')
+    lab.legend(loc=7)
+    lab.savefig('figures/complacency_models_simple_network.pdf')
+    # lab.show()
+
 def exp_6():
   source = FlowLink(
     name = 'source',
@@ -416,7 +460,7 @@ def exp_7_test():
   net.scale = 10.0
   net.run()
   net = PQCC.load('../networks/exps/exp7/net.json')
-  net.scale = 1.01
+  net.scale = 2.0
   net.run()
 
 def exp_8_scala():
@@ -437,13 +481,13 @@ def exp_8_scala():
   
 
 def exp_9():  
-  net = DataFixer.load("/Users/jdr/Documents/github/commroute/python/networks/exps/exp9/net.json")
-  fn = '/Users/jdr/Documents/github/commroute/python/networks/exps/exp9/flowdata.csv'
+  net = DataFixer.load("../networks/exps/exp9/net.json")
+  fn = '../networks/exps/exp9/flowdata.csv'
   net.solve_with_data(fn)
   for link in net.get_links():
     print link, link.v_flow.value, link.v_dens.value
   net.realize()
-  net.dump('/Users/jdr/Documents/github/commroute/python/networks/exps/exp9/bignetstate.json')
+  net.dump('../networks/exps/exp9/bignetstate.json')
   
 def exp_9_next():
   net = DataFixer.load('/Users/jdr/Documents/github/commroute/python/networks/exps/exp9/bignetstate.json')
@@ -566,4 +610,6 @@ def exp_dynamic():
     net.dump('dynamic_example_network.json')
 
 
-exp_dynamic()
+# exp_dynamic()
+# exp_5_test()
+exp_5_profile()

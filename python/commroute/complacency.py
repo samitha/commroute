@@ -11,7 +11,7 @@ __author__ = 'jdr'
 class ComplacencyConstrained(LagrangianStaticProblem):
 
   # TODO: scale hack, fix this yo!
-  scale = 1.1
+  scale = .1
 
   def variablize(self):
     super(ComplacencyConstrained, self).variablize()
@@ -22,13 +22,48 @@ class ComplacencyConstrained(LagrangianStaticProblem):
     raise NotImplementedError("abstract")
 
   def con_route_tt(self):
-    return [
-    self.cr_leq(self.route_tt_heuristic(route), route.old_tt*self.scale)
-    for route in self.all_routes()
-    ]
+      return [
+      self.cr_leq(self.route_tt_heuristic(route), self.latency_cap(route))
+      for route in self.all_routes()
+      ]
 
   def constraints(self):
     return super(ComplacencyConstrained, self).constraints() + self.con_route_tt()
+
+  def complacency_cap(self, route):
+      return route.old_tt * self.scale
+
+  def latency_cap(self, route):
+      return route.old_tt + self.complacency_cap(route)
+
+
+class ComparativeComplacencyConstrained(ComplacencyConstrained):
+
+    def con_route_tt(self):
+        constraints = []
+        for routes in self.od_routes.itervalues():
+            for route in routes:
+                cap = self.change_cap(route)
+                for other_route in routes:
+                    if route is other_route:
+                        continue
+                    constraints.append(
+                        self.cr_leq(
+                            self.route_tt_heuristic(route) -
+                            self.route_tt_heuristic(other_route),
+                            cap
+                        )
+                    )
+        return constraints
+
+    def prev_allowed_complacency(self, route):
+        return max(
+            route.old_tt - other_route.old_tt
+            for other_route in self.od_routes[route.source(), route.sink()]
+        )
+
+    def change_cap(self, route):
+        return self.prev_allowed_complacency(route) + self.complacency_cap(route)
 
 
 class ComplacencyCompliance(ComplacencyConstrained, ComplianceMixin):
@@ -76,11 +111,19 @@ class MinTTTComplacencyProblem(ComplacencyConstrained, MinTTTMixin):
 
 class MinTTTFlowLinkComplacencyProblem(MinTTTFlowLinkProblem, ComplacencyConstrained):
 
-  def route_tt_heuristic(self, route):
-    return sum(
-      link.travel_time(PQState(link.v_flow))
-        for link in route.links
-    )
+    def route_tt_heuristic(self, route):
+        return sum(
+            link.travel_time(PQState(link.v_flow))
+                for link in route.links
+        )
+
+class MinTTTFlowLinkComparativeComplacencyProblem(MinTTTFlowLinkProblem, ComparativeComplacencyConstrained):
+
+    def route_tt_heuristic(self, route):
+        return sum(
+            link.travel_time(PQState(link.v_flow))
+                for link in route.links
+        )
 
 class PQCC(ComplacencyCompliance, MinTTTFlowLinkComplacencyProblem):
   pass

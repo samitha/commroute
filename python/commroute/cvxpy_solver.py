@@ -44,7 +44,7 @@ class CVXPyProgram(Program):
     """
     @rtype: float
     """
-    quiet = kwargs.pop('quiet', False)
+    quiet = kwargs.pop('quiet', True)
     return self.program.solve(quiet, **kwargs)
 
   def cr_print(self):
